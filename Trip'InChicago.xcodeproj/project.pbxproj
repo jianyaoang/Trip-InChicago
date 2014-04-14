@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		41918A0418FC954100A4616C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A0318FC954100A4616C /* Foundation.framework */; };
+		41918A0618FC954100A4616C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A0518FC954100A4616C /* CoreGraphics.framework */; };
+		41918A0818FC954100A4616C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A0718FC954100A4616C /* UIKit.framework */; };
+		41918A0E18FC954100A4616C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41918A0C18FC954100A4616C /* InfoPlist.strings */; };
+		41918A1018FC954100A4616C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41918A0F18FC954100A4616C /* main.m */; };
+		41918A1418FC954100A4616C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41918A1318FC954100A4616C /* AppDelegate.m */; };
+		41918A1718FC954100A4616C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41918A1518FC954100A4616C /* Main.storyboard */; };
+		41918A1A18FC954100A4616C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41918A1918FC954100A4616C /* ViewController.m */; };
+		41918A1C18FC954100A4616C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41918A1B18FC954100A4616C /* Images.xcassets */; };
+		41918A2318FC954100A4616C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A2218FC954100A4616C /* XCTest.framework */; };
+		41918A2418FC954100A4616C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A0318FC954100A4616C /* Foundation.framework */; };
+		41918A2518FC954100A4616C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A0718FC954100A4616C /* UIKit.framework */; };
+		41918A2D18FC954100A4616C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41918A2B18FC954100A4616C /* InfoPlist.strings */; };
+		41918A2F18FC954100A4616C /* Trip_InChicagoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41918A2E18FC954100A4616C /* Trip_InChicagoTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		41918A2618FC954100A4616C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 419189F818FC954100A4616C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 419189FF18FC954100A4616C;
+			remoteInfo = "Trip'InChicago";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		41918A0018FC954100A4616C /* Trip'InChicago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trip'InChicago.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41918A0318FC954100A4616C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		41918A0518FC954100A4616C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		41918A0718FC954100A4616C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		41918A0B18FC954100A4616C /* Trip'InChicago-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Trip'InChicago-Info.plist"; sourceTree = "<group>"; };
+		41918A0D18FC954100A4616C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		41918A0F18FC954100A4616C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		41918A1118FC954100A4616C /* Trip'InChicago-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Trip'InChicago-Prefix.pch"; sourceTree = "<group>"; };
+		41918A1218FC954100A4616C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		41918A1318FC954100A4616C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		41918A1618FC954100A4616C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		41918A1818FC954100A4616C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		41918A1918FC954100A4616C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		41918A1B18FC954100A4616C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		41918A2118FC954100A4616C /* Trip'InChicagoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Trip'InChicagoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41918A2218FC954100A4616C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		41918A2A18FC954100A4616C /* Trip'InChicagoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Trip'InChicagoTests-Info.plist"; sourceTree = "<group>"; };
+		41918A2C18FC954100A4616C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		41918A2E18FC954100A4616C /* Trip_InChicagoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Trip_InChicagoTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		419189FD18FC954100A4616C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41918A0618FC954100A4616C /* CoreGraphics.framework in Frameworks */,
+				41918A0818FC954100A4616C /* UIKit.framework in Frameworks */,
+				41918A0418FC954100A4616C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41918A1E18FC954100A4616C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41918A2318FC954100A4616C /* XCTest.framework in Frameworks */,
+				41918A2518FC954100A4616C /* UIKit.framework in Frameworks */,
+				41918A2418FC954100A4616C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		419189F718FC954100A4616C = {
+			isa = PBXGroup;
+			children = (
+				41918A0918FC954100A4616C /* Trip'InChicago */,
+				41918A2818FC954100A4616C /* Trip'InChicagoTests */,
+				41918A0218FC954100A4616C /* Frameworks */,
+				41918A0118FC954100A4616C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		41918A0118FC954100A4616C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				41918A0018FC954100A4616C /* Trip'InChicago.app */,
+				41918A2118FC954100A4616C /* Trip'InChicagoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		41918A0218FC954100A4616C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				41918A0318FC954100A4616C /* Foundation.framework */,
+				41918A0518FC954100A4616C /* CoreGraphics.framework */,
+				41918A0718FC954100A4616C /* UIKit.framework */,
+				41918A2218FC954100A4616C /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		41918A0918FC954100A4616C /* Trip'InChicago */ = {
+			isa = PBXGroup;
+			children = (
+				41918A1218FC954100A4616C /* AppDelegate.h */,
+				41918A1318FC954100A4616C /* AppDelegate.m */,
+				41918A1518FC954100A4616C /* Main.storyboard */,
+				41918A1818FC954100A4616C /* ViewController.h */,
+				41918A1918FC954100A4616C /* ViewController.m */,
+				41918A1B18FC954100A4616C /* Images.xcassets */,
+				41918A0A18FC954100A4616C /* Supporting Files */,
+			);
+			path = "Trip'InChicago";
+			sourceTree = "<group>";
+		};
+		41918A0A18FC954100A4616C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				41918A0B18FC954100A4616C /* Trip'InChicago-Info.plist */,
+				41918A0C18FC954100A4616C /* InfoPlist.strings */,
+				41918A0F18FC954100A4616C /* main.m */,
+				41918A1118FC954100A4616C /* Trip'InChicago-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		41918A2818FC954100A4616C /* Trip'InChicagoTests */ = {
+			isa = PBXGroup;
+			children = (
+				41918A2E18FC954100A4616C /* Trip_InChicagoTests.m */,
+				41918A2918FC954100A4616C /* Supporting Files */,
+			);
+			path = "Trip'InChicagoTests";
+			sourceTree = "<group>";
+		};
+		41918A2918FC954100A4616C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				41918A2A18FC954100A4616C /* Trip'InChicagoTests-Info.plist */,
+				41918A2B18FC954100A4616C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		419189FF18FC954100A4616C /* Trip'InChicago */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41918A3218FC954100A4616C /* Build configuration list for PBXNativeTarget "Trip'InChicago" */;
+			buildPhases = (
+				419189FC18FC954100A4616C /* Sources */,
+				419189FD18FC954100A4616C /* Frameworks */,
+				419189FE18FC954100A4616C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Trip'InChicago";
+			productName = "Trip'InChicago";
+			productReference = 41918A0018FC954100A4616C /* Trip'InChicago.app */;
+			productType = "com.apple.product-type.application";
+		};
+		41918A2018FC954100A4616C /* Trip'InChicagoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41918A3518FC954100A4616C /* Build configuration list for PBXNativeTarget "Trip'InChicagoTests" */;
+			buildPhases = (
+				41918A1D18FC954100A4616C /* Sources */,
+				41918A1E18FC954100A4616C /* Frameworks */,
+				41918A1F18FC954100A4616C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41918A2718FC954100A4616C /* PBXTargetDependency */,
+			);
+			name = "Trip'InChicagoTests";
+			productName = "Trip'InChicagoTests";
+			productReference = 41918A2118FC954100A4616C /* Trip'InChicagoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		419189F818FC954100A4616C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Jian Yao Ang";
+				TargetAttributes = {
+					41918A2018FC954100A4616C = {
+						TestTargetID = 419189FF18FC954100A4616C;
+					};
+				};
+			};
+			buildConfigurationList = 419189FB18FC954100A4616C /* Build configuration list for PBXProject "Trip'InChicago" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 419189F718FC954100A4616C;
+			productRefGroup = 41918A0118FC954100A4616C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				419189FF18FC954100A4616C /* Trip'InChicago */,
+				41918A2018FC954100A4616C /* Trip'InChicagoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		419189FE18FC954100A4616C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41918A1C18FC954100A4616C /* Images.xcassets in Resources */,
+				41918A0E18FC954100A4616C /* InfoPlist.strings in Resources */,
+				41918A1718FC954100A4616C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41918A1F18FC954100A4616C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41918A2D18FC954100A4616C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		419189FC18FC954100A4616C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41918A1A18FC954100A4616C /* ViewController.m in Sources */,
+				41918A1418FC954100A4616C /* AppDelegate.m in Sources */,
+				41918A1018FC954100A4616C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41918A1D18FC954100A4616C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41918A2F18FC954100A4616C /* Trip_InChicagoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		41918A2718FC954100A4616C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 419189FF18FC954100A4616C /* Trip'InChicago */;
+			targetProxy = 41918A2618FC954100A4616C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		41918A0C18FC954100A4616C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41918A0D18FC954100A4616C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		41918A1518FC954100A4616C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41918A1618FC954100A4616C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		41918A2B18FC954100A4616C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41918A2C18FC954100A4616C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		41918A3018FC954100A4616C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		41918A3118FC954100A4616C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		41918A3318FC954100A4616C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Trip'InChicago/Trip'InChicago-Prefix.pch";
+				INFOPLIST_FILE = "Trip'InChicago/Trip'InChicago-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		41918A3418FC954100A4616C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Trip'InChicago/Trip'InChicago-Prefix.pch";
+				INFOPLIST_FILE = "Trip'InChicago/Trip'InChicago-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		41918A3618FC954100A4616C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Trip'InChicago.app/Trip'InChicago";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Trip'InChicago/Trip'InChicago-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Trip'InChicagoTests/Trip'InChicagoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		41918A3718FC954100A4616C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Trip'InChicago.app/Trip'InChicago";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Trip'InChicago/Trip'InChicago-Prefix.pch";
+				INFOPLIST_FILE = "Trip'InChicagoTests/Trip'InChicagoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		419189FB18FC954100A4616C /* Build configuration list for PBXProject "Trip'InChicago" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41918A3018FC954100A4616C /* Debug */,
+				41918A3118FC954100A4616C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41918A3218FC954100A4616C /* Build configuration list for PBXNativeTarget "Trip'InChicago" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41918A3318FC954100A4616C /* Debug */,
+				41918A3418FC954100A4616C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		41918A3518FC954100A4616C /* Build configuration list for PBXNativeTarget "Trip'InChicagoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41918A3618FC954100A4616C /* Debug */,
+				41918A3718FC954100A4616C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 419189F818FC954100A4616C /* Project object */;
+}
