@@ -42,6 +42,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sections" id="5mA-RX-clJ"/>
+                    <connections>
+                        <outlet property="sectionTableView" destination="Ypn-Bn-bfb" id="qte-r2-t8b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,11 +62,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="krD-oa-zvz">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="krD-oa-zvz">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
-                                    <outlet property="delegate" destination="evs-Rm-iLL" id="BRD-Y0-E9e"/>
+                                    <outlet property="delegate" destination="evs-Rm-iLL" id="oyG-Od-k3c"/>
                                 </connections>
                             </mapView>
                         </subviews>
@@ -71,6 +74,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="v81-A4-NdI"/>
                     <connections>
+                        <outlet property="sectionMapView" destination="krD-oa-zvz" id="dtW-3m-vOT"/>
                         <segue destination="376-fn-OaZ" kind="push" identifier="showPicsAndReview" id="OeK-cN-Bvn"/>
                     </connections>
                 </viewController>
