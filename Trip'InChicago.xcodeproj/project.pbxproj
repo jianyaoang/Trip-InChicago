@@ -40,6 +40,7 @@
 		41918A5818FC9C6C00A4616C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A5718FC9C6C00A4616C /* Accounts.framework */; };
 		41918A5A18FC9C7200A4616C /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A5918FC9C7200A4616C /* Twitter.framework */; };
 		41918A5C18FC9C7800A4616C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A5B18FC9C7800A4616C /* Social.framework */; };
+		D06FC61518FCC5260048FEE0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06FC61418FCC5260048FEE0 /* Parse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		41918A5718FC9C6C00A4616C /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		41918A5918FC9C7200A4616C /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		41918A5B18FC9C7800A4616C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		D06FC61418FCC5260048FEE0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				41918A4E18FC9C4300A4616C /* MobileCoreServices.framework in Frameworks */,
 				41918A4C18FC9C3900A4616C /* libz.dylib in Frameworks */,
 				41918A4A18FC9C3100A4616C /* CoreLocation.framework in Frameworks */,
+				D06FC61518FCC5260048FEE0 /* Parse.framework in Frameworks */,
 				41918A0618FC954100A4616C /* CoreGraphics.framework in Frameworks */,
 				41918A4818FC9C2100A4616C /* CFNetwork.framework in Frameworks */,
 				41918A4618FC9C1700A4616C /* AudioToolbox.framework in Frameworks */,
@@ -158,6 +161,7 @@
 		41918A0218FC954100A4616C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D06FC61418FCC5260048FEE0 /* Parse.framework */,
 				41918A5B18FC9C7800A4616C /* Social.framework */,
 				41918A5918FC9C7200A4616C /* Twitter.framework */,
 				41918A5718FC9C6C00A4616C /* Accounts.framework */,
