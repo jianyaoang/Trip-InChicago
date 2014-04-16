@@ -42,6 +42,7 @@
 		41918A5C18FC9C7800A4616C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A5B18FC9C7800A4616C /* Social.framework */; };
 		D06FC61518FCC5260048FEE0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06FC61418FCC5260048FEE0 /* Parse.framework */; };
 		D06FC61818FD82EC0048FEE0 /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D06FC61718FD82EC0048FEE0 /* MapPoint.m */; };
+		D06FC61A18FE069B0048FEE0 /* finalproject0415copy in Resources */ = {isa = PBXBuildFile; fileRef = D06FC61918FE069B0048FEE0 /* finalproject0415copy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		D06FC61418FCC5260048FEE0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D06FC61618FD82EC0048FEE0 /* MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPoint.h; sourceTree = "<group>"; };
 		D06FC61718FD82EC0048FEE0 /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoint.m; sourceTree = "<group>"; };
+		D06FC61918FE069B0048FEE0 /* finalproject0415copy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = finalproject0415copy; path = ../../../../Desktop/finalproject0415copy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 				41918A0B18FC954100A4616C /* Trip'InChicago-Info.plist */,
 				41918A0C18FC954100A4616C /* InfoPlist.strings */,
 				41918A0F18FC954100A4616C /* main.m */,
+				D06FC61918FE069B0048FEE0 /* finalproject0415copy */,
 				41918A1118FC954100A4616C /* Trip'InChicago-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -320,6 +323,7 @@
 			files = (
 				41918A1C18FC954100A4616C /* Images.xcassets in Resources */,
 				41918A0E18FC954100A4616C /* InfoPlist.strings in Resources */,
+				D06FC61A18FE069B0048FEE0 /* finalproject0415copy in Resources */,
 				41918A1718FC954100A4616C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
