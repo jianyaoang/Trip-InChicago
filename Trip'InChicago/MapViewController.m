@@ -235,29 +235,6 @@
     }
 }
 
--(void)extractReferenceKeyFromPlaces
-{
-    // Set Network Activity spinner
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-
-    NSURL *url = [NSURL URLWithString:@"https://maps.googleapis.com/maps/api/place/search/json?location=41.8819,-87.6278&radius=500&types=cafe&sensor=true&maxprice=2&rankby=prominence&key=AIzaSyALMcBucS3F7QojSUO7tUu6B2ZSw_K6MaI"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
-     {
-         NSDictionary *firstLayer = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
-         NSArray *resultsArray = firstLayer[@"results"];
-         
-         for (NSDictionary *referenceInDictionary in resultsArray)
-         {
-             reference = [NSMutableArray arrayWithObjects:referenceInDictionary[@"reference"], nil];
-             NSLog(@"reference: %@",reference);
-         }
-     }];
-
-    // Turn off Network Activity Spinner
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-}
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
