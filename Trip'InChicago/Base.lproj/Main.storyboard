@@ -136,6 +136,9 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Pictures And Reviews" id="Fdq-Rr-tAO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="reviewsTableView" destination="Oiw-5A-gPJ" id="euq-kU-H66"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6t-FT-Emb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

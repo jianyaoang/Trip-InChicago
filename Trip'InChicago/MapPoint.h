@@ -13,6 +13,7 @@
 @property (copy) NSString *name;
 @property (copy) NSString *address;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+@property NSString *referenceKey;
 
 
 - (id)initWithName:(NSString*)name address:(NSString*)address coordinate:(CLLocationCoordinate2D)coordinate;

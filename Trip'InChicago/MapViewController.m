@@ -8,10 +8,15 @@
 //
 
 #import "MapViewController.h"
+#import "MapPoint.h"
+#import "PicsAndReviewsViewController.h"
 
 @interface MapViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
 {
     NSMutableArray *reference;
+    NSMutableArray *referenceKeyString;
+    NSMutableArray *nameOfPlace;
+    NSMutableArray *nameOfPlaceAndReferenceKeyString;
 }
 
 @end
@@ -30,8 +35,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    referenceKeyString = [NSMutableArray new];
     reference = [NSMutableArray new];
-    [self extractReferenceKeyFromPlaces];
+    nameOfPlace =[NSMutableArray new];
+    nameOfPlaceAndReferenceKeyString = [NSMutableArray new];
+//    [self extractReferenceKeyFromPlaces];
     
     firstLaunch=YES;
     
@@ -144,6 +152,14 @@ didUpdateUserLocation:
     //The results from Google will be an array obtained from the NSDictionary object with the key "results".
     NSArray* places = [json objectForKey:@"results"];
     
+    for (NSDictionary *items in places)
+    {
+        MapPoint *mapPoint = [MapPoint new];
+        mapPoint.name = items[@"name"];
+        mapPoint.referenceKey = items[@"reference"];
+        NSLog(@"mapPoint.name: %@",mapPoint.name);
+        [referenceKeyString addObject:mapPoint];
+    }
     NSLog(@"%@", json);
     
     //Write out the data to the console.
@@ -227,33 +243,57 @@ didUpdateUserLocation:
         NSString *vicinity=[NSString stringWithFormat:@"Rating: %@ of 5 Address: %@",[place objectForKey:@"rating"],[place objectForKey:@"vicinity"]];
         // Create a special variable to hold this coordinate info.
         CLLocationCoordinate2D placeCoord;
+        
+//        MapPoint *mapPoint = [MapPoint new];
+//        NSString *referenceKey = [place objectForKey:@"reference"];
+//        mapPoint.referenceKey = referenceKey;
+//        [referenceKeyString addObject:mapPoint];
+        
         // Set the lat and long.
         placeCoord.latitude=[[loc objectForKey:@"lat"] doubleValue];
         placeCoord.longitude=[[loc objectForKey:@"lng"] doubleValue];
         // 5 - Create a new annotation.
         MapPoint *placeObject = [[MapPoint alloc] initWithName:name address:vicinity coordinate:placeCoord];
-        
         [self.sectionMapView addAnnotation:placeObject];
     }
 }
 
--(void)extractReferenceKeyFromPlaces
-{
-    NSURL *url = [NSURL URLWithString:@"https://maps.googleapis.com/maps/api/place/search/json?location=41.8819,-87.6278&radius=500&types=cafe&sensor=true&maxprice=2&rankby=prominence&key=AIzaSyALMcBucS3F7QojSUO7tUu6B2ZSw_K6MaI"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
-     {
-         NSDictionary *firstLayer = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
-         NSArray *resultsArray = firstLayer[@"results"];
+//-(void)extractReferenceKeyFromPlaces
+//{
+//    NSURL *url = [NSURL URLWithString:@"https://maps.googleapis.com/maps/api/place/search/json?location=41.8819,-87.6278&radius=500&types=cafe&sensor=true&maxprice=2&rankby=prominence&key=AIzaSyALMcBucS3F7QojSUO7tUu6B2ZSw_K6MaI"];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    
+//    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+//     {
+//         NSDictionary *firstLayer = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
+//         NSArray *resultsArray = firstLayer[@"results"];
+
+//         for (NSDictionary *items in resultsArray)
+//         {
+//             MapPoint *mapPoint = [MapPoint new];
+//             mapPoint.name = items[@"name"];
+//             mapPoint.referenceKey = items[@"reference"];
+//             NSLog(@"mapPoint.name: %@",mapPoint.name);
+//             [referenceKeyString addObject:mapPoint];
+//         }
          
-         for (NSDictionary *referenceInDictionary in resultsArray)
-         {
-             reference = [NSMutableArray arrayWithObjects:referenceInDictionary[@"reference"], nil];
-             NSLog(@"reference: %@",reference);
-         }
-     }];
-}
+//         for (NSDictionary *referenceInDictionary in resultsArray)
+//         {
+//             reference = [NSMutableArray arrayWithObjects:referenceInDictionary[@"reference"], nil];
+//            NSLog(@"reference: %@",reference);
+             
+//             for (NSString *referenceKey in reference)
+//             {
+//                 MapPoint *mapPoint = [MapPoint new];
+//                 mapPoint.referenceKey = referenceKey;
+//                 [referenceKeyString addObject:mapPoint];
+//                 NSLog(@"referenceKeyString: %@",mapPoint.referenceKey);
+//             }
+  //       }
+         
+         
+//     }];
+//}
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
@@ -262,7 +302,21 @@ didUpdateUserLocation:
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
+    PicsAndReviewsViewController *vc = segue.destinationViewController;
+    NSString *title = [[(MKAnnotationView*)sender annotation]title];
+
+    if ([segue.identifier isEqualToString:@"showPicsAndReview"])
+    {
+        for (MapPoint *mapPoint in referenceKeyString)
+        {
+            NSLog(@"mapPoint.name: %@, title: %@", mapPoint.name, title);
+            if ([mapPoint.name isEqualToString:title])
+            {
+                vc.mapPoint = mapPoint;
+                break;
+            }
+        }
+    }
 }
 
 

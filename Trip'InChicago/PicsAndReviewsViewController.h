@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MapPoint.h"
 @interface PicsAndReviewsViewController : UIViewController
-
+@property MapPoint *mapPoint;
 @end
