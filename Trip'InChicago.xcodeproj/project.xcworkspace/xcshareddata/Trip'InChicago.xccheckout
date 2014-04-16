@@ -5,28 +5,18 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-<<<<<<< HEAD
-	<string>FA932F9F-0862-4C39-9ED3-F18EF18D2AD1</string>
-=======
-	<string>03C8D1F0-A808-4C2C-9E0E-8D7FE47652E4</string>
->>>>>>> ac3bac926faa6b07ed533449d7e38d8a2140cb7b
+	<string>36597054-DAAC-4D78-9305-A74FA70453B4</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Trip'InChicago</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-<<<<<<< HEAD
 		<key>7177B289-FBB4-414C-A425-FDB96EB8C57F</key>
 		<string>https://github.com/jianyaoang/Trip-InChicago</string>
-=======
-		<key>5DD24E79-4FDF-4D51-A5C7-FA137AE5A2B4</key>
-		<string>https://github.com/jianyaoang/Trip-InChicago.git</string>
->>>>>>> ac3bac926faa6b07ed533449d7e38d8a2140cb7b
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Trip'InChicago.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-<<<<<<< HEAD
 		<key>7177B289-FBB4-414C-A425-FDB96EB8C57F</key>
 		<string>../..</string>
 	</dict>
@@ -36,28 +26,13 @@
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
 	<string>7177B289-FBB4-414C-A425-FDB96EB8C57F</string>
-=======
-		<key>5DD24E79-4FDF-4D51-A5C7-FA137AE5A2B4</key>
-		<string>../..</string>
-	</dict>
-	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/jianyaoang/Trip-InChicago.git</string>
-	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
-	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>5DD24E79-4FDF-4D51-A5C7-FA137AE5A2B4</string>
->>>>>>> ac3bac926faa6b07ed533449d7e38d8a2140cb7b
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-<<<<<<< HEAD
 			<string>7177B289-FBB4-414C-A425-FDB96EB8C57F</string>
-=======
-			<string>5DD24E79-4FDF-4D51-A5C7-FA137AE5A2B4</string>
->>>>>>> ac3bac926faa6b07ed533449d7e38d8a2140cb7b
 			<key>IDESourceControlWCCName</key>
 			<string>Trip-InChicago</string>
 		</dict>
