@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="986" y="39"/>
         </scene>
-        <!--Pics And Review View Controller - Pictures And Reviews-->
+        <!--Pics And Reviews View Controller - Pictures And Reviews-->
         <scene sceneID="UFF-au-zck">
             <objects>
-                <viewController id="376-fn-OaZ" customClass="PicsAndReviewViewController" sceneMemberID="viewController">
+                <viewController id="376-fn-OaZ" customClass="PicsAndReviewsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="62t-Vt-718"/>
                         <viewControllerLayoutGuide type="bottom" id="OCI-YO-83d"/>

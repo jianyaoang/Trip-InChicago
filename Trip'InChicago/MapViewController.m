@@ -10,6 +10,9 @@
 #import "MapViewController.h"
 
 @interface MapViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
+{
+    NSMutableArray *reference;
+}
 
 @end
 
@@ -27,6 +30,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    reference = [NSMutableArray new];
+    [self extractReferenceKeyFromPlaces];
+    
     firstLaunch=YES;
     
     self.locationManager = [[CLLocationManager alloc] init];
@@ -178,6 +184,7 @@ didUpdateUserLocation:
         annotationView.enabled = YES;
         annotationView.canShowCallout = YES;
         annotationView.animatesDrop = YES;
+        annotationView.leftCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         return annotationView;
     }
     return nil;
@@ -230,7 +237,28 @@ didUpdateUserLocation:
     }
 }
 
-//when user taps on callout "i" it opens up to detail view controller with pics and reviews
+-(void)extractReferenceKeyFromPlaces
+{
+    NSURL *url = [NSURL URLWithString:@"https://maps.googleapis.com/maps/api/place/search/json?location=41.8819,-87.6278&radius=500&types=cafe&sensor=true&maxprice=2&rankby=prominence&key=AIzaSyALMcBucS3F7QojSUO7tUu6B2ZSw_K6MaI"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+     {
+         NSDictionary *firstLayer = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
+         NSArray *resultsArray = firstLayer[@"results"];
+         
+         for (NSDictionary *referenceInDictionary in resultsArray)
+         {
+             reference = [NSMutableArray arrayWithObjects:referenceInDictionary[@"reference"], nil];
+             NSLog(@"reference: %@",reference);
+         }
+     }];
+}
+
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    [self performSegueWithIdentifier:@"showPicsAndReview" sender:view];
+}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
