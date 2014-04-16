@@ -25,6 +25,7 @@
 }
 
 @property CLLocationManager *locationManager;
+@property CLLocation *currentLocation;
 @property CLLocationCoordinate2D currentCenter;
 @property int currenDist;
 @property (strong, nonatomic) IBOutlet MKMapView *sectionMapView;
