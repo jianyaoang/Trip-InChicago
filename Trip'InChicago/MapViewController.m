@@ -49,7 +49,7 @@
 {
     self.sectionMapView.centerCoordinate = userLocation.location.coordinate;
     [self queryGooglePlaces:self.googleType];
-    self.sectionMapView.region = MKCoordinateRegionMake(userLocation.coordinate, MKCoordinateSpanMake(0.1, 0.1));
+    self.sectionMapView.region = MKCoordinateRegionMake(userLocation.coordinate, MKCoordinateSpanMake(0.05, 0.05));
     [self.locationManager stopUpdatingLocation];
 }
 
@@ -57,7 +57,7 @@
 {
     // Build the url string to send to Google. NOTE: The kGOOGLE_API_KEY is a constant that should contain your own API key that you obtain from Google. See this link for more info:
     // https://developers.google.com/maps/documentation/places/#Authentication
-    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/search/json?location=%f,%f&radius=%d&types=%@&sensor=true&maxprice=2&rankby=prominence&key=%@", self.currentCenter.latitude, self.currentCenter.longitude, 10000, googleType, kGOOGLE_API_KEY]; //took out self.currentCenter.latitude & , self.currentCenter.longitude
+    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/search/json?location=%f,%f&radius=%d&types=%@&sensor=true&maxprice=2&rankby=prominence&key=%@", self.currentCenter.latitude, self.currentCenter.longitude, 1000, googleType, kGOOGLE_API_KEY]; //took out self.currentCenter.latitude & , self.currentCenter.longitude
 
     NSLog(@" this is %f %f", self.currentCenter.latitude, self.currentCenter.longitude);
     NSLog(@"%@", url);
@@ -72,6 +72,7 @@
     });
 
     // Jaime - Make it stop updating...
+    NSLog(@"At Query GooglePlaces");
     [self.locationManager stopUpdatingLocation];
 }
 
@@ -93,6 +94,8 @@
     
     //Write out the data to the console.
     //NSLog(@"Google Data: %@", places);
+
+    NSLog(@"At fetched Data");
     [self plotPositions:places];
 }
 
@@ -108,7 +111,7 @@
     //If this is the first launch of the app, then set the center point of the map to the user's location.
     if (firstLaunch)
     {
-        region = MKCoordinateRegionMakeWithDistance(self.locationManager.location.coordinate,2000,2000); //started with 1000, 1000
+        region = MKCoordinateRegionMakeWithDistance(self.locationManager.location.coordinate,500,500); //started with 1000, 1000
         firstLaunch=NO;
     }
     else
@@ -117,6 +120,7 @@
         region = MKCoordinateRegionMakeWithDistance(centre, self.currenDist, self.currenDist);
     }
     //Set the visible region of the map.
+    NSLog(@"At mapView --> Did Add Annotation");
     [mv setRegion:region animated:YES];
 
 }
@@ -147,6 +151,7 @@
     return nil;
 
     // Jaime - Make it stop updating...
+    NSLog(@"mapView --> viewFor Annotation");
     [self.locationManager stopUpdatingLocation];
 
 }
@@ -166,6 +171,7 @@
     self.currentCenter = self.sectionMapView.centerCoordinate;
 
     // Jaime - Make it stop updating
+    NSLog(@"mapView --> regionDidChangeAnimated");
     [self.locationManager stopUpdatingLocation];
 
 }
@@ -210,11 +216,15 @@
         MapPoint *placeObject = [[MapPoint alloc] initWithName:name address:vicinity coordinate:placeCoord];
         
         [self.sectionMapView addAnnotation:placeObject];
+        NSLog(@"plot positions");
     }
 }
 
 -(void)extractReferenceKeyFromPlaces
 {
+    // Set Network Activity spinner
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+
     NSURL *url = [NSURL URLWithString:@"https://maps.googleapis.com/maps/api/place/search/json?location=41.8819,-87.6278&radius=500&types=cafe&sensor=true&maxprice=2&rankby=prominence&key=AIzaSyALMcBucS3F7QojSUO7tUu6B2ZSw_K6MaI"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
@@ -229,6 +239,9 @@
              NSLog(@"reference: %@",reference);
          }
      }];
+
+    // Turn off Network Activity Spinner
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control

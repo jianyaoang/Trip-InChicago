@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.sectionNames = @[@"cafe"];
+    self.sectionNames = @[@"cafe", @"art", @"bar", @"establishment", @"museum", @"park", @"restaurant", @"shopping_mall", @"train_station", @"bus_station"];
     
 }
 
