@@ -8,8 +8,10 @@
 
 #import "PicsAndReviewsViewController.h"
 
-
 @interface PicsAndReviewsViewController () <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
+{
+    IBOutlet UITableView *reviewsTableView;
+}
 
 @end
 
@@ -37,6 +39,7 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReviewsCellID"];
+    cell.textLabel.text = self.mapPoint.referenceKey;
     return cell;
 }
 

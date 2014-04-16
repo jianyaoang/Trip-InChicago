@@ -8,10 +8,15 @@
 //
 
 #import "MapViewController.h"
+#import "MapPoint.h"
+#import "PicsAndReviewsViewController.h"
 
 @interface MapViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
 {
     NSMutableArray *reference;
+    NSMutableArray *referenceKeyString;
+    NSMutableArray *nameOfPlace;
+    NSMutableArray *nameOfPlaceAndReferenceKeyString;
 }
 
 @end
@@ -21,8 +26,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    referenceKeyString = [NSMutableArray new];
     reference = [NSMutableArray new];
-    [self extractReferenceKeyFromPlaces];
+    nameOfPlace =[NSMutableArray new];
+    nameOfPlaceAndReferenceKeyString = [NSMutableArray new];
+//    [self extractReferenceKeyFromPlaces];
     
     firstLaunch=YES;
     
@@ -90,6 +98,14 @@
     //The results from Google will be an array obtained from the NSDictionary object with the key "results".
     NSArray* places = [json objectForKey:@"results"];
     
+    for (NSDictionary *items in places)
+    {
+        MapPoint *mapPoint = [MapPoint new];
+        mapPoint.name = items[@"name"];
+        mapPoint.referenceKey = items[@"reference"];
+        NSLog(@"mapPoint.name: %@",mapPoint.name);
+        [referenceKeyString addObject:mapPoint];
+    }
     NSLog(@"%@", json);
     
     //Write out the data to the console.
@@ -214,7 +230,6 @@
 
         // 5 - Create a new annotation.
         MapPoint *placeObject = [[MapPoint alloc] initWithName:name address:vicinity coordinate:placeCoord];
-        
         [self.sectionMapView addAnnotation:placeObject];
         NSLog(@"plot positions");
     }
@@ -251,7 +266,21 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
+    PicsAndReviewsViewController *vc = segue.destinationViewController;
+    NSString *title = [[(MKAnnotationView*)sender annotation]title];
+
+    if ([segue.identifier isEqualToString:@"showPicsAndReview"])
+    {
+        for (MapPoint *mapPoint in referenceKeyString)
+        {
+            NSLog(@"mapPoint.name: %@, title: %@", mapPoint.name, title);
+            if ([mapPoint.name isEqualToString:title])
+            {
+                vc.mapPoint = mapPoint;
+                break;
+            }
+        }
+    }
 }
 
 
