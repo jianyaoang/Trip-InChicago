@@ -230,4 +230,20 @@ didUpdateUserLocation:
     }
 }
 
+//when user taps on callout "i" it opens up to detail view controller with pics and reviews
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+}
+
+
+
+
+
+
+
+
+
+
 @end
