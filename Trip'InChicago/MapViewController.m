@@ -4,6 +4,7 @@
 //
 //  Created by Jian Yao Ang on 4/14/14.
 //  Copyright (c) 2014 Jian Yao Ang. All rights reserved.
+//Chicago coordinates: 41.8791052, -87.6360277
 //
 
 #import "MapViewController.h"
@@ -33,7 +34,7 @@
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     //Make this controller the delegate for the location manager.
     self.locationManager.delegate = self;
-    self.currentCenter = self.currentLocation.coordinate;
+    //self.currentCenter = self.currentLocation.coordinate;
     [self.sectionMapView setShowsUserLocation:YES];
 
     [self.locationManager startUpdatingLocation];
@@ -110,7 +111,7 @@ didUpdateUserLocation:
 -(void) queryGooglePlaces: (NSString *) googleType {
     // Build the url string to send to Google. NOTE: The kGOOGLE_API_KEY is a constant that should contain your own API key that you obtain from Google. See this link for more info:
     // https://developers.google.com/maps/documentation/places/#Authentication
-    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/search/json?location=%f,%f&radius=%d&types=%@&sensor=true&maxprice=2&rankby=prominence&key=%@", 41.8791052, -87.6360277, 10000, googleType, kGOOGLE_API_KEY]; //took out self.currentCenter.latitude & , self.currentCenter.longitude
+    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/search/json?location=%f,%f&radius=%d&types=%@&sensor=true&maxprice=2&rankby=prominence&key=%@", self.currentCenter.latitude, self.currentCenter.longitude, 10000, googleType, kGOOGLE_API_KEY]; //took out self.currentCenter.latitude & , self.currentCenter.longitude
     NSLog(@" this is %f %f", self.currentCenter.latitude, self.currentCenter.longitude);
     NSLog(@"%@", url);
     
