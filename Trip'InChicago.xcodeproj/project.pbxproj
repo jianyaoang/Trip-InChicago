@@ -43,7 +43,6 @@
 		6F5B4E8618FDF7F100E495BA /* TemperatureChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5B4E8518FDF7F100E495BA /* TemperatureChecker.m */; };
 		D06FC61518FCC5260048FEE0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06FC61418FCC5260048FEE0 /* Parse.framework */; };
 		D06FC61818FD82EC0048FEE0 /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D06FC61718FD82EC0048FEE0 /* MapPoint.m */; };
-		D06FC61A18FE069B0048FEE0 /* finalproject0415copy in Resources */ = {isa = PBXBuildFile; fileRef = D06FC61918FE069B0048FEE0 /* finalproject0415copy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -328,7 +327,6 @@
 			files = (
 				41918A1C18FC954100A4616C /* Images.xcassets in Resources */,
 				41918A0E18FC954100A4616C /* InfoPlist.strings in Resources */,
-				D06FC61A18FE069B0048FEE0 /* finalproject0415copy in Resources */,
 				41918A1718FC954100A4616C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
