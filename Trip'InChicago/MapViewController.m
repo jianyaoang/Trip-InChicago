@@ -189,8 +189,8 @@
 -(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
     //Get the east and west points on the map so you can calculate the distance (zoom level) of the current map view.
-    if (firstLaunch == YES)
-    {
+    //if (firstLaunch == YES)
+    
         MKMapRect mRect = self.sectionMapView.visibleMapRect;
         MKMapPoint eastMapPoint = MKMapPointMake(MKMapRectGetMinX(mRect), MKMapRectGetMidY(mRect));
         MKMapPoint westMapPoint = MKMapPointMake(MKMapRectGetMaxX(mRect), MKMapRectGetMidY(mRect));
@@ -203,9 +203,9 @@
 
         // Jaime - Make it stop updating
         NSLog(@"mapView --> regionDidChangeAnimated");
-        firstLaunch = NO;
+        //firstLaunch = NO;
         //[self.locationManager stopUpdatingLocation];
-    }
+
 
 }
 
