@@ -45,6 +45,8 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReviewsCellID"];
     cell.textLabel.text = [reviewsText objectAtIndex:indexPath.row];
+    cell.textLabel.numberOfLines = 0;
+    
     return cell;
 }
 
