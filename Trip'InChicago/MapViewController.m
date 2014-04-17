@@ -189,19 +189,23 @@
 -(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
     //Get the east and west points on the map so you can calculate the distance (zoom level) of the current map view.
-    MKMapRect mRect = self.sectionMapView.visibleMapRect;
-    MKMapPoint eastMapPoint = MKMapPointMake(MKMapRectGetMinX(mRect), MKMapRectGetMidY(mRect));
-    MKMapPoint westMapPoint = MKMapPointMake(MKMapRectGetMaxX(mRect), MKMapRectGetMidY(mRect));
-    
-    //Set your current distance instance variable.
-    self.currenDist = MKMetersBetweenMapPoints(eastMapPoint, westMapPoint);
-    
-    //Set your current center point on the map instance variable.
-    self.currentCenter = self.sectionMapView.centerCoordinate;
+    if (firstLaunch == YES)
+    {
+        MKMapRect mRect = self.sectionMapView.visibleMapRect;
+        MKMapPoint eastMapPoint = MKMapPointMake(MKMapRectGetMinX(mRect), MKMapRectGetMidY(mRect));
+        MKMapPoint westMapPoint = MKMapPointMake(MKMapRectGetMaxX(mRect), MKMapRectGetMidY(mRect));
 
-    // Jaime - Make it stop updating
-    NSLog(@"mapView --> regionDidChangeAnimated");
-    [self.locationManager stopUpdatingLocation];
+        //Set your current distance instance variable.
+        self.currenDist = MKMetersBetweenMapPoints(eastMapPoint, westMapPoint);
+
+        //Set your current center point on the map instance variable.
+        self.currentCenter = self.sectionMapView.centerCoordinate;
+
+        // Jaime - Make it stop updating
+        NSLog(@"mapView --> regionDidChangeAnimated");
+        firstLaunch = NO;
+        //[self.locationManager stopUpdatingLocation];
+    }
 
 }
 
