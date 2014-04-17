@@ -57,9 +57,10 @@
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     //[self.sectionMapView setShowsUserLocation:NO];
-    [self queryGooglePlaces:self.googleType];
+
 
     self.sectionMapView.centerCoordinate = userLocation.location.coordinate;
+    [self queryGooglePlaces:self.googleType];
 
 [self.locationManager stopUpdatingLocation];
 
