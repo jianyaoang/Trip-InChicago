@@ -116,7 +116,6 @@
         MapPoint *mapPoint = [MapPoint new];
         mapPoint.name = items[@"name"];
         mapPoint.referenceKey = items[@"reference"];
-        //NSLog(@"mapPoint.name: %@",mapPoint.name);
         [referenceKeyString addObject:mapPoint];
     }
     //NSLog(@"%@", json);
