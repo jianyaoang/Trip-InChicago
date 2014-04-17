@@ -11,7 +11,9 @@
 #import <CoreLocation/CoreLocation.h>
 #import "MapPoint.h"
 
-#define kGOOGLE_API_KEY @"AIzaSyALMcBucS3F7QojSUO7tUu6B2ZSw_K6MaI"
+// #define kGOOGLE_API_KEY @"AIzaSyALMcBucS3F7QojSUO7tUu6B2ZSw_K6MaI" // Marion's Key
+#define kGOOGLE_API_KEY @"AIzaSyAjuwH5kM73iDJBkqZtyOCOuj8Tb6HGwmM"    // Jaime's Key
+
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
