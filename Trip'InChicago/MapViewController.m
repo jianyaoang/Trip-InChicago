@@ -19,10 +19,16 @@
     NSMutableArray *nameOfPlaceAndReferenceKeyString;
 }
 
+@property (nonatomic) BOOL didUpdatePins;
 @end
 
 @implementation MapViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.didUpdatePins = NO;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -35,15 +41,21 @@
     firstLaunch=YES;
     
     self.locationManager = [[CLLocationManager alloc] init];
-    
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-
-    //Make this controller the delegate for the location manager.
     self.locationManager.delegate = self;
+
+    //self.currentLocation = self.locationManager.location;
+    
 
     [self.sectionMapView setShowsUserLocation:YES];
 
     [self.locationManager startUpdatingLocation];
+    
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+
+    //Make this controller the delegate for the location manager.
+
+
+
 
 
 
@@ -67,12 +79,13 @@
  self.sectionMapView.region = MKCoordinateRegionMake(userLocation.coordinate, MKCoordinateSpanMake(0.1, 0.1));
 
     //[self.sectionMapView setCenterCoordinate:userLocation.coordinate animated:YES];
-    [self queryGooglePlaces:self.googleType];
+ //[self.locationManager stopUpdatingLocation];
+    if (!self.didUpdatePins) {
+        self.didUpdatePins = YES;
+        [self queryGooglePlaces:self.googleType];
+    }
 
 
-
-
-    [self.locationManager stopUpdatingLocation];
 
 }
 
@@ -91,6 +104,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:googleRequestURL];
 
          [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+
              [self fetchedData:data];
          }];
     
@@ -127,14 +141,14 @@
         //NSLog(@"mapPoint.name: %@",mapPoint.name);
         [referenceKeyString addObject:mapPoint];
     }
-    //NSLog(@"%@", json);
-    
-    //Write out the data to the console.
-    //NSLog(@"Google Data: %@", places);
+        //NSLog(@"Google Data: %@", places);
 
     NSLog(@"At fetched Data");
+    [self.locationManager stopUpdatingLocation];
+
     [self plotPositions:places];
 }
+
 
 #pragma mark - MKMapViewDelegate methods.
 -(void)mapView:(MKMapView *)mv didAddAnnotationViews:(NSArray *)views
@@ -143,6 +157,7 @@
     //Zoom back to the user location after adding a new set of annotations.
     //Get the center point of the visible map.
     CLLocationCoordinate2D centre = [mv centerCoordinate];
+
     MKCoordinateRegion region;
 
     //If this is the first launch of the app, then set the center point of the map to the user's location.
