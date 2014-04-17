@@ -50,15 +50,18 @@
     
     //Set some parameters for the location object.
     [self.locationManager setDistanceFilter:kCLDistanceFilterNone];
+      //[self queryGooglePlaces:self.googleType];
 
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     //[self.sectionMapView setShowsUserLocation:NO];
-    [self.locationManager stopUpdatingLocation];
-    self.sectionMapView.centerCoordinate = userLocation.location.coordinate;
     [self queryGooglePlaces:self.googleType];
+
+    self.sectionMapView.centerCoordinate = userLocation.location.coordinate;
+
+[self.locationManager stopUpdatingLocation];
 
     self.sectionMapView.region = MKCoordinateRegionMake(userLocation.coordinate, MKCoordinateSpanMake(0.05, 0.05));
 
@@ -77,10 +80,6 @@
     NSURL *googleRequestURL=[NSURL URLWithString:url];
 
     NSURLRequest *request = [NSURLRequest requestWithURL:googleRequestURL];
-
-    //[NSURLConnection sendAsynchronousRequest:flickrURLRequest queue:[NSOperationQueue mainQueue]
-                          // completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
-    // {
 
          [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
              [self fetchedData:data];
@@ -194,8 +193,8 @@
         MKMapRect mRect = self.sectionMapView.visibleMapRect;
         MKMapPoint eastMapPoint = MKMapPointMake(MKMapRectGetMinX(mRect), MKMapRectGetMidY(mRect));
         MKMapPoint westMapPoint = MKMapPointMake(MKMapRectGetMaxX(mRect), MKMapRectGetMidY(mRect));
-
-        //Set your current distance instance variable.
+//
+//        //Set your current distance instance variable.
         self.currenDist = MKMetersBetweenMapPoints(eastMapPoint, westMapPoint);
 
         //Set your current center point on the map instance variable.
