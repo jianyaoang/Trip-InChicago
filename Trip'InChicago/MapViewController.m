@@ -19,10 +19,16 @@
     NSMutableArray *nameOfPlaceAndReferenceKeyString;
 }
 
+@property (nonatomic) BOOL didUpdatePins;
 @end
 
 @implementation MapViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.didUpdatePins = NO;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -35,15 +41,25 @@
     firstLaunch=YES;
     
     self.locationManager = [[CLLocationManager alloc] init];
-    
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-
-    //Make this controller the delegate for the location manager.
     self.locationManager.delegate = self;
+
+    //self.currentLocation = self.locationManager.location;
+    
 
     [self.sectionMapView setShowsUserLocation:YES];
 
     [self.locationManager startUpdatingLocation];
+    
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+
+    //Make this controller the delegate for the location manager.
+
+
+
+
+
+
+
 
     //Make this controller the delegate for the map view.
     self.sectionMapView.delegate = self;
@@ -60,11 +76,16 @@
 
 
     self.sectionMapView.centerCoordinate = userLocation.location.coordinate;
-    [self queryGooglePlaces:self.googleType];
+ self.sectionMapView.region = MKCoordinateRegionMake(userLocation.coordinate, MKCoordinateSpanMake(0.1, 0.1));
 
-[self.locationManager stopUpdatingLocation];
+    //[self.sectionMapView setCenterCoordinate:userLocation.coordinate animated:YES];
+ //[self.locationManager stopUpdatingLocation];
+    if (!self.didUpdatePins) {
+        self.didUpdatePins = YES;
+        [self queryGooglePlaces:self.googleType];
+    }
 
-    self.sectionMapView.region = MKCoordinateRegionMake(userLocation.coordinate, MKCoordinateSpanMake(0.05, 0.05));
+
 
 }
 
@@ -72,7 +93,7 @@
 {
     // Build the url string to send to Google. NOTE: The kGOOGLE_API_KEY is a constant that should contain your own API key that you obtain from Google. See this link for more info:
     // https://developers.google.com/maps/documentation/places/#Authentication
-    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/search/json?location=%f,%f&radius=%d&types=%@&sensor=true&maxprice=2&rankby=prominence&key=%@", self.currentCenter.latitude, self.currentCenter.longitude, 1000, googleType, kGOOGLE_API_KEY]; //took out self.currentCenter.latitude & , self.currentCenter.longitude
+    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/search/json?location=%f,%f&radius=%d&types=%@&sensor=true&maxprice=2&rankby=prominence&key=%@", self.sectionMapView.userLocation.coordinate.latitude, self.sectionMapView.userLocation.coordinate.longitude, 1000, googleType, kGOOGLE_API_KEY]; //took out self.currentCenter.latitude & , self.currentCenter.longitude
 
     NSLog(@" this is %f %f", self.currentCenter.latitude, self.currentCenter.longitude);
     NSLog(@"%@", url);
@@ -83,6 +104,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:googleRequestURL];
 
          [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+
              [self fetchedData:data];
          }];
     
@@ -118,14 +140,14 @@
         mapPoint.referenceKey = items[@"reference"];
         [referenceKeyString addObject:mapPoint];
     }
-    //NSLog(@"%@", json);
-    
-    //Write out the data to the console.
-    //NSLog(@"Google Data: %@", places);
+        //NSLog(@"Google Data: %@", places);
 
     NSLog(@"At fetched Data");
+    [self.locationManager stopUpdatingLocation];
+
     [self plotPositions:places];
 }
+
 
 #pragma mark - MKMapViewDelegate methods.
 -(void)mapView:(MKMapView *)mv didAddAnnotationViews:(NSArray *)views
@@ -134,12 +156,13 @@
     //Zoom back to the user location after adding a new set of annotations.
     //Get the center point of the visible map.
     CLLocationCoordinate2D centre = [mv centerCoordinate];
+
     MKCoordinateRegion region;
 
     //If this is the first launch of the app, then set the center point of the map to the user's location.
     if (firstLaunch)
     {
-        region = MKCoordinateRegionMakeWithDistance(self.locationManager.location.coordinate,500,500); //started with 1000, 1000
+       region = MKCoordinateRegionMakeWithDistance(self.locationManager.location.coordinate,500,500); //started with 1000, 1000
         firstLaunch=NO;
     }
     else
@@ -190,12 +213,12 @@
     //Get the east and west points on the map so you can calculate the distance (zoom level) of the current map view.
     //if (firstLaunch == YES)
     
-        MKMapRect mRect = self.sectionMapView.visibleMapRect;
+       MKMapRect mRect = self.sectionMapView.visibleMapRect;
         MKMapPoint eastMapPoint = MKMapPointMake(MKMapRectGetMinX(mRect), MKMapRectGetMidY(mRect));
         MKMapPoint westMapPoint = MKMapPointMake(MKMapRectGetMaxX(mRect), MKMapRectGetMidY(mRect));
-//
-//        //Set your current distance instance variable.
-        self.currenDist = MKMetersBetweenMapPoints(eastMapPoint, westMapPoint);
+////
+////        //Set your current distance instance variable.
+      self.currenDist = MKMetersBetweenMapPoints(eastMapPoint, westMapPoint);
 
         //Set your current center point on the map instance variable.
         self.currentCenter = self.sectionMapView.centerCoordinate;
