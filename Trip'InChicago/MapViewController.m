@@ -43,7 +43,7 @@
 
     [self.sectionMapView setShowsUserLocation:YES];
 
-//    [self.locationManager startUpdatingLocation];
+    [self.locationManager startUpdatingLocation];
 
     //Make this controller the delegate for the map view.
     self.sectionMapView.delegate = self;
@@ -55,10 +55,13 @@
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
+    //[self.sectionMapView setShowsUserLocation:NO];
+    [self.locationManager stopUpdatingLocation];
     self.sectionMapView.centerCoordinate = userLocation.location.coordinate;
     [self queryGooglePlaces:self.googleType];
+
     self.sectionMapView.region = MKCoordinateRegionMake(userLocation.coordinate, MKCoordinateSpanMake(0.05, 0.05));
-    [self.locationManager stopUpdatingLocation];
+
 }
 
 -(void) queryGooglePlaces: (NSString *) googleType
@@ -72,16 +75,26 @@
     
     //Formulate the string as a URL object.
     NSURL *googleRequestURL=[NSURL URLWithString:url];
-    
-    // Retrieve the results of the URL.
-    dispatch_async(kBgQueue, ^{
-        NSData* data = [NSData dataWithContentsOfURL: googleRequestURL];
-        [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
-    });
 
+    NSURLRequest *request = [NSURLRequest requestWithURL:googleRequestURL];
+
+    //[NSURLConnection sendAsynchronousRequest:flickrURLRequest queue:[NSOperationQueue mainQueue]
+                          // completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+    // {
+
+         [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+             [self fetchedData:data];
+         }];
+    
+//    // Retrieve the results of the URL.
+//    dispatch_async(kBgQueue, ^{
+//        NSData* data = [NSData dataWithContentsOfURL: googleRequestURL];
+//        [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
+//    });
+//
     // Jaime - Make it stop updating...
     NSLog(@"At Query GooglePlaces");
-    [self.locationManager stopUpdatingLocation];
+
 }
 
 //This method simply processes the results you receive from the Google API
@@ -103,10 +116,10 @@
         MapPoint *mapPoint = [MapPoint new];
         mapPoint.name = items[@"name"];
         mapPoint.referenceKey = items[@"reference"];
-        NSLog(@"mapPoint.name: %@",mapPoint.name);
+        //NSLog(@"mapPoint.name: %@",mapPoint.name);
         [referenceKeyString addObject:mapPoint];
     }
-    NSLog(@"%@", json);
+    //NSLog(@"%@", json);
     
     //Write out the data to the console.
     //NSLog(@"Google Data: %@", places);
@@ -231,7 +244,7 @@
         // 5 - Create a new annotation.
         MapPoint *placeObject = [[MapPoint alloc] initWithName:name address:vicinity coordinate:placeCoord];
         [self.sectionMapView addAnnotation:placeObject];
-        NSLog(@"plot positions");
+       // NSLog(@"plot positions");
     }
 }
 
