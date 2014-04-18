@@ -124,7 +124,7 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wdz-k5-gia">
-                                <rect key="frame" x="0.0" y="66" width="320" height="221"/>
+                                <rect key="frame" x="0.0" y="65" width="320" height="222"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="376-fn-OaZ" id="DEc-um-R7S"/>

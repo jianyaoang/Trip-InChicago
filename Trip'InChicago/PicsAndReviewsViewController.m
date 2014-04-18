@@ -14,8 +14,9 @@
     NSArray *reviewsText;
     NSArray *reviewArray;
     NSMutableArray *imageArray;
+    UIImageView *imageView;
     IBOutlet UIScrollView *imageScrollView;
-    IBOutlet UIImageView *imageOfLocation;
+
 }
 
 @end
@@ -31,22 +32,6 @@
     
     [self extractReviewJSON];
     [self extractFlickrJSON];
-//    CGFloat width = 0.0f;
-    
-//    for (NSData *imageData in imageArray)
-//    {
-////        NSData *imageData = [imageString dataUsingEncoding:NSUTF8StringEncoding];
-////        imageData = [imageData subdataWithRange:NSMakeRange(0, [imageData length]-1)];
-////        UIImage *image = [UIImage imageWithContentsOfFile:imageString];
-//        UIImage *image = [UIImage imageWithData:imageData];
-//        UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
-//        [imageScrollView addSubview:imageView];
-//        
-//        imageView.frame = CGRectMake(width, 0, self.view.frame.size.width, self.view.frame.size.height);
-//        imageView.contentMode = UIViewContentModeScaleAspectFit;
-//        width += imageView.frame.size.width;
-//    }
-//    imageScrollView.contentSize = CGSizeMake(width, imageScrollView.frame.size.height);
     
     imageScrollView.delegate = self;
 }
@@ -58,11 +43,8 @@
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
-    NSLog(@"About to make our network call");
-
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         
-        NSLog(@"Back from the network");
         NSDictionary *firstFLickrLayer = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
         NSDictionary *photos = firstFLickrLayer[@"photos"];
         NSArray *photo = photos[@"photo"];
@@ -70,12 +52,10 @@
         for (NSDictionary *items in photo)
         {
             NSString *photoURL = [NSString stringWithFormat:@"http://farm%@.staticflickr.com/%@/%@_%@_z.jpg",items[@"farm"], items[@"server"], items[@"id"],items[@"secret"]];
-//            [imageArray addObject:photoURL];
             NSURL *url = [NSURL URLWithString:photoURL];
             NSData *imageData = [NSData dataWithContentsOfURL:url];
             
             [imageArray addObject:imageData];
-//            NSLog(@"imageArray : %@",imageArray);
         }
         [self imageInScrollView];
     }];
@@ -87,17 +67,16 @@
     
     for (NSData *imageData in imageArray)
     {
-        //        NSData *imageData = [imageString dataUsingEncoding:NSUTF8StringEncoding];
-        //        imageData = [imageData subdataWithRange:NSMakeRange(0, [imageData length]-1)];
-        //        UIImage *image = [UIImage imageWithContentsOfFile:imageString];
         UIImage *image = [UIImage imageWithData:imageData];
-        UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+        imageView = [[UIImageView alloc]initWithImage:image];
         [imageScrollView addSubview:imageView];
         
         imageView.frame = CGRectMake(width, 0, self.view.frame.size.width, self.view.frame.size.height);
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         width += imageView.frame.size.width;
     }
+    [imageScrollView setContentMode:UIViewContentModeScaleAspectFit];
+//    [imageView sizeToFit];
     imageScrollView.contentSize = CGSizeMake(width, imageScrollView.frame.size.height);
 }
 
@@ -106,14 +85,27 @@
     return [reviewsText count];
 }
 
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if ([indexPath row] == 0)
+//    {
+//        return (44 + (reviewsText.count - 1)* 19);
+//    }
+//    else
+//    {
+//        return 44;
+//    }
+//}
+
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReviewsCellID"];
     cell.textLabel.text = [reviewsText objectAtIndex:indexPath.row];
     cell.textLabel.numberOfLines = 0;
-    
     return cell;
 }
+
+
 
 -(void)extractReviewJSON
 {
