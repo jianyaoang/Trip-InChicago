@@ -28,10 +28,10 @@
 {
     [super viewWillAppear:animated];
     self.didUpdatePins = NO;
-    //self.currentLocation = self.locationManager.location;
-    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.01, 0.01);
-    MKCoordinateRegion region = MKCoordinateRegionMake(self.locationManager.location.coordinate, coordinateSpan);
-    self.sectionMapView.region = region;
+    self.currentLocation = self.locationManager.location;
+//    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.03, 0.03);
+//    MKCoordinateRegion region = MKCoordinateRegionMake(self.locationManager.location.coordinate, coordinateSpan);
+//    self.sectionMapView.region = region;
 }
 - (void)viewDidLoad
 {
@@ -62,17 +62,17 @@
     
     //Set some parameters for the location object.
     [self.locationManager setDistanceFilter:kCLDistanceFilterNone];
-    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.01, 0.01);
-    MKCoordinateRegion region = MKCoordinateRegionMake(self.locationManager.location.coordinate, coordinateSpan);
-    self.sectionMapView.region = region;
+//    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.03, 0.03);
+//    MKCoordinateRegion region = MKCoordinateRegionMake(self.locationManager.location.coordinate, coordinateSpan);
+//    self.sectionMapView.region = region;
 }
 
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
 
-    self.sectionMapView.centerCoordinate = userLocation.location.coordinate;
- self.sectionMapView.region = MKCoordinateRegionMake(userLocation.coordinate, MKCoordinateSpanMake(0.01, 0.01));
+   self.sectionMapView.centerCoordinate = userLocation.location.coordinate;
+   self.sectionMapView.region = MKCoordinateRegionMake(userLocation.location.coordinate, MKCoordinateSpanMake(0.03, 0.03));
 
 
     //[self.sectionMapView setCenterCoordinate:userLocation.coordinate animated:YES];
@@ -82,16 +82,13 @@
         self.didUpdatePins = YES;
         [self queryGooglePlaces:self.googleType];
     }
-
-
-
 }
 
 -(void) queryGooglePlaces: (NSString *) googleType
 {
     // Build the url string to send to Google. NOTE: The kGOOGLE_API_KEY is a constant that should contain your own API key that you obtain from Google. See this link for more info:
     // https://developers.google.com/maps/documentation/places/#Authentication
-    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/search/json?location=%f,%f&radius=%d&types=%@&sensor=true&maxprice=2&rankby=prominence&key=%@", self.sectionMapView.userLocation.coordinate.latitude, self.sectionMapView.userLocation.coordinate.longitude, 1000, googleType, kGOOGLE_API_KEY]; //took out self.currentCenter.latitude & , self.currentCenter.longitude
+    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/search/json?location=%f,%f&radius=%d&types=%@&sensor=true&maxprice=2&rankby=prominence&key=%@", self.sectionMapView.userLocation.coordinate.latitude, self.sectionMapView.userLocation.coordinate.longitude, 500, googleType, kGOOGLE_API_KEY]; //took out self.currentCenter.latitude & , self.currentCenter.longitude
 
     NSLog(@" this is %f %f", self.currentCenter.latitude, self.currentCenter.longitude);
     NSLog(@"%@", url);
@@ -105,16 +102,7 @@
 
              [self fetchedData:data];
          }];
-    
-//    // Retrieve the results of the URL.
-//    dispatch_async(kBgQueue, ^{
-//        NSData* data = [NSData dataWithContentsOfURL: googleRequestURL];
-//        [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
-//    });
-//
-    // Jaime - Make it stop updating...
     NSLog(@"At Query GooglePlaces");
-
 }
 
 //This method simply processes the results you receive from the Google API
@@ -150,29 +138,25 @@
 #pragma mark - MKMapViewDelegate methods.
 -(void)mapView:(MKMapView *)mv didAddAnnotationViews:(NSArray *)views
 {
-
     //Zoom back to the user location after adding a new set of annotations.
     //Get the center point of the visible map.
     CLLocationCoordinate2D centre = [mv centerCoordinate];
-
     MKCoordinateRegion region;
-
     //If this is the first launch of the app, then set the center point of the map to the user's location.
     if (firstLaunch)
     {
-       region = MKCoordinateRegionMakeWithDistance(self.locationManager.location.coordinate,500,500); //started with 1000, 1000
+        region = MKCoordinateRegionMakeWithDistance(self.locationManager.location.coordinate,500,500);
         firstLaunch=NO;
     }
     else
     {
         //Set the center point to the visible region of the map and change the radius to match the search radius passed to the Google query string.
-        region = MKCoordinateRegionMakeWithDistance(centre, self.currenDist, self.currenDist);
+        region = MKCoordinateRegionMakeWithDistance(centre,500,500); //self.currenDist,self.currenDist
     }
     //Set the visible region of the map.
-    NSLog(@"At mapView --> Did Add Annotation");
     [mv setRegion:region animated:YES];
-
 }
+
 
 // delegate method that will take your annotations as you add them using [mapView addAnnotation:placeObject], and draw them on the map. This method sets up a reuse identifier named “MapPoint” and uses it to draw the pins on the map. Notice that you use some properties of the MKPinAnnotationView object you created to show animation and enable call outs when the pin is tapped.
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
@@ -201,20 +185,18 @@
 
     // Jaime - Make it stop updating...
     NSLog(@"mapView --> viewFor Annotation");
-    [self.locationManager stopUpdatingLocation];
+    //[self.locationManager stopUpdatingLocation];
 
 }
 
 //This delegate method will be called every time the user changes the map by zooming or by scrolling around to a new position.
 -(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
-    //Get the east and west points on the map so you can calculate the distance (zoom level) of the current map view.
-    //if (firstLaunch == YES)
     
        MKMapRect mRect = self.sectionMapView.visibleMapRect;
         MKMapPoint eastMapPoint = MKMapPointMake(MKMapRectGetMinX(mRect), MKMapRectGetMidY(mRect));
         MKMapPoint westMapPoint = MKMapPointMake(MKMapRectGetMaxX(mRect), MKMapRectGetMidY(mRect));
-////
+
 ////        //Set your current distance instance variable.
       self.currenDist = MKMetersBetweenMapPoints(eastMapPoint, westMapPoint);
 
@@ -225,10 +207,7 @@
         NSLog(@"mapView --> regionDidChangeAnimated");
         //firstLaunch = NO;
         //[self.locationManager stopUpdatingLocation];
-
-
 }
-
 
 -(void)plotPositions:(NSArray *)data
 {
@@ -297,6 +276,13 @@
     }
 }
 
+#pragma mark -- experiment with user's location 
+-(void)zoomInUserLocation
+{
+    MKUserLocation *userLocation = self.sectionMapView.userLocation;
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, 2000, 2000);
+    [self.sectionMapView setRegion:region animated:NO];
+}
 
 
 
