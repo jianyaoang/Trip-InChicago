@@ -11,7 +11,7 @@
 @interface PicsAndReviewsViewController () <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     IBOutlet UITableView *reviewsTableView;
-    NSArray *reviewsText;
+    NSMutableArray *reviewsText;
     NSArray *reviewArray;
     NSMutableArray *imageArray;
     UIImageView *imageView;
@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     reviewArray = [NSArray new];
-    reviewsText = [NSArray new];
+    reviewsText = [NSMutableArray new];
     imageArray = [NSMutableArray new];
     
     [self extractReviewJSON];
@@ -102,6 +102,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReviewsCellID"];
     cell.textLabel.text = [reviewsText objectAtIndex:indexPath.row];
     cell.textLabel.numberOfLines = 0;
+    [cell.textLabel sizeToFit];
     return cell;
 }
 
@@ -119,12 +120,16 @@
         NSDictionary *resultsDictionary = firstDictionaryLayer[@"result"];
         reviewArray = resultsDictionary[@"reviews"];
         
-        for (NSDictionary *reviews in reviewArray)
-        {
-            reviewsText = [NSArray arrayWithObject:reviews[@"text"]];
-            NSLog(@"reviewsText:%@",reviewsText);
-        }
-
+        //remember key value coding, especially if we wannt to extract only one key from dict. Code below = for loop below.
+        reviewsText = [reviewArray valueForKey:@"text"];
+        
+//        [reviewsText removeAllObjects];
+//        
+//        for (NSDictionary *reviews in reviewArray)
+//        {
+//            [reviewsText addObject:reviews[@"text"]];
+//            NSLog(@"(%i)reviewsText:%@",reviewsText.count, reviewsText);
+//        }
         [reviewsTableView reloadData];
     }];
 }
