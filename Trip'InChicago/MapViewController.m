@@ -28,6 +28,10 @@
 {
     [super viewWillAppear:animated];
     self.didUpdatePins = NO;
+    //self.currentLocation = self.locationManager.location;
+    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.01, 0.01);
+    MKCoordinateRegion region = MKCoordinateRegionMake(self.locationManager.location.coordinate, coordinateSpan);
+    self.sectionMapView.region = region;
 }
 - (void)viewDidLoad
 {
@@ -52,35 +56,29 @@
     
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
 
-    //Make this controller the delegate for the location manager.
-
-
-
-
-
-
-
 
     //Make this controller the delegate for the map view.
     self.sectionMapView.delegate = self;
     
     //Set some parameters for the location object.
     [self.locationManager setDistanceFilter:kCLDistanceFilterNone];
-      //[self queryGooglePlaces:self.googleType];
-
+    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.01, 0.01);
+    MKCoordinateRegion region = MKCoordinateRegionMake(self.locationManager.location.coordinate, coordinateSpan);
+    self.sectionMapView.region = region;
 }
+
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    //[self.sectionMapView setShowsUserLocation:NO];
-
 
     self.sectionMapView.centerCoordinate = userLocation.location.coordinate;
- self.sectionMapView.region = MKCoordinateRegionMake(userLocation.coordinate, MKCoordinateSpanMake(0.1, 0.1));
+ self.sectionMapView.region = MKCoordinateRegionMake(userLocation.coordinate, MKCoordinateSpanMake(0.01, 0.01));
+
 
     //[self.sectionMapView setCenterCoordinate:userLocation.coordinate animated:YES];
  //[self.locationManager stopUpdatingLocation];
-    if (!self.didUpdatePins) {
+    if (!self.didUpdatePins)
+    {
         self.didUpdatePins = YES;
         [self queryGooglePlaces:self.googleType];
     }
