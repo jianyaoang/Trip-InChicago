@@ -90,8 +90,8 @@
     // https://developers.google.com/maps/documentation/places/#Authentication
     NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/search/json?location=%f,%f&radius=%d&types=%@&sensor=true&maxprice=2&rankby=prominence&key=%@", self.sectionMapView.userLocation.coordinate.latitude, self.sectionMapView.userLocation.coordinate.longitude, 500, googleType, kGOOGLE_API_KEY]; //took out self.currentCenter.latitude & , self.currentCenter.longitude
 
-    NSLog(@" this is %f %f", self.currentCenter.latitude, self.currentCenter.longitude);
-    NSLog(@"%@", url);
+    //NSLog(@" this is %f %f", self.currentCenter.latitude, self.currentCenter.longitude);
+    //NSLog(@"%@", url);
     
     //Formulate the string as a URL object.
     NSURL *googleRequestURL=[NSURL URLWithString:url];
