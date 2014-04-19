@@ -16,7 +16,6 @@
     NSMutableArray *imageArray;
     UIImageView *imageView;
     IBOutlet UIScrollView *imageScrollView;
-
 }
 
 @end
@@ -87,26 +86,26 @@
 
 //-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 //{
-//    if ([indexPath row] == 0)
-//    {
-//        return (44 + (reviewsText.count - 1)* 19);
-//    }
-//    else
-//    {
-//        return 44;
-//    }
+//    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+//    CGSize screenSize = screenBounds.size;
+//    
+//    NSAttributedString *cellText = [[NSAttributedString alloc] initWithString:[reviewsText objectAtIndex:indexPath.row]];
+//    UITextView *calculateView = [UITextView new];
+//    [calculateView setAttributedText:cellText];
+//    
+//    CGSize size = [calculateView sizeThatFits:CGSizeMake(screenSize.width, FLT_MAX)];
+//    return size.height;
 //}
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReviewsCellID"];
     cell.textLabel.text = [reviewsText objectAtIndex:indexPath.row];
+    [cell.textLabel.text stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
     cell.textLabel.numberOfLines = 0;
     [cell.textLabel sizeToFit];
     return cell;
 }
-
-
 
 -(void)extractReviewJSON
 {
@@ -122,6 +121,7 @@
         
         //remember key value coding, especially if we wannt to extract only one key from dict. Code below = for loop below.
         reviewsText = [reviewArray valueForKey:@"text"];
+        
         
 //        [reviewsText removeAllObjects];
 //        
