@@ -31,6 +31,6 @@
 @property CLLocationCoordinate2D currentCenter;
 @property int currenDist;
 @property (strong, nonatomic) IBOutlet MKMapView *sectionMapView;
-@property (strong, nonatomic) NSString *googleType;
+@property (strong, nonatomic) NSString *foursquareLocationName;
 
 @end

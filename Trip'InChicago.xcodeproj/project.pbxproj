@@ -40,6 +40,7 @@
 		41918A5818FC9C6C00A4616C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A5718FC9C6C00A4616C /* Accounts.framework */; };
 		41918A5A18FC9C7200A4616C /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A5918FC9C7200A4616C /* Twitter.framework */; };
 		41918A5C18FC9C7800A4616C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A5B18FC9C7800A4616C /* Social.framework */; };
+		41A136B7190308950058AF39 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A136B6190308950058AF39 /* Location.m */; };
 		6F5B4E8618FDF7F100E495BA /* TemperatureChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5B4E8518FDF7F100E495BA /* TemperatureChecker.m */; };
 		D06FC61518FCC5260048FEE0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06FC61418FCC5260048FEE0 /* Parse.framework */; };
 		D06FC61818FD82EC0048FEE0 /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D06FC61718FD82EC0048FEE0 /* MapPoint.m */; };
@@ -99,6 +100,8 @@
 		41918A5718FC9C6C00A4616C /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		41918A5918FC9C7200A4616C /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		41918A5B18FC9C7800A4616C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		41A136B5190308950058AF39 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		41A136B6190308950058AF39 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		6F5B4E8418FDF7F100E495BA /* TemperatureChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemperatureChecker.h; sourceTree = "<group>"; };
 		6F5B4E8518FDF7F100E495BA /* TemperatureChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemperatureChecker.m; sourceTree = "<group>"; };
 		D06FC61418FCC5260048FEE0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				41918A4118FC984B00A4616C /* PicsAndReviewsViewController.m */,
 				41918A3B18FC97AC00A4616C /* MapViewController.h */,
 				41918A3C18FC97AC00A4616C /* MapViewController.m */,
+				41A136B5190308950058AF39 /* Location.h */,
+				41A136B6190308950058AF39 /* Location.m */,
 				D06FC61618FD82EC0048FEE0 /* MapPoint.h */,
 				D06FC61718FD82EC0048FEE0 /* MapPoint.m */,
 				41918A3818FC96F600A4616C /* SectionViewController.h */,
@@ -350,6 +355,7 @@
 				41918A1A18FC954100A4616C /* ViewController.m in Sources */,
 				41918A4218FC984B00A4616C /* PicsAndReviewsViewController.m in Sources */,
 				41918A1418FC954100A4616C /* AppDelegate.m in Sources */,
+				41A136B7190308950058AF39 /* Location.m in Sources */,
 				41918A3D18FC97AC00A4616C /* MapViewController.m in Sources */,
 				D06FC61818FD82EC0048FEE0 /* MapPoint.m in Sources */,
 				416909F618FC9D64007A9A59 /* NotesTableViewController.m in Sources */,

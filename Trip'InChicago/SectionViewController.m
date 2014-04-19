@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.sectionNames = @[@"cafe", @"art_gallery", @"bar", @"establishment", @"museum", @"park", @"restaurant", @"shopping_mall", @"train_station", @"bus_station"];
+    self.sectionNames = @[@"sights", @"coffee", @"food", @"arts", @"shop", @"outdoors"];
     
 }
 
@@ -48,25 +48,13 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSIndexPath *indexPath = [self.sectionTableView indexPathForSelectedRow];
-    NSString *string = [self.sectionNames objectAtIndex:indexPath.row];
+    NSString *sectionName = [self.sectionNames objectAtIndex:indexPath.row];
 
     MapViewController *mapViewController = (MapViewController *)segue.destinationViewController;
-    mapViewController.googleType = string;
-    
-    //mapViewController.restuarantDetail = [self.googlePlacesArrayFromAFNetworking objectAtIndex:indexPath.row];
-    //[self queryGooglePlaces:sender.textLabel.text];
-//need to add in that query needs to take place 
-
+    mapViewController.foursquareLocationName = sectionName;
 }
 
-//- (IBAction)onBarButtonPressed:(id)sender
-//{
-//    UIBarButtonItem *button = (UIBarButtonItem *)sender;
-//    NSString *buttonTitle = [button.title lowercaseString];
-//    //Use this title text to build the URL query and get the data from Google.
-//    [self queryGooglePlaces:buttonTitle];
-//}
-//
+
 
 
 
