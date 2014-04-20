@@ -60,10 +60,13 @@
         
         [locationNameMutableArray removeAllObjects];
         
-        for (NSDictionary *venue in items)
+        for (NSDictionary *venueAndTips in items)
         {
+            NSDictionary *venueDictionary = venueAndTips[@"venue"];
             
-            NSDictionary *venueDictionary = venue[@"venue"];
+            NSArray *tips = venueAndTips[@"tips"];
+            NSDictionary *tipsFirstLayer = tips.firstObject;
+//            NSDictionary *tipsText = tipsFirstLayer[@"text"];
             
             Location* location = [Location new];
             
@@ -71,10 +74,12 @@
             location.lng =  [venueDictionary[@"location"][@"lng"]floatValue];
             location.address = venueDictionary[@"location"][@"address"];
             location.name = venueDictionary[@"name"];
+//            location.tips = tipsText[@"text"];
+            location.tips = tipsFirstLayer[@"text"];
             [locationNameMutableArray addObject:location];
             
-            NSLog(@"mylocation %@, lat:%f lng:%f address:%@", location.name, location.lat, location.lng, location.address);
-          
+//            NSLog(@"mylocation %@, lat:%f lng:%f address:%@ ", location.name, location.lat, location.lng, location.address);
+            NSLog(@"location.tips : %@", location.tips);
         }
         [self placingPinsOnLocations];
     }];
@@ -129,23 +134,23 @@
     [self performSegueWithIdentifier:@"showPicsAndReview" sender:view];
 }
 
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    PicsAndReviewsViewController *vc = segue.destinationViewController;
-//    NSString *title = [[(MKAnnotationView*)sender annotation]title];
-//    
-//    if ([segue.identifier isEqualToString:@"showPicsAndReview"])
-//    {
-//        for (MapPoint *mapPoint in referenceKeyString)
-//        {
-//            NSLog(@"mapPoint.name: %@, title: %@", mapPoint.name, title);
-//            if ([mapPoint.name isEqualToString:title])
-//            {
-//                vc.mapPoint = mapPoint;
-//                break;
-//            }
-//        }
-//    }
-//}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    PicsAndReviewsViewController *vc = segue.destinationViewController;
+    NSString *title = [[(MKAnnotationView*)sender annotation]title];
+    
+    if ([segue.identifier isEqualToString:@"showPicsAndReview"])
+    {
+        for (Location *location in locationNameMutableArray)
+        {
+            if ([location.name isEqualToString:title])
+            {
+                vc.location = location;
+                break;
+            }
+        }
+    }
+}
+
 
 @end

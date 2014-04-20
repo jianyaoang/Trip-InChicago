@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MapPoint.h"
+#import "Location.h"
 @interface PicsAndReviewsViewController : UIViewController
-@property MapPoint *mapPoint;
+//@property MapPoint *mapPoint;
+@property Location *location;
 @end

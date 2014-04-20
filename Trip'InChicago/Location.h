@@ -13,4 +13,5 @@
 @property float lat;
 @property float lng;
 @property NSString *address;
+@property NSString *tips;
 @end

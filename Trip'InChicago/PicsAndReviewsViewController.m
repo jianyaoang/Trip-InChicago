@@ -29,7 +29,8 @@
     reviewsText = [NSMutableArray new];
     imageArray = [NSMutableArray new];
     
-    [self extractReviewJSON];
+//    [self extractTipsJSON];
+//    [self extractReviewJSON];
     [self extractFlickrJSON];
     
     imageScrollView.delegate = self;
@@ -37,7 +38,7 @@
 
 -(void)extractFlickrJSON
 {
-    NSString *urlString = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=7ce03f98cbe66eefe8451cff602f08ec&tags=%@&per_page=10&format=json&nojsoncallback=1",self.mapPoint.name];
+    NSString *urlString = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=7ce03f98cbe66eefe8451cff602f08ec&tags=%@&per_page=10&format=json&nojsoncallback=1",self.location.name];
     urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -81,7 +82,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [reviewsText count];
+    return 1;
 }
 
 //-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -100,38 +101,79 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReviewsCellID"];
-    cell.textLabel.text = [reviewsText objectAtIndex:indexPath.row];
+    //cell.textLabel.text = [reviewsText objectAtIndex:indexPath.row];
+    UIFont *font = [UIFont fontWithName:@"Arial" size:15];
+    cell.textLabel.text = self.location.tips;
+    cell.textLabel.font = font;
+    
     [cell.textLabel.text stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
     cell.textLabel.numberOfLines = 0;
     [cell.textLabel sizeToFit];
     return cell;
 }
 
--(void)extractReviewJSON
-{
-    NSString *urlString = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/details/json?reference=%@&sensor=true&key=AIzaSyDpJ3qwqVyq08eqvrq5x7_SyPD405ZeWLc",self.mapPoint.referenceKey];
-    NSURL *url = [NSURL URLWithString:urlString];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
-    {
-        NSDictionary *firstDictionaryLayer = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
-        NSDictionary *resultsDictionary = firstDictionaryLayer[@"result"];
-        reviewArray = resultsDictionary[@"reviews"];
-        
-        //remember key value coding, especially if we wannt to extract only one key from dict. Code below = for loop below.
-        reviewsText = [reviewArray valueForKey:@"text"];
-        
-        
-//        [reviewsText removeAllObjects];
+//-(void)extractReviewJSON
+//{
+//    NSString *urlString = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/details/json?reference=%@&sensor=true&key=AIzaSyDpJ3qwqVyq08eqvrq5x7_SyPD405ZeWLc",self.location.name];
+//    NSURL *url = [NSURL URLWithString:urlString];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    
+//    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+//    {
+//        NSDictionary *firstDictionaryLayer = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
+//        NSDictionary *resultsDictionary = firstDictionaryLayer[@"result"];
+//        reviewArray = resultsDictionary[@"reviews"];
 //        
-//        for (NSDictionary *reviews in reviewArray)
+//        //remember key value coding, especially if we wannt to extract only one key from dict. Code below = for loop below.
+//        reviewsText = [reviewArray valueForKey:@"text"];
+//        
+//        
+////        [reviewsText removeAllObjects];
+////        
+////        for (NSDictionary *reviews in reviewArray)
+////        {
+////            [reviewsText addObject:reviews[@"text"]];
+////            NSLog(@"(%i)reviewsText:%@",reviewsText.count, reviewsText);
+////        }
+//        [reviewsTableView reloadData];
+//    }];
+//}
+//
+//-(void)extractTipsJSON
+//{
+//    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/explore?ll=41.8819,-87.6278&near=Chicago&section=%@&oauth_token=02ALL4LOCE2LTXXTA4ASHFTYOEAAUIRWOYT2P5S2AHBBBADA&v=20140419", self.location.name];
+//    NSURL *url = [NSURL URLWithString:urlString];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    
+//    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//        
+//        NSDictionary *firstLayer = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
+//        NSDictionary *responseDictionary = firstLayer[@"response"];
+//        NSArray *groups = responseDictionary[@"groups"];
+//        NSDictionary *groupsArrayDictionary = groups.firstObject;
+//        NSArray *items = groupsArrayDictionary[@"items"];
+//        
+//        for (NSDictionary *extractingTipsArray in items)
 //        {
-//            [reviewsText addObject:reviews[@"text"]];
-//            NSLog(@"(%i)reviewsText:%@",reviewsText.count, reviewsText);
+//            NSArray *tips = extractingTipsArray[@"tips"];
+//            
+//            [reviewsText removeAllObjects];
+//            for (NSDictionary *tipsText in tips)
+//            {
+//                Location *location = [Location new];
+//                location.tips = tipsText[@"text"];
+//                [reviewsText addObject:location];
+//                NSLog(@"(%i) reviewsText: %@", reviewsText.count, reviewsText);
+//            }
 //        }
-        [reviewsTableView reloadData];
-    }];
-}
+//        [reviewsTableView reloadData];
+//    
+//    }];
+//}
+
+//-(void)assigningTipsToReviewsArray
+//{
+//    [reviewsText addObject:self.location.tips];
+//}
 
 @end
