@@ -17,6 +17,8 @@
     NSMutableArray *locationMutableArray;
     NSMutableArray *venueMutableArray;
     NSMutableArray *locationDetailsArray;
+    NSMutableArray *locationNameMutableArray;
+    NSMutableArray *locationNameMutableArrayAndLocationMutableArray;
 }
 
 @property (nonatomic) BOOL didUpdatePins;
@@ -35,6 +37,8 @@
 {
     [super viewDidLoad];
     [self.sectionMapView setShowsUserLocation:YES];
+    locationNameMutableArrayAndLocationMutableArray = [NSMutableArray new];
+    locationNameMutableArray = [NSMutableArray new];
     venueMutableArray = [NSMutableArray new];
     locationMutableArray = [NSMutableArray new];
     locationDetailsArray = [NSMutableArray new];
@@ -43,7 +47,6 @@
 
 -(void)extractVenueJSON
 {
-
     NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/explore?ll=41.8819,-87.6278&near=Chicago&section=%@&oauth_token=02ALL4LOCE2LTXXTA4ASHFTYOEAAUIRWOYT2P5S2AHBBBADA&v=20140419", self.foursquareLocationName];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -55,37 +58,31 @@
         NSDictionary *groupsArrayDictionary = groupsArray.firstObject;
         NSArray *items = groupsArrayDictionary[@"items"];
         
+        [locationNameMutableArray removeAllObjects];
+        
         for (NSDictionary *venue in items)
         {
-            NSDictionary *venueDictionary = venue[@"venue"];
-            [venueMutableArray addObject:venueDictionary];
             
-            for (NSDictionary *location in venueMutableArray)
-            {
-                NSDictionary *locationDictionary = location[@"location"];
-                [locationMutableArray addObject:locationDictionary];
-            }
+            NSDictionary *venueDictionary = venue[@"venue"];
+            
+            Location* location = [Location new];
+            
+            location.lat = [venueDictionary[@"location"][@"lat"]floatValue];
+            location.lng =  [venueDictionary[@"location"][@"lng"]floatValue];
+            location.address = venueDictionary[@"location"][@"address"];
+            location.name = venueDictionary[@"name"];
+            [locationNameMutableArray addObject:location];
+            
+            NSLog(@"mylocation %@, lat:%f lng:%f address:%@", location.name, location.lat, location.lng, location.address);
+          
         }
-        [self assigningInfoFromJSONToObject];
         [self placingPinsOnLocations];
     }];
 }
 
--(void)assigningInfoFromJSONToObject
-{
-    for (NSDictionary *items in locationMutableArray)
-    {
-        Location *location = [Location new];
-        location.address = items[@"address"];
-        location.lat = [items[@"lat"]floatValue];
-        location.lng = [items[@"lng"]floatValue];
-        [locationDetailsArray addObject:location];
-    }
-}
-
 -(void)placingPinsOnLocations
 {
-    for (Location *location in locationDetailsArray)
+    for (Location *location in locationNameMutableArray)
     {
         [self creatingMapAndPins:location];
     }
@@ -105,7 +102,7 @@
     
     annotation.coordinate = centerCoordinate;
     
-    annotation.title = location.address;
+    annotation.title = location.name;
     annotation.subtitle = location.address;
     
     [self.sectionMapView addAnnotation:annotation];
@@ -127,14 +124,28 @@
     [self.locationManager stopUpdatingLocation];
 }
 
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    [self performSegueWithIdentifier:@"showPicsAndReview" sender:view];
+}
 
-
-
-
-
-
-
-
-
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    PicsAndReviewsViewController *vc = segue.destinationViewController;
+//    NSString *title = [[(MKAnnotationView*)sender annotation]title];
+//    
+//    if ([segue.identifier isEqualToString:@"showPicsAndReview"])
+//    {
+//        for (MapPoint *mapPoint in referenceKeyString)
+//        {
+//            NSLog(@"mapPoint.name: %@, title: %@", mapPoint.name, title);
+//            if ([mapPoint.name isEqualToString:title])
+//            {
+//                vc.mapPoint = mapPoint;
+//                break;
+//            }
+//        }
+//    }
+//}
 
 @end
