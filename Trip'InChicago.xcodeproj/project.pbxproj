@@ -42,6 +42,7 @@
 		41918A5C18FC9C7800A4616C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A5B18FC9C7800A4616C /* Social.framework */; };
 		41A136B7190308950058AF39 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A136B6190308950058AF39 /* Location.m */; };
 		6F5B4E8618FDF7F100E495BA /* TemperatureChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5B4E8518FDF7F100E495BA /* TemperatureChecker.m */; };
+		6FFC39EE1905E05A00DB2ECC /* RouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */; };
 		D042717219058E3600796C36 /* ConciergeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D042717119058E3600796C36 /* ConciergeViewController.m */; };
 		D042717519058E7800796C36 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D042717419058E7800796C36 /* ListViewController.m */; };
 		D06FC61518FCC5260048FEE0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06FC61418FCC5260048FEE0 /* Parse.framework */; };
@@ -106,6 +107,8 @@
 		41A136B6190308950058AF39 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		6F5B4E8418FDF7F100E495BA /* TemperatureChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemperatureChecker.h; sourceTree = "<group>"; };
 		6F5B4E8518FDF7F100E495BA /* TemperatureChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemperatureChecker.m; sourceTree = "<group>"; };
+		6FFC39EC1905E05A00DB2ECC /* RouteMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteMapViewController.h; sourceTree = "<group>"; };
+		6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteMapViewController.m; sourceTree = "<group>"; };
 		D042717019058E3600796C36 /* ConciergeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConciergeViewController.h; sourceTree = "<group>"; };
 		D042717119058E3600796C36 /* ConciergeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConciergeViewController.m; sourceTree = "<group>"; };
 		D042717319058E7800796C36 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				41918A1218FC954100A4616C /* AppDelegate.h */,
 				41918A1318FC954100A4616C /* AppDelegate.m */,
 				41918A1518FC954100A4616C /* Main.storyboard */,
+				6FFC39EC1905E05A00DB2ECC /* RouteMapViewController.h */,
+				6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */,
 				D042717319058E7800796C36 /* ListViewController.h */,
 				D042717419058E7800796C36 /* ListViewController.m */,
 				D042717019058E3600796C36 /* ConciergeViewController.h */,
@@ -364,6 +369,7 @@
 				416909F918FCA0BF007A9A59 /* LoginViewController.m in Sources */,
 				41918A1A18FC954100A4616C /* ViewController.m in Sources */,
 				41918A4218FC984B00A4616C /* PicsAndReviewsViewController.m in Sources */,
+				6FFC39EE1905E05A00DB2ECC /* RouteMapViewController.m in Sources */,
 				41918A1418FC954100A4616C /* AppDelegate.m in Sources */,
 				41A136B7190308950058AF39 /* Location.m in Sources */,
 				41918A3D18FC97AC00A4616C /* MapViewController.m in Sources */,
