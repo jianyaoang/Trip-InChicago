@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
 @interface Location : NSObject
 @property NSString *name;
@@ -14,4 +15,6 @@
 @property float lng;
 @property NSString *address;
 @property NSString *tips;
+@property NSString *phoneNumber;
+@property MKPlacemark *placemark;
 @end

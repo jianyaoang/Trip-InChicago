@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ListViewController : UIViewController
+@property NSString *sectionString;
 
 @end
