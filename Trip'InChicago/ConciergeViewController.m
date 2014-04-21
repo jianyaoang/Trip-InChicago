@@ -7,8 +7,14 @@
 //
 
 #import "ConciergeViewController.h"
+#import "ListViewController.h"
+
+
 
 @interface ConciergeViewController ()
+@property NSString *outdoorString;
+@property NSString *indoorString;
+@property NSString *mixString;
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *typesSegmentedControl;
 @end
@@ -28,12 +34,43 @@
 {
     [super viewDidLoad];
     self.typesSegmentedControl.selectedSegmentIndex=-1;
+
+    self.indoorString = @"theater";//food,shop,arts
+    self.mixString = @"coffee,food,sights,shop,outdoors,parks";
+    self.outdoorString = @"outdoors,parks";
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //    NSIndexPath *indexPath = [self.sectionTableView indexPathForSelectedRow];
+    //    NSString *sectionName = [self.sectionNames objectAtIndex:indexPath.row];
+
+    ListViewController *vc = [ListViewController new];
+
+    if (self.typesSegmentedControl.selectedSegmentIndex == 0)
+    {
+        vc = (ListViewController*)segue.destinationViewController;
+        vc.sectionString = self.indoorString;
+    }
+    else if (self.typesSegmentedControl.selectedSegmentIndex == 1)
+
+    {
+        vc = (ListViewController*)segue.destinationViewController;
+        vc.sectionString = self.mixString;
+    }
+    else if (self.typesSegmentedControl.selectedSegmentIndex == 2)
+    {
+
+        vc = (ListViewController*)segue.destinationViewController;
+        vc.sectionString = self.outdoorString;
+    }
+    
 }
 
 /*
