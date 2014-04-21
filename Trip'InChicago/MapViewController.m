@@ -19,6 +19,10 @@
     NSMutableArray *locationDetailsArray;
     NSMutableArray *locationNameMutableArray;
     NSMutableArray *locationNameMutableArrayAndLocationMutableArray;
+    float northernBorder;
+    float southernBorder;
+    float easternBorder;
+    float westernBorder;
 }
 
 @property (nonatomic) BOOL didUpdatePins;
@@ -36,14 +40,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    northernBorder = 0.0;
+    //setting the southernBorder
+    southernBorder = 100000.0;
+    //setting the easternBorder
+    easternBorder = -10000.0;
+    //setting the westernBorder
+    westernBorder = 0.0;
+    self.locationManager = [CLLocationManager new];
     [self.sectionMapView setShowsUserLocation:YES];
+    [self.locationManager startUpdatingLocation];
+    self.currentLocation = self.locationManager.location;
     locationNameMutableArrayAndLocationMutableArray = [NSMutableArray new];
     locationNameMutableArray = [NSMutableArray new];
     venueMutableArray = [NSMutableArray new];
     locationMutableArray = [NSMutableArray new];
     locationDetailsArray = [NSMutableArray new];
     [self extractVenueJSON];
+
+
+
 }
+#pragma mark - mapdelegate method
+//- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+//{
+//
+//}
 
 -(void)extractVenueJSON
 {
@@ -79,7 +101,7 @@
             [locationNameMutableArray addObject:location];
             
 //            NSLog(@"mylocation %@, lat:%f lng:%f address:%@ ", location.name, location.lat, location.lng, location.address);
-            NSLog(@"location.tips : %@", location.tips);
+           // NSLog(@"location.tips : %@", location.tips);
         }
         [self placingPinsOnLocations];
     }];
@@ -89,25 +111,52 @@
 {
     for (Location *location in locationNameMutableArray)
     {
-        [self creatingMapAndPins:location];
+//if the pins are within our view, drop the pins
+        if (!(fabsf(location.lat - self.locationManager.location.coordinate.latitude) > 0.015)&&
+            !(fabsf(location.lng - self.locationManager.location.coordinate.longitude) > 0.012)) {
+            [self creatingMapAndPins:location];
+        }
     }
+//the centerCoordinate is set to the locationManager's coordinates
+    CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
+
+//setting the width and the height of mapwindow
+    float x = ((fabsf(westernBorder)-fabsf(easternBorder)) + 0.005);
+    float y = ((fabsf(northernBorder) - fabsf(southernBorder)) + 0.005);
+
+    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(x, y);
+    MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
+    self.sectionMapView.region = region;
+
+
 }
 
 -(void)creatingMapAndPins:(Location*)location
 {
-    CLLocationCoordinate2D centerCoordinate = CLLocationCoordinate2DMake(location.lat, location.lng);
-    
-    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(.03, .03);
-    
-    MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
-    
-    self.sectionMapView.region = region;
-    
+
     MKPointAnnotation *annotation = [MKPointAnnotation new];
-    
-    annotation.coordinate = centerCoordinate;
-    
+    if (location.lat > northernBorder) {
+        northernBorder = location.lat;
+    }
+    if (location.lat < southernBorder) {
+        southernBorder = location.lat;
+    }
+    if (location.lng < westernBorder) {
+        westernBorder = location.lng;
+    }
+    if (location.lng > easternBorder) {
+        easternBorder = location.lng;
+    }
+
+
+    annotation.coordinate = CLLocationCoordinate2DMake(location.lat, location.lng);
+
+    NSLog(@"%f", annotation.coordinate.latitude - self.locationManager.location.coordinate.latitude);
+    NSLog(@"%f", annotation.coordinate.longitude - self.locationManager.location.coordinate.longitude);
+
+
     annotation.title = location.name;
+    NSLog(@"%@", location.name);
     annotation.subtitle = location.address;
     
     [self.sectionMapView addAnnotation:annotation];
