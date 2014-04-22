@@ -62,16 +62,29 @@
 -(void)getDirections
 {
     MKDirectionsRequest *request = [[MKDirectionsRequest alloc]init];
-    request.source = [MKMapItem mapItemForCurrentLocation];
+    bool firstTimeinLoop = YES;
+
+//    request.source = [MKMapItem mapItemForCurrentLocation];
 
     for (MKMapItem *item in self.routesArray)
     {
+        if (firstTimeinLoop == YES)
+        {
+            request.source = [MKMapItem mapItemForCurrentLocation];
+            firstTimeinLoop = NO;
+        }
+        else
+        {
+            request.source = request.destination;
+        }
+
         MKPlacemark *placemark = [[MKPlacemark alloc]initWithCoordinate:item.placemark.coordinate addressDictionary:nil];
         MKMapItem   *mapItem   = [[MKMapItem alloc]initWithPlacemark:placemark];
 
         request.destination = mapItem;
 
         request.requestsAlternateRoutes = NO;
+        request.transportType = MKDirectionsTransportTypeWalking;
 
         MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
 
@@ -79,16 +92,15 @@
          {
              if (error)
              {
-                 NSLog(@"Error");
+                 NSLog(@"E:%@", error);
              }
              else
              {
+                 NSLog(@"SKDJFHJKSDHFJKSDHFJKHSDFJKHSDFJK");
                  [self showRoute:response];
              }
          }];
-
     }
-
 }
 
 -(void)showRoute:(MKDirectionsResponse *)response
