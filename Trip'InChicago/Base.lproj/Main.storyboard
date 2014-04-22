@@ -219,7 +219,8 @@
                     <navigationItem key="navigationItem" title="Your Intinerary" id="m1t-qj-9NL">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="mkF-Qh-Yyd">
                             <connections>
-                                <segue destination="hA3-z0-qE7" kind="push" id="mqp-dy-Q0n"/>
+                                <action selector="onItineryaryButtonPressed:" destination="3cM-GY-yGb" id="8xT-Gd-FpA"/>
+                                <segue destination="hA3-z0-qE7" kind="push" identifier="ShowItenMapView" id="mqp-dy-Q0n"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -246,11 +247,17 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oUL-CL-1ne">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="hA3-z0-qE7" id="8Av-Ot-mhj"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="O0h-iE-IsO"/>
+                    <connections>
+                        <outlet property="routeMapViewMap" destination="oUL-CL-1ne" id="KKI-QG-pnl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIh-yh-wUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
