@@ -48,7 +48,7 @@
     [self.locationManager startUpdatingLocation];
 
     locationMutableArray = [NSMutableArray new];
-    venueMutableArray = [NSMutableArray new];
+    venueMutableArray    = [NSMutableArray new];
     locationDetailsArray = [NSMutableArray new];
 }
 
@@ -139,7 +139,8 @@
 }
 -(void) narrowDownPlaces: (CLPlacemark*) placemark
 {
-    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/explore?ll=41.8819,-87.6278&near=Chicago&section=%@&oauth_token=02ALL4LOCE2LTXXTA4ASHFTYOEAAUIRWOYT2P5S2AHBBBADA&v=20140419", self.sectionString];
+
+    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/explore?ll=%f,%f&near=Chicago&section=%@&oauth_token=02ALL4LOCE2LTXXTA4ASHFTYOEAAUIRWOYT2P5S2AHBBBADA&v=20140419", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude, self.sectionString];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
@@ -197,9 +198,9 @@
         }];
 
         NSRange numberOfAvailablePlaces;
-        if (mapItems.count >= 15)
+        if (mapItems.count >= 25)
         {
-            numberOfAvailablePlaces = NSMakeRange(0, 15);
+            numberOfAvailablePlaces = NSMakeRange(0, 25);
             mapItems = [mapItems subarrayWithRange:numberOfAvailablePlaces];
         }
         else
