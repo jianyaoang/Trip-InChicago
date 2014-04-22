@@ -216,7 +216,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Your Intinerary" id="m1t-qj-9NL"/>
+                    <navigationItem key="navigationItem" title="Your Intinerary" id="m1t-qj-9NL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="mkF-Qh-Yyd">
+                            <connections>
+                                <segue destination="hA3-z0-qE7" kind="push" id="mqp-dy-Q0n"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="myTableView" destination="xMl-Rm-bEF" id="hoF-qC-9yU"/>
                     </connections>
@@ -224,6 +230,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m0d-aI-OF3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1130" y="650"/>
+        </scene>
+        <!--Route Map View Controller-->
+        <scene sceneID="38U-Fq-5FU">
+            <objects>
+                <viewController id="hA3-z0-qE7" customClass="RouteMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uvc-WB-zbf"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sng-N1-AOy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MSn-uk-U8E">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oUL-CL-1ne">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="O0h-iE-IsO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DIh-yh-wUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1513" y="647"/>
         </scene>
         <!--Pics And Reviews View Controller - Pictures And Reviews-->
         <scene sceneID="UFF-au-zck">
