@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
+#import "ChoiceViewController.h"
 @interface LoginViewController () <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @end
@@ -17,6 +18,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [PFFacebookUtils initializeFacebook];
+    
+    ChoiceViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ChoiceViewController"];
+    if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])
+    {
+        [self.navigationController pushViewController:vc animated:NO];
+    }
+    
     
 }
 
@@ -24,8 +33,11 @@
 {
     [super viewDidAppear:animated];
     
+    NSArray *permissionArray = @[@"user_about_me",@"user_relationships", @"user_birthday", @"user_location"];
+    
     PFLogInViewController *login = [PFLogInViewController new];
     login.fields = PFLogInFieldsUsernameAndPassword|PFLogInFieldsLogInButton|PFLogInFieldsFacebook| PFLogInFieldsSignUpButton;
+    [login setFacebookPermissions:permissionArray];
     login.signUpController.delegate = self;
     login.delegate = self;
     [self presentViewController:login animated:NO completion:nil];

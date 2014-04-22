@@ -85,7 +85,7 @@
         <!--Choice View Controller-->
         <scene sceneID="AGC-UG-9TB">
             <objects>
-                <viewController id="dZG-iu-uON" customClass="ChoiceViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChoiceViewController" id="dZG-iu-uON" customClass="ChoiceViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QrM-A0-T4M"/>
                         <viewControllerLayoutGuide type="bottom" id="Z1c-Qy-GRg"/>
@@ -121,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYr-Yi-kCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2993" y="13"/>
+            <point key="canvasLocation" x="3257" y="29"/>
         </scene>
         <!--Concierge View Controller-->
         <scene sceneID="yKw-He-Eof">
@@ -415,7 +415,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udL-Jn-nEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2524" y="-107"/>
+            <point key="canvasLocation" x="2826" y="15"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nvP-wB-qD0">
@@ -433,7 +433,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vJz-BJ-xTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2100" y="-77"/>
+            <point key="canvasLocation" x="2408" y="29"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
