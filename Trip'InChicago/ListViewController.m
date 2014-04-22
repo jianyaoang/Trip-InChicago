@@ -41,7 +41,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    timeforIntinerary = 28,000;
+    timeforIntinerary = 28000;
     intineraryPlaces = [NSArray new];
     self.locationManager = [CLLocationManager new];
     self.locationManager.delegate = self;
