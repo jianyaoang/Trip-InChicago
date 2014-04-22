@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "Location.h"
+#import "RouteMapViewController.h"
 
 @interface ListViewController () <UITableViewDataSource, UITableViewDataSource, CLLocationManagerDelegate>
 {
@@ -227,6 +228,21 @@
     }];
 }
 
+//- (IBAction)onItineryaryButtonPressed:(id)sender
+//{
+//
+////    RouteMapViewController *vc = segue.destinationViewController;
+////    vc.routesArray = intineraryPlaces;
+//}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton*)sender
+{
+    if ([segue.identifier isEqualToString:@"ShowItenMapView"])
+    {
+        RouteMapViewController *vc = segue.destinationViewController;
+        vc.routesArray = intineraryPlaces;
+    }
+}
 
 /*
 #pragma mark - Navigation

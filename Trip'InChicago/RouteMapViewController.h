@@ -10,6 +10,14 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface RouteMapViewController : UIViewController
+@interface RouteMapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
+
+@property NSArray *routesArray;
+
+@property CLLocationManager *locationManager;
+@property CLLocation *currentLocation;
+@property CLLocationCoordinate2D currentCenter;
+@property (weak, nonatomic) IBOutlet MKMapView *routeMapViewMap;
+@property MKAnnotationView *annotationView;
 
 @end

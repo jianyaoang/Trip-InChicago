@@ -27,7 +27,32 @@
 {
     [super viewDidLoad];
 
+    self.locationManager = [CLLocationManager new];
+    [self.routeMapViewMap setShowsUserLocation:YES];
+    [self.locationManager startUpdatingLocation];
+    self.currentLocation = self.locationManager.location;
+    self.annotationView = [[MKAnnotationView alloc]init];
+    [self createItenAnnotations];
+
+    CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
+    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.05, 0.05);
+    MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
+
+    self.routeMapViewMap.region = region;
+
 }
 
+-(void)createItenAnnotations
+{
+    for (MKMapItem *item in self.routesArray)
+    {
+        MKPointAnnotation *annotation = [MKPointAnnotation new];
+        annotation.coordinate = item.placemark.coordinate;
+        annotation.title      = item.name;
+
+        [self.routeMapViewMap addAnnotation:annotation];
+        [self.routeMapViewMap reloadInputViews];
+    }
+}
 
 @end
