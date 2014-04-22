@@ -201,9 +201,9 @@
         }];
 
         NSRange numberOfAvailablePlaces;
-        if (mapItems.count >= 25)
+        if (mapItems.count >= 5)
         {
-            numberOfAvailablePlaces = NSMakeRange(0, 25);
+            numberOfAvailablePlaces = NSMakeRange(0, 5);
             mapItems = [mapItems subarrayWithRange:numberOfAvailablePlaces];
         }
         else
@@ -247,6 +247,46 @@
         vc.routesArray = intineraryPlaces;
     }
 }
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil
+                                                       message:@"Are You Sure You Want to Delete?"
+                                                      delegate:self
+                                             cancelButtonTitle:@"cancel"
+                                             otherButtonTitles:@"delete", nil];
+        [alert show];
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+
+{
+    NSIndexPath *path = [self.myTableView indexPathForSelectedRow];
+    UITableViewCell *cell = [self.myTableView cellForRowAtIndexPath:path];
+    if (buttonIndex == 1)
+    {
+
+
+        NSMutableArray *places = [[NSMutableArray alloc]initWithArray:intineraryPlaces];
+        [places removeObjectAtIndex:path.row];
+
+        //You can copy that array to NSMutableArray and remove objects from it. And finally reassign the values of the NSMutableArray to your NSArray.
+        intineraryPlaces = places; // you can
+        cell.textLabel.textColor = [UIColor blackColor];
+        [self calculateDistance:places];
+        [self.myTableView reloadData];
+    }
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"Delete";
+}
+
+
 
 /*
 #pragma mark - Navigation
