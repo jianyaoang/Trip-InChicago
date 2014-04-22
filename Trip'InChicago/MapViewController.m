@@ -36,6 +36,7 @@
     
     self.didUpdatePins = NO;
     self.currentLocation = self.locationManager.location;
+    [self.locationManager startUpdatingLocation];
 }
 - (void)viewDidLoad
 {
