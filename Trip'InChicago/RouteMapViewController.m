@@ -38,7 +38,11 @@
     MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.05, 0.05);
     MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
 
+    self.routeMapViewMap.delegate = self;
+
     self.routeMapViewMap.region = region;
+
+    [self getDirections];
 
 }
 
@@ -55,4 +59,58 @@
     }
 }
 
+-(void)getDirections
+{
+    MKDirectionsRequest *request = [[MKDirectionsRequest alloc]init];
+    request.source = [MKMapItem mapItemForCurrentLocation];
+
+    for (MKMapItem *item in self.routesArray)
+    {
+        MKPlacemark *placemark = [[MKPlacemark alloc]initWithCoordinate:item.placemark.coordinate addressDictionary:nil];
+        MKMapItem   *mapItem   = [[MKMapItem alloc]initWithPlacemark:placemark];
+
+        request.destination = mapItem;
+
+        request.requestsAlternateRoutes = NO;
+
+        MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
+
+        [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error)
+         {
+             if (error)
+             {
+                 NSLog(@"Error");
+             }
+             else
+             {
+                 [self showRoute:response];
+             }
+         }];
+
+    }
+
+}
+
+-(void)showRoute:(MKDirectionsResponse *)response
+{
+
+    for (MKRoute *route in response.routes)
+    {
+        [self.routeMapViewMap addOverlay:route.polyline level:MKOverlayLevelAboveRoads];
+        for (MKRouteStep *step in route.steps)
+        {
+            NSLog(@"%@", step.instructions);
+        }
+    }
+}
+
+
+-(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+{
+    MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc]initWithOverlay:overlay];
+    renderer.strokeColor = [UIColor blueColor];
+    renderer.lineWidth   = 5.0;
+
+    return renderer;
+}
 @end
