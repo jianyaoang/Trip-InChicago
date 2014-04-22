@@ -14,15 +14,6 @@
 
 @implementation LoginViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -37,7 +28,7 @@
     login.fields = PFLogInFieldsUsernameAndPassword|PFLogInFieldsLogInButton|PFLogInFieldsFacebook| PFLogInFieldsSignUpButton;
     login.signUpController.delegate = self;
     login.delegate = self;
-    [self presentViewController:login animated:YES completion:nil];
+    [self presentViewController:login animated:NO completion:nil];
 }
 
 -(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user

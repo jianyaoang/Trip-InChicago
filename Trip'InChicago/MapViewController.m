@@ -70,7 +70,12 @@
 
 -(void)extractVenueJSON
 {
-    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/explore?ll=%f,%f&near=Chicago&section=%@&oauth_token=02ALL4LOCE2LTXXTA4ASHFTYOEAAUIRWOYT2P5S2AHBBBADA&v=20140419", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude, self.foursquareLocationName];
+
+    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/explore?ll=%f,%f&section=%@&oauth_token=02ALL4LOCE2LTXXTA4ASHFTYOEAAUIRWOYT2P5S2AHBBBADA&v=20140419", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude, self.foursquareLocationName];
+
+
+
+//    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/explore?ll=%f,%f&near=Chicago&section=%@&oauth_token=02ALL4LOCE2LTXXTA4ASHFTYOEAAUIRWOYT2P5S2AHBBBADA&v=20140419", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude, self.foursquareLocationName];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
@@ -125,7 +130,7 @@
     float x = ((fabsf(westernBorder)-fabsf(easternBorder)) + 0.005);
     float y = ((fabsf(northernBorder) - fabsf(southernBorder)) + 0.005);
 
-    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(x, y);
+    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.05, 0.05);
     MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
     self.sectionMapView.region = region;
 
