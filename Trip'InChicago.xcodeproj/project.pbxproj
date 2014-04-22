@@ -41,6 +41,7 @@
 		41918A5A18FC9C7200A4616C /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A5918FC9C7200A4616C /* Twitter.framework */; };
 		41918A5C18FC9C7800A4616C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A5B18FC9C7800A4616C /* Social.framework */; };
 		41A136B7190308950058AF39 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A136B6190308950058AF39 /* Location.m */; };
+		41F98E221906B99000B15F9F /* ChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F98E211906B99000B15F9F /* ChoiceViewController.m */; };
 		6F5B4E8618FDF7F100E495BA /* TemperatureChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5B4E8518FDF7F100E495BA /* TemperatureChecker.m */; };
 		6FFC39EE1905E05A00DB2ECC /* RouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */; };
 		D042717219058E3600796C36 /* ConciergeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D042717119058E3600796C36 /* ConciergeViewController.m */; };
@@ -105,6 +106,8 @@
 		41918A5B18FC9C7800A4616C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		41A136B5190308950058AF39 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		41A136B6190308950058AF39 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		41F98E201906B99000B15F9F /* ChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoiceViewController.h; sourceTree = "<group>"; };
+		41F98E211906B99000B15F9F /* ChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoiceViewController.m; sourceTree = "<group>"; };
 		6F5B4E8418FDF7F100E495BA /* TemperatureChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemperatureChecker.h; sourceTree = "<group>"; };
 		6F5B4E8518FDF7F100E495BA /* TemperatureChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemperatureChecker.m; sourceTree = "<group>"; };
 		6FFC39EC1905E05A00DB2ECC /* RouteMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteMapViewController.h; sourceTree = "<group>"; };
@@ -209,26 +212,11 @@
 				41918A1218FC954100A4616C /* AppDelegate.h */,
 				41918A1318FC954100A4616C /* AppDelegate.m */,
 				41918A1518FC954100A4616C /* Main.storyboard */,
-				6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */,
-				6FFC39EC1905E05A00DB2ECC /* RouteMapViewController.h */,
-				D042717319058E7800796C36 /* ListViewController.h */,
-				D042717419058E7800796C36 /* ListViewController.m */,
-				D042717019058E3600796C36 /* ConciergeViewController.h */,
-				D042717119058E3600796C36 /* ConciergeViewController.m */,
-				416909F718FCA0BF007A9A59 /* LoginViewController.h */,
-				416909F818FCA0BF007A9A59 /* LoginViewController.m */,
-				416909F418FC9D64007A9A59 /* NotesTableViewController.h */,
-				416909F518FC9D64007A9A59 /* NotesTableViewController.m */,
-				41918A4018FC984B00A4616C /* PicsAndReviewsViewController.h */,
-				41918A4118FC984B00A4616C /* PicsAndReviewsViewController.m */,
-				41918A3B18FC97AC00A4616C /* MapViewController.h */,
-				41918A3C18FC97AC00A4616C /* MapViewController.m */,
+				41F98E1F1906B8DD00B15F9F /* ViewControllers */,
 				41A136B5190308950058AF39 /* Location.h */,
 				41A136B6190308950058AF39 /* Location.m */,
 				D06FC61618FD82EC0048FEE0 /* MapPoint.h */,
 				D06FC61718FD82EC0048FEE0 /* MapPoint.m */,
-				41918A3818FC96F600A4616C /* SectionViewController.h */,
-				41918A3918FC96F600A4616C /* SectionViewController.m */,
 				6F5B4E8418FDF7F100E495BA /* TemperatureChecker.h */,
 				6F5B4E8518FDF7F100E495BA /* TemperatureChecker.m */,
 				41918A1818FC954100A4616C /* ViewController.h */,
@@ -267,6 +255,31 @@
 				41918A2B18FC954100A4616C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		41F98E1F1906B8DD00B15F9F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				416909F718FCA0BF007A9A59 /* LoginViewController.h */,
+				416909F818FCA0BF007A9A59 /* LoginViewController.m */,
+				41F98E201906B99000B15F9F /* ChoiceViewController.h */,
+				41F98E211906B99000B15F9F /* ChoiceViewController.m */,
+				41918A3818FC96F600A4616C /* SectionViewController.h */,
+				41918A3918FC96F600A4616C /* SectionViewController.m */,
+				41918A3B18FC97AC00A4616C /* MapViewController.h */,
+				41918A3C18FC97AC00A4616C /* MapViewController.m */,
+				41918A4018FC984B00A4616C /* PicsAndReviewsViewController.h */,
+				41918A4118FC984B00A4616C /* PicsAndReviewsViewController.m */,
+				416909F418FC9D64007A9A59 /* NotesTableViewController.h */,
+				416909F518FC9D64007A9A59 /* NotesTableViewController.m */,
+				D042717019058E3600796C36 /* ConciergeViewController.h */,
+				D042717119058E3600796C36 /* ConciergeViewController.m */,
+				D042717319058E7800796C36 /* ListViewController.h */,
+				D042717419058E7800796C36 /* ListViewController.m */,
+				6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */,
+				6FFC39EC1905E05A00DB2ECC /* RouteMapViewController.h */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +392,7 @@
 				41918A3A18FC96F600A4616C /* SectionViewController.m in Sources */,
 				D042717519058E7800796C36 /* ListViewController.m in Sources */,
 				D042717219058E3600796C36 /* ConciergeViewController.m in Sources */,
+				41F98E221906B99000B15F9F /* ChoiceViewController.m in Sources */,
 				41918A1018FC954100A4616C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

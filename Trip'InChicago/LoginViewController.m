@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
-@interface LoginViewController ()
+@interface LoginViewController () <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @end
 
@@ -26,8 +26,40 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
 }
 
-//test commit
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    PFLogInViewController *login = [PFLogInViewController new];
+    login.fields = PFLogInFieldsUsernameAndPassword|PFLogInFieldsLogInButton|PFLogInFieldsFacebook| PFLogInFieldsSignUpButton;
+    login.signUpController.delegate = self;
+    login.delegate = self;
+    [self presentViewController:login animated:YES completion:nil];
+}
+
+-(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self performSegueWithIdentifier:@"showChoiceViewController" sender:user];
+}
+
+-(void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self performSegueWithIdentifier:@"showChoiceViewController" sender:user];
+}
+
+-(void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end
