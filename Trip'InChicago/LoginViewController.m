@@ -21,15 +21,15 @@
     [PFFacebookUtils initializeFacebook];
     
     ChoiceViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ChoiceViewController"];
-    if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])
+    if ([PFUser currentUser] || [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])
     {
         [self.navigationController pushViewController:vc animated:NO];
     }
     
-    if ([PFUser currentUser])
-    {
-        [self.navigationController pushViewController:vc animated:NO];
-    }
+//    if ([PFUser currentUser])
+//    {
+//        [self.navigationController pushViewController:vc animated:NO];
+//    }
 }
 
 -(void)viewDidAppear:(BOOL)animated
