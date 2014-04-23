@@ -280,8 +280,8 @@
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil
                                                        message:@"Are You Sure You Want to Delete?"
                                                       delegate:self
-                                             cancelButtonTitle:@"cancel"
-                                             otherButtonTitles:@"delete", nil];
+                                             cancelButtonTitle:@"Cancel"
+                                             otherButtonTitles:@"Delete", nil];
         [alert show];
     }
 }
