@@ -303,35 +303,35 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil
-                                                       message:@"Are You Sure You Want to Delete?"
-                                                      delegate:self
-                                             cancelButtonTitle:@"Cancel"
-                                             otherButtonTitles:@"Delete", nil];
-        [alert show];
+      //  NSIndexPath *path = [self.myTableView indexPathForSelectedRow];
+        UITableViewCell *cell = [self.myTableView cellForRowAtIndexPath:indexPath];
+            NSMutableArray *places = [[NSMutableArray alloc]initWithArray:intineraryPlaces];
+            [places removeObjectAtIndex:indexPath.row];
+            intineraryPlaces = places;
+            cell.textLabel.textColor = [UIColor blackColor];
+            [self caculateMinimunTime:intineraryPlaces.count];
+            [self calculateDistance:intineraryPlaces];
+            [self.myTableView reloadData];
+
     }
 }
 
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-
-{
-    NSIndexPath *path = [self.myTableView indexPathForSelectedRow];
-    UITableViewCell *cell = [self.myTableView cellForRowAtIndexPath:path];
-    if (buttonIndex == 1)
-    {
-
-
-        NSMutableArray *places = [[NSMutableArray alloc]initWithArray:intineraryPlaces];
-        [places removeObjectAtIndex:path.row];
-
-        //You can copy that array to NSMutableArray and remove objects from it. And finally reassign the values of the NSMutableArray to your NSArray.
-        intineraryPlaces = places; // you can
-        cell.textLabel.textColor = [UIColor blackColor];
-        [self caculateMinimunTime:intineraryPlaces.count];
-        [self calculateDistance:intineraryPlaces];
-        [self.myTableView reloadData];
-    }
-}
+//-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+//
+//{
+//    NSIndexPath *path = [self.myTableView indexPathForSelectedRow];
+//    UITableViewCell *cell = [self.myTableView cellForRowAtIndexPath:path];
+//    if (buttonIndex == 1)
+//    {
+//        NSMutableArray *places = [[NSMutableArray alloc]initWithArray:intineraryPlaces];
+//        [places removeObjectAtIndex:path.row];
+//        intineraryPlaces = places;
+//        cell.textLabel.textColor = [UIColor blackColor];
+//        [self caculateMinimunTime:intineraryPlaces.count];
+//        [self calculateDistance:intineraryPlaces];
+//        [self.myTableView reloadData];
+//    }
+//}
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return @"Delete";
