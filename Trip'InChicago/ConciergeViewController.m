@@ -105,6 +105,7 @@
     if (self.typesSegmentedControl.selectedSegmentIndex == 0)
     {
         self.sectionString = self.indoorString;
+        
     }
     else if (self.typesSegmentedControl.selectedSegmentIndex == 1)
     {
