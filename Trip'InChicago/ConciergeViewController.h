@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ConciergeViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UITableView *myTableView;
+@property NSString *sectionString;
+
 
 @end
