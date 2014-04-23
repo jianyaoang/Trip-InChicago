@@ -45,6 +45,33 @@
     [self getDirections];
 
 }
+//Marion put this method in on 4/24/14 pm
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+
+    if ((oldLocation.coordinate.longitude != newLocation.coordinate.longitude)
+        || (oldLocation.coordinate.latitude != newLocation.coordinate.latitude)) {
+
+        CLLocationCoordinate2D coord = {
+            .latitude = newLocation.coordinate.latitude,
+            .longitude = newLocation.coordinate.longitude};
+
+        MKCoordinateRegion region;
+        region.center = coord;
+
+        MKCoordinateSpan span = {.latitudeDelta = 0.2, .longitudeDelta = 0.2};
+        region.span = span;
+
+        [self.routeMapViewMap setRegion:region];
+//
+//        PlaceMark *placeMark = [[PlaceMark alloc]
+//                                initWithCoordinate:coord
+//                                andMarkTitle:@"Your first"
+//                                andMarkSubTitle:@"placemark"];
+//
+//        [myMapView addAnnotation:placeMark];
+    }
+}
 
 -(void)createItenAnnotations
 {

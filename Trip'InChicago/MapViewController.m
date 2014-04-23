@@ -37,6 +37,7 @@
     self.didUpdatePins = NO;
     self.currentLocation = self.locationManager.location;
     [self.locationManager startUpdatingLocation];
+
 }
 - (void)viewDidLoad
 {
@@ -57,16 +58,20 @@
     venueMutableArray = [NSMutableArray new];
     locationMutableArray = [NSMutableArray new];
     locationDetailsArray = [NSMutableArray new];
-    [self extractVenueJSON];
-
 
 
 }
+
+
 #pragma mark - mapdelegate method
-//- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
-//{
-//
-//}
+//this method gets the users location
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    [self extractVenueJSON];
+    [self.locationManager stopUpdatingLocation];
+
+
+}
 
 -(void)extractVenueJSON
 {
@@ -87,7 +92,10 @@
         NSArray *items = groupsArrayDictionary[@"items"];
         
         [locationNameMutableArray removeAllObjects];
-        
+    //CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
+         //self.currentLocation = self.locationManager.location;
+
+//this is not being triggered the first time
         for (NSDictionary *venueAndTips in items)
         {
             NSDictionary *venueDictionary = venueAndTips[@"venue"];
@@ -127,10 +135,10 @@
     CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
 
 //setting the width and the height of mapwindow
-    float x = ((fabsf(westernBorder)-fabsf(easternBorder)) + 0.005);
-    float y = ((fabsf(northernBorder) - fabsf(southernBorder)) + 0.005);
+    float x = fabsf(((fabsf(westernBorder)-fabsf(easternBorder)) + 0.005));
+    float y = fabsf(((fabsf(northernBorder) - fabsf(southernBorder)) + 0.005));
 
-    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.05, 0.05);
+    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(x, y);
     MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
     self.sectionMapView.region = region;
 
