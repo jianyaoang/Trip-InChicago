@@ -26,6 +26,7 @@
 @property NSString *indoorString;
 @property NSString *mixString;
 @property CLLocationManager *locationManager;
+@property CLLocation *currentLocation;
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *typesSegmentedControl;
 @end
@@ -47,9 +48,24 @@
 
     self.typesSegmentedControl.selectedSegmentIndex=-1;
 
-    self.indoorString = @"theater";//food,shop,arts
-    self.mixString = @"coffee,food,sights,shop,outdoors,parks";
-    self.outdoorString = @"outdoors,parks";
+    // Arts & Entertainment 4d4b7104d754a06370d81259, Food 4d4b7105d754a06374d81259, Shop & Service 4d4b7105d754a06378d81259,
+    // Cultural Center Cultural Center 52e81612bcbc57f1066b7a32
+    self.indoorString = @"4d4b7104d754a06370d81259,4d4b7105d754a06374d81259,4d4b7105d754a06378d81259,52e81612bcbc57f1066b7a32";
+
+
+    // *Nightlife Spot 4d4b7105d754a06376d81259 & both indoor and outdoor categories
+    self.mixString    = @"4d4b7104d754a06370d81259,4d4b7105d754a06374d81259,4d4b7105d754a06378d81259,52e81612bcbc57f1066b7a32,4d4b7105d754a06376d81259,4d4b7105d754a06377d81259,4bf58dd8d48988d12d941735,4d4b7105d754a06373d81259,5267e4d9e4b0ec79466e48c7,5267e4d9e4b0ec79466e48d1,5267e4d9e4b0ec79466e48c8,52741d85e4b0d5d1e3c6a6d9,5267e4d8e4b0ec79466e48c5";
+
+    /*  Outdoors & Recreation 4d4b7105d754a06377d81259,
+        Monument/Landmark 4bf58dd8d48988d12d941735,
+     *  Event 				 4d4b7105d754a06373d81259
+     *	Festival 			 5267e4d9e4b0ec79466e48c7
+     *	Music Festival		 5267e4d9e4b0ec79466e48d1
+     *	Other Event 		 5267e4d9e4b0ec79466e48c8
+     *	Parade				 52741d85e4b0d5d1e3c6a6d9
+     *	Street Fair			 5267e4d8e4b0ec79466e48c5
+     */
+    self.outdoorString = @"4d4b7105d754a06377d81259,4bf58dd8d48988d12d941735,4d4b7105d754a06373d81259,5267e4d9e4b0ec79466e48c7,5267e4d9e4b0ec79466e48d1,5267e4d9e4b0ec79466e48c8,52741d85e4b0d5d1e3c6a6d9,5267e4d8e4b0ec79466e48c5";
 
 
     self.locationManager = [CLLocationManager new];
@@ -82,25 +98,32 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
 
-    for (CLLocation *location in locations){
+    for (CLLocation *location in locations)
+    {
         if (location.verticalAccuracy < 1000 && location.horizontalAccuracy < 1000){
-            [self startReverseGeocode:location];
+
+            self.currentLocation = location;
+
+//            [self startReverseGeocode];
             [self.locationManager stopUpdatingLocation];
             break;
         }
     }
 }
 
--(void) startReverseGeocode: (CLLocation *) location{
+-(void) startReverseGeocode {
+
+    if (self.typesSegmentedControl.selectedSegmentIndex  < -1 || self.typesSegmentedControl.selectedSegmentIndex > 3)
+        return;
 
     CLGeocoder *geocoder = [CLGeocoder new];
-    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+    [geocoder reverseGeocodeLocation:self.currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
     [self narrowDownPlaces:placemarks.firstObject];
 
     }];
 }
 
-- (IBAction)onSegmentButtonPressed:(id)sender
+- (IBAction)onSegmentButtonPressed:(UISegmentedControl*)sender // was id before the UISegmentedControl
 {
     if (self.typesSegmentedControl.selectedSegmentIndex == 0)
     {
@@ -114,6 +137,8 @@
     {
         self.sectionString = self.outdoorString;
     }
+
+    [self startReverseGeocode];
 }
 
 #pragma mark -- table view delegate methods
@@ -177,36 +202,37 @@
 -(void) narrowDownPlaces: (CLPlacemark*)placemark
 {
 
-    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/explore?ll=%f,%f&section=%@&oauth_token=02ALL4LOCE2LTXXTA4ASHFTYOEAAUIRWOYT2P5S2AHBBBADA&v=20140419", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude, self.sectionString];
-
-    //    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/explore?ll=%f,%f&near=Chicago&section=%@&oauth_token=02ALL4LOCE2LTXXTA4ASHFTYOEAAUIRWOYT2P5S2AHBBBADA&v=20140419", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude, self.sectionString];
+    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%f,%f&radius=2500&intent=browse&categoryId=%@&oauth_token=02ALL4LOCE2LTXXTA4ASHFTYOEAAUIRWOYT2P5S2AHBBBADA&v=20140419", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude, self.sectionString];
 
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSDictionary *firstLayer = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
+
         NSDictionary *responseDictionary = firstLayer[@"response"];
-        NSArray *groupsArray = responseDictionary[@"groups"];
-        NSDictionary *groupsArrayDictionary = groupsArray.firstObject;
-        NSArray *items = groupsArrayDictionary[@"items"];
+        NSArray *groupsArray = responseDictionary[@"venues"];
+
+//        NSDictionary *groupsArrayDictionary = groupsArray.firstObject;
+//        NSArray *items = groupsArrayDictionary[@"categories"];
+
         sortArray = [NSMutableArray new];
 
         [sortArray removeAllObjects];
 
-        for (NSDictionary *venueAndTips in items)
+        for (NSDictionary *places in groupsArray)
         {
-            NSDictionary *venueDictionary = venueAndTips[@"venue"];
+//            NSDictionary *venueDictionary = venueAndTips[@"venues"];
 
 
             Location* location = [Location new];
 
-            location.lat = [venueDictionary[@"location"][@"lat"]floatValue];
-            location.lng =  [venueDictionary[@"location"][@"lng"]floatValue];
-            location.address = venueDictionary[@"location"][@"address"];
-            location.name = venueDictionary[@"name"];
+            location.lat = [places[@"location"][@"lat"]floatValue];
+            location.lng =  [places[@"location"][@"lng"]floatValue];
+            location.address = places[@"location"][@"address"];
+            location.name = places[@"name"];
 
-            location.phoneNumber = venueDictionary[@"contact"][@"formattedPhone"];
+            location.phoneNumber = places[@"contact"][@"formattedPhone"];
 
             CLLocationCoordinate2D placeCoordinate = CLLocationCoordinate2DMake(location.lat, location.lng);
             MKPlacemark *placemark = [[MKPlacemark alloc]initWithCoordinate:placeCoordinate addressDictionary:nil];
@@ -238,9 +264,9 @@
         }];
 
         NSRange numberOfAvailablePlaces;
-        if (mapItems.count >= 6)
+        if (mapItems.count >= 10)
         {
-            numberOfAvailablePlaces = NSMakeRange(0, 6);
+            numberOfAvailablePlaces = NSMakeRange(0, 10);
             mapItems = [mapItems subarrayWithRange:numberOfAvailablePlaces];
         }
         else

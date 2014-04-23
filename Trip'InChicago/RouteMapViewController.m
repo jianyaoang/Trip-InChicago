@@ -119,6 +119,13 @@
          {
              if (error)
              {
+                 UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Data Connection Error"
+                                                              message:@"Unable to retrieve direction data, try again later!"
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles: nil];
+                 [av show];
+
                  NSLog(@"E:%@", error);
              }
              else

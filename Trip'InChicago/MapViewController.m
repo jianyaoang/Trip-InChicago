@@ -85,6 +85,21 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+
+
+        if (connectionError != nil)
+        {
+            UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"Data Connection Error"
+                                                        message:@"No data connection try again later"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+
+            [av show];
+        }
+        else
+        {
+
         NSDictionary *firstLayer = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
         NSDictionary *responseDictionary = firstLayer[@"response"];
         NSArray *groupsArray = responseDictionary[@"groups"];
@@ -118,7 +133,9 @@
            // NSLog(@"location.tips : %@", location.tips);
         }
         [self placingPinsOnLocations];
+        }
     }];
+
 }
 
 -(void)placingPinsOnLocations
