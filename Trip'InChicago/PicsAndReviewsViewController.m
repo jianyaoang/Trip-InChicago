@@ -38,7 +38,7 @@
 
 -(void)extractFlickrJSON
 {
-    NSString *urlString = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=7ce03f98cbe66eefe8451cff602f08ec&tags=%@&per_page=10&accuracy=16&content_type=1&format=json&nojsoncallback=1",self.location.name];
+    NSString *urlString = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=7ce03f98cbe66eefe8451cff602f08ec&tags=%@&per_page=10&accuracy=16&content_type=1&safe_search=1&sort=relevance&format=json&nojsoncallback=1",self.location.name];
     urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -72,14 +72,16 @@
         [imageScrollView addSubview:imageView];
         
         imageView.frame = CGRectMake(width, 0, self.view.frame.size.width, self.view.frame.size.height);
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
 //        imageView.contentMode = UIViewContentModeScaleAspectFit;
+//        imageView.contentMode = UIViewContentModeCenter;
+//        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.contentMode = UIViewContentModeScaleToFill;
         width += imageView.frame.size.width;
+//        [imageView sizeToFit];
     }
-    [imageScrollView setContentMode:UIViewContentModeScaleAspectFill];
-    [imageView sizeToFit];
+    [imageScrollView setContentMode:UIViewContentModeScaleAspectFit];
+//    [imageView sizeToFit];
     imageScrollView.contentSize = CGSizeMake(width, imageScrollView.frame.size.height);
-
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
