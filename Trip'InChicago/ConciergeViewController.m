@@ -36,8 +36,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (self)
+    {
     }
     return self;
 }
@@ -85,15 +85,12 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //[self searchIndoorMixOutdoor];
     [self.myTableView reloadData];
 }
-
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
@@ -101,25 +98,21 @@
     for (CLLocation *location in locations)
     {
         if (location.verticalAccuracy < 1000 && location.horizontalAccuracy < 1000){
-
             self.currentLocation = location;
-
-//            [self startReverseGeocode];
+            //[self startReverseGeocode];
             [self.locationManager stopUpdatingLocation];
             break;
         }
     }
 }
 
--(void) startReverseGeocode {
-
+-(void) startReverseGeocode
+{
     if (self.typesSegmentedControl.selectedSegmentIndex  < -1 || self.typesSegmentedControl.selectedSegmentIndex > 3)
         return;
-
     CLGeocoder *geocoder = [CLGeocoder new];
     [geocoder reverseGeocodeLocation:self.currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
     [self narrowDownPlaces:placemarks.firstObject];
-
     }];
 }
 
@@ -128,7 +121,6 @@
     if (self.typesSegmentedControl.selectedSegmentIndex == 0)
     {
         self.sectionString = self.indoorString;
-        
     }
     else if (self.typesSegmentedControl.selectedSegmentIndex == 1)
     {
@@ -138,7 +130,6 @@
     {
         self.sectionString = self.outdoorString;
     }
-
     [self startReverseGeocode];
 }
 
@@ -150,29 +141,31 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReuseCellID"];
     MKMapItem *place = intineraryPlaces[indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ , %@", place.name, place.phoneNumber];
     int distance = roundf([place.placemark.location distanceFromLocation:self.locationManager.location]);
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Crow's Distance: %i meters", distance];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Crow's distance from you: %f miles", (distance/1609.34)];
     return cell;
 }
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
     NSString* string;
-    if ((int)round(timeforIntinerary) == 28000) {
-        string = @"Estimated time is: Calculating";
+    if ((int)round(timeforIntinerary) == 28000)
+    {
+        string = @"Itinerary Time: Calculating";
     }
-    else{
-        string = [NSString stringWithFormat:@"Estimated time is: %d minutes", ((int)round(timeforIntinerary)/60)];
+    else
+    {
+        string = [NSString stringWithFormat:@"Time (Walking & 90mins/place): %d hrs", ((int)round(timeforIntinerary)/3600)];
     }
     return string;
 }
 
 #pragma mark - Helper Methods
--(void) calculateDistance:(NSArray *) nextDestinaton{
+-(void) calculateDistance:(NSArray *) nextDestinaton
+{
 
     MKDirectionsRequest* request = [MKDirectionsRequest new];
     request.transportType = MKDirectionsTransportTypeWalking;
@@ -214,17 +207,12 @@
         NSDictionary *responseDictionary = firstLayer[@"response"];
         NSArray *groupsArray = responseDictionary[@"venues"];
 
-//        NSDictionary *groupsArrayDictionary = groupsArray.firstObject;
-//        NSArray *items = groupsArrayDictionary[@"categories"];
-
         sortArray = [NSMutableArray new];
 
         [sortArray removeAllObjects];
 
         for (NSDictionary *places in groupsArray)
         {
-//            NSDictionary *venueDictionary = venueAndTips[@"venues"];
-
 
             Location* location = [Location new];
 
@@ -263,7 +251,6 @@
             }
 
         }];
-
         NSRange numberOfAvailablePlaces;
         if (mapItems.count >= 10)
         {
@@ -278,22 +265,8 @@
 
         intineraryPlaces = mapItems; //15 we get back items
         [self caculateMinimunTime:intineraryPlaces.count];
-
-
-        NSLog(@"%@", intineraryPlaces);
+        //NSLog(@"%@", intineraryPlaces);
         [self calculateDistance:mapItems];
-        //everything in the array goes in as an id object
-        for (MKMapItem *place in intineraryPlaces)
-        {
-            //        //create a new annotation object
-            //        //CLLocationCoordinate2D centerCoordinate = CLLocationCoordinate2DMake(latitude,longitude);
-            MKPointAnnotation *annotation = [MKPointAnnotation new];
-            annotation.coordinate = place.placemark.location.coordinate;
-            //        //make an array of annotations
-            //        [myView addAnnotation:annotation];
-
-        }
-        //[myView reloadInputViews];
         [self.myTableView reloadData];
     }];
 }
@@ -303,35 +276,18 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-      //  NSIndexPath *path = [self.myTableView indexPathForSelectedRow];
         UITableViewCell *cell = [self.myTableView cellForRowAtIndexPath:indexPath];
-            NSMutableArray *places = [[NSMutableArray alloc]initWithArray:intineraryPlaces];
-            [places removeObjectAtIndex:indexPath.row];
-            intineraryPlaces = places;
-            cell.textLabel.textColor = [UIColor blackColor];
-            [self caculateMinimunTime:intineraryPlaces.count];
-            [self calculateDistance:intineraryPlaces];
-            [self.myTableView reloadData];
+        NSMutableArray *places = [[NSMutableArray alloc]initWithArray:intineraryPlaces];
+        [places removeObjectAtIndex:indexPath.row];
+        intineraryPlaces = places;
+        cell.textLabel.textColor = [UIColor blackColor];
+        [self caculateMinimunTime:intineraryPlaces.count];
+        [self calculateDistance:intineraryPlaces];
+        [self.myTableView reloadData];
 
     }
 }
 
-//-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-//
-//{
-//    NSIndexPath *path = [self.myTableView indexPathForSelectedRow];
-//    UITableViewCell *cell = [self.myTableView cellForRowAtIndexPath:path];
-//    if (buttonIndex == 1)
-//    {
-//        NSMutableArray *places = [[NSMutableArray alloc]initWithArray:intineraryPlaces];
-//        [places removeObjectAtIndex:path.row];
-//        intineraryPlaces = places;
-//        cell.textLabel.textColor = [UIColor blackColor];
-//        [self caculateMinimunTime:intineraryPlaces.count];
-//        [self calculateDistance:intineraryPlaces];
-//        [self.myTableView reloadData];
-//    }
-//}
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return @"Delete";
