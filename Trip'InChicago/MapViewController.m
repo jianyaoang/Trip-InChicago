@@ -70,7 +70,22 @@
     [self extractVenueJSON];
     [self.locationManager stopUpdatingLocation];
 
+}
 
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+
+}
+
+- (void)startSignificantChangeUpdates
+{
+    // Create the location manager if this object does not
+    // already have one.
+    if (nil == self.locationManager)
+        self.locationManager = [[CLLocationManager alloc] init];
+
+    self.locationManager.delegate = self;
+    [self.locationManager startMonitoringSignificantLocationChanges];
 }
 
 -(void)extractVenueJSON

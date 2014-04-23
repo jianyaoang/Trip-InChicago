@@ -128,6 +128,7 @@
     if (self.typesSegmentedControl.selectedSegmentIndex == 0)
     {
         self.sectionString = self.indoorString;
+        
     }
     else if (self.typesSegmentedControl.selectedSegmentIndex == 1)
     {
@@ -305,8 +306,8 @@
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil
                                                        message:@"Are You Sure You Want to Delete?"
                                                       delegate:self
-                                             cancelButtonTitle:@"cancel"
-                                             otherButtonTitles:@"delete", nil];
+                                             cancelButtonTitle:@"Cancel"
+                                             otherButtonTitles:@"Delete", nil];
         [alert show];
     }
 }
