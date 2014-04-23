@@ -37,14 +37,15 @@
 
 -(void)extractFlickrJSON
 {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+
     NSString *urlString = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=7ce03f98cbe66eefe8451cff602f08ec&tags=%@&per_page=10&accuracy=16&content_type=1&safe_search=1&sort=relevance&format=json&nojsoncallback=1",self.location.name];
     urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-        
+
         NSDictionary *firstFLickrLayer = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
         NSDictionary *photos = firstFLickrLayer[@"photos"];
         NSArray *photo = photos[@"photo"];
@@ -57,9 +58,10 @@
             
             [imageArray addObject:imageData];
         }
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         [self imageInScrollView];
     }];
+
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 -(void)imageInScrollView
@@ -123,69 +125,5 @@
     [cell.textLabel sizeToFit];
     return cell;
 }
-
-//-(void)extractReviewJSON
-//{
-//    NSString *urlString = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/details/json?reference=%@&sensor=true&key=AIzaSyDpJ3qwqVyq08eqvrq5x7_SyPD405ZeWLc",self.location.name];
-//    NSURL *url = [NSURL URLWithString:urlString];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    
-//    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
-//    {
-//        NSDictionary *firstDictionaryLayer = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
-//        NSDictionary *resultsDictionary = firstDictionaryLayer[@"result"];
-//        reviewArray = resultsDictionary[@"reviews"];
-//        
-//        //remember key value coding, especially if we wannt to extract only one key from dict. Code below = for loop below.
-//        reviewsText = [reviewArray valueForKey:@"text"];
-//        
-//        
-////        [reviewsText removeAllObjects];
-////        
-////        for (NSDictionary *reviews in reviewArray)
-////        {
-////            [reviewsText addObject:reviews[@"text"]];
-////            NSLog(@"(%i)reviewsText:%@",reviewsText.count, reviewsText);
-////        }
-//        [reviewsTableView reloadData];
-//    }];
-//}
-//
-//-(void)extractTipsJSON
-//{
-//    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/explore?ll=41.8819,-87.6278&near=Chicago&section=%@&oauth_token=02ALL4LOCE2LTXXTA4ASHFTYOEAAUIRWOYT2P5S2AHBBBADA&v=20140419", self.location.name];
-//    NSURL *url = [NSURL URLWithString:urlString];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    
-//    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-//        
-//        NSDictionary *firstLayer = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
-//        NSDictionary *responseDictionary = firstLayer[@"response"];
-//        NSArray *groups = responseDictionary[@"groups"];
-//        NSDictionary *groupsArrayDictionary = groups.firstObject;
-//        NSArray *items = groupsArrayDictionary[@"items"];
-//        
-//        for (NSDictionary *extractingTipsArray in items)
-//        {
-//            NSArray *tips = extractingTipsArray[@"tips"];
-//            
-//            [reviewsText removeAllObjects];
-//            for (NSDictionary *tipsText in tips)
-//            {
-//                Location *location = [Location new];
-//                location.tips = tipsText[@"text"];
-//                [reviewsText addObject:location];
-//                NSLog(@"(%i) reviewsText: %@", reviewsText.count, reviewsText);
-//            }
-//        }
-//        [reviewsTableView reloadData];
-//    
-//    }];
-//}
-
-//-(void)assigningTipsToReviewsArray
-//{
-//    [reviewsText addObject:self.location.tips];
-//}
 
 @end

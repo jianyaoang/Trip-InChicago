@@ -153,7 +153,20 @@
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReuseCellID"];
     MKMapItem *place = intineraryPlaces[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ , %@", place.name, place.phoneNumber];
+
+    // removing the "," (comma) if there is nothing in place.phoneNumber
+    NSString *myComma = [NSString new];
+    
+    if ([place.phoneNumber isEqualToString:@""])
+    {
+        myComma = @"";
+    }
+    else
+    {
+        myComma = @",";
+    }
+
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@ %@", place.name, myComma, place.phoneNumber];
     int distance = roundf([place.placemark.location distanceFromLocation:self.locationManager.location]);
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Crow's Distance: %i meters", distance];
     return cell;
@@ -208,14 +221,14 @@
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
+    // set spinner to on
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSDictionary *firstLayer = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
 
         NSDictionary *responseDictionary = firstLayer[@"response"];
         NSArray *groupsArray = responseDictionary[@"venues"];
-
-//        NSDictionary *groupsArrayDictionary = groupsArray.firstObject;
-//        NSArray *items = groupsArrayDictionary[@"categories"];
 
         sortArray = [NSMutableArray new];
 
@@ -223,8 +236,6 @@
 
         for (NSDictionary *places in groupsArray)
         {
-//            NSDictionary *venueDictionary = venueAndTips[@"venues"];
-
 
             Location* location = [Location new];
 
@@ -233,7 +244,15 @@
             location.address = places[@"location"][@"address"];
             location.name = places[@"name"];
 
-            location.phoneNumber = places[@"contact"][@"formattedPhone"];
+            if (places[@"contact"][@"formattedPhone"] == nil)
+            {
+                location.phoneNumber = @"";
+                NSLog(@"Empty This Number");
+            }
+            else
+            {
+                location.phoneNumber = places[@"contact"][@"formattedPhone"];
+            }
 
             CLLocationCoordinate2D placeCoordinate = CLLocationCoordinate2DMake(location.lat, location.lng);
             MKPlacemark *placemark = [[MKPlacemark alloc]initWithCoordinate:placeCoordinate addressDictionary:nil];
@@ -276,26 +295,25 @@
             mapItems = [mapItems subarrayWithRange:numberOfAvailablePlaces];
         }
 
-        intineraryPlaces = mapItems; //15 we get back items
+        intineraryPlaces = mapItems; //10 we get back items
         [self caculateMinimunTime:intineraryPlaces.count];
 
 
-        NSLog(@"%@", intineraryPlaces);
+       //  NSLog(@"%@", intineraryPlaces);
         [self calculateDistance:mapItems];
         //everything in the array goes in as an id object
         for (MKMapItem *place in intineraryPlaces)
         {
             //        //create a new annotation object
-            //        //CLLocationCoordinate2D centerCoordinate = CLLocationCoordinate2DMake(latitude,longitude);
             MKPointAnnotation *annotation = [MKPointAnnotation new];
             annotation.coordinate = place.placemark.location.coordinate;
-            //        //make an array of annotations
-            //        [myView addAnnotation:annotation];
 
         }
         //[myView reloadInputViews];
         [self.myTableView reloadData];
     }];
+
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 
@@ -303,35 +321,18 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-      //  NSIndexPath *path = [self.myTableView indexPathForSelectedRow];
         UITableViewCell *cell = [self.myTableView cellForRowAtIndexPath:indexPath];
-            NSMutableArray *places = [[NSMutableArray alloc]initWithArray:intineraryPlaces];
-            [places removeObjectAtIndex:indexPath.row];
-            intineraryPlaces = places;
-            cell.textLabel.textColor = [UIColor blackColor];
-            [self caculateMinimunTime:intineraryPlaces.count];
-            [self calculateDistance:intineraryPlaces];
-            [self.myTableView reloadData];
+        NSMutableArray *places = [[NSMutableArray alloc]initWithArray:intineraryPlaces];
+        [places removeObjectAtIndex:indexPath.row];
+        intineraryPlaces = places;
+        cell.textLabel.textColor = [UIColor blackColor];
+        [self caculateMinimunTime:intineraryPlaces.count];
+        [self calculateDistance:intineraryPlaces];
+        [self.myTableView reloadData];
 
     }
 }
 
-//-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-//
-//{
-//    NSIndexPath *path = [self.myTableView indexPathForSelectedRow];
-//    UITableViewCell *cell = [self.myTableView cellForRowAtIndexPath:path];
-//    if (buttonIndex == 1)
-//    {
-//        NSMutableArray *places = [[NSMutableArray alloc]initWithArray:intineraryPlaces];
-//        [places removeObjectAtIndex:path.row];
-//        intineraryPlaces = places;
-//        cell.textLabel.textColor = [UIColor blackColor];
-//        [self caculateMinimunTime:intineraryPlaces.count];
-//        [self calculateDistance:intineraryPlaces];
-//        [self.myTableView reloadData];
-//    }
-//}
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return @"Delete";
@@ -345,17 +346,5 @@
         vc.routesArray = intineraryPlaces;
     }
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
