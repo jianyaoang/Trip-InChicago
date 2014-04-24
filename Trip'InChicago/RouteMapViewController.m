@@ -205,8 +205,12 @@
 - (IBAction)onInfoButtonPressed:(id)sender
 {
     self.infoView.hidden = NO;
+    //self.infoView.backgroundColor = [UIColor blackColor];
     self.infoTextView.hidden = NO;
-    self.infoView.alpha = 0.7;
+    self.infoTextView.backgroundColor = [UIColor blackColor];
+    self.infoTextView.alpha = 0.8;
+    self.infoTextView.textColor = [UIColor whiteColor];
+    self.infoView.alpha = 0.5;
     
 }
 
