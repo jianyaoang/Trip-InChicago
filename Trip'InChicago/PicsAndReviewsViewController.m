@@ -7,6 +7,7 @@
 //
 
 #import "PicsAndReviewsViewController.h"
+#import "NotesViewController.h"
 
 @interface PicsAndReviewsViewController () <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
 {
@@ -124,6 +125,15 @@
     cell.textLabel.numberOfLines = 0;
     [cell.textLabel sizeToFit];
     return cell;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton*)sender
+{
+    if ([segue.identifier isEqualToString:@"showNotesView"])
+    {
+        NotesViewController *vc = segue.destinationViewController;
+        vc.location = self.location;
+    }
 }
 
 @end

@@ -25,6 +25,8 @@
     self.notesMutableArray = [NSMutableArray new];
     
     PFQuery *queryNotes = [PFQuery queryWithClassName:@"Notes"];
+//    [queryNotes whereKey:@"location" containsString:self.location.name];
+    [queryNotes whereKey:@"location" equalTo:self.location.name];
     [queryNotes findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error)
         {
@@ -49,7 +51,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NotesCellID"];
     
     PFObject *comment = self.notesMutableArray[indexPath.row];
-    cell.textLabel.text = [comment objectForKey:@"notes"];
+//    cell.textLabel.text = [comment objectForKey:@"notes"];
+    [cell.textLabel setText:[comment objectForKey:@"notes"]];
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.font = [UIFont systemFontOfSize:19];
     return cell;
@@ -73,6 +76,8 @@
 {
     PFObject *comment = [PFObject objectWithClassName:@"Notes"];
     comment[@"notes"] = self.notesTextView.text;
+//    comment[@"location"] = self.location.name;
+    [comment setObject:self.location.name forKey:@"location"];
     [self.notesTextView resignFirstResponder];
     self.notesTextView.text = @"";
     
