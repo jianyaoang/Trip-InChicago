@@ -58,10 +58,7 @@
     venueMutableArray = [NSMutableArray new];
     locationMutableArray = [NSMutableArray new];
     locationDetailsArray = [NSMutableArray new];
-
-
 }
-
 
 #pragma mark - mapdelegate method
 //this method gets the users location
@@ -74,6 +71,14 @@
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Data Connection Error"
+                                                 message:@"Unable to retrieve direction data, try again later!"
+                                                delegate:nil
+                                       cancelButtonTitle:@"OK"
+                                       otherButtonTitles: nil];
+    [av show];
+
+    NSLog(@"E:%@", error);
 
 }
 

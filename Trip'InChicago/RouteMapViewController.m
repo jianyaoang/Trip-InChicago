@@ -44,14 +44,15 @@
     [self getDirections];
 
 }
-//Marion put this method in on 4/24/14 pm
+
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
 
     if ((oldLocation.coordinate.longitude != newLocation.coordinate.longitude)
-        || (oldLocation.coordinate.latitude != newLocation.coordinate.latitude)) {
+        || (oldLocation.coordinate.latitude != newLocation.coordinate.latitude))
+    {
 
-        CLLocationCoordinate2D coord = {
+        CLLocationCoordinate2D coord ={
             .latitude = newLocation.coordinate.latitude,
             .longitude = newLocation.coordinate.longitude};
 
@@ -62,14 +63,18 @@
         region.span = span;
 
         [self.routeMapViewMap setRegion:region];
-//
-//        PlaceMark *placeMark = [[PlaceMark alloc]
-//                                initWithCoordinate:coord
-//                                andMarkTitle:@"Your first"
-//                                andMarkSubTitle:@"placemark"];
-//
-//        [myMapView addAnnotation:placeMark];
     }
+}
+
+- (void)startSignificantChangeUpdates
+{
+    // Create the location manager if this object does not
+    // already have one.
+    if (nil == self.locationManager)
+        self.locationManager = [[CLLocationManager alloc] init];
+
+    self.locationManager.delegate = self;
+    [self.locationManager startMonitoringSignificantLocationChanges];
 }
 
 -(void)createItenAnnotations
@@ -138,10 +143,10 @@
 
 -(void)showRoute:(MKDirectionsResponse *)response
 {
-
     for (MKRoute *route in response.routes)
     {
         [self.routeMapViewMap addOverlay:route.polyline level:MKOverlayLevelAboveRoads];
+
         for (MKRouteStep *step in route.steps)
         {
             NSLog(@"%@", step.instructions);
@@ -149,13 +154,11 @@
     }
 }
 
-
 -(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
 {
     MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc]initWithOverlay:overlay];
     renderer.strokeColor = [UIColor blueColor];
     renderer.lineWidth   = 5.0;
-
     return renderer;
 }
 @end
