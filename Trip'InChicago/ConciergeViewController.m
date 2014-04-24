@@ -160,14 +160,20 @@
 
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@ %@", place.name, myComma, place.phoneNumber];
     int distance = roundf([place.placemark.location distanceFromLocation:self.locationManager.location]);
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Crow's distance from you: %f miles", (distance/1609.34)];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Crow's distance from you: %2.2f miles", (distance/1609.34)];
     return cell;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSString* string;
-    if ((int)round(timeforIntinerary) == 28000)
+      NSString* string;
+    if (self.typesSegmentedControl.selectedSegmentIndex == -1)
+    {
+        [self.myTableView.tableHeaderView setHidden:YES];
+        string = @"";
+
+    }
+    else if ((int)round(timeforIntinerary) == 28000)
     {
         string = @"Itinerary Time: Calculating";
     }

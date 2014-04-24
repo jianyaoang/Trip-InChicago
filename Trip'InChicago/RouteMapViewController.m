@@ -70,6 +70,19 @@
     }
 }
 
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Data Connection Error"
+                                                 message:@"Unable to retrieve direction data, try again later!"
+                                                delegate:nil
+                                       cancelButtonTitle:@"OK"
+                                       otherButtonTitles: nil];
+    [av show];
+
+    NSLog(@"E:%@", error);
+    
+}
+
 - (void)startSignificantChangeUpdates
 {
     // Create the location manager if this object does not
