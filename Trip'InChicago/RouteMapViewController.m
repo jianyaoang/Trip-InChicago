@@ -9,7 +9,9 @@
 #import "RouteMapViewController.h"
 
 @interface RouteMapViewController ()
-
+{
+    bool whatColor;
+}
 @end
 
 @implementation RouteMapViewController
@@ -32,6 +34,8 @@
     self.currentLocation = self.locationManager.location;
     self.annotationView = [[MKAnnotationView alloc]init];
     [self createItenAnnotations];
+
+    whatColor = YES;
 
     CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
     MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.02, 0.02);
@@ -58,7 +62,7 @@
         MKCoordinateRegion region;
         region.center = coord;
 
-        MKCoordinateSpan span = {.latitudeDelta = 0.2, .longitudeDelta = 0.2};
+        MKCoordinateSpan span = {.latitudeDelta = 0.5, .longitudeDelta = 0.5};
         region.span = span;
 
         [self.routeMapViewMap setRegion:region];
@@ -147,7 +151,20 @@
 -(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
 {
     MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc]initWithOverlay:overlay];
-    renderer.strokeColor = [UIColor blueColor];
+
+    if (whatColor)
+    {
+        renderer.strokeColor = [UIColor blueColor];
+        whatColor = NO;
+        NSLog(@"Blue");
+    }
+    else
+    {
+        renderer.strokeColor = [UIColor greenColor];
+        whatColor = YES;
+        NSLog(@"Green");
+
+    }
     renderer.lineWidth   = 5.0;
 
     return renderer;
