@@ -309,12 +309,6 @@
                                     <segue destination="cGl-79-w7x" kind="push" identifier="showNotesView" id="lOU-lw-m8m"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="10" translatesAutoresizingMaskIntoConstraints="NO" id="AXp-DP-ev9">
-                                <rect key="frame" x="0.0" y="306" width="306" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="pageIndicatorTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </pageControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wdz-k5-gia">
                                 <rect key="frame" x="0.0" y="63" width="320" height="240"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -341,6 +335,12 @@
                                     <outlet property="delegate" destination="376-fn-OaZ" id="BUp-yQ-pAD"/>
                                 </connections>
                             </tableView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="D4Z-bN-9nY">
+                                <rect key="frame" x="30" y="299" width="250" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="pageIndicatorTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -348,7 +348,7 @@
                     <navigationItem key="navigationItem" title="Pictures And Reviews" id="Fdq-Rr-tAO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="imagePageControl" destination="AXp-DP-ev9" id="kwv-2w-HI1"/>
+                        <outlet property="imagePageControl" destination="D4Z-bN-9nY" id="aet-bc-VV5"/>
                         <outlet property="imageScrollView" destination="wdz-k5-gia" id="oul-Lh-MOK"/>
                         <outlet property="reviewsTableView" destination="Oiw-5A-gPJ" id="euq-kU-H66"/>
                     </connections>
