@@ -62,13 +62,6 @@
         region.span = span;
 
         [self.routeMapViewMap setRegion:region];
-//
-//        PlaceMark *placeMark = [[PlaceMark alloc]
-//                                initWithCoordinate:coord
-//                                andMarkTitle:@"Your first"
-//                                andMarkSubTitle:@"placemark"];
-//
-//        [myMapView addAnnotation:placeMark];
     }
 }
 
@@ -125,12 +118,12 @@
                                                     otherButtonTitles: nil];
                  [av show];
 
-                 NSLog(@"E:%@", error);
              }
              else
              {
-                 NSLog(@"SKDJFHJKSDHFJKSDHFJKHSDFJKHSDFJK");
                  [self showRoute:response];
+                 NSLog(@"<-------------------------->");
+
              }
          }];
     }
@@ -145,6 +138,7 @@
         for (MKRouteStep *step in route.steps)
         {
             NSLog(@"%@", step.instructions);
+
         }
     }
 }

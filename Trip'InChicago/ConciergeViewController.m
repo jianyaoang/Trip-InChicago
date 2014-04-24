@@ -93,7 +93,8 @@
     [super didReceiveMemoryWarning];
 }
 
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
 
     for (CLLocation *location in locations)
     {
@@ -111,8 +112,9 @@
     if (self.typesSegmentedControl.selectedSegmentIndex  < -1 || self.typesSegmentedControl.selectedSegmentIndex > 3)
         return;
     CLGeocoder *geocoder = [CLGeocoder new];
-    [geocoder reverseGeocodeLocation:self.currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-    [self narrowDownPlaces:placemarks.firstObject];
+    [geocoder reverseGeocodeLocation:self.currentLocation completionHandler:^(NSArray *placemarks, NSError *error)
+    {
+        [self narrowDownPlaces:placemarks.firstObject];
     }];
 }
 
@@ -217,84 +219,101 @@
     // set spinner to on
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        NSDictionary *firstLayer = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
-
-        NSDictionary *responseDictionary = firstLayer[@"response"];
-        NSArray *groupsArray = responseDictionary[@"venues"];
-
-        sortArray = [NSMutableArray new];
-
-        [sortArray removeAllObjects];
-
-        for (NSDictionary *places in groupsArray)
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+    {
+        if (connectionError != nil)
         {
+            UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"Data Connection Error"
+                                                        message:@"No data connection try again later"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
 
-            Location* location = [Location new];
-
-            location.lat = [places[@"location"][@"lat"]floatValue];
-            location.lng =  [places[@"location"][@"lng"]floatValue];
-            location.address = places[@"location"][@"address"];
-            location.name = places[@"name"];
-
-            if (places[@"contact"][@"formattedPhone"] == nil)
-            {
-                location.phoneNumber = @"";
-                NSLog(@"Empty This Number");
-            }
-            else
-            {
-                location.phoneNumber = places[@"contact"][@"formattedPhone"];
-            }
-
-            CLLocationCoordinate2D placeCoordinate = CLLocationCoordinate2DMake(location.lat, location.lng);
-            MKPlacemark *placemark = [[MKPlacemark alloc]initWithCoordinate:placeCoordinate addressDictionary:nil];
-            location.placemark = placemark;
-
-
-            MKMapItem *mapItem = [[MKMapItem alloc]initWithPlacemark:placemark];
-            mapItem.name = location.name;
-            mapItem.phoneNumber = location.phoneNumber;
-
-            [sortArray addObject:mapItem];
-
-        }
-
-        NSArray *mapItems = sortArray;
-
-        mapItems = [mapItems sortedArrayUsingComparator:^NSComparisonResult(MKMapItem* obj1, MKMapItem* obj2) {
-            float d1 = [obj1.placemark.location distanceFromLocation:self.locationManager.location];
-            float d2 = [obj2.placemark.location distanceFromLocation:self.locationManager.location];
-            if (d1 < d2)
-            {
-                return NSOrderedAscending;
-            }
-            else
-            {
-                return NSOrderedDescending;
-            }
-
-        }];
-        NSRange numberOfAvailablePlaces;
-        if (mapItems.count >= 10)
-        {
-            numberOfAvailablePlaces = NSMakeRange(0, 10);
-            mapItems = [mapItems subarrayWithRange:numberOfAvailablePlaces];
+            [av show];
         }
         else
         {
-            numberOfAvailablePlaces = NSMakeRange(0, mapItems.count);
-            mapItems = [mapItems subarrayWithRange:numberOfAvailablePlaces];
+
+            NSDictionary *firstLayer = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
+
+            NSDictionary *responseDictionary = firstLayer[@"response"];
+            NSArray *groupsArray = responseDictionary[@"venues"];
+
+            sortArray = [NSMutableArray new];
+
+            [sortArray removeAllObjects];
+
+            for (NSDictionary *places in groupsArray)
+            {
+
+                Location* location = [Location new];
+
+                location.lat = [places[@"location"][@"lat"]floatValue];
+                location.lng =  [places[@"location"][@"lng"]floatValue];
+                location.address = places[@"location"][@"address"];
+                location.name = places[@"name"];
+
+                if (places[@"contact"][@"formattedPhone"] == nil)
+                {
+                    location.phoneNumber = @"";
+                    NSLog(@"Empty This Number");
+                }
+                else
+                {
+                    location.phoneNumber = places[@"contact"][@"formattedPhone"];
+                }
+
+                CLLocationCoordinate2D placeCoordinate = CLLocationCoordinate2DMake(location.lat, location.lng);
+                MKPlacemark *placemark = [[MKPlacemark alloc]initWithCoordinate:placeCoordinate addressDictionary:nil];
+                location.placemark = placemark;
+
+
+                MKMapItem *mapItem = [[MKMapItem alloc]initWithPlacemark:placemark];
+                mapItem.name = location.name;
+                mapItem.phoneNumber = location.phoneNumber;
+
+                [sortArray addObject:mapItem];
+
+            }
+
+            NSArray *mapItems = sortArray;
+
+            mapItems = [mapItems sortedArrayUsingComparator:^NSComparisonResult(MKMapItem* obj1, MKMapItem* obj2)
+            {
+                float d1 = [obj1.placemark.location distanceFromLocation:self.locationManager.location];
+                float d2 = [obj2.placemark.location distanceFromLocation:self.locationManager.location];
+                if (d1 < d2)
+                {
+                    return NSOrderedAscending;
+                }
+                else
+                {
+                    return NSOrderedDescending;
+                }
+
+            }];
+            NSRange numberOfAvailablePlaces;
+            if (mapItems.count >= 10)
+            {
+                numberOfAvailablePlaces = NSMakeRange(0, 10);
+                mapItems = [mapItems subarrayWithRange:numberOfAvailablePlaces];
+            }
+            else
+            {
+                numberOfAvailablePlaces = NSMakeRange(0, mapItems.count);
+                mapItems = [mapItems subarrayWithRange:numberOfAvailablePlaces];
+            }
+
+            intineraryPlaces = mapItems; //10 we get back items
+            [self caculateMinimunTime:intineraryPlaces.count];
+            [self calculateDistance:mapItems];
+
+            [self.myTableView reloadData];
         }
-
-        intineraryPlaces = mapItems; //10 we get back items
-        [self caculateMinimunTime:intineraryPlaces.count];
-        [self calculateDistance:mapItems];
-
-        [self.myTableView reloadData];
-    }];
+        }];
 
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
 }
 
 
