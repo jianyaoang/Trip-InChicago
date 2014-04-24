@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Location.h"
 @interface NotesViewController : UIViewController
+
+@property (nonatomic, strong) Location *location;
 
 @end

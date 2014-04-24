@@ -306,7 +306,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cGl-79-w7x" kind="push" id="q6q-Gd-Ei6"/>
+                                    <segue destination="cGl-79-w7x" kind="push" identifier="showNotesView" id="lOU-lw-m8m"/>
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="10" translatesAutoresizingMaskIntoConstraints="NO" id="AXp-DP-ev9">
