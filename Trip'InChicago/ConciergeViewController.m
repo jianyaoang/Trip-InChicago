@@ -299,9 +299,9 @@
 
             }];
             NSRange numberOfAvailablePlaces;
-            if (mapItems.count >= 10)
+            if (mapItems.count >= 4)
             {
-                numberOfAvailablePlaces = NSMakeRange(0, 10);
+                numberOfAvailablePlaces = NSMakeRange(0, 4);
                 mapItems = [mapItems subarrayWithRange:numberOfAvailablePlaces];
             }
             else

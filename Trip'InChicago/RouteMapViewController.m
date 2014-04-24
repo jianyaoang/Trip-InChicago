@@ -12,6 +12,9 @@
 {
     bool whatColor;
 }
+@property (strong, nonatomic) IBOutlet UITextView *infoTextView;
+@property (strong, nonatomic) IBOutlet UIView *infoView;
+
 @end
 
 @implementation RouteMapViewController
@@ -27,6 +30,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.infoTextView.hidden = YES;
+    self.infoView.hidden = YES;
 
     self.locationManager = [CLLocationManager new];
     [self.routeMapViewMap setShowsUserLocation:YES];
@@ -167,6 +173,8 @@
         for (MKRouteStep *step in route.steps)
         {
             NSLog(@"%@", step.instructions);
+            
+            self.infoTextView.text = step.instructions;
 
         }
     }
@@ -192,4 +200,26 @@
     renderer.lineWidth   = 5.0;
     return renderer;
 }
+
+- (IBAction)onInfoButtonPressed:(id)sender
+{
+    self.infoView.hidden = NO;
+    self.infoTextView.hidden = NO;
+    self.infoView.alpha = 0.7;
+    
+}
+
+- (IBAction)onClosedButtonPressed:(id)sender
+{
+    self.infoView.hidden = YES;
+    self.infoTextView.hidden = YES;
+}
+
+
+
+
+
+
+
+
 @end
