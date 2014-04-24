@@ -128,6 +128,8 @@
     //for (MKMapItem *item in self.routesArray)
    // {
 
+
+
     MKPinAnnotationView* pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:nil];
     //pin.annotation = item.placemark;
 //    NSArray *numberImages = @[@"numberOne",@"numberTwo",@"numberThree",@"numberFour",@"numberFive"];
