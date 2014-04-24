@@ -18,7 +18,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -35,7 +34,7 @@
     [self createItenAnnotations];
 
     CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
-    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.05, 0.05);
+    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.02, 0.02);
     MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
 
     self.routeMapViewMap.delegate = self;
