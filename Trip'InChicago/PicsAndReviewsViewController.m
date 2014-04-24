@@ -61,7 +61,7 @@
         }
         [self imageInScrollView];
         imagePageControl.numberOfPages = imageArray.count;
-         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     }];
 }
 
@@ -78,15 +78,16 @@
         imageView.frame = CGRectMake(width, 0, self.view.frame.size.width, self.view.frame.size.height);
 //        imageView.contentMode = UIViewContentModeScaleAspectFit;
 //        imageView.contentMode = UIViewContentModeCenter;
-//        imageView.contentMode = UIViewContentModeScaleAspectFill;
-        imageView.contentMode = UIViewContentModeScaleToFill;
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+//        imageView.contentMode = UIViewContentModeScaleToFill;
+        imageView.clipsToBounds = YES;
         width += imageView.frame.size.width;
 //        [imageView sizeToFit];
     }
     [imageScrollView setContentMode:UIViewContentModeScaleAspectFit];
 //    [imageView sizeToFit];
     imageScrollView.contentSize = CGSizeMake(width, imageScrollView.frame.size.height);
-}   
+}
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -94,7 +95,6 @@
     int page = floor((imageScrollView.contentOffset.x - pageWidth/2)/pageWidth)+1;
     imagePageControl.currentPage = page;
     imagePageControl.numberOfPages = imageArray.count;
-    NSLog(@"%d",imageArray.count);
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
