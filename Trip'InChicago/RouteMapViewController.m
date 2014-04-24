@@ -14,6 +14,7 @@
 }
 @property (strong, nonatomic) IBOutlet UITextView *infoTextView;
 @property (strong, nonatomic) IBOutlet UIView *infoView;
+@property NSMutableArray *images;
 
 @end
 
@@ -30,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.images = [NSMutableArray new];
     self.infoTextView.hidden = YES;
     self.infoView.hidden = YES;
 
@@ -108,10 +109,44 @@
         annotation.coordinate = item.placemark.coordinate;
         annotation.title      = item.name;
 
+
         [self.routeMapViewMap addAnnotation:annotation];
         [self.routeMapViewMap reloadInputViews];
     }
 }
+
+- (MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    //this enables properties of the annotation (the pin)
+//  if (annotation != self.locationManager.location)
+//    {
+//        return nil;
+//    }
+    //note that this method is very similar to the (UITableViewCell*) or UITableViewDataSource method
+    //annotation view is a representation of the data (which is ʻannotationʻ)
+    //if pin does not show up make sure you connected the MapView delegate outlet to the VC. Remember, VC is the delegate
+    //for (MKMapItem *item in self.routesArray)
+   // {
+
+    MKPinAnnotationView* pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:nil];
+    //pin.annotation = item.placemark;
+//    NSArray *numberImages = @[@"numberOne",@"numberTwo",@"numberThree",@"numberFour",@"numberFive"];
+//    NSArray *images = [NSArray arrayWithObjects:@"numberOne",@"numberTwo",@"numberThree",@"numberFour",@"numberFive", nil];
+
+    [self.images addObject:[UIImage imageNamed:@"numberOne"]];
+    for (UIImage *image in self.images)
+    {
+        pin.image = image;
+    }
+           //}
+    //adds info button to the callout
+//    pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+//
+//    pin.canShowCallout = YES;
+    return pin;
+
+}
+
 
 -(void)getDirections
 {
@@ -204,9 +239,12 @@
 
 - (IBAction)onInfoButtonPressed:(id)sender
 {
+
     self.infoView.hidden = NO;
     //self.infoView.backgroundColor = [UIColor blackColor];
     self.infoTextView.hidden = NO;
+    self.infoView.layer.cornerRadius = 10;
+    self.infoView.layer.masksToBounds = YES;
     self.infoTextView.backgroundColor = [UIColor blackColor];
     self.infoTextView.alpha = 0.8;
     self.infoTextView.textColor = [UIColor whiteColor];
