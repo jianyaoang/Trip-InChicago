@@ -143,7 +143,20 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReuseCellID"];
     MKMapItem *place = intineraryPlaces[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ , %@", place.name, place.phoneNumber];
+
+    // removing the "," (comma) if there is nothing in place.phoneNumber
+    NSString *myComma = [NSString new];
+    
+    if ([place.phoneNumber isEqualToString:@""])
+    {
+        myComma = @"";
+    }
+    else
+    {
+        myComma = @",";
+    }
+
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@ %@", place.name, myComma, place.phoneNumber];
     int distance = roundf([place.placemark.location distanceFromLocation:self.locationManager.location]);
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Crow's distance from you: %f miles", (distance/1609.34)];
     return cell;
@@ -201,6 +214,9 @@
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
+    // set spinner to on
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSDictionary *firstLayer = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
 
@@ -221,7 +237,15 @@
             location.address = places[@"location"][@"address"];
             location.name = places[@"name"];
 
-            location.phoneNumber = places[@"contact"][@"formattedPhone"];
+            if (places[@"contact"][@"formattedPhone"] == nil)
+            {
+                location.phoneNumber = @"";
+                NSLog(@"Empty This Number");
+            }
+            else
+            {
+                location.phoneNumber = places[@"contact"][@"formattedPhone"];
+            }
 
             CLLocationCoordinate2D placeCoordinate = CLLocationCoordinate2DMake(location.lat, location.lng);
             MKPlacemark *placemark = [[MKPlacemark alloc]initWithCoordinate:placeCoordinate addressDictionary:nil];
@@ -263,12 +287,14 @@
             mapItems = [mapItems subarrayWithRange:numberOfAvailablePlaces];
         }
 
-        intineraryPlaces = mapItems; //15 we get back items
+        intineraryPlaces = mapItems; //10 we get back items
         [self caculateMinimunTime:intineraryPlaces.count];
-        //NSLog(@"%@", intineraryPlaces);
         [self calculateDistance:mapItems];
+
         [self.myTableView reloadData];
     }];
+
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 
@@ -301,17 +327,5 @@
         vc.routesArray = intineraryPlaces;
     }
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

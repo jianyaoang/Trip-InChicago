@@ -90,12 +90,10 @@
 
 -(void)extractVenueJSON
 {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
     NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/explore?ll=%f,%f&section=%@&oauth_token=02ALL4LOCE2LTXXTA4ASHFTYOEAAUIRWOYT2P5S2AHBBBADA&v=20140419", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude, self.foursquareLocationName];
 
-
-
-//    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/explore?ll=%f,%f&near=Chicago&section=%@&oauth_token=02ALL4LOCE2LTXXTA4ASHFTYOEAAUIRWOYT2P5S2AHBBBADA&v=20140419", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude, self.foursquareLocationName];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
@@ -122,34 +120,29 @@
         NSArray *items = groupsArrayDictionary[@"items"];
         
         [locationNameMutableArray removeAllObjects];
-    //CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
-         //self.currentLocation = self.locationManager.location;
 
-//this is not being triggered the first time
         for (NSDictionary *venueAndTips in items)
         {
             NSDictionary *venueDictionary = venueAndTips[@"venue"];
             
             NSArray *tips = venueAndTips[@"tips"];
             NSDictionary *tipsFirstLayer = tips.firstObject;
-//            NSDictionary *tipsText = tipsFirstLayer[@"text"];
-            
+
             Location* location = [Location new];
             
             location.lat = [venueDictionary[@"location"][@"lat"]floatValue];
             location.lng =  [venueDictionary[@"location"][@"lng"]floatValue];
             location.address = venueDictionary[@"location"][@"address"];
             location.name = venueDictionary[@"name"];
-//            location.tips = tipsText[@"text"];
             location.tips = tipsFirstLayer[@"text"];
             [locationNameMutableArray addObject:location];
             
-//            NSLog(@"mylocation %@, lat:%f lng:%f address:%@ ", location.name, location.lat, location.lng, location.address);
-           // NSLog(@"location.tips : %@", location.tips);
         }
         [self placingPinsOnLocations];
         }
     }];
+
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 
 }
 
@@ -157,23 +150,22 @@
 {
     for (Location *location in locationNameMutableArray)
     {
-//if the pins are within our view, drop the pins
+        //if the pins are within our view, drop the pins
         if (!(fabsf(location.lat - self.locationManager.location.coordinate.latitude) > 0.015)&&
             !(fabsf(location.lng - self.locationManager.location.coordinate.longitude) > 0.012)) {
             [self creatingMapAndPins:location];
         }
     }
-//the centerCoordinate is set to the locationManager's coordinates
+    //the centerCoordinate is set to the locationManager's coordinates
     CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
 
-//setting the width and the height of mapwindow
+    //setting the width and the height of mapwindow
     float x = fabsf(((fabsf(westernBorder)-fabsf(easternBorder)) + 0.005));
     float y = fabsf(((fabsf(northernBorder) - fabsf(southernBorder)) + 0.005));
 
     MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(x, y);
     MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
     self.sectionMapView.region = region;
-
 
 }
 
