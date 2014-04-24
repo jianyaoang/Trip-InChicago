@@ -173,8 +173,9 @@
         for (MKRouteStep *step in route.steps)
         {
             NSLog(@"%@", step.instructions);
-            
-            self.infoTextView.text = step.instructions;
+
+            //self.myLabel.text = [NSString stringWithFormat:@"%@\n%@", self.myLabel.text, step.instructions];
+            self.infoTextView.text = [NSString stringWithFormat:@"%@\n%@", self.infoTextView.text, step.instructions];
 
         }
     }
