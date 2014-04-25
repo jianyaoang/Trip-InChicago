@@ -11,6 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "Location.h"
 #import "RouteMapViewController.h"
+#import "DetailConciergeViewController.h"
 
 @interface ConciergeViewController ()<UITableViewDataSource, UITableViewDataSource, CLLocationManagerDelegate>
 {
@@ -353,6 +354,14 @@
     {
         RouteMapViewController *vc = segue.destinationViewController;
         vc.routesArray = intineraryPlaces;
+    }
+    else if ([segue.identifier isEqualToString:@"ShowPlaceDetails"])
+    {
+        DetailConciergeViewController *vc = segue.destinationViewController;
+        //vc.nsstring varible = text in the cell
+        NSIndexPath *indexPath = [self.myTableView indexPathForSelectedRow];
+        UITableViewCell *cell = [self.myTableView cellForRowAtIndexPath:indexPath];
+        vc.placeName = cell.textLabel.text;
     }
 }
 

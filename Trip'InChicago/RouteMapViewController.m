@@ -7,6 +7,7 @@
 //
 
 #import "RouteMapViewController.h"
+#import "PointAnnotation.h"
 
 @interface RouteMapViewController ()
 {
@@ -15,7 +16,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *infoTextView;
 @property (strong, nonatomic) IBOutlet UIView *infoView;
 @property NSMutableArray *images;
-
+@property NSArray *numberImages;
 @end
 
 @implementation RouteMapViewController
@@ -51,6 +52,8 @@
     self.routeMapViewMap.delegate = self;
 
     self.routeMapViewMap.region = region;
+
+    self.numberImages = @[@"numberOne",@"numberTwo",@"numberThree",@"numberFour",@"numberFive"];
 
     [self getDirections];
 
@@ -100,12 +103,24 @@
 
 -(void)createItenAnnotations
 {
+    NSInteger index = 1;
     for (MKMapItem *item in self.routesArray)
     {
-        MKPointAnnotation *annotation = [MKPointAnnotation new];
+        PointAnnotation *annotation = [PointAnnotation new];
         annotation.coordinate = item.placemark.coordinate;
         annotation.title      = item.name;
+        annotation.index      = index;
+        index++;
 
+
+//        for (UIImage *numberImage in self.numberImages)
+//        {
+//            self.annotation.image = numberImage;
+//            MKPinAnnotationView* pin = [[MKPinAnnotationView alloc]initWithAnnotation:self.annotation reuseIdentifier:nil];
+//            pin.image = self.annotation.image;
+//
+//
+//        }
 
         [self.routeMapViewMap addAnnotation:annotation];
         [self.routeMapViewMap reloadInputViews];
@@ -114,9 +129,9 @@
 
 - (MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    //this enables properties of the annotation (the pin)
-//  if (annotation != self.locationManager.location)
-//    {
+//    //this enables properties of the annotation (the pin)
+// if (self.annotation != self.locationManager.location)
+//   {
 //        return nil;
 //    }
     //note that this method is very similar to the (UITableViewCell*) or UITableViewDataSource method
@@ -136,22 +151,62 @@
     [self.images addObject:[UIImage imageNamed:@"numberTwo"]];
     [self.images addObject:[UIImage imageNamed:@"numberThree"]];
     [self.images addObject:[UIImage imageNamed:@"numberFour"]];
-    [self.images addObject:[UIImage imageNamed:@"numberFive"]];
-
-    for (UIImage *image in self.images)
+//    [self.images addObject:[UIImage imageNamed:@"numberFive"]];
+    
+    NSLog(@"image count is %d",self.images.count);
+    
+    if ([annotation isKindOfClass:[MKUserLocation class]])
     {
-        pin.image = image;
+        return nil;
     }
+    else
+    {
+        NSInteger index = [(PointAnnotation *)annotation index];
+        pin.image = self.images[index];
+    }
+    //[(PointAnnotation*)annotation index]
+    //pin.image = self.images[]
     
            //}
     //adds info button to the callout
 //    pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 //
-//    pin.canShowCallout = YES;
+//
+//    MKPinAnnotationView* pin = [[MKPinAnnotationView alloc]initWithAnnotation:self.annotation reuseIdentifier:nil];
+//    //pin.annotation = item.placemark;
+//
+////    NSArray *images = [NSArray arrayWithObjects:@"numberOne",@"numberTwo",@"numberThree",@"numberFour",@"numberFive", nil];
+//
+////    [self.images addObject:[UIImage imageNamed:@"numberOne"]];
+////    [self.images addObject:[UIImage imageNamed:@"numberTwo"]];
+////    [self.images addObject:[UIImage imageNamed:@"numberThree"]];
+////    [self.images addObject:[UIImage imageNamed:@"numberFour"]];
+////    [self.images addObject:[UIImage imageNamed:@"numberFive"]];
+//
+////
+//////    NSInteger i;
+//////
+//////    for (i = 0; i < numberImages.count; ++i)
+//////    {
+//////        self.annotation.image = numberImages[i];
+//////        pin.image = [UIImage imageWithData:self.annotation.image];
+//////        //return pin;
+//////    }
+//////
+//////    for (UIImage *imageNumber in numberImages)
+//////    {
+//////        pin.image = self.annotation.image;
+//////    }
+////
+//           //}
+//    //adds info button to the callout
+////    pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+////
+////    pin.canShowCallout = YES;
     return pin;
 
 }
-
+//
 
 -(void)getDirections
 {
@@ -262,12 +317,5 @@
     self.infoView.hidden = YES;
     self.infoTextView.hidden = YES;
 }
-
-
-
-
-
-
-
 
 @end
