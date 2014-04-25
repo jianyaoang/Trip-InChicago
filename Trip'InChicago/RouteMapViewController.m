@@ -16,7 +16,6 @@
 @property (strong, nonatomic) IBOutlet UITextView *infoTextView;
 @property (strong, nonatomic) IBOutlet UIView *infoView;
 @property NSMutableArray *images;
-@property RouteAnnotation *annotation;
 @property NSArray *numberImages;
 @end
 
@@ -114,22 +113,22 @@
         index++;
 
 
-        for (UIImage *numberImage in self.numberImages)
-        {
-            self.annotation.image = numberImage;
-            MKPinAnnotationView* pin = [[MKPinAnnotationView alloc]initWithAnnotation:self.annotation reuseIdentifier:nil];
-            pin.image = self.annotation.image;
+//        for (UIImage *numberImage in self.numberImages)
+//        {
+//            self.annotation.image = numberImage;
+//            MKPinAnnotationView* pin = [[MKPinAnnotationView alloc]initWithAnnotation:self.annotation reuseIdentifier:nil];
+//            pin.image = self.annotation.image;
+//
+//
+//        }
 
-
-        }
-    
-        [self.routeMapViewMap addAnnotation:self.annotation];
+        [self.routeMapViewMap addAnnotation:annotation];
         [self.routeMapViewMap reloadInputViews];
     }
 }
 
-//- (MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
-//{
+- (MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
 //    //this enables properties of the annotation (the pin)
 // if (self.annotation != self.locationManager.location)
 //   {
@@ -204,9 +203,9 @@
 ////    pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 ////
 ////    pin.canShowCallout = YES;
-//    return pin;
-//
-//}
+    return pin;
+
+}
 //
 
 -(void)getDirections
