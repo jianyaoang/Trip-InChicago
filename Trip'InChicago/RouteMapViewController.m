@@ -112,16 +112,6 @@
         annotation.index      = index;
         index++;
 
-
-//        for (UIImage *numberImage in self.numberImages)
-//        {
-//            self.annotation.image = numberImage;
-//            MKPinAnnotationView* pin = [[MKPinAnnotationView alloc]initWithAnnotation:self.annotation reuseIdentifier:nil];
-//            pin.image = self.annotation.image;
-//
-//
-//        }
-
         [self.routeMapViewMap addAnnotation:annotation];
         [self.routeMapViewMap reloadInputViews];
     }
@@ -129,30 +119,20 @@
 
 - (MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-//    //this enables properties of the annotation (the pin)
-// if (self.annotation != self.locationManager.location)
-//   {
-//        return nil;
-//    }
-    //note that this method is very similar to the (UITableViewCell*) or UITableViewDataSource method
-    //annotation view is a representation of the data (which is ʻannotationʻ)
-    //if pin does not show up make sure you connected the MapView delegate outlet to the VC. Remember, VC is the delegate
-    //for (MKMapItem *item in self.routesArray)
-   // {
-
-
-
     MKPinAnnotationView* pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:nil];
-    //pin.annotation = item.placemark;
-//    NSArray *numberImages = @[@"numberOne",@"numberTwo",@"numberThree",@"numberFour",@"numberFive"];
-//    NSArray *images = [NSArray arrayWithObjects:@"numberOne",@"numberTwo",@"numberThree",@"numberFour",@"numberFive", nil];
 
     [self.images addObject:[UIImage imageNamed:@"numberOne"]];
     [self.images addObject:[UIImage imageNamed:@"numberTwo"]];
     [self.images addObject:[UIImage imageNamed:@"numberThree"]];
     [self.images addObject:[UIImage imageNamed:@"numberFour"]];
-//    [self.images addObject:[UIImage imageNamed:@"numberFive"]];
-    
+    [self.images addObject:[UIImage imageNamed:@"number5"]];
+    [self.images addObject:[UIImage imageNamed:@"number6"]];
+    [self.images addObject:[UIImage imageNamed:@"number7"]];
+    [self.images addObject:[UIImage imageNamed:@"number8"]];
+    [self.images addObject:[UIImage imageNamed:@"number9"]];
+    [self.images addObject:[UIImage imageNamed:@"number10"]];
+
+
     NSLog(@"image count is %d",self.images.count);
     
     if ([annotation isKindOfClass:[MKUserLocation class]])
@@ -164,45 +144,6 @@
         NSInteger index = [(PointAnnotation *)annotation index];
         pin.image = self.images[index];
     }
-    //[(PointAnnotation*)annotation index]
-    //pin.image = self.images[]
-    
-           //}
-    //adds info button to the callout
-//    pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-//
-//
-//    MKPinAnnotationView* pin = [[MKPinAnnotationView alloc]initWithAnnotation:self.annotation reuseIdentifier:nil];
-//    //pin.annotation = item.placemark;
-//
-////    NSArray *images = [NSArray arrayWithObjects:@"numberOne",@"numberTwo",@"numberThree",@"numberFour",@"numberFive", nil];
-//
-////    [self.images addObject:[UIImage imageNamed:@"numberOne"]];
-////    [self.images addObject:[UIImage imageNamed:@"numberTwo"]];
-////    [self.images addObject:[UIImage imageNamed:@"numberThree"]];
-////    [self.images addObject:[UIImage imageNamed:@"numberFour"]];
-////    [self.images addObject:[UIImage imageNamed:@"numberFive"]];
-//
-////
-//////    NSInteger i;
-//////
-//////    for (i = 0; i < numberImages.count; ++i)
-//////    {
-//////        self.annotation.image = numberImages[i];
-//////        pin.image = [UIImage imageWithData:self.annotation.image];
-//////        //return pin;
-//////    }
-//////
-//////    for (UIImage *imageNumber in numberImages)
-//////    {
-//////        pin.image = self.annotation.image;
-//////    }
-////
-//           //}
-//    //adds info button to the callout
-////    pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-////
-////    pin.canShowCallout = YES;
     return pin;
 
 }
@@ -212,8 +153,6 @@
 {
     MKDirectionsRequest *request = [[MKDirectionsRequest alloc]init];
     bool firstTimeinLoop = YES;
-
-//    request.source = [MKMapItem mapItemForCurrentLocation];
 
     for (MKMapItem *item in self.routesArray)
     {
@@ -269,9 +208,7 @@
         {
             NSLog(@"%@", step.instructions);
 
-            //self.myLabel.text = [NSString stringWithFormat:@"%@\n%@", self.myLabel.text, step.instructions];
             self.infoTextView.text = [NSString stringWithFormat:@"%@\n%@", self.infoTextView.text, step.instructions];
-
         }
     }
 }
@@ -301,7 +238,6 @@
 {
 
     self.infoView.hidden = NO;
-    //self.infoView.backgroundColor = [UIColor blackColor];
     self.infoTextView.hidden = NO;
     self.infoView.layer.cornerRadius = 10;
     self.infoView.layer.masksToBounds = YES;
