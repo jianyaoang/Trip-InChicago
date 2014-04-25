@@ -59,6 +59,14 @@
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
 
+    // Make sure the new location is not a cached location by checking the timestamp
+    NSTimeInterval newLocationAge = [newLocation.timestamp timeIntervalSinceNow];
+    if (abs(newLocationAge) > 10) return;
+
+    // Check if you need to set things up to display directions with new (non cached) location
+    // Set the map region to whatever fits all your annotations
+    // If there is a significant change in location, update the map region
+
     if ((oldLocation.coordinate.longitude != newLocation.coordinate.longitude)
         || (oldLocation.coordinate.latitude != newLocation.coordinate.latitude))
     {
@@ -88,17 +96,6 @@
 
     NSLog(@"E:%@", error);
     
-}
-
-- (void)startSignificantChangeUpdates
-{
-    // Create the location manager if this object does not
-    // already have one.
-    if (nil == self.locationManager)
-        self.locationManager = [[CLLocationManager alloc] init];
-
-    self.locationManager.delegate = self;
-    [self.locationManager startMonitoringSignificantLocationChanges];
 }
 
 -(void)createItenAnnotations
