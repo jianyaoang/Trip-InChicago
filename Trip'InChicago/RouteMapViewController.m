@@ -133,10 +133,16 @@
 //    NSArray *images = [NSArray arrayWithObjects:@"numberOne",@"numberTwo",@"numberThree",@"numberFour",@"numberFive", nil];
 
     [self.images addObject:[UIImage imageNamed:@"numberOne"]];
+    [self.images addObject:[UIImage imageNamed:@"numberTwo"]];
+    [self.images addObject:[UIImage imageNamed:@"numberThree"]];
+    [self.images addObject:[UIImage imageNamed:@"numberFour"]];
+    [self.images addObject:[UIImage imageNamed:@"numberFive"]];
+
     for (UIImage *image in self.images)
     {
         pin.image = image;
     }
+    
            //}
     //adds info button to the callout
 //    pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
