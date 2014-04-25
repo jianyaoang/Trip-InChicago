@@ -43,6 +43,7 @@
 		41C2BB6D19072442003D1062 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C2BB6C19072442003D1062 /* FacebookSDK.framework */; };
 		41F98E221906B99000B15F9F /* ChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F98E211906B99000B15F9F /* ChoiceViewController.m */; };
 		41F98E281906D2B300B15F9F /* NotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F98E271906D2B300B15F9F /* NotesViewController.m */; };
+		41FAD4FC190AD5CA00D7DB0F /* PointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FAD4FB190AD5CA00D7DB0F /* PointAnnotation.m */; };
 		6F5B4E8618FDF7F100E495BA /* TemperatureChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5B4E8518FDF7F100E495BA /* TemperatureChecker.m */; };
 		6FFC39EE1905E05A00DB2ECC /* RouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */; };
 		D042717219058E3600796C36 /* ConciergeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D042717119058E3600796C36 /* ConciergeViewController.m */; };
@@ -109,6 +110,8 @@
 		41F98E211906B99000B15F9F /* ChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoiceViewController.m; sourceTree = "<group>"; };
 		41F98E261906D2B300B15F9F /* NotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotesViewController.h; path = ../NotesViewController.h; sourceTree = "<group>"; };
 		41F98E271906D2B300B15F9F /* NotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotesViewController.m; path = ../NotesViewController.m; sourceTree = "<group>"; };
+		41FAD4FA190AD5CA00D7DB0F /* PointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointAnnotation.h; path = ../PointAnnotation.h; sourceTree = "<group>"; };
+		41FAD4FB190AD5CA00D7DB0F /* PointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PointAnnotation.m; path = ../PointAnnotation.m; sourceTree = "<group>"; };
 		6F5B4E8418FDF7F100E495BA /* TemperatureChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemperatureChecker.h; sourceTree = "<group>"; };
 		6F5B4E8518FDF7F100E495BA /* TemperatureChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemperatureChecker.m; sourceTree = "<group>"; };
 		6FFC39EC1905E05A00DB2ECC /* RouteMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteMapViewController.h; sourceTree = "<group>"; };
@@ -275,8 +278,10 @@
 				41F98E271906D2B300B15F9F /* NotesViewController.m */,
 				D042717019058E3600796C36 /* ConciergeViewController.h */,
 				D042717119058E3600796C36 /* ConciergeViewController.m */,
-				6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */,
 				6FFC39EC1905E05A00DB2ECC /* RouteMapViewController.h */,
+				6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */,
+				41FAD4FA190AD5CA00D7DB0F /* PointAnnotation.h */,
+				41FAD4FB190AD5CA00D7DB0F /* PointAnnotation.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -392,6 +397,7 @@
 				D042717219058E3600796C36 /* ConciergeViewController.m in Sources */,
 				41F98E221906B99000B15F9F /* ChoiceViewController.m in Sources */,
 				41918A1018FC954100A4616C /* main.m in Sources */,
+				41FAD4FC190AD5CA00D7DB0F /* PointAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

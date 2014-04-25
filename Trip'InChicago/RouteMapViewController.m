@@ -7,6 +7,7 @@
 //
 
 #import "RouteMapViewController.h"
+#import "PointAnnotation.h"
 
 @interface RouteMapViewController ()
 {
@@ -100,11 +101,14 @@
 
 -(void)createItenAnnotations
 {
+    NSInteger index = 1;
     for (MKMapItem *item in self.routesArray)
     {
-        MKPointAnnotation *annotation = [MKPointAnnotation new];
+        PointAnnotation *annotation = [PointAnnotation new];
         annotation.coordinate = item.placemark.coordinate;
         annotation.title      = item.name;
+        annotation.index      = index;
+        index++;
 
 
         [self.routeMapViewMap addAnnotation:annotation];
@@ -137,11 +141,13 @@
     [self.images addObject:[UIImage imageNamed:@"numberThree"]];
     [self.images addObject:[UIImage imageNamed:@"numberFour"]];
     [self.images addObject:[UIImage imageNamed:@"numberFive"]];
-
-    for (UIImage *image in self.images)
-    {
-        pin.image = image;
-    }
+    
+    NSLog(@"image count is %d",self.images.count);
+    
+    NSInteger index = [(PointAnnotation *)annotation index];
+    pin.image = self.images[index];
+    //[(PointAnnotation*)annotation index]
+    //pin.image = self.images[]
     
            //}
     //adds info button to the callout
