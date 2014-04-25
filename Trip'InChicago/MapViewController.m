@@ -114,6 +114,8 @@
                                               otherButtonTitles:nil];
 
             [av show];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
         }
         else
         {

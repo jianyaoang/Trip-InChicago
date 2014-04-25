@@ -234,6 +234,7 @@
     {
         if (connectionError != nil)
         {
+
             UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"Data Connection Error"
                                                         message:@"No data connection try again later"
                                                        delegate:nil
@@ -241,6 +242,7 @@
                                               otherButtonTitles:nil];
 
             [av show];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         }
         else
         {
