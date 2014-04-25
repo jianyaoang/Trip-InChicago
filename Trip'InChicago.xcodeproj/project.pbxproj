@@ -46,6 +46,8 @@
 		6F5B4E8618FDF7F100E495BA /* TemperatureChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5B4E8518FDF7F100E495BA /* TemperatureChecker.m */; };
 		6FFC39EE1905E05A00DB2ECC /* RouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */; };
 		D042717219058E3600796C36 /* ConciergeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D042717119058E3600796C36 /* ConciergeViewController.m */; };
+		D05294F71909FD19000E69F5 /* RouteAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D05294F61909FD19000E69F5 /* RouteAnnotation.m */; };
+		D0539619190AE608007A1FF6 /* DetailConciergeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0539618190AE608007A1FF6 /* DetailConciergeViewController.m */; };
 		D06FC61518FCC5260048FEE0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06FC61418FCC5260048FEE0 /* Parse.framework */; };
 		D06FC61818FD82EC0048FEE0 /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D06FC61718FD82EC0048FEE0 /* MapPoint.m */; };
 /* End PBXBuildFile section */
@@ -115,6 +117,10 @@
 		6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteMapViewController.m; sourceTree = "<group>"; };
 		D042717019058E3600796C36 /* ConciergeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConciergeViewController.h; sourceTree = "<group>"; };
 		D042717119058E3600796C36 /* ConciergeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConciergeViewController.m; sourceTree = "<group>"; };
+		D05294F51909FD19000E69F5 /* RouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteAnnotation.h; sourceTree = "<group>"; };
+		D05294F61909FD19000E69F5 /* RouteAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteAnnotation.m; sourceTree = "<group>"; };
+		D0539617190AE608007A1FF6 /* DetailConciergeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailConciergeViewController.h; sourceTree = "<group>"; };
+		D0539618190AE608007A1FF6 /* DetailConciergeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailConciergeViewController.m; sourceTree = "<group>"; };
 		D06FC61418FCC5260048FEE0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D06FC61618FD82EC0048FEE0 /* MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPoint.h; sourceTree = "<group>"; };
 		D06FC61718FD82EC0048FEE0 /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoint.m; sourceTree = "<group>"; };
@@ -261,6 +267,8 @@
 		41F98E1F1906B8DD00B15F9F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D0539617190AE608007A1FF6 /* DetailConciergeViewController.h */,
+				D0539618190AE608007A1FF6 /* DetailConciergeViewController.m */,
 				416909F718FCA0BF007A9A59 /* LoginViewController.h */,
 				416909F818FCA0BF007A9A59 /* LoginViewController.m */,
 				41F98E201906B99000B15F9F /* ChoiceViewController.h */,
@@ -277,6 +285,8 @@
 				D042717119058E3600796C36 /* ConciergeViewController.m */,
 				6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */,
 				6FFC39EC1905E05A00DB2ECC /* RouteMapViewController.h */,
+				D05294F51909FD19000E69F5 /* RouteAnnotation.h */,
+				D05294F61909FD19000E69F5 /* RouteAnnotation.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -381,6 +391,7 @@
 				416909F918FCA0BF007A9A59 /* LoginViewController.m in Sources */,
 				41918A1A18FC954100A4616C /* ViewController.m in Sources */,
 				41918A4218FC984B00A4616C /* PicsAndReviewsViewController.m in Sources */,
+				D05294F71909FD19000E69F5 /* RouteAnnotation.m in Sources */,
 				6FFC39EE1905E05A00DB2ECC /* RouteMapViewController.m in Sources */,
 				41918A1418FC954100A4616C /* AppDelegate.m in Sources */,
 				41F98E281906D2B300B15F9F /* NotesViewController.m in Sources */,
@@ -388,6 +399,7 @@
 				41918A3D18FC97AC00A4616C /* MapViewController.m in Sources */,
 				D06FC61818FD82EC0048FEE0 /* MapPoint.m in Sources */,
 				6F5B4E8618FDF7F100E495BA /* TemperatureChecker.m in Sources */,
+				D0539619190AE608007A1FF6 /* DetailConciergeViewController.m in Sources */,
 				41918A3A18FC96F600A4616C /* SectionViewController.m in Sources */,
 				D042717219058E3600796C36 /* ConciergeViewController.m in Sources */,
 				41F98E221906B99000B15F9F /* ChoiceViewController.m in Sources */,
