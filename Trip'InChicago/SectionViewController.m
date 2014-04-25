@@ -20,13 +20,7 @@
 {
     [super viewDidLoad];
     self.sectionNames = @[@"Sights", @"Coffee", @"Food", @"Arts", @"Shop", @"Outdoors", @"Entertainment"];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cloudgate"]];
-    
-//    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cloudgate"]];
-//    [self.view addSubview:backgroundImage];
-//    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SectionViewController"]];
-//    [self.view addSubview:backgroundImage];
-//    [self.view sendSubviewToBack:backgroundImage];
+
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
