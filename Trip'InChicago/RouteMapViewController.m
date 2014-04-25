@@ -145,6 +145,7 @@
     {
         pin.image = image;
     }
+    
            //}
     //adds info button to the callout
 //    pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
