@@ -53,7 +53,6 @@
 
     self.routeMapViewMap.region = region;
 
-    self.numberImages = @[@"numberOne",@"numberTwo",@"numberThree",@"numberFour",@"numberFive"];
 
     [self getDirections];
 
@@ -103,7 +102,7 @@
 
 -(void)createItenAnnotations
 {
-    NSInteger index = 1;
+    NSInteger index = 0;
     for (MKMapItem *item in self.routesArray)
     {
         PointAnnotation *annotation = [PointAnnotation new];
@@ -121,6 +120,7 @@
 {
     MKPinAnnotationView* pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:nil];
 
+    [self.images removeAllObjects];
     [self.images addObject:[UIImage imageNamed:@"numberOne"]];
     [self.images addObject:[UIImage imageNamed:@"numberTwo"]];
     [self.images addObject:[UIImage imageNamed:@"numberThree"]];
