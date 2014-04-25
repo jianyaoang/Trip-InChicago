@@ -55,6 +55,7 @@
     [cell.textLabel setText:[comment objectForKey:@"notes"]];
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.font = [UIFont systemFontOfSize:19];
+    cell.textLabel.font = [UIFont fontWithName:@"Raleway-Regular" size:19];
     return cell;
 }
 

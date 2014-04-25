@@ -2,6 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Raleway-Bold.otf</string>
+		<string>Raleway-ExtraBold.otf</string>
+		<string>Raleway-ExtraLight.otf</string>
+		<string>Raleway-Heavy.otf</string>
+		<string>Raleway-Light.otf</string>
+		<string>Raleway-Medium.otf</string>
+		<string>Raleway-Regular.otf</string>
+		<string>Raleway-Thin.otf</string>
+		<string>Raleway-SemiBold.otf</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -34,7 +46,7 @@
 	<key>FacebookAppID</key>
 	<string>548157768634248</string>
 	<key>FacebookDisplayName</key>
-	<string>Trip'InChicago</string>
+	<string>Trip&apos;InChicago</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>
