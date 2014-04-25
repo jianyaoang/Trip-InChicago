@@ -27,6 +27,7 @@
 @property NSString *mixString;
 @property CLLocationManager *locationManager;
 @property CLLocation *currentLocation;
+@property (nonatomic, strong) NSURLRequest *prefillTableRequest;
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *typesSegmentedControl;
 @end
@@ -46,7 +47,7 @@
 {
     [super viewDidLoad];
 
-    self.typesSegmentedControl.selectedSegmentIndex=-1;
+    self.typesSegmentedControl.selectedSegmentIndex=0;
 
     // Arts & Entertainment 4d4b7104d754a06370d81259, Food 4d4b7105d754a06374d81259, Shop & Service 4d4b7105d754a06378d81259,
     // Cultural Center Cultural Center 52e81612bcbc57f1066b7a32
@@ -160,7 +161,8 @@
 
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@ %@", place.name, myComma, place.phoneNumber];
     int distance = roundf([place.placemark.location distanceFromLocation:self.locationManager.location]);
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Crow's distance from you: %2.2f miles", (distance/1609.34)];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Distance from you: %2.2f miles", (distance/1609.34)];
+    cell.detailTextLabel.textColor = [UIColor blueColor];
     return cell;
 }
 
@@ -191,8 +193,10 @@
     MKDirectionsRequest* request = [MKDirectionsRequest new];
     request.transportType = MKDirectionsTransportTypeWalking;
 
-    for (int i = 0; i<nextDestinaton.count; i++) {
-        if (i == 0) {
+    for (int i = 0; i<nextDestinaton.count; i++)
+    {
+        if (i == 0)
+        {
             request.source = [MKMapItem mapItemForCurrentLocation];
         }
         else
@@ -299,9 +303,9 @@
 
             }];
             NSRange numberOfAvailablePlaces;
-            if (mapItems.count >= 4)
+            if (mapItems.count >= 10)
             {
-                numberOfAvailablePlaces = NSMakeRange(0, 4);
+                numberOfAvailablePlaces = NSMakeRange(0, 10);
                 mapItems = [mapItems subarrayWithRange:numberOfAvailablePlaces];
             }
             else
@@ -315,11 +319,10 @@
             [self calculateDistance:mapItems];
 
             [self.myTableView reloadData];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
         }
         }];
-
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
 }
 
 
