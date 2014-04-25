@@ -113,6 +113,15 @@
 		41F98E271906D2B300B15F9F /* NotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotesViewController.m; path = ../NotesViewController.m; sourceTree = "<group>"; };
 		41FAD4FA190AD5CA00D7DB0F /* PointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointAnnotation.h; path = ../PointAnnotation.h; sourceTree = "<group>"; };
 		41FAD4FB190AD5CA00D7DB0F /* PointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PointAnnotation.m; path = ../PointAnnotation.m; sourceTree = "<group>"; };
+		41FAD520190B1EF000D7DB0F /* Raleway-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.otf"; sourceTree = "<group>"; };
+		41FAD521190B1EF000D7DB0F /* Raleway-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraBold.otf"; sourceTree = "<group>"; };
+		41FAD522190B1EF000D7DB0F /* Raleway-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraLight.otf"; sourceTree = "<group>"; };
+		41FAD523190B1EF000D7DB0F /* Raleway-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Heavy.otf"; sourceTree = "<group>"; };
+		41FAD524190B1EF000D7DB0F /* Raleway-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.otf"; sourceTree = "<group>"; };
+		41FAD525190B1EF000D7DB0F /* Raleway-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.otf"; sourceTree = "<group>"; };
+		41FAD526190B1EF000D7DB0F /* Raleway-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.otf"; sourceTree = "<group>"; };
+		41FAD527190B1EF000D7DB0F /* Raleway-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.otf"; sourceTree = "<group>"; };
+		41FAD528190B1EF000D7DB0F /* Raleway-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Thin.otf"; sourceTree = "<group>"; };
 		6F5B4E8418FDF7F100E495BA /* TemperatureChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemperatureChecker.h; sourceTree = "<group>"; };
 		6F5B4E8518FDF7F100E495BA /* TemperatureChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemperatureChecker.m; sourceTree = "<group>"; };
 		6FBEBB0B190AED750002D59D /* google-maps-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google-maps-icon.png"; sourceTree = "<group>"; };
@@ -120,8 +129,6 @@
 		6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteMapViewController.m; sourceTree = "<group>"; };
 		D042717019058E3600796C36 /* ConciergeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConciergeViewController.h; sourceTree = "<group>"; };
 		D042717119058E3600796C36 /* ConciergeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConciergeViewController.m; sourceTree = "<group>"; };
-		D05294F51909FD19000E69F5 /* RouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteAnnotation.h; sourceTree = "<group>"; };
-		D05294F61909FD19000E69F5 /* RouteAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteAnnotation.m; sourceTree = "<group>"; };
 		D0539617190AE608007A1FF6 /* DetailConciergeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailConciergeViewController.h; sourceTree = "<group>"; };
 		D0539618190AE608007A1FF6 /* DetailConciergeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailConciergeViewController.m; sourceTree = "<group>"; };
 		D06FC61418FCC5260048FEE0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -173,6 +180,7 @@
 		419189F718FC954100A4616C = {
 			isa = PBXGroup;
 			children = (
+				41FAD51A190B1C4900D7DB0F /* fonts */,
 				41918A0918FC954100A4616C /* Trip'InChicago */,
 				41918A2818FC954100A4616C /* Trip'InChicagoTests */,
 				41918A0218FC954100A4616C /* Frameworks */,
@@ -225,6 +233,8 @@
 				41F98E1F1906B8DD00B15F9F /* ViewControllers */,
 				41A136B5190308950058AF39 /* Location.h */,
 				41A136B6190308950058AF39 /* Location.m */,
+				41FAD4FA190AD5CA00D7DB0F /* PointAnnotation.h */,
+				41FAD4FB190AD5CA00D7DB0F /* PointAnnotation.m */,
 				D06FC61618FD82EC0048FEE0 /* MapPoint.h */,
 				D06FC61718FD82EC0048FEE0 /* MapPoint.m */,
 				6F5B4E8418FDF7F100E495BA /* TemperatureChecker.h */,
@@ -289,10 +299,24 @@
 				D042717119058E3600796C36 /* ConciergeViewController.m */,
 				6FFC39EC1905E05A00DB2ECC /* RouteMapViewController.h */,
 				6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */,
-				41FAD4FA190AD5CA00D7DB0F /* PointAnnotation.h */,
-				41FAD4FB190AD5CA00D7DB0F /* PointAnnotation.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		41FAD51A190B1C4900D7DB0F /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				41FAD520190B1EF000D7DB0F /* Raleway-Bold.otf */,
+				41FAD521190B1EF000D7DB0F /* Raleway-ExtraBold.otf */,
+				41FAD522190B1EF000D7DB0F /* Raleway-ExtraLight.otf */,
+				41FAD523190B1EF000D7DB0F /* Raleway-Heavy.otf */,
+				41FAD524190B1EF000D7DB0F /* Raleway-Light.otf */,
+				41FAD525190B1EF000D7DB0F /* Raleway-Medium.otf */,
+				41FAD526190B1EF000D7DB0F /* Raleway-Regular.otf */,
+				41FAD527190B1EF000D7DB0F /* Raleway-SemiBold.otf */,
+				41FAD528190B1EF000D7DB0F /* Raleway-Thin.otf */,
+			);
+			name = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,7 +420,6 @@
 				416909F918FCA0BF007A9A59 /* LoginViewController.m in Sources */,
 				41918A1A18FC954100A4616C /* ViewController.m in Sources */,
 				41918A4218FC984B00A4616C /* PicsAndReviewsViewController.m in Sources */,
-				D05294F71909FD19000E69F5 /* RouteAnnotation.m in Sources */,
 				6FFC39EE1905E05A00DB2ECC /* RouteMapViewController.m in Sources */,
 				41918A1418FC954100A4616C /* AppDelegate.m in Sources */,
 				41F98E281906D2B300B15F9F /* NotesViewController.m in Sources */,
@@ -404,7 +427,6 @@
 				41918A3D18FC97AC00A4616C /* MapViewController.m in Sources */,
 				D06FC61818FD82EC0048FEE0 /* MapPoint.m in Sources */,
 				6F5B4E8618FDF7F100E495BA /* TemperatureChecker.m in Sources */,
-				D0539619190AE608007A1FF6 /* DetailConciergeViewController.m in Sources */,
 				41918A3A18FC96F600A4616C /* SectionViewController.m in Sources */,
 				D042717219058E3600796C36 /* ConciergeViewController.m in Sources */,
 				41F98E221906B99000B15F9F /* ChoiceViewController.m in Sources */,
