@@ -28,6 +28,7 @@
     [super viewDidLoad];
     UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SectionViewController"]];
     [self.view addSubview:backgroundImage];
+    [self.view sendSubviewToBack:backgroundImage];
 }
 
 -(void)viewWillAppear:(BOOL)animated
