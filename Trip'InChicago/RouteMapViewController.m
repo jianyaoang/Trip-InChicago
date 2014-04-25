@@ -7,7 +7,7 @@
 //
 
 #import "RouteMapViewController.h"
-#import "RouteAnnotation.h"
+#import "PointAnnotation.h"
 
 @interface RouteMapViewController ()
 {
@@ -104,11 +104,14 @@
 
 -(void)createItenAnnotations
 {
+    NSInteger index = 1;
     for (MKMapItem *item in self.routesArray)
     {
-        self.annotation = [RouteAnnotation new];
-        self.annotation.coordinate = item.placemark.coordinate;
-        self.annotation.title      = item.name;
+        PointAnnotation *annotation = [PointAnnotation new];
+        annotation.coordinate = item.placemark.coordinate;
+        annotation.title      = item.name;
+        annotation.index      = index;
+        index++;
 
 
         for (UIImage *numberImage in self.numberImages)
@@ -132,11 +135,42 @@
 //   {
 //        return nil;
 //    }
-//    //note that this method is very similar to the (UITableViewCell*) or UITableViewDataSource method
-//    //annotation view is a representation of the data (which is ʻannotationʻ)
-//    //if pin does not show up make sure you connected the MapView delegate outlet to the VC. Remember, VC is the delegate
-//    //for (MKMapItem *item in self.routesArray)
-//   // {
+    //note that this method is very similar to the (UITableViewCell*) or UITableViewDataSource method
+    //annotation view is a representation of the data (which is ʻannotationʻ)
+    //if pin does not show up make sure you connected the MapView delegate outlet to the VC. Remember, VC is the delegate
+    //for (MKMapItem *item in self.routesArray)
+   // {
+
+
+
+    MKPinAnnotationView* pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:nil];
+    //pin.annotation = item.placemark;
+//    NSArray *numberImages = @[@"numberOne",@"numberTwo",@"numberThree",@"numberFour",@"numberFive"];
+//    NSArray *images = [NSArray arrayWithObjects:@"numberOne",@"numberTwo",@"numberThree",@"numberFour",@"numberFive", nil];
+
+    [self.images addObject:[UIImage imageNamed:@"numberOne"]];
+    [self.images addObject:[UIImage imageNamed:@"numberTwo"]];
+    [self.images addObject:[UIImage imageNamed:@"numberThree"]];
+    [self.images addObject:[UIImage imageNamed:@"numberFour"]];
+//    [self.images addObject:[UIImage imageNamed:@"numberFive"]];
+    
+    NSLog(@"image count is %d",self.images.count);
+    
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+    {
+        return nil;
+    }
+    else
+    {
+        NSInteger index = [(PointAnnotation *)annotation index];
+        pin.image = self.images[index];
+    }
+    //[(PointAnnotation*)annotation index]
+    //pin.image = self.images[]
+    
+           //}
+    //adds info button to the callout
+//    pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 //
 //
 //    MKPinAnnotationView* pin = [[MKPinAnnotationView alloc]initWithAnnotation:self.annotation reuseIdentifier:nil];
