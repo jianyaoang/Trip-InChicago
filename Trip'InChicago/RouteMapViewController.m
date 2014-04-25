@@ -140,12 +140,19 @@
     [self.images addObject:[UIImage imageNamed:@"numberTwo"]];
     [self.images addObject:[UIImage imageNamed:@"numberThree"]];
     [self.images addObject:[UIImage imageNamed:@"numberFour"]];
-    [self.images addObject:[UIImage imageNamed:@"numberFive"]];
+//    [self.images addObject:[UIImage imageNamed:@"numberFive"]];
     
     NSLog(@"image count is %d",self.images.count);
     
-    NSInteger index = [(PointAnnotation *)annotation index];
-    pin.image = self.images[index];
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+    {
+        return nil;
+    }
+    else
+    {
+        NSInteger index = [(PointAnnotation *)annotation index];
+        pin.image = self.images[index];
+    }
     //[(PointAnnotation*)annotation index]
     //pin.image = self.images[]
     
