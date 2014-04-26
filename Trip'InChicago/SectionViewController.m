@@ -32,7 +32,23 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SectionCellID"];
     cell.textLabel.text = [self.sectionNames objectAtIndex:indexPath.row];
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.font = [UIFont systemFontOfSize:19];
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
     return cell;
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *section = [self.sectionNames objectAtIndex:indexPath.row];
+    CGFloat width = 320;
+    UIFont *font = [UIFont systemFontOfSize:19];
+    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:section attributes:@{NSFontAttributeName: font}];
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){width,CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+    rect = CGRectInset(rect, -40, -40);
+    CGSize size = rect.size;
+    return size.height;
 }
 
 #pragma mark - Prepare for Segue
