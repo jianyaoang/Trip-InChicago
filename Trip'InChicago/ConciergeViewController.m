@@ -375,6 +375,7 @@
             NSIndexPath *indexPath = [self.myTableView indexPathForSelectedRow];
             UITableViewCell *cell = [self.myTableView cellForRowAtIndexPath:indexPath];
             vc.title = cell.textLabel.text;
+            vc.distanceTextField.text = cell.detailTextLabel.text;
         }
 }
 - (IBAction)onCancelButtonPressed:(id)sender
@@ -411,9 +412,4 @@
 
     }
 }
-
-             //&& ([sender isKindOfClass:[UITableViewCell class]]))
-
-
-
 @end
