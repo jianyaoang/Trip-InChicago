@@ -18,6 +18,7 @@
     UIImageView *imageView;
     IBOutlet UIScrollView *imageScrollView;
     IBOutlet UIPageControl *imagePageControl;
+    IBOutlet UIImageView *placeholderImageView;
 }
 
 @end
@@ -34,6 +35,8 @@
     [self extractFlickrJSON];
     
     imageScrollView.delegate = self;
+    
+    placeholderImageView.image = [UIImage imageNamed:@"imagePlaceholder"];
 }
 
 -(void)extractFlickrJSON
@@ -63,6 +66,11 @@
         [self imageInScrollView];
         imagePageControl.numberOfPages = imageArray.count;
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        if (imageArray.count == 0 )
+        {
+            placeholderImageView.image = [UIImage imageNamed:@"NoImagePlaceholder"];
+        }
     }];
 }
 
