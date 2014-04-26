@@ -31,6 +31,8 @@
 @property (nonatomic, strong) NSURLRequest *prefillTableRequest;
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *typesSegmentedControl;
+@property (weak, nonatomic) IBOutlet UIButton *dismissButton;
+
 @end
 
 @implementation ConciergeViewController
@@ -48,10 +50,7 @@
 {
     [super viewDidLoad];
 
-
     self.typesSegmentedControl.selectedSegmentIndex= -1;
-
-
 
     // Arts & Entertainment 4d4b7104d754a06370d81259, Food 4d4b7105d754a06374d81259, Shop & Service 4d4b7105d754a06378d81259,
     // Cultural Center Cultural Center 52e81612bcbc57f1066b7a32
@@ -90,6 +89,12 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+
+    // The UIAlertView call asking for location permission, caused the help screen to not be
+    // be able to over ride the navbar display - moved this over here to make it load before
+    // location services :) this seems to do the trick 
+    [self displayHelpScreen];
+
     [self.myTableView reloadData];
 }
 
@@ -370,6 +375,40 @@
             UITableViewCell *cell = [self.myTableView cellForRowAtIndexPath:indexPath];
             vc.placeName= cell.textLabel.text;
         }
+}
+- (IBAction)onCancelButtonPressed:(id)sender
+{
+    // Dismiss the help screen
+    self.backgroundImage.alpha = 0.0;
+    self.dismissButton.alpha   = 0.0;
+
+    self.navigationController.navigationBar.hidden = NO;
+}
+
+-(void)displayHelpScreen
+{
+    // If user defaults exist make the help screen transparent .. .. .
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"TimesProgramHasRun"] != nil)
+    {
+        self.backgroundImage.alpha = 0.0;
+        self.dismissButton.alpha   = 0.0;
+
+        self.navigationController.navigationBar.hidden = NO;
+
+    }
+    else
+    {
+        // user defaults do not exist - overlay the screen with help screen.
+        NSUserDefaults * standardUserDefaults = [NSUserDefaults standardUserDefaults];
+
+        [standardUserDefaults setInteger:1 forKey:@"TimesProgramHasRun"];
+
+        self.backgroundImage.alpha = 0.90;
+        self.dismissButton.alpha   = 0.90;
+
+        self.navigationController.navigationBar.hidden = YES;
+
+    }
 }
 
              //&& ([sender isKindOfClass:[UITableViewCell class]]))

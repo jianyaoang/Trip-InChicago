@@ -11,6 +11,7 @@
 @interface ConciergeViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UITableView *myTableView;
 @property NSString *sectionString;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 
 
 @end
