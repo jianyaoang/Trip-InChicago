@@ -281,8 +281,6 @@
 		41F98E1F1906B8DD00B15F9F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D0539617190AE608007A1FF6 /* DetailConciergeViewController.h */,
-				D0539618190AE608007A1FF6 /* DetailConciergeViewController.m */,
 				416909F718FCA0BF007A9A59 /* LoginViewController.h */,
 				416909F818FCA0BF007A9A59 /* LoginViewController.m */,
 				41F98E201906B99000B15F9F /* ChoiceViewController.h */,
@@ -297,6 +295,8 @@
 				41F98E271906D2B300B15F9F /* NotesViewController.m */,
 				D042717019058E3600796C36 /* ConciergeViewController.h */,
 				D042717119058E3600796C36 /* ConciergeViewController.m */,
+				D0539617190AE608007A1FF6 /* DetailConciergeViewController.h */,
+				D0539618190AE608007A1FF6 /* DetailConciergeViewController.m */,
 				6FFC39EC1905E05A00DB2ECC /* RouteMapViewController.h */,
 				6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */,
 			);

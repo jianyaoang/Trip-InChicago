@@ -163,7 +163,10 @@
         myComma = @",";
     }
 
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@ %@", place.name, myComma, place.phoneNumber];
+    //cell.textLabel.text = [NSString stringWithFormat:@"%@ %@ %@", place.name, myComma, place.phoneNumber];
+
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", place.name];
+
     int distance = roundf([place.placemark.location distanceFromLocation:self.locationManager.location]);
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Distance from you: %2.2f miles", (distance/1609.34)];
     cell.detailTextLabel.textColor = [UIColor blueColor];
@@ -219,7 +222,7 @@
 
 -(void)caculateMinimunTime:(int)numberOfPlaces
 {
-    timeforIntinerary = (90*(numberOfPlaces-1))*60;
+    timeforIntinerary = (90*(numberOfPlaces))*60;
 
 }
 -(void) narrowDownPlaces: (CLPlacemark*)placemark
@@ -352,7 +355,7 @@
     return @"Delete";
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton*)sender
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"ShowItenMapView"])
     {
@@ -360,13 +363,17 @@
         vc.routesArray = intineraryPlaces;
     }
     else if ([segue.identifier isEqualToString:@"ShowPlaceDetails"])
-    {
-        DetailConciergeViewController *vc = segue.destinationViewController;
-        //vc.nsstring varible = text in the cell
-        NSIndexPath *indexPath = [self.myTableView indexPathForSelectedRow];
-        UITableViewCell *cell = [self.myTableView cellForRowAtIndexPath:indexPath];
-        vc.placeName = cell.textLabel.text;
-    }
+        //if ([sender isKindOfClass:[UITableViewCell class]])
+        {
+            DetailConciergeViewController *vc = (DetailConciergeViewController *)segue.destinationViewController;
+            NSIndexPath *indexPath = [self.myTableView indexPathForSelectedRow];
+            UITableViewCell *cell = [self.myTableView cellForRowAtIndexPath:indexPath];
+            vc.placeName= cell.textLabel.text;
+        }
 }
+
+             //&& ([sender isKindOfClass:[UITableViewCell class]]))
+
+
 
 @end

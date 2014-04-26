@@ -183,7 +183,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="0I1-9x-u9t" kind="push" identifier="ShowPlaceDetails" id="jzs-09-G5K"/>
+                                            <segue destination="0I1-9x-u9t" kind="push" identifier="ShowPlaceDetails" id="o0W-bq-Kua"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
