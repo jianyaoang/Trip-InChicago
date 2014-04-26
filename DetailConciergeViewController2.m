@@ -1,19 +1,18 @@
 //
-//  DetailConciergeViewController.m
+//  DetailConciergeViewController2.m
 //  Trip'InChicago
 //
-//  Created by Marion Ano on 4/25/14.
+//  Created by Jaime Hernandez on 4/26/14.
 //  Copyright (c) 2014 Jian Yao Ang. All rights reserved.
 //
 
-#import "DetailConciergeViewController.h"
+#import "DetailConciergeViewController2.h"
 
-
-@interface DetailConciergeViewController ()
+@interface DetailConciergeViewController2 ()
 
 @end
 
-@implementation DetailConciergeViewController
+@implementation DetailConciergeViewController2
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,8 +26,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.title = self.placeName;
-    // Do any additional setup after loading the view.
+    self.distanceTextField.text = self.distance;
+    self.phoneNumberTextField.text = self.phoneNumber;
+
 }
 
 - (void)didReceiveMemoryWarning

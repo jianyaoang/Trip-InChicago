@@ -46,6 +46,7 @@
 		41FAD4FC190AD5CA00D7DB0F /* PointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FAD4FB190AD5CA00D7DB0F /* PointAnnotation.m */; };
 		6F5B4E8618FDF7F100E495BA /* TemperatureChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5B4E8518FDF7F100E495BA /* TemperatureChecker.m */; };
 		6FBEBB0C190AED750002D59D /* google-maps-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FBEBB0B190AED750002D59D /* google-maps-icon.png */; };
+		6FBEBB1D190C5A660002D59D /* DetailConciergeViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEBB1C190C5A660002D59D /* DetailConciergeViewController2.m */; };
 		6FFC39EE1905E05A00DB2ECC /* RouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */; };
 		D042717219058E3600796C36 /* ConciergeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D042717119058E3600796C36 /* ConciergeViewController.m */; };
 		D06FC61518FCC5260048FEE0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06FC61418FCC5260048FEE0 /* Parse.framework */; };
@@ -125,12 +126,12 @@
 		6F5B4E8418FDF7F100E495BA /* TemperatureChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemperatureChecker.h; sourceTree = "<group>"; };
 		6F5B4E8518FDF7F100E495BA /* TemperatureChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemperatureChecker.m; sourceTree = "<group>"; };
 		6FBEBB0B190AED750002D59D /* google-maps-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google-maps-icon.png"; sourceTree = "<group>"; };
+		6FBEBB1B190C5A660002D59D /* DetailConciergeViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailConciergeViewController2.h; path = ../DetailConciergeViewController2.h; sourceTree = "<group>"; };
+		6FBEBB1C190C5A660002D59D /* DetailConciergeViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailConciergeViewController2.m; path = ../DetailConciergeViewController2.m; sourceTree = "<group>"; };
 		6FFC39EC1905E05A00DB2ECC /* RouteMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteMapViewController.h; sourceTree = "<group>"; };
 		6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteMapViewController.m; sourceTree = "<group>"; };
 		D042717019058E3600796C36 /* ConciergeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConciergeViewController.h; sourceTree = "<group>"; };
 		D042717119058E3600796C36 /* ConciergeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConciergeViewController.m; sourceTree = "<group>"; };
-		D0539617190AE608007A1FF6 /* DetailConciergeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailConciergeViewController.h; sourceTree = "<group>"; };
-		D0539618190AE608007A1FF6 /* DetailConciergeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailConciergeViewController.m; sourceTree = "<group>"; };
 		D06FC61418FCC5260048FEE0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D06FC61618FD82EC0048FEE0 /* MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPoint.h; sourceTree = "<group>"; };
 		D06FC61718FD82EC0048FEE0 /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoint.m; sourceTree = "<group>"; };
@@ -281,6 +282,8 @@
 		41F98E1F1906B8DD00B15F9F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6FBEBB1B190C5A660002D59D /* DetailConciergeViewController2.h */,
+				6FBEBB1C190C5A660002D59D /* DetailConciergeViewController2.m */,
 				416909F718FCA0BF007A9A59 /* LoginViewController.h */,
 				416909F818FCA0BF007A9A59 /* LoginViewController.m */,
 				41F98E201906B99000B15F9F /* ChoiceViewController.h */,
@@ -295,8 +298,6 @@
 				41F98E271906D2B300B15F9F /* NotesViewController.m */,
 				D042717019058E3600796C36 /* ConciergeViewController.h */,
 				D042717119058E3600796C36 /* ConciergeViewController.m */,
-				D0539617190AE608007A1FF6 /* DetailConciergeViewController.h */,
-				D0539618190AE608007A1FF6 /* DetailConciergeViewController.m */,
 				6FFC39EC1905E05A00DB2ECC /* RouteMapViewController.h */,
 				6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */,
 			);
@@ -429,6 +430,7 @@
 				6F5B4E8618FDF7F100E495BA /* TemperatureChecker.m in Sources */,
 				41918A3A18FC96F600A4616C /* SectionViewController.m in Sources */,
 				D042717219058E3600796C36 /* ConciergeViewController.m in Sources */,
+				6FBEBB1D190C5A660002D59D /* DetailConciergeViewController2.m in Sources */,
 				41F98E221906B99000B15F9F /* ChoiceViewController.m in Sources */,
 				41918A1018FC954100A4616C /* main.m in Sources */,
 				41FAD4FC190AD5CA00D7DB0F /* PointAnnotation.m in Sources */,

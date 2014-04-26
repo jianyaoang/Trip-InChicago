@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bYY-rO-SPw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bYY-rO-SPw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -227,10 +227,10 @@
             </objects>
             <point key="canvasLocation" x="3812" y="638"/>
         </scene>
-        <!--Detail Concierge View Controller-->
+        <!--Detail Concierge View Controller2-->
         <scene sceneID="p7I-Qk-cpv">
             <objects>
-                <viewController id="0I1-9x-u9t" customClass="DetailConciergeViewController" sceneMemberID="viewController">
+                <viewController id="0I1-9x-u9t" customClass="DetailConciergeViewController2" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sDV-lB-ahA"/>
                         <viewControllerLayoutGuide type="bottom" id="65H-Tz-nLV"/>
@@ -290,9 +290,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="OuS-kI-dly"/>
                     <connections>
-                        <outlet property="addressTextView" destination="Qcf-D7-OVU" id="1Bm-0Q-G3H"/>
-                        <outlet property="distanceTextField" destination="3o9-d8-HfO" id="dyv-Yn-Zw1"/>
-                        <outlet property="phoneNumberTextField" destination="gjT-DX-PLC" id="91a-Aw-5J3"/>
+                        <outlet property="addressTextView" destination="Qcf-D7-OVU" id="IdA-5q-Bbc"/>
+                        <outlet property="distanceTextField" destination="3o9-d8-HfO" id="Von-Xg-0pC"/>
+                        <outlet property="phoneNumberTextField" destination="gjT-DX-PLC" id="xbF-NF-5gF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1i-QD-p0N" userLabel="First Responder" sceneMemberID="firstResponder"/>

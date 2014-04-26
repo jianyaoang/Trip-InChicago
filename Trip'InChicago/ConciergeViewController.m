@@ -11,7 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "Location.h"
 #import "RouteMapViewController.h"
-#import "DetailConciergeViewController.h"
+#import "DetailConciergeViewController2.h"
 
 @interface ConciergeViewController ()<UITableViewDataSource, UITableViewDataSource, CLLocationManagerDelegate>
 {
@@ -370,12 +370,13 @@
     else if ([segue.identifier isEqualToString:@"ShowPlaceDetails"])
         //if ([sender isKindOfClass:[UITableViewCell class]])
         {
-            DetailConciergeViewController *vc = (DetailConciergeViewController *)segue.destinationViewController;
+            DetailConciergeViewController2 *vc = (DetailConciergeViewController2 *)segue.destinationViewController;
 
             NSIndexPath *indexPath = [self.myTableView indexPathForSelectedRow];
             UITableViewCell *cell = [self.myTableView cellForRowAtIndexPath:indexPath];
             vc.title = cell.textLabel.text;
-            vc.distanceTextField.text = cell.detailTextLabel.text;
+            vc.distance = cell.detailTextLabel.text;            
+
         }
 }
 - (IBAction)onCancelButtonPressed:(id)sender
