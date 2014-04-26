@@ -48,9 +48,8 @@
 {
     [super viewDidLoad];
 
-    self.typesSegmentedControl.selectedSegmentIndex=-1;
 
-    self.typesSegmentedControl.selectedSegmentIndex=-1;
+    self.typesSegmentedControl.selectedSegmentIndex= -1;
 
 
 
@@ -106,7 +105,7 @@
     {
         if (location.verticalAccuracy < 1000 && location.horizontalAccuracy < 1000){
             self.currentLocation = location;
-            //[self startReverseGeocode];
+            [self startReverseGeocode];
             [self.locationManager stopUpdatingLocation];
             break;
         }
@@ -174,7 +173,7 @@
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
       NSString* string;
-    if (self.typesSegmentedControl.selectedSegmentIndex == -1)
+    if (self.typesSegmentedControl.selectedSegmentIndex ==-1)
     {
         [self.myTableView.tableHeaderView setHidden:YES];
         string = @"";
