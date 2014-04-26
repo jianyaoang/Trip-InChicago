@@ -48,8 +48,6 @@
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     
-    //cell.backgroundColor = [UIColor colorWithPatternImage:[self.sectionBackgroundImages objectAtIndex:indexPath.row]];
-    
     cell.backgroundView = [[UIImageView alloc]initWithImage:[self.sectionBackgroundImages objectAtIndex:indexPath.row]];
     cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[self.sectionBackgroundImages objectAtIndex:indexPath.row]];
     
