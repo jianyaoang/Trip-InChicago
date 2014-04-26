@@ -12,6 +12,10 @@
 @interface RouteMapViewController ()
 {
     bool whatColor;
+    float northernBorder;
+    float southernBorder;
+    float easternBorder;
+    float westernBorder;
 }
 @property (strong, nonatomic) IBOutlet UITextView *infoTextView;
 @property (strong, nonatomic) IBOutlet UIView *infoView;
@@ -32,6 +36,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    northernBorder = 0.0;
+    //setting the southernBorder
+    southernBorder = 100000.0;
+    //setting the easternBorder
+    easternBorder = -10000.0;
+    //setting the westernBorder
+    westernBorder = 0.0;
     self.images = [NSMutableArray new];
     self.infoTextView.hidden = YES;
     self.infoView.hidden = YES;
@@ -45,13 +56,24 @@
 
     whatColor = YES;
 
+
+
+//    CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
+//    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.02, 0.02);
+//    MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
     CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
-    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.02, 0.02);
+
+    //setting the width and the height of mapwindow
+    float x = fabsf(((fabsf(westernBorder)-fabsf(easternBorder)) + 0.0015));
+    float y = fabsf(((fabsf(northernBorder) - fabsf(southernBorder)) + 0.0015));
+
+    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(x, y);
     MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
+    self.routeMapViewMap.region = region;
 
     self.routeMapViewMap.delegate = self;
 
-    self.routeMapViewMap.region = region;
+//    self.routeMapViewMap.region = region;
 
 
     [self getDirections];
@@ -73,17 +95,27 @@
         || (oldLocation.coordinate.latitude != newLocation.coordinate.latitude))
     {
 
-        CLLocationCoordinate2D coord ={
-            .latitude = newLocation.coordinate.latitude,
-            .longitude = newLocation.coordinate.longitude};
+        CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
 
-        MKCoordinateRegion region;
-        region.center = coord;
+        //setting the width and the height of mapwindow
+        float x = fabsf(((fabsf(westernBorder)-fabsf(easternBorder)) + 0.0015));
+        float y = fabsf(((fabsf(northernBorder) - fabsf(southernBorder)) + 0.0015));
 
-        MKCoordinateSpan span = {.latitudeDelta = 0.5, .longitudeDelta = 0.5};
-        region.span = span;
+        MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(x, y);
+        MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
+        self.routeMapViewMap.region = region;
 
-        [self.routeMapViewMap setRegion:region];
+//        CLLocationCoordinate2D coord ={
+//            .latitude = newLocation.coordinate.latitude,
+//            .longitude = newLocation.coordinate.longitude};
+//
+//        MKCoordinateRegion region;
+//        region.center = coord;
+//
+//        MKCoordinateSpan span = {.latitudeDelta = 1.0, .longitudeDelta = 1.0};
+//        region.span = span;
+//
+//        [self.routeMapViewMap setRegion:region];
     }
 }
 
@@ -110,6 +142,19 @@
         annotation.title      = item.name;
         annotation.index      = index;
         index++;
+
+        if (annotation.coordinate.latitude > northernBorder) {
+            northernBorder = annotation.coordinate.latitude;
+        }
+        if (annotation.coordinate.latitude < southernBorder) {
+            southernBorder = annotation.coordinate.latitude;
+        }
+        if (annotation.coordinate.longitude < westernBorder) {
+            westernBorder = annotation.coordinate.longitude;
+        }
+        if (annotation.coordinate.longitude > easternBorder) {
+            easternBorder = annotation.coordinate.longitude;
+        }
 
         [self.routeMapViewMap addAnnotation:annotation];
         [self.routeMapViewMap reloadInputViews];
@@ -143,6 +188,8 @@
     {
         NSInteger index = [(PointAnnotation *)annotation index];
         pin.image = self.images[index];
+        pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        pin.canShowCallout = YES;
     }
     return pin;
 

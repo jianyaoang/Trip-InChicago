@@ -159,7 +159,8 @@
     {
         //if the pins are within our view, drop the pins
         if (!(fabsf(location.lat - self.locationManager.location.coordinate.latitude) > 0.015)&&
-            !(fabsf(location.lng - self.locationManager.location.coordinate.longitude) > 0.012)) {
+            !(fabsf(location.lng - self.locationManager.location.coordinate.longitude) > 0.012))
+        {
             [self creatingMapAndPins:location];
         }
     }
