@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailConciergeViewController : UIViewController
-@property NSString *placeName;
+@property (strong,nonatomic) NSString *placeName;
 @end
