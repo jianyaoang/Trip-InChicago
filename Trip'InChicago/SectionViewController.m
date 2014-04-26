@@ -33,8 +33,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SectionCellID"];
     cell.textLabel.text = [self.sectionNames objectAtIndex:indexPath.row];
     cell.textLabel.numberOfLines = 0;
-    cell.textLabel.font = [UIFont systemFontOfSize:19];
+    cell.textLabel.font = [UIFont systemFontOfSize:30];
+    cell.textLabel.font = [UIFont fontWithName:@"Raleway-Regular" size:30];
+//    cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
+//    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sights"]];
     return cell;
 }
 
@@ -43,10 +46,10 @@
 {
     NSString *section = [self.sectionNames objectAtIndex:indexPath.row];
     CGFloat width = 320;
-    UIFont *font = [UIFont systemFontOfSize:19];
+    UIFont *font = [UIFont systemFontOfSize:30];
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:section attributes:@{NSFontAttributeName: font}];
     CGRect rect = [attributedText boundingRectWithSize:(CGSize){width,CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
-    rect = CGRectInset(rect, -40, -40);
+    rect = CGRectInset(rect, -50, -50);
     CGSize size = rect.size;
     return size.height;
 }
