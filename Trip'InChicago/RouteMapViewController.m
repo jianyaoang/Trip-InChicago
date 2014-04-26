@@ -56,25 +56,17 @@
 
     whatColor = YES;
 
-
-
-//    CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
-//    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.02, 0.02);
-//    MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
     CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
 
     //setting the width and the height of mapwindow
-    float x = fabsf(((fabsf(westernBorder)-fabsf(easternBorder)) + 0.0015));
-    float y = fabsf(((fabsf(northernBorder) - fabsf(southernBorder)) + 0.0015));
+    float x = fabsf(((fabsf(westernBorder)-fabsf(easternBorder)) + 0.0045));
+    float y = fabsf(((fabsf(northernBorder) - fabsf(southernBorder)) + 0.0045));
 
     MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(x, y);
     MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
     self.routeMapViewMap.region = region;
 
     self.routeMapViewMap.delegate = self;
-
-//    self.routeMapViewMap.region = region;
-
 
     [self getDirections];
 
@@ -104,18 +96,6 @@
         MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(x, y);
         MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
         self.routeMapViewMap.region = region;
-
-//        CLLocationCoordinate2D coord ={
-//            .latitude = newLocation.coordinate.latitude,
-//            .longitude = newLocation.coordinate.longitude};
-//
-//        MKCoordinateRegion region;
-//        region.center = coord;
-//
-//        MKCoordinateSpan span = {.latitudeDelta = 1.0, .longitudeDelta = 1.0};
-//        region.span = span;
-//
-//        [self.routeMapViewMap setRegion:region];
     }
 }
 

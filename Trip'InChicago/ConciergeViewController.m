@@ -50,6 +50,10 @@
 
     self.typesSegmentedControl.selectedSegmentIndex=-1;
 
+    self.typesSegmentedControl.selectedSegmentIndex=-1;
+
+
+
     // Arts & Entertainment 4d4b7104d754a06370d81259, Food 4d4b7105d754a06374d81259, Shop & Service 4d4b7105d754a06378d81259,
     // Cultural Center Cultural Center 52e81612bcbc57f1066b7a32
     self.indoorString = @"4d4b7104d754a06370d81259,4d4b7105d754a06374d81259,4d4b7105d754a06378d81259,52e81612bcbc57f1066b7a32";
@@ -323,7 +327,6 @@
 
             [self.myTableView reloadData];
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
         }
         }];
 }
