@@ -291,7 +291,7 @@
                     <navigationItem key="navigationItem" id="OuS-kI-dly"/>
                     <connections>
                         <outlet property="addressTextView" destination="Qcf-D7-OVU" id="1Bm-0Q-G3H"/>
-                        <outlet property="distanceTextField" destination="3o9-d8-HfO" id="Zhq-3V-2WW"/>
+                        <outlet property="distanceTextField" destination="3o9-d8-HfO" id="dyv-Yn-Zw1"/>
                         <outlet property="phoneNumberTextField" destination="gjT-DX-PLC" id="91a-Aw-5J3"/>
                     </connections>
                 </viewController>
