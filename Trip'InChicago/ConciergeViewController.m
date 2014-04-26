@@ -373,10 +373,8 @@
             DetailConciergeViewController *vc = (DetailConciergeViewController *)segue.destinationViewController;
 
             NSIndexPath *indexPath = [self.myTableView indexPathForSelectedRow];
-//            NSString *name = [intineraryPlaces objectAtIndex:indexPath.row];
             UITableViewCell *cell = [self.myTableView cellForRowAtIndexPath:indexPath];
-
-            vc.placeName= cell.textLabel.text;
+            vc.title = cell.textLabel.text;
         }
 }
 - (IBAction)onCancelButtonPressed:(id)sender
