@@ -61,7 +61,6 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
     PFObject *comment = self.notesMutableArray[indexPath.row];
     NSString *notes = [comment objectForKey:@"notes"];
     CGFloat width = 320;
