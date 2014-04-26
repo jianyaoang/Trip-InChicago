@@ -15,4 +15,5 @@
 @property (strong, nonatomic) IBOutlet UITextView *addressTextView;
 @property (strong, nonatomic) IBOutlet UITextField *phoneNumberTextField;
 @property (strong, nonatomic) IBOutlet UITextField *distanceTextField;
+
 @end
