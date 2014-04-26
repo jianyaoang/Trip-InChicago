@@ -8,7 +8,7 @@
 
 #import "PicsAndReviewsViewController.h"
 #import "NotesViewController.h"
-
+//    7ce03f98cbe66weefe8451cff602f08ec
 @interface PicsAndReviewsViewController () <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     IBOutlet UITableView *reviewsTableView;
@@ -41,7 +41,7 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
     NSString *cleanLocationNameString = [self.location.name stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSString *urlString = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=7ce03f98cbe66eefe8451cff602f08ec&tags=%@&per_page=10&accuracy=16&content_type=1&safe_search=1&sort=relevance&format=json&nojsoncallback=1",cleanLocationNameString];
+    NSString *urlString = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e1619af9b853f421758f264b91c39677&tags=%@&per_page=10&accuracy=16&content_type=1&safe_search=1&sort=relevance&format=json&nojsoncallback=1",cleanLocationNameString];
     urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
