@@ -261,7 +261,7 @@
     return renderer;
 }
 
-- (IBAction)onInfoButtonPressed:(id)sender
+- (IBAction)onDirectionsButtonPressed:(id)sender
 {
 
     self.infoView.hidden = NO;
