@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-
+#import "Location.h"
 @interface DetailConciergeViewController2 : UIViewController
 
 
 @property NSString *distance;
 @property NSString *phoneNumber;
 @property NSString *address;
+@property Location *location;
 
 @property CLLocation *myLocation;
 

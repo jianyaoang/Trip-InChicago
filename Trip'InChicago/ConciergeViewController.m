@@ -286,6 +286,8 @@
                 location.lng =  [places[@"location"][@"lng"]floatValue];
                 location.address = places[@"location"][@"address"];
                 location.name = places[@"name"];
+                
+                NSLog(@"location address: %@",location.address);
 
                 if (places[@"contact"][@"formattedPhone"] == nil)
                 {
@@ -382,6 +384,8 @@
         {
             DetailConciergeViewController2 *vc = (DetailConciergeViewController2 *)segue.destinationViewController;
 
+            NSLog(@"vc.location: %@",vc.location);
+
             NSIndexPath *indexPath = [self.myTableView indexPathForSelectedRow];
             UITableViewCell *cell =  [self.myTableView cellForRowAtIndexPath:indexPath];
             vc.title = cell.textLabel.text;
@@ -400,6 +404,7 @@
             CLLocation *newLocation = [[CLLocation alloc]initWithLatitude:placeLat longitude:placeLng];
 
             vc.myLocation = newLocation;
+            
 
 //            [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error)
 //            {
