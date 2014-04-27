@@ -11,7 +11,6 @@
 
 @interface RouteMapViewController ()
 {
-    bool whatColor;
     float northernBorder;
     float southernBorder;
     float easternBorder;
@@ -53,8 +52,6 @@
     self.currentLocation = self.locationManager.location;
     self.annotationView = [[MKAnnotationView alloc]init];
     [self createItenAnnotations];
-
-    whatColor = YES;
 
     CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
 
@@ -244,20 +241,10 @@
 {
     MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc]initWithOverlay:overlay];
 
-    if (whatColor)
-    {
-        renderer.strokeColor = [UIColor blueColor];
-        whatColor = NO;
-        NSLog(@"Blue");
-    }
-    else
-    {
-        renderer.strokeColor = [UIColor greenColor];
-        whatColor = YES;
-        NSLog(@"Green");
-
-    }
+    renderer.strokeColor = [UIColor blueColor];
+    NSLog(@"Blue");
     renderer.lineWidth   = 5.0;
+
     return renderer;
 }
 

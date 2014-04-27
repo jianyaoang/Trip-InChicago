@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bYY-rO-SPw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bYY-rO-SPw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -206,12 +206,6 @@
                                     <action selector="onCancelButtonPressed:" destination="qqZ-fc-NsK" eventType="touchUpInside" id="Xsa-uV-HeM"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXi-7U-edo">
-                                <rect key="frame" x="212" y="170" width="55" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -226,7 +220,6 @@
                         <outlet property="backgroundImage" destination="PuW-8p-uGw" id="SIW-Fy-ULc"/>
                         <outlet property="dismissButton" destination="cn4-2P-hZ2" id="cap-z6-P3b"/>
                         <outlet property="myTableView" destination="nSs-zd-7p8" id="Yje-wA-306"/>
-                        <outlet property="ratingTextLabel" destination="iXi-7U-edo" id="Gro-os-Woj"/>
                         <outlet property="typesSegmentedControl" destination="F6w-U1-JBO" id="22v-O9-CNT"/>
                     </connections>
                 </viewController>

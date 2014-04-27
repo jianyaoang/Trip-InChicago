@@ -391,8 +391,8 @@
             vc.phoneNumber = place.phoneNumber;
 
             // Following code will use a placeMark cooridinate to construct an address
-            double placeLat = place.placemark.coordinate.latitude;
-            double placeLng = place.placemark.coordinate.longitude;
+            CLLocationDegrees placeLat = place.placemark.coordinate.latitude;
+            CLLocationDegrees placeLng = place.placemark.coordinate.longitude;
 
             NSLog(@"%f, %f", placeLat, placeLng);
             NSLog(@"%f, %f", place.placemark.coordinate.latitude, place.placemark.coordinate.longitude);
