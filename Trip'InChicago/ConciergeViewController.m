@@ -12,6 +12,7 @@
 #import "Location.h"
 #import "RouteMapViewController.h"
 #import "DetailConciergeViewController2.h"
+#import <AddressBook/AddressBook.h>
 
 @interface ConciergeViewController ()<UITableViewDataSource, UITableViewDataSource, CLLocationManagerDelegate>
 {
@@ -146,6 +147,7 @@
 }
 
 #pragma mark -- table view delegate methods
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return intineraryPlaces.count;
@@ -230,10 +232,18 @@
     timeforIntinerary = (90*(numberOfPlaces))*60;
 
 }
+
+
+#pragma mark --- API call for section loads
+
+
 -(void) narrowDownPlaces: (CLPlacemark*)placemark
 {
 
-    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%f,%f&radius=2500&intent=browse&categoryId=%@&oauth_token=02ALL4LOCE2LTXXTA4ASHFTYOEAAUIRWOYT2P5S2AHBBBADA&v=20140419", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude, self.sectionString];
+//    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%f,%f&radius=2500&intent=browse&categoryId=%@&oauth_token=02ALL4LOCE2LTXXTA4ASHFTYOEAAUIRWOYT2P5S2AHBBBADA&v=20140419", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude, self.sectionString];
+
+     NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%f,%f&radius=2500&openNow=1&intent=browse&categoryId=%@&oauth_token=02ALL4LOCE2LTXXTA4ASHFTYOEAAUIRWOYT2P5S2AHBBBADA&v=20140419", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude, self.sectionString];
+
 
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -295,6 +305,7 @@
                 MKMapItem *mapItem = [[MKMapItem alloc]initWithPlacemark:placemark];
                 mapItem.name = location.name;
                 mapItem.phoneNumber = location.phoneNumber;
+//                mapItem.url = location.address;
 
                 [sortArray addObject:mapItem];
 
@@ -368,17 +379,65 @@
         vc.routesArray = intineraryPlaces;
     }
     else if ([segue.identifier isEqualToString:@"ShowPlaceDetails"])
-        //if ([sender isKindOfClass:[UITableViewCell class]])
         {
             DetailConciergeViewController2 *vc = (DetailConciergeViewController2 *)segue.destinationViewController;
 
             NSIndexPath *indexPath = [self.myTableView indexPathForSelectedRow];
-            UITableViewCell *cell = [self.myTableView cellForRowAtIndexPath:indexPath];
+            UITableViewCell *cell =  [self.myTableView cellForRowAtIndexPath:indexPath];
             vc.title = cell.textLabel.text;
-            vc.distance = cell.detailTextLabel.text;            
+            vc.distance = cell.detailTextLabel.text;
+
+            MKMapItem *place = intineraryPlaces[indexPath.row];
+            vc.phoneNumber = place.phoneNumber;
+
+            // Following code will use a placeMark cooridinate to construct an address
+            CLLocationDegrees placeLat = place.placemark.coordinate.latitude;
+            CLLocationDegrees placeLng = place.placemark.coordinate.longitude;
+
+            NSLog(@"%f, %f", placeLat, placeLng);
+            NSLog(@"%f, %f", place.placemark.coordinate.latitude, place.placemark.coordinate.longitude);
+
+            CLLocation *newLocation = [[CLLocation alloc]initWithLatitude:placeLat longitude:placeLng];
+
+            vc.myLocation = newLocation;
+
+//            [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error)
+//            {
+//               if (error)
+//               {
+//                   NSLog(@"Geocode failed with error: %@", error);
+//                   return;
+//               }
+//
+//               if (placemarks && placemarks.count > 0)
+//               {
+//                   CLPlacemark *placemark = placemarks[0];
+//
+//                   NSDictionary *addressDictionary = placemark.addressDictionary;
+//
+//
+//                   NSString *address = [addressDictionary objectForKey:(NSString *)kABPersonAddressStreetKey];
+//                   NSString *city    = [addressDictionary objectForKey:(NSString *)kABPersonAddressCityKey];
+//                   NSString *state   = [addressDictionary objectForKey:(NSString *)kABPersonAddressStateKey];
+//                   NSString *zip     = [addressDictionary objectForKey:(NSString *)kABPersonAddressZIPKey];
+//
+//                   vc.address = address;
+//
+//                   //tells the main thread the block result was completed, this will allow the UI to update
+//                   dispatch_async(dispatch_get_main_queue(), ^{
+//                       //put your asynchronous result in this block
+//                   });
+//
+//               }
+//               
+//           }];
 
         }
 }
+
+#pragma mark --- Display onboarding help screen
+
+
 - (IBAction)onCancelButtonPressed:(id)sender
 {
     // Dismiss the help screen

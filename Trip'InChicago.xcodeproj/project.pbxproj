@@ -47,6 +47,7 @@
 		6F5B4E8618FDF7F100E495BA /* TemperatureChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5B4E8518FDF7F100E495BA /* TemperatureChecker.m */; };
 		6FBEBB0C190AED750002D59D /* google-maps-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FBEBB0B190AED750002D59D /* google-maps-icon.png */; };
 		6FBEBB1D190C5A660002D59D /* DetailConciergeViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEBB1C190C5A660002D59D /* DetailConciergeViewController2.m */; };
+		6FBEBB20190C90AF0002D59D /* ConciergeMapItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEBB1F190C90AF0002D59D /* ConciergeMapItem.m */; };
 		6FFC39EE1905E05A00DB2ECC /* RouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */; };
 		D042717219058E3600796C36 /* ConciergeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D042717119058E3600796C36 /* ConciergeViewController.m */; };
 		D06FC61518FCC5260048FEE0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06FC61418FCC5260048FEE0 /* Parse.framework */; };
@@ -128,6 +129,8 @@
 		6FBEBB0B190AED750002D59D /* google-maps-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google-maps-icon.png"; sourceTree = "<group>"; };
 		6FBEBB1B190C5A660002D59D /* DetailConciergeViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailConciergeViewController2.h; path = ../DetailConciergeViewController2.h; sourceTree = "<group>"; };
 		6FBEBB1C190C5A660002D59D /* DetailConciergeViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailConciergeViewController2.m; path = ../DetailConciergeViewController2.m; sourceTree = "<group>"; };
+		6FBEBB1E190C90AF0002D59D /* ConciergeMapItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConciergeMapItem.h; sourceTree = "<group>"; };
+		6FBEBB1F190C90AF0002D59D /* ConciergeMapItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConciergeMapItem.m; sourceTree = "<group>"; };
 		6FFC39EC1905E05A00DB2ECC /* RouteMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteMapViewController.h; sourceTree = "<group>"; };
 		6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteMapViewController.m; sourceTree = "<group>"; };
 		D042717019058E3600796C36 /* ConciergeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConciergeViewController.h; sourceTree = "<group>"; };
@@ -298,6 +301,8 @@
 				41F98E271906D2B300B15F9F /* NotesViewController.m */,
 				D042717019058E3600796C36 /* ConciergeViewController.h */,
 				D042717119058E3600796C36 /* ConciergeViewController.m */,
+				6FBEBB1E190C90AF0002D59D /* ConciergeMapItem.h */,
+				6FBEBB1F190C90AF0002D59D /* ConciergeMapItem.m */,
 				6FFC39EC1905E05A00DB2ECC /* RouteMapViewController.h */,
 				6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */,
 			);
@@ -420,6 +425,7 @@
 			files = (
 				416909F918FCA0BF007A9A59 /* LoginViewController.m in Sources */,
 				41918A1A18FC954100A4616C /* ViewController.m in Sources */,
+				6FBEBB20190C90AF0002D59D /* ConciergeMapItem.m in Sources */,
 				41918A4218FC984B00A4616C /* PicsAndReviewsViewController.m in Sources */,
 				6FFC39EE1905E05A00DB2ECC /* RouteMapViewController.m in Sources */,
 				41918A1418FC954100A4616C /* AppDelegate.m in Sources */,
