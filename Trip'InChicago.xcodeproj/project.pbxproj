@@ -53,6 +53,7 @@
 		D042717219058E3600796C36 /* ConciergeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D042717119058E3600796C36 /* ConciergeViewController.m */; };
 		D06FC61518FCC5260048FEE0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06FC61418FCC5260048FEE0 /* Parse.framework */; };
 		D06FC61818FD82EC0048FEE0 /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D06FC61718FD82EC0048FEE0 /* MapPoint.m */; };
+		D08B6D43190DA25F00DB414E /* phoneMedium.png in Resources */ = {isa = PBXBuildFile; fileRef = D08B6D42190DA25F00DB414E /* phoneMedium.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		D06FC61618FD82EC0048FEE0 /* MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPoint.h; sourceTree = "<group>"; };
 		D06FC61718FD82EC0048FEE0 /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoint.m; sourceTree = "<group>"; };
 		D06FC61918FE069B0048FEE0 /* finalproject0415copy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = finalproject0415copy; path = ../../../../Desktop/finalproject0415copy; sourceTree = "<group>"; };
+		D08B6D42190DA25F00DB414E /* phoneMedium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phoneMedium.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +252,7 @@
 				41918A1918FC954100A4616C /* ViewController.m */,
 				6FBEBB0B190AED750002D59D /* google-maps-icon.png */,
 				41918A1B18FC954100A4616C /* Images.xcassets */,
+				D08B6D42190DA25F00DB414E /* phoneMedium.png */,
 				41918A0A18FC954100A4616C /* Supporting Files */,
 			);
 			path = "Trip'InChicago";
@@ -288,8 +291,6 @@
 		41F98E1F1906B8DD00B15F9F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				6FBEBB1B190C5A660002D59D /* DetailConciergeViewController2.h */,
-				6FBEBB1C190C5A660002D59D /* DetailConciergeViewController2.m */,
 				416909F718FCA0BF007A9A59 /* LoginViewController.h */,
 				416909F818FCA0BF007A9A59 /* LoginViewController.m */,
 				41F98E201906B99000B15F9F /* ChoiceViewController.h */,
@@ -308,6 +309,8 @@
 				D042717119058E3600796C36 /* ConciergeViewController.m */,
 				6FBEBB1E190C90AF0002D59D /* ConciergeMapItem.h */,
 				6FBEBB1F190C90AF0002D59D /* ConciergeMapItem.m */,
+				6FBEBB1B190C5A660002D59D /* DetailConciergeViewController2.h */,
+				6FBEBB1C190C5A660002D59D /* DetailConciergeViewController2.m */,
 				6FFC39EC1905E05A00DB2ECC /* RouteMapViewController.h */,
 				6FFC39ED1905E05A00DB2ECC /* RouteMapViewController.m */,
 			);
@@ -407,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FBEBB0C190AED750002D59D /* google-maps-icon.png in Resources */,
+				D08B6D43190DA25F00DB414E /* phoneMedium.png in Resources */,
 				41918A1C18FC954100A4616C /* Images.xcassets in Resources */,
 				41918A0E18FC954100A4616C /* InfoPlist.strings in Resources */,
 				41D8770D190D945300C9B6BE /* Main.storyboard in Resources */,

@@ -9,7 +9,9 @@
 #import "DetailConciergeViewController2.h"
 #import <AddressBook/AddressBook.h>
 
-@interface DetailConciergeViewController2 ()
+@interface DetailConciergeViewController2 () <MKMapViewDelegate, CLLocationManagerDelegate>
+
+@property (strong, nonatomic) IBOutlet MKMapView *conciergeDetailMapView;
 
 @end
 
@@ -29,10 +31,38 @@
     [super viewDidLoad];
     self.distanceTextField.text    = self.distance;
     self.phoneNumberTextField.text = self.phoneNumber;
-    
-    
-    
+
+
+    self.locationManager = [CLLocationManager new];
+    [self.conciergeDetailMapView setShowsUserLocation:YES];
+    [self.locationManager startUpdatingLocation];
+    self.currentLocation = self.locationManager.location;
+
+
+    CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
+    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(.01, .01);
+    MKCoordinateRegion region = MKCoordinateRegionMake (centerCoordinate, coordinateSpan);
+    self.conciergeDetailMapView.region = region;
+
+
+
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
+    annotation.coordinate = CLLocationCoordinate2DMake(self.myLocation.coordinate.latitude, self.myLocation.coordinate.longitude);
+    [self.conciergeDetailMapView addAnnotation:annotation];
+
     [self constructAddressString];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.addressTextField.textColor = [UIColor blackColor];
+    self.addressTextField.alpha = 1.0;
+    self.callNumberButton.layer.cornerRadius = 10;
+    self.callNumberButton.layer.masksToBounds = YES;
+    self.addressTextField.layer.cornerRadius = 10;
+    self.addressTextField.layer.masksToBounds = YES;
+//    self.distanceTextField.layer.cornerRadius = 10;
+//    self.distanceTextField.layer.masksToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,11 +90,11 @@
 
 
            NSString *address = [addressDictionary objectForKey:(NSString *)kABPersonAddressStreetKey];
-           NSString *city    = [addressDictionary objectForKey:(NSString *)kABPersonAddressCityKey];
-           NSString *state   = [addressDictionary objectForKey:(NSString *)kABPersonAddressStateKey];
-           NSString *zip     = [addressDictionary objectForKey:(NSString *)kABPersonAddressZIPKey];
+//           NSString *city    = [addressDictionary objectForKey:(NSString *)kABPersonAddressCityKey];
+//           NSString *state   = [addressDictionary objectForKey:(NSString *)kABPersonAddressStateKey];
+//           NSString *zip     = [addressDictionary objectForKey:(NSString *)kABPersonAddressZIPKey];
 
-           self.addressTextView.text = address;
+           self.addressTextField.text = address;
 
            NSLog(@"%@", addressDictionary);
 
