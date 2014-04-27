@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
 @property (weak, nonatomic) IBOutlet UITextField *distanceTextField;
 
+@property (strong, nonatomic) IBOutlet UIButton *callNumberButton;
 
 
 @end

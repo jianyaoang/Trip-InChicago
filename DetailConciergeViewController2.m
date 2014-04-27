@@ -30,6 +30,8 @@
     self.distanceTextField.text    = self.distance;
     self.phoneNumberTextField.text = self.phoneNumber;
     
+    
+    
     [self constructAddressString];
 }
 
