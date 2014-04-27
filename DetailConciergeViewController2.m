@@ -7,6 +7,7 @@
 //
 
 #import "DetailConciergeViewController2.h"
+#import <AddressBook/AddressBook.h>
 
 @interface DetailConciergeViewController2 ()
 
@@ -26,9 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.distanceTextField.text = self.distance;
+    self.distanceTextField.text    = self.distance;
     self.phoneNumberTextField.text = self.phoneNumber;
-
+    [self constructAddressString];
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,6 +37,45 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)constructAddressString
+{
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:self.myLocation completionHandler:^(NSArray *placemarks, NSError *error)
+    {
+       if (error)
+       {
+           NSLog(@"Geocode failed with error: %@", error);
+           return;
+       }
+
+       if (placemarks && placemarks.count > 0)
+       {
+           CLPlacemark *placemark = placemarks[0];
+
+           NSDictionary *addressDictionary = placemark.addressDictionary;
+
+
+           NSString *address = [addressDictionary objectForKey:(NSString *)kABPersonAddressStreetKey];
+           NSString *city    = [addressDictionary objectForKey:(NSString *)kABPersonAddressCityKey];
+           NSString *state   = [addressDictionary objectForKey:(NSString *)kABPersonAddressStateKey];
+           NSString *zip     = [addressDictionary objectForKey:(NSString *)kABPersonAddressZIPKey];
+
+           self.addressTextView.text = address;
+
+           NSLog(@"%@", addressDictionary);
+
+           //tells the main thread the block result was completed, this will allow the UI to update
+//           dispatch_async(dispatch_get_main_queue(), ^{
+//               //put your asynchronous result in this block
+//           });
+
+       }
+       
+   }];
+
+}
+
 
 /*
 #pragma mark - Navigation
