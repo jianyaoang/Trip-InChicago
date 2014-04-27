@@ -7,15 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface DetailConciergeViewController2 : UIViewController
 
 
 @property NSString *distance;
 @property NSString *phoneNumber;
+@property NSString *address;
+
+@property CLLocation *myLocation;
 
 @property (weak, nonatomic) IBOutlet UITextView  *addressTextView;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
 @property (weak, nonatomic) IBOutlet UITextField *distanceTextField;
+
+
 
 @end
