@@ -39,7 +39,7 @@
     //setting the southernBorder
     southernBorder = 100000.0;
     //setting the easternBorder
-    easternBorder = -10000.0;
+    easternBorder = -1000.0; //originally -10000.0
     //setting the westernBorder
     westernBorder = 0.0;
     self.images = [NSMutableArray new];
@@ -87,8 +87,8 @@
         CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
 
         //setting the width and the height of mapwindow
-        float x = fabsf(((fabsf(westernBorder)-fabsf(easternBorder)) + 0.0015));
-        float y = fabsf(((fabsf(northernBorder) - fabsf(southernBorder)) + 0.0015));
+        float x = fabsf(((fabsf(westernBorder)-fabsf(easternBorder)) + 0.005));
+        float y = fabsf(((fabsf(northernBorder) - fabsf(southernBorder)) + 0.005));
 
         MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(x, y);
         MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
