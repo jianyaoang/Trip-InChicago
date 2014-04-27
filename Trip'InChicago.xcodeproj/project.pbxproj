@@ -14,7 +14,6 @@
 		41918A0E18FC954100A4616C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41918A0C18FC954100A4616C /* InfoPlist.strings */; };
 		41918A1018FC954100A4616C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41918A0F18FC954100A4616C /* main.m */; };
 		41918A1418FC954100A4616C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41918A1318FC954100A4616C /* AppDelegate.m */; };
-		41918A1718FC954100A4616C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41918A1518FC954100A4616C /* Main.storyboard */; };
 		41918A1A18FC954100A4616C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41918A1918FC954100A4616C /* ViewController.m */; };
 		41918A1C18FC954100A4616C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41918A1B18FC954100A4616C /* Images.xcassets */; };
 		41918A2318FC954100A4616C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A2218FC954100A4616C /* XCTest.framework */; };
@@ -41,6 +40,8 @@
 		41918A5C18FC9C7800A4616C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A5B18FC9C7800A4616C /* Social.framework */; };
 		41A136B7190308950058AF39 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A136B6190308950058AF39 /* Location.m */; };
 		41C2BB6D19072442003D1062 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C2BB6C19072442003D1062 /* FacebookSDK.framework */; };
+		41D8770B190D86A900C9B6BE /* FoursquareWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D8770A190D86A900C9B6BE /* FoursquareWebViewController.m */; };
+		41D8770D190D945300C9B6BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41D8770C190D945300C9B6BE /* Main.storyboard */; };
 		41F98E221906B99000B15F9F /* ChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F98E211906B99000B15F9F /* ChoiceViewController.m */; };
 		41F98E281906D2B300B15F9F /* NotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F98E271906D2B300B15F9F /* NotesViewController.m */; };
 		41FAD4FC190AD5CA00D7DB0F /* PointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FAD4FB190AD5CA00D7DB0F /* PointAnnotation.m */; };
@@ -77,7 +78,6 @@
 		41918A1118FC954100A4616C /* Trip'InChicago-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Trip'InChicago-Prefix.pch"; sourceTree = "<group>"; };
 		41918A1218FC954100A4616C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		41918A1318FC954100A4616C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		41918A1618FC954100A4616C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		41918A1818FC954100A4616C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		41918A1918FC954100A4616C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		41918A1B18FC954100A4616C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -109,6 +109,9 @@
 		41A136B5190308950058AF39 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		41A136B6190308950058AF39 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		41C2BB6C19072442003D1062 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		41D87709190D86A900C9B6BE /* FoursquareWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoursquareWebViewController.h; path = ../FoursquareWebViewController.h; sourceTree = "<group>"; };
+		41D8770A190D86A900C9B6BE /* FoursquareWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoursquareWebViewController.m; path = ../FoursquareWebViewController.m; sourceTree = "<group>"; };
+		41D8770C190D945300C9B6BE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		41F98E201906B99000B15F9F /* ChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoiceViewController.h; sourceTree = "<group>"; };
 		41F98E211906B99000B15F9F /* ChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoiceViewController.m; sourceTree = "<group>"; };
 		41F98E261906D2B300B15F9F /* NotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotesViewController.h; path = ../NotesViewController.h; sourceTree = "<group>"; };
@@ -233,7 +236,7 @@
 			children = (
 				41918A1218FC954100A4616C /* AppDelegate.h */,
 				41918A1318FC954100A4616C /* AppDelegate.m */,
-				41918A1518FC954100A4616C /* Main.storyboard */,
+				41D8770C190D945300C9B6BE /* Main.storyboard */,
 				41F98E1F1906B8DD00B15F9F /* ViewControllers */,
 				41A136B5190308950058AF39 /* Location.h */,
 				41A136B6190308950058AF39 /* Location.m */,
@@ -299,6 +302,8 @@
 				41918A4118FC984B00A4616C /* PicsAndReviewsViewController.m */,
 				41F98E261906D2B300B15F9F /* NotesViewController.h */,
 				41F98E271906D2B300B15F9F /* NotesViewController.m */,
+				41D87709190D86A900C9B6BE /* FoursquareWebViewController.h */,
+				41D8770A190D86A900C9B6BE /* FoursquareWebViewController.m */,
 				D042717019058E3600796C36 /* ConciergeViewController.h */,
 				D042717119058E3600796C36 /* ConciergeViewController.m */,
 				6FBEBB1E190C90AF0002D59D /* ConciergeMapItem.h */,
@@ -404,7 +409,7 @@
 				6FBEBB0C190AED750002D59D /* google-maps-icon.png in Resources */,
 				41918A1C18FC954100A4616C /* Images.xcassets in Resources */,
 				41918A0E18FC954100A4616C /* InfoPlist.strings in Resources */,
-				41918A1718FC954100A4616C /* Main.storyboard in Resources */,
+				41D8770D190D945300C9B6BE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +430,7 @@
 			files = (
 				416909F918FCA0BF007A9A59 /* LoginViewController.m in Sources */,
 				41918A1A18FC954100A4616C /* ViewController.m in Sources */,
+				41D8770B190D86A900C9B6BE /* FoursquareWebViewController.m in Sources */,
 				6FBEBB20190C90AF0002D59D /* ConciergeMapItem.m in Sources */,
 				41918A4218FC984B00A4616C /* PicsAndReviewsViewController.m in Sources */,
 				6FFC39EE1905E05A00DB2ECC /* RouteMapViewController.m in Sources */,
@@ -468,14 +474,6 @@
 				41918A0D18FC954100A4616C /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		41918A1518FC954100A4616C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				41918A1618FC954100A4616C /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		41918A2B18FC954100A4616C /* InfoPlist.strings */ = {

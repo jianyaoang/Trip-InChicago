@@ -17,4 +17,7 @@
 @property NSString *tips;
 @property NSString *phoneNumber;
 @property MKPlacemark *placemark;
+@property NSString *tipsID;
+@property NSString *canonicalUrl;
+@property NSString *venueID;
 @end

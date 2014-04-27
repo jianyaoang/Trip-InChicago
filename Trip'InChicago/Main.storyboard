@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bYY-rO-SPw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bYY-rO-SPw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -361,6 +361,40 @@
             </objects>
             <point key="canvasLocation" x="4410" y="290"/>
         </scene>
+        <!--Foursquare Web View Controller-->
+        <scene sceneID="25d-i0-K9D">
+            <objects>
+                <viewController id="K0Z-Re-oyF" customClass="FoursquareWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lgj-lP-eIj"/>
+                        <viewControllerLayoutGuide type="bottom" id="wNz-B5-SL6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TC7-Kh-31J">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UT9-p5-K6Y">
+                                <rect key="frame" x="150" y="228" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a5f-Pd-h9g">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="E0C-ur-VHb"/>
+                    <connections>
+                        <outlet property="foursquareWebView" destination="a5f-Pd-h9g" id="Mem-S1-QNF"/>
+                        <outlet property="spinner" destination="UT9-p5-K6Y" id="zzx-l8-23t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tqa-30-C8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5094" y="314"/>
+        </scene>
         <!--Pics And Reviews View Controller - Pictures And Reviews-->
         <scene sceneID="UFF-au-zck">
             <objects>
@@ -374,13 +408,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9cQ-2E-5cA">
-                                <rect key="frame" x="20" y="530" width="280" height="30"/>
+                                <rect key="frame" x="20" y="531" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Leave a note about this location">
+                                <state key="normal" title="More Details">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cGl-79-w7x" kind="push" identifier="showNotesView" id="lOU-lw-m8m"/>
+                                    <segue destination="K0Z-Re-oyF" kind="push" identifier="showFoursquareWebView" id="97u-TF-kCx"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eh1-mw-aEx">
@@ -423,7 +457,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Pictures And Reviews" id="Fdq-Rr-tAO"/>
+                    <navigationItem key="navigationItem" title="Pictures And Reviews" id="Fdq-Rr-tAO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="n8f-DT-eDr">
+                            <connections>
+                                <segue destination="cGl-79-w7x" kind="push" identifier="showNotesView" id="DhQ-Yf-jou"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imagePageControl" destination="D4Z-bN-9nY" id="aet-bc-VV5"/>
@@ -503,7 +543,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Z9-UF-C6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5037" y="-453"/>
+            <point key="canvasLocation" x="5196" y="-728"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="hZ3-02-9KM">

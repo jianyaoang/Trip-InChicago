@@ -134,7 +134,7 @@
             
             NSArray *tips = venueAndTips[@"tips"];
             NSDictionary *tipsFirstLayer = tips.firstObject;
-
+            
             Location* location = [Location new];
             
             location.lat = [venueDictionary[@"location"][@"lat"]floatValue];
@@ -142,6 +142,10 @@
             location.address = venueDictionary[@"location"][@"address"];
             location.name = venueDictionary[@"name"];
             location.tips = tipsFirstLayer[@"text"];
+            location.tipsID = tipsFirstLayer[@"id"];
+            location.canonicalUrl = tipsFirstLayer[@"canonicalUrl"];
+            location.venueID = venueDictionary[@"id"];
+            
             [locationNameMutableArray addObject:location];
             
         }

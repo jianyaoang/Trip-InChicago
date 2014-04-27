@@ -8,6 +8,7 @@
 
 #import "PicsAndReviewsViewController.h"
 #import "NotesViewController.h"
+#import "FoursquareWebViewController.h"
 //    7ce03f98cbe66weefe8451cff602f08ec
 @interface PicsAndReviewsViewController () <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
 {
@@ -143,6 +144,11 @@
     if ([segue.identifier isEqualToString:@"showNotesView"])
     {
         NotesViewController *vc = segue.destinationViewController;
+        vc.location = self.location;
+    }
+    else if ([segue.identifier isEqualToString:@"showFoursquareWebView"])
+    {
+        FoursquareWebViewController *vc = segue.destinationViewController;
         vc.location = self.location;
     }
 }
