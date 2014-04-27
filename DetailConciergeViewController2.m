@@ -77,6 +77,25 @@
 
 }
 
+- (IBAction)onCallButtonPressed:(id)sender
+{
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:self.phoneNumber delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES",nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex==1)
+    {
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:self.phoneNumber]];
+         //openURL:[NSURL URLWithString:@"tel://xxx-yyy-zzzz"]];
+    }
+    else
+    {
+
+    }
+}
+
 
 /*
 #pragma mark - Navigation
