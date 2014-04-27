@@ -11,8 +11,6 @@
 @interface FoursquareWebViewController () <UIWebViewDelegate, UIActionSheetDelegate>
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) IBOutlet UIWebView *foursquareWebView;
-
-
 @end
 
 @implementation FoursquareWebViewController
@@ -20,13 +18,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self requestToLoadWebPage];
+}
+
+-(void)requestToLoadWebPage
+{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     NSString *urlString = [NSString stringWithFormat:@"http://foursquare.com/v/%@",self.location.venueID];
-    
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     [self.foursquareWebView loadRequest:request];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    
 }
 
 - (void) webViewDidStartLoad: (UIWebView*)webView
