@@ -24,6 +24,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *distanceTextField;
 
 @property (strong, nonatomic) IBOutlet UIButton *callNumberButton;
+@property CLLocationManager *locationManager;
+@property CLLocation *currentLocation;
+@property CLLocationCoordinate2D currentCenter;
+@property (strong, nonatomic) IBOutlet UITextField *addressTextField;
 
 
 @end
