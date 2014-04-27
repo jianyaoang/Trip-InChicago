@@ -12,6 +12,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *myTableView;
 @property NSString *sectionString;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+@property (strong, nonatomic) IBOutlet UILabel *ratingTextLabel;
 
 
 @end
