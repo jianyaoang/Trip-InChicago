@@ -126,13 +126,14 @@
                 location.lng =  [venueDictionary[@"location"][@"lng"]floatValue];
                 location.address = venueDictionary[@"location"][@"address"];
                 location.name = venueDictionary[@"name"];
+                location.phoneNumber = venueDictionary[@"contact"][@"formattedPhone"];
                 location.tips = tipsFirstLayer[@"text"];
                 location.tipsID = tipsFirstLayer[@"id"];
                 location.canonicalUrl = tipsFirstLayer[@"canonicalUrl"];
                 location.venueID = venueDictionary[@"id"];
 
                 [locationNameMutableArray addObject:location];
-                NSLog(@"These are the locationNameMutableArray Items ----- %@", locationMutableArray);
+                //NSLog(@"These are the locationNameMutableArray Items ----- %@", locationNameMutableArray);
                                
             }
             [self.myTableView reloadData];
@@ -173,25 +174,25 @@
     {
         DetailConciergeViewController2 *vc = (DetailConciergeViewController2 *)segue.destinationViewController;
 
-        //NSLog(@"vc.location: %@",vc.location);
-
         NSIndexPath *indexPath = [self.myTableView indexPathForSelectedRow];
-        Location *place = locationNameMutableArray[indexPath.row];
         UITableViewCell *cell =  [self.myTableView cellForRowAtIndexPath:indexPath];
+        Location *place = locationNameMutableArray[indexPath.row];
         vc.title = cell.textLabel.text;
+        vc.address = cell.detailTextLabel.text;
         vc.phoneNumber = place.phoneNumber;
 
+        //vc.phoneNumber = place.phoneNumber;
 
-        // Following code will use a placeMark cooridinate to construct an address
-        CLLocationDegrees placeLat = place.placemark.coordinate.latitude;
-        CLLocationDegrees placeLng = place.placemark.coordinate.longitude;
 
-        NSLog(@"%f, %f", placeLat, placeLng);
-        NSLog(@"%f, %f", place.placemark.coordinate.latitude, place.placemark.coordinate.longitude);
-
-        CLLocation *newLocation = [[CLLocation alloc]initWithLatitude:placeLat longitude:placeLng];
-        vc.myLocation = newLocation;
-
+//        // Following code will use a placeMark cooridinate to construct an address
+//        CLLocationDegrees placeLat = place.placemark.coordinate.latitude;
+//        CLLocationDegrees placeLng = place.placemark.coordinate.longitude;
+//
+//        NSLog(@"%f, %f", placeLat, placeLng);
+//        NSLog(@"%f, %f", place.placemark.coordinate.latitude, place.placemark.coordinate.longitude);
+//
+//        CLLocation *newLocation = [[CLLocation alloc]initWithLatitude:placeLat longitude:placeLng];
+//        vc.myLocation = newLocation;
     }
 
 }

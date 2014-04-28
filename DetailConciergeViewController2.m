@@ -31,6 +31,7 @@
     [super viewDidLoad];
     self.distanceTextField.text    = self.distance;
     self.phoneNumberTextField.text = self.phoneNumber;
+    self.addressTextField.text = self.address;
 
 
     self.locationManager = [CLLocationManager new];

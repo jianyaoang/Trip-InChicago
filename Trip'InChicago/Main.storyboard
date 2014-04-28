@@ -116,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3FS-Lp-qCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3895" y="-715"/>
+            <point key="canvasLocation" x="3911" y="-755"/>
         </scene>
         <!--Map View Controller - Map-->
         <scene sceneID="spX-uM-PtB">
@@ -148,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pFF-e0-7Pt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4260" y="-715"/>
+            <point key="canvasLocation" x="4428" y="-720"/>
         </scene>
         <!--Choice View Controller-->
         <scene sceneID="AGC-UG-9TB">
@@ -360,7 +360,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1i-QD-p0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4690" y="-20"/>
+            <point key="canvasLocation" x="4602" y="0.0"/>
         </scene>
         <!--Route Map View Controller-->
         <scene sceneID="38U-Fq-5FU">
@@ -541,7 +541,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6t-FT-Emb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4644" y="-728"/>
+            <point key="canvasLocation" x="4796" y="-720"/>
         </scene>
         <!--Notes View Controller - Notes-->
         <scene sceneID="0SL-t7-dYP">
@@ -611,7 +611,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Z9-UF-C6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5024" y="-728"/>
+            <point key="canvasLocation" x="5216" y="-720"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="hZ3-02-9KM">
