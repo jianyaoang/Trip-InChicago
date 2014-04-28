@@ -155,11 +155,13 @@
     {
         NotesViewController *vc = segue.destinationViewController;
         vc.location = self.location;
+        vc.navigationItem.title = self.location.name;
     }
     else if ([segue.identifier isEqualToString:@"showFoursquareWebView"])
     {
         FoursquareWebViewController *vc = segue.destinationViewController;
         vc.location = self.location;
+        vc.navigationItem.title = self.location.name;
     }
 }
 
