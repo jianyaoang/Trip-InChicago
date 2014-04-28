@@ -45,6 +45,7 @@
 		41F98E221906B99000B15F9F /* ChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F98E211906B99000B15F9F /* ChoiceViewController.m */; };
 		41F98E281906D2B300B15F9F /* NotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F98E271906D2B300B15F9F /* NotesViewController.m */; };
 		41FAD4FC190AD5CA00D7DB0F /* PointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FAD4FB190AD5CA00D7DB0F /* PointAnnotation.m */; };
+		6F2774D5190E976800237D0E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2774D4190E976800237D0E /* MessageUI.framework */; };
 		6F5B4E8618FDF7F100E495BA /* TemperatureChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5B4E8518FDF7F100E495BA /* TemperatureChecker.m */; };
 		6FBEBB0C190AED750002D59D /* google-maps-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FBEBB0B190AED750002D59D /* google-maps-icon.png */; };
 		6FBEBB1D190C5A660002D59D /* DetailConciergeViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEBB1C190C5A660002D59D /* DetailConciergeViewController2.m */; };
@@ -128,6 +129,7 @@
 		41FAD526190B1EF000D7DB0F /* Raleway-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.otf"; sourceTree = "<group>"; };
 		41FAD527190B1EF000D7DB0F /* Raleway-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.otf"; sourceTree = "<group>"; };
 		41FAD528190B1EF000D7DB0F /* Raleway-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Thin.otf"; sourceTree = "<group>"; };
+		6F2774D4190E976800237D0E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		6F5B4E8418FDF7F100E495BA /* TemperatureChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemperatureChecker.h; sourceTree = "<group>"; };
 		6F5B4E8518FDF7F100E495BA /* TemperatureChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemperatureChecker.m; sourceTree = "<group>"; };
 		6FBEBB0B190AED750002D59D /* google-maps-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google-maps-icon.png"; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F2774D5190E976800237D0E /* MessageUI.framework in Frameworks */,
 				41918A5C18FC9C7800A4616C /* Social.framework in Frameworks */,
 				41C2BB6D19072442003D1062 /* FacebookSDK.framework in Frameworks */,
 				41918A5A18FC9C7200A4616C /* Twitter.framework in Frameworks */,
@@ -209,6 +212,7 @@
 		41918A0218FC954100A4616C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6F2774D4190E976800237D0E /* MessageUI.framework */,
 				41C2BB6C19072442003D1062 /* FacebookSDK.framework */,
 				D06FC61418FCC5260048FEE0 /* Parse.framework */,
 				41918A5B18FC9C7800A4616C /* Social.framework */,
