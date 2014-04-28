@@ -72,6 +72,8 @@
     NSIndexPath *indexPath = [self.sectionTableView indexPathForSelectedRow];
     NSString *sectionName = [self.sectionNames objectAtIndex:indexPath.row];
 
+
+
     MapViewController *mapViewController = (MapViewController *)segue.destinationViewController;
     mapViewController.foursquareLocationName = sectionName;
 }
