@@ -81,11 +81,19 @@
     
     for (NSData *imageData in imageArray)
     {
-        
+
         UIImage *image = [UIImage imageWithData:imageData];
-        imageView = [[UIImageView alloc]initWithImage:image];
+
+        // Resize the image block
+        CGSize newSize = CGSizeMake(320.0, 295.0);
+        UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+        [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+        UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+
+        imageView = [[UIImageView alloc]initWithImage:newImage];
         [imageScrollView addSubview:imageView];
-        
+
         imageView.frame = CGRectMake(width, 0, self.view.frame.size.width, self.view.frame.size.height);
 //        imageView.contentMode = UIViewContentModeScaleAspectFit;
 //        imageView.contentMode = UIViewContentModeCenter;

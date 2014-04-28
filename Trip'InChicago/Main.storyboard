@@ -144,7 +144,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-U2-Z65">
-                                <rect key="frame" x="104" y="177" width="113" height="30"/>
+                                <rect key="frame" x="20" y="191" width="280" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Browse Chicago">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -154,7 +154,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ejq-Gl-wL0">
-                                <rect key="frame" x="125" y="289" width="70" height="30"/>
+                                <rect key="frame" x="20" y="284" width="280" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Concierge">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -167,6 +167,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="kok-LZ-QwN"/>
+                    <connections>
+                        <outlet property="browseChicagoButton" destination="MQJ-U2-Z65" id="Zwz-Mb-WKA"/>
+                        <outlet property="conciergeButton" destination="Ejq-Gl-wL0" id="BCq-cH-SIp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYr-Yi-kCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
