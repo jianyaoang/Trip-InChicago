@@ -119,12 +119,21 @@
 {
     if(buttonIndex==1)
     {
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:self.phoneNumber]];
-         //openURL:[NSURL URLWithString:@"tel://xxx-yyy-zzzz"]];
+
+        //I think we need to format the string to have no spaces in it
+        NSString *newString = [[self.phoneNumber componentsSeparatedByCharactersInSet:
+                                [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
+                               componentsJoinedByString:@""];
+
+        NSLog(@"%@", newString);
+
+        NSString *phoneNumber = [@"tel://" stringByAppendingString:newString];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+
     }
     else
     {
-
+        //user goes back to app
     }
 }
 
