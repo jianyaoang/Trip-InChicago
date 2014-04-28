@@ -76,6 +76,7 @@
 
     SectionListViewController *vc = (SectionListViewController*)segue.destinationViewController;
     vc.searchSection = sectionName;
+    vc.navigationItem.title = [NSString stringWithFormat:@"%@",sectionName];
 
 
 
