@@ -12,6 +12,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self listAllFonts];
+    
     [Parse setApplicationId:@"I93ZsmZ3q0SNFKTCAkGLE43HZboDC3YqIMvbIFVS"
                   clientKey:@"8oX3WzslH3kXB1liz2Ki7aYy0uegKKkD23gKfoqe"];
     return YES;
@@ -47,6 +49,15 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)listAllFonts
+{
+    [[UIFont familyNames] enumerateObjectsUsingBlock:^(NSString* familyName, NSUInteger idx, BOOL *stop) {
+        [[UIFont fontNamesForFamilyName:familyName] enumerateObjectsUsingBlock:^(NSString* fontName, NSUInteger idx, BOOL *stop) {
+            NSLog(@"fontName: %@", fontName);
+        }];
+    }];
 }
 
 @end

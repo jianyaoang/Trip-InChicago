@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		416909F918FCA0BF007A9A59 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 416909F818FCA0BF007A9A59 /* LoginViewController.m */; };
+		418C151D190EC3BA00B55B29 /* Raleway-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41FAD520190B1EF000D7DB0F /* Raleway-Bold.otf */; };
+		418C151E190EC3BA00B55B29 /* Raleway-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41FAD521190B1EF000D7DB0F /* Raleway-ExtraBold.otf */; };
+		418C151F190EC3BA00B55B29 /* Raleway-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41FAD522190B1EF000D7DB0F /* Raleway-ExtraLight.otf */; };
+		418C1520190EC3BA00B55B29 /* Raleway-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41FAD523190B1EF000D7DB0F /* Raleway-Heavy.otf */; };
+		418C1521190EC3BA00B55B29 /* Raleway-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41FAD524190B1EF000D7DB0F /* Raleway-Light.otf */; };
+		418C1522190EC3BA00B55B29 /* Raleway-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41FAD525190B1EF000D7DB0F /* Raleway-Medium.otf */; };
+		418C1523190EC3BA00B55B29 /* Raleway-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41FAD526190B1EF000D7DB0F /* Raleway-Regular.otf */; };
+		418C1524190EC3BA00B55B29 /* Raleway-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41FAD527190B1EF000D7DB0F /* Raleway-SemiBold.otf */; };
+		418C1525190EC3BA00B55B29 /* Raleway-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41FAD528190B1EF000D7DB0F /* Raleway-Thin.otf */; };
 		41918A0418FC954100A4616C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A0318FC954100A4616C /* Foundation.framework */; };
 		41918A0618FC954100A4616C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A0518FC954100A4616C /* CoreGraphics.framework */; };
 		41918A0818FC954100A4616C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41918A0718FC954100A4616C /* UIKit.framework */; };
@@ -418,10 +427,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				418C151D190EC3BA00B55B29 /* Raleway-Bold.otf in Resources */,
+				418C1524190EC3BA00B55B29 /* Raleway-SemiBold.otf in Resources */,
+				418C1525190EC3BA00B55B29 /* Raleway-Thin.otf in Resources */,
+				418C151E190EC3BA00B55B29 /* Raleway-ExtraBold.otf in Resources */,
 				6FBEBB0C190AED750002D59D /* google-maps-icon.png in Resources */,
+				418C151F190EC3BA00B55B29 /* Raleway-ExtraLight.otf in Resources */,
 				D08B6D43190DA25F00DB414E /* phoneMedium.png in Resources */,
+				418C1520190EC3BA00B55B29 /* Raleway-Heavy.otf in Resources */,
+				418C1521190EC3BA00B55B29 /* Raleway-Light.otf in Resources */,
+				418C1522190EC3BA00B55B29 /* Raleway-Medium.otf in Resources */,
 				41918A1C18FC954100A4616C /* Images.xcassets in Resources */,
 				41918A0E18FC954100A4616C /* InfoPlist.strings in Resources */,
+				418C1523190EC3BA00B55B29 /* Raleway-Regular.otf in Resources */,
 				41D8770D190D945300C9B6BE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
