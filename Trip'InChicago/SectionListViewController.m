@@ -9,6 +9,7 @@
 #import "SectionListViewController.h"
 #import "MapViewController.h"
 #import "Location.h"
+#import "DetailConciergeViewController2.h"
 
 @interface SectionListViewController ()
 {
@@ -156,14 +157,44 @@
     Location *place = locationNameMutableArray[indexPath.row];
     cell.textLabel.text= place.name;
     cell.detailTextLabel.text = place.address;
+    cell.detailTextLabel.textColor = [UIColor blueColor];
     return cell;
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
+    if ([segue.identifier isEqualToString:@"SectionMapSegue"])
+    {
+        MapViewController *vc = segue.destinationViewController;
+        vc.foursquareLocationName = self.searchSection;
+    }
+    else if ([segue.identifier isEqualToString:@"ToDetailConciergeView"])
+    {
+        DetailConciergeViewController2 *vc = (DetailConciergeViewController2 *)segue.destinationViewController;
+
+        //NSLog(@"vc.location: %@",vc.location);
+
+        NSIndexPath *indexPath = [self.myTableView indexPathForSelectedRow];
+        Location *place = locationNameMutableArray[indexPath.row];
+        UITableViewCell *cell =  [self.myTableView cellForRowAtIndexPath:indexPath];
+        vc.title = cell.textLabel.text;
+        vc.phoneNumber = place.phoneNumber;
 
 
+        // Following code will use a placeMark cooridinate to construct an address
+        CLLocationDegrees placeLat = place.placemark.coordinate.latitude;
+        CLLocationDegrees placeLng = place.placemark.coordinate.longitude;
 
+        NSLog(@"%f, %f", placeLat, placeLng);
+        NSLog(@"%f, %f", place.placemark.coordinate.latitude, place.placemark.coordinate.longitude);
 
+        CLLocation *newLocation = [[CLLocation alloc]initWithLatitude:placeLat longitude:placeLng];
+        vc.myLocation = newLocation;
 
+    }
+
+}
 
 /*
 #pragma mark - Navigation

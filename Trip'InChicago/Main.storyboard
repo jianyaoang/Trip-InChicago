@@ -67,11 +67,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReuseCellID" textLabel="yzy-Qc-hxb" detailTextLabel="r4t-kZ-jcp" style="IBUITableViewCellStyleSubtitle" id="rYt-Yf-MCk">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ReuseCellID" textLabel="yzy-Qc-hxb" detailTextLabel="r4t-kZ-jcp" style="IBUITableViewCellStyleSubtitle" id="rYt-Yf-MCk">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rYt-Yf-MCk" id="QCP-g7-wlk">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yzy-Qc-hxb">
@@ -90,6 +90,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="0I1-9x-u9t" kind="push" identifier="ToDetailConciergeView" id="Kd7-7V-idO"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -103,7 +106,7 @@
                     <navigationItem key="navigationItem" id="Lge-os-lQw">
                         <barButtonItem key="rightBarButtonItem" title="MapView" id="A0B-5A-XTS">
                             <connections>
-                                <segue destination="evs-Rm-iLL" kind="push" id="vx6-Rl-QSQ"/>
+                                <segue destination="evs-Rm-iLL" kind="push" identifier="SectionMapSegue" id="r25-mh-8GD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -204,7 +207,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F6w-U1-JBO">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F6w-U1-JBO">
                                 <rect key="frame" x="20" y="102" width="280" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
@@ -357,7 +360,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1i-QD-p0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4194" y="718"/>
+            <point key="canvasLocation" x="4690" y="-20"/>
         </scene>
         <!--Route Map View Controller-->
         <scene sceneID="38U-Fq-5FU">
@@ -660,4 +663,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Kd7-7V-idO"/>
+    </inferredMetricsTieBreakers>
 </document>
