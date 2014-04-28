@@ -36,8 +36,10 @@
     [self.browseChicagoButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.browseChicagoButton.titleLabel.font = [UIFont fontWithName:@"Raleway-Light" size:22];
     
-    [self.conciergeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.conciergeButton setBackgroundImage:[UIImage imageNamed:@"button"] forState:UIControlStateNormal];
+
+    
+    [self.conciergeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.conciergeButton.titleLabel.font = [UIFont fontWithName:@"Raleway-Light" size:22];
 }
 
