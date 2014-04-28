@@ -47,7 +47,7 @@
     venueMutableArray = [NSMutableArray new];
     locationMutableArray = [NSMutableArray new];
     locationDetailsArray = [NSMutableArray new];
-    [self extractVenueJSON];
+    //[self extractVenueJSON];
     [self.myTableView reloadData];
 }
 
@@ -155,6 +155,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReuseCellID"];
     Location *place = locationNameMutableArray[indexPath.row];
     cell.textLabel.text= place.name;
+    cell.detailTextLabel.text = place.address;
     return cell;
 }
 
