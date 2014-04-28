@@ -86,7 +86,7 @@
 
         // Resize the image block
         CGSize newSize = CGSizeMake(imageScrollView.frame.size.width, imageScrollView.frame.size.height);
-        UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+        UIGraphicsBeginImageContextWithOptions(newSize, NO, 1.0);
         [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
         UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
