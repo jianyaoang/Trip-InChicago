@@ -2,12 +2,13 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "Section2non-retina.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "SectionViewController.png"
+      "filename" : "Section2.png"
     }
   ],
   "info" : {

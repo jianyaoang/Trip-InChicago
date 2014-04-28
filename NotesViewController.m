@@ -23,6 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Notes"]];
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];

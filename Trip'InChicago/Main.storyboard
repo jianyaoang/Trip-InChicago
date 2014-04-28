@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bYY-rO-SPw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bYY-rO-SPw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -48,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3532" y="-721"/>
+            <point key="canvasLocation" x="3504" y="-715"/>
         </scene>
         <!--Section List View Controller-->
         <scene sceneID="aan-Jq-de2">
@@ -91,6 +91,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="myTableView" destination="oab-lH-YI8" id="FJq-QV-fNV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3FS-Lp-qCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -141,7 +144,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-U2-Z65">
-                                <rect key="frame" x="104" y="177" width="113" height="30"/>
+                                <rect key="frame" x="20" y="191" width="280" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Browse Chicago">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -151,7 +154,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ejq-Gl-wL0">
-                                <rect key="frame" x="125" y="289" width="70" height="30"/>
+                                <rect key="frame" x="20" y="284" width="280" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Concierge">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -164,6 +167,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="kok-LZ-QwN"/>
+                    <connections>
+                        <outlet property="browseChicagoButton" destination="MQJ-U2-Z65" id="Zwz-Mb-WKA"/>
+                        <outlet property="conciergeButton" destination="Ejq-Gl-wL0" id="BCq-cH-SIp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYr-Yi-kCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -431,7 +438,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tqa-30-C8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5094" y="314"/>
+            <point key="canvasLocation" x="5024" y="-20"/>
         </scene>
         <!--Pics And Reviews View Controller - Pictures And Reviews-->
         <scene sceneID="UFF-au-zck">
@@ -512,7 +519,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6t-FT-Emb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4640" y="-445"/>
+            <point key="canvasLocation" x="4644" y="-728"/>
         </scene>
         <!--Notes View Controller - Notes-->
         <scene sceneID="0SL-t7-dYP">
@@ -582,7 +589,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Z9-UF-C6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5196" y="-728"/>
+            <point key="canvasLocation" x="5024" y="-728"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="hZ3-02-9KM">
