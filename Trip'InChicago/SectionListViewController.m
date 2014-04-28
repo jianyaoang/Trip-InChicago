@@ -7,8 +7,18 @@
 //
 
 #import "SectionListViewController.h"
+#import "MapViewController.h"
+#import "Location.h"
 
-@interface SectionListViewController ()<UITableViewDataSource, UITableViewDataSource>
+@interface SectionListViewController ()
+{
+    NSMutableArray *locationMutableArray;
+    NSMutableArray *venueMutableArray;
+    NSMutableArray *locationDetailsArray;
+    NSMutableArray *locationNameMutableArray;
+    NSMutableArray *locationNameMutableArrayAndLocationMutableArray;
+}
+@property (strong, nonatomic) IBOutlet UITableView *myTableView;
 
 @end
 
@@ -26,7 +36,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.locationManager = [CLLocationManager new];
+    [self.locationManager startUpdatingLocation];
+    self.currentLocation = self.locationManager.location;
+
+    locationNameMutableArrayAndLocationMutableArray = [NSMutableArray new];
+    locationNameMutableArray = [NSMutableArray new];
+    venueMutableArray = [NSMutableArray new];
+    locationMutableArray = [NSMutableArray new];
+    locationDetailsArray = [NSMutableArray new];
     // Do any additional setup after loading the view.
+
+    [self.myTableView reloadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    self.currentLocation = self.locationManager.location;
+    [self.locationManager startUpdatingLocation];
+    [self.myTableView reloadData];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,38 +67,89 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)extractVenueJSON
+{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+
+    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/explore?ll=%f,%f&section=%@&oauth_token=02ALL4LOCE2LTXXTA4ASHFTYOEAAUIRWOYT2P5S2AHBBBADA&v=20140419", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude, self.searchSection];
+
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+
+
+        if (connectionError != nil)
+        {
+            UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"Data Connection Error"
+                                                        message:@"No data connection try again later"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+
+            [av show];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
+        }
+        else
+        {
+
+            NSDictionary *firstLayer = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
+            NSDictionary *responseDictionary = firstLayer[@"response"];
+            NSArray *groupsArray = responseDictionary[@"groups"];
+            NSDictionary *groupsArrayDictionary = groupsArray.firstObject;
+            NSArray *items = groupsArrayDictionary[@"items"];
+
+            [locationNameMutableArray removeAllObjects];
+
+            for (NSDictionary *venueAndTips in items)
+            {
+                NSDictionary *venueDictionary = venueAndTips[@"venue"];
+
+                NSArray *tips = venueAndTips[@"tips"];
+                NSDictionary *tipsFirstLayer = tips.firstObject;
+
+                Location* location = [Location new];
+
+                location.lat = [venueDictionary[@"location"][@"lat"]floatValue];
+                location.lng =  [venueDictionary[@"location"][@"lng"]floatValue];
+                location.address = venueDictionary[@"location"][@"address"];
+                location.name = venueDictionary[@"name"];
+                location.tips = tipsFirstLayer[@"text"];
+                location.tipsID = tipsFirstLayer[@"id"];
+                location.canonicalUrl = tipsFirstLayer[@"canonicalUrl"];
+                location.venueID = venueDictionary[@"id"];
+
+                [locationNameMutableArray addObject:location];
+                NSLog(@"%@", locationMutableArray);
+                               
+            }
+            [self.myTableView reloadData];
+        }
+
+
+    }];
+
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    
+}
+
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return locationMutableArray.count;
+
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReuseCellID"];
-
-//    MKMapItem *place = intineraryPlaces[indexPath.row];
-//
-//    // removing the "," (comma) if there is nothing in place.phoneNumber
-//    NSString *myComma = [NSString new];
-//
-//    if ([place.phoneNumber isEqualToString:@""])
-//    {
-//        myComma = @"";
-//    }
-//    else
-//    {
-//        myComma = @",";
-//    }
-//
-//    //cell.textLabel.text = [NSString stringWithFormat:@"%@ %@ %@", place.name, myComma, place.phoneNumber];
-//
-//    cell.textLabel.text = [NSString stringWithFormat:@"%@", place.name];
-//
-//    int distance = roundf([place.placemark.location distanceFromLocation:self.locationManager.location]);
-//    cell.detailTextLabel.text = [NSString stringWithFormat:@"Distance from you: %2.2f miles", (distance/1609.34)];
-//    cell.detailTextLabel.textColor = [UIColor blueColor];
+    Location *place = locationMutableArray[indexPath.row];
+    cell.textLabel.text= place.name;
     return cell;
 }
+
+
 
 
 

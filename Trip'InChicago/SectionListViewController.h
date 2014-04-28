@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface SectionListViewController : UIViewController
+@interface SectionListViewController : UIViewController<UITableViewDataSource, UITableViewDataSource, CLLocationManagerDelegate>
+@property NSString *searchSection;
+@property CLLocationManager *locationManager;
+@property CLLocation *currentLocation;
 
 @end

@@ -7,7 +7,9 @@
 //
 
 #import "SectionViewController.h"
-#import "MapViewController.h"
+#import "SectionListViewController.h"
+
+//#import "MapViewController.h"
 
 @interface SectionViewController () <UITableViewDataSource, UITableViewDataSource>
 
@@ -72,10 +74,13 @@
     NSIndexPath *indexPath = [self.sectionTableView indexPathForSelectedRow];
     NSString *sectionName = [self.sectionNames objectAtIndex:indexPath.row];
 
+    SectionListViewController *vc = (SectionListViewController*)segue.destinationViewController;
+    vc.searchSection = sectionName;
 
 
-    MapViewController *mapViewController = (MapViewController *)segue.destinationViewController;
-    mapViewController.foursquareLocationName = sectionName;
+
+//    MapViewController *mapViewController = (MapViewController *)segue.destinationViewController;
+//    mapViewController.foursquareLocationName = sectionName;
 }
 
 
