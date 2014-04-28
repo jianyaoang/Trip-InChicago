@@ -22,6 +22,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Notes"]];
+    [self.view addSubview:backgroundImage];
+    [self.view sendSubviewToBack:backgroundImage];
+    
+    self.notesTableView.backgroundColor = [UIColor clearColor];
+//    [self.notesTextView setBackgroundColor:[UIColor colorWithWhite:1 alpha:1]];
+    [self.notesViewSection setBackgroundColor:[UIColor colorWithWhite:1 alpha:1]];
     self.notesMutableArray = [NSMutableArray new];
     
     PFQuery *queryNotes = [PFQuery queryWithClassName:@"Notes"];
@@ -56,6 +63,8 @@
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.font = [UIFont systemFontOfSize:19];
     cell.textLabel.font = [UIFont fontWithName:@"Raleway-Regular" size:19];
+    cell.backgroundColor = [UIColor colorWithWhite:1 alpha:.65];
+
     return cell;
 }
 
@@ -86,4 +95,22 @@
         [self.notesTableView reloadData];
     }];
 }
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+//        self.notesTableView.backgroundColor = [UIColor blackColor];
+    }
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"Report comment";
+}
+
 @end

@@ -30,7 +30,6 @@
                                     [UIImage imageNamed:@"outdoorSection"],
                                     [UIImage imageNamed:@"topPicks"],
                                     nil];
-    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
