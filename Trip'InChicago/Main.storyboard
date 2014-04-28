@@ -103,7 +103,7 @@
                     <navigationItem key="navigationItem" id="Lge-os-lQw">
                         <barButtonItem key="rightBarButtonItem" title="MapView" id="A0B-5A-XTS">
                             <connections>
-                                <segue destination="evs-Rm-iLL" kind="push" id="vx6-Rl-QSQ"/>
+                                <segue destination="evs-Rm-iLL" kind="push" identifier="SectionMapSegue" id="r25-mh-8GD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -204,7 +204,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F6w-U1-JBO">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F6w-U1-JBO">
                                 <rect key="frame" x="20" y="102" width="280" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>

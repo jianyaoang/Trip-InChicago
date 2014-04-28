@@ -156,7 +156,17 @@
     Location *place = locationNameMutableArray[indexPath.row];
     cell.textLabel.text= place.name;
     cell.detailTextLabel.text = place.address;
+    cell.detailTextLabel.textColor = [UIColor blueColor];
     return cell;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    MapViewController *vc = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"SectionMapSegue"])
+    {
+        vc.foursquareLocationName = self.searchSection;
+    }
 }
 
 
