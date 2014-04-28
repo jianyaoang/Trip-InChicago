@@ -39,6 +39,7 @@
 
     self.locationManager = [CLLocationManager new];
     [self.locationManager startUpdatingLocation];
+    self.currentLocation = [CLLocation new];
     self.currentLocation = self.locationManager.location;
 
     locationNameMutableArrayAndLocationMutableArray = [NSMutableArray new];
@@ -46,8 +47,7 @@
     venueMutableArray = [NSMutableArray new];
     locationMutableArray = [NSMutableArray new];
     locationDetailsArray = [NSMutableArray new];
-    // Do any additional setup after loading the view.
-
+    //[self extractVenueJSON];
     [self.myTableView reloadData];
 }
 
@@ -56,7 +56,9 @@
     [super viewWillAppear:animated];
 
     self.currentLocation = self.locationManager.location;
-    [self.locationManager startUpdatingLocation];
+    //[self.locationManager startUpdatingLocation];
+    [self extractVenueJSON];
+
     [self.myTableView reloadData];
 
 }
@@ -65,6 +67,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(CLLocation*)currentLocation
+{
+    
+    [self extractVenueJSON];
+    [self.locationManager stopUpdatingLocation];
+
 }
 
 -(void)extractVenueJSON
@@ -121,14 +131,13 @@
                 location.venueID = venueDictionary[@"id"];
 
                 [locationNameMutableArray addObject:location];
-                NSLog(@"%@", locationMutableArray);
+                NSLog(@"These are the locationNameMutableArray Items ----- %@", locationMutableArray);
                                
             }
             [self.myTableView reloadData];
+            
         }
-
-
-    }];
+            }];
 
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
@@ -137,17 +146,20 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return locationMutableArray.count;
+    return locationNameMutableArray.count;
 
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReuseCellID"];
-    Location *place = locationMutableArray[indexPath.row];
+    Location *place = locationNameMutableArray[indexPath.row];
     cell.textLabel.text= place.name;
+    cell.detailTextLabel.text = place.address;
     return cell;
 }
+
+
 
 
 

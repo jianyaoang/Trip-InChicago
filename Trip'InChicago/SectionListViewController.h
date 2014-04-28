@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "SectionViewController.h"
 
 @interface SectionListViewController : UIViewController<UITableViewDataSource, UITableViewDataSource, CLLocationManagerDelegate>
 @property NSString *searchSection;
