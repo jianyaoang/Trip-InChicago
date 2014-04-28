@@ -255,7 +255,8 @@
     self.infoTextView.hidden = NO;
     self.infoView.layer.cornerRadius = 10;
     self.infoView.layer.masksToBounds = YES;
-    self.infoTextView.backgroundColor = [UIColor blackColor];
+    self.infoTextView.textColor = [UIColor blackColor];
+    self.infoTextView.backgroundColor = [UIColor whiteColor];
     self.infoTextView.alpha = 0.8;
     self.infoTextView.textColor = [UIColor whiteColor];
     self.infoView.alpha = 0.5;
