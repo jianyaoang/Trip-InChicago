@@ -248,6 +248,7 @@
             if ([location.name isEqualToString:title])
             {
                 vc.location = location;
+                vc.navigationItem.title = location.name;
                 break;
             }
         }
