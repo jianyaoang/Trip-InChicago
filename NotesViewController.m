@@ -111,12 +111,12 @@
         NSString *cellText = cell.textLabel.text;
 
         // Email Subject
-        NSString *emailTitle = @"Test Email";
+        NSString *emailTitle = @"Trip In Chicago - Report Email";
         // Email Content
 
         NSString *messageBody = [NSString stringWithFormat:@"This row is being reported --> %@", cellText];
         // To address
-        NSArray *toRecipents = [NSArray arrayWithObject:@"jaime.e.hernandez@gmail.com"];
+        NSArray *toRecipents = [NSArray arrayWithObject:@"tripinchicagodev@gmail.com"];
 
         MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
         mc.mailComposeDelegate = self;
