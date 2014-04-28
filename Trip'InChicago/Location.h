@@ -20,4 +20,5 @@
 @property NSString *tipsID;
 @property NSString *canonicalUrl;
 @property NSString *venueID;
+@property NSString *formattedPhone;
 @end

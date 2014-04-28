@@ -145,6 +145,7 @@
             location.tipsID = tipsFirstLayer[@"id"];
             location.canonicalUrl = tipsFirstLayer[@"canonicalUrl"];
             location.venueID = venueDictionary[@"id"];
+            location.formattedPhone = venueDictionary[@"contact"][@"formattedPhone"];
             
             [locationNameMutableArray addObject:location];
             

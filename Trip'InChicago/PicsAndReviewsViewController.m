@@ -10,7 +10,7 @@
 #import "NotesViewController.h"
 #import "FoursquareWebViewController.h"
 //    7ce03f98cbe66weefe8451cff602f08ec
-@interface PicsAndReviewsViewController () <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface PicsAndReviewsViewController () <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate, CLLocationManagerDelegate>
 {
     IBOutlet UITableView *reviewsTableView;
     NSMutableArray *reviewsText;
@@ -20,6 +20,9 @@
     IBOutlet UIScrollView *imageScrollView;
     IBOutlet UIPageControl *imagePageControl;
     IBOutlet UIImageView *placeholderImageView;
+    IBOutlet MKMapView *placeMapView;
+    IBOutlet UILabel *addressLabel;
+    IBOutlet UIButton *telephoneNumber;
 }
 
 @end
@@ -38,6 +41,10 @@
     imageScrollView.delegate = self;
     
     placeholderImageView.image = [UIImage imageNamed:@"imagePlaceholder"];
+    
+    addressLabel.text = self.location.address;
+    addressLabel.numberOfLines = 0;
+    
 }
 
 -(void)extractFlickrJSON
@@ -97,9 +104,9 @@
         imageView.frame = CGRectMake(width, 0, self.view.frame.size.width, self.view.frame.size.height);
 //        imageView.contentMode = UIViewContentModeScaleAspectFit;
 //        imageView.contentMode = UIViewContentModeCenter;
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
+//        imageView.contentMode = UIViewContentModeScaleAspectFill;
 //        imageView.contentMode = UIViewContentModeCenter;
-//        imageView.contentMode = UIViewContentModeScaleToFill;
+        imageView.contentMode = UIViewContentModeScaleToFill;
         imageView.clipsToBounds = YES;
         width += imageView.frame.size.width;
 //        [imageView sizeToFit];
@@ -139,7 +146,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReviewsCellID"];
     //cell.textLabel.text = [reviewsText objectAtIndex:indexPath.row];
-    UIFont *font = [UIFont fontWithName:@"Arial" size:15];
+    UIFont *font = [UIFont fontWithName:@"Helvetica" size:15];
     cell.textLabel.text = self.location.tips;
     cell.textLabel.font = font;
     
@@ -165,4 +172,8 @@
     }
 }
 
+- (IBAction)onTelephoneNumberButtonPressed:(id)sender
+{
+    
+}
 @end

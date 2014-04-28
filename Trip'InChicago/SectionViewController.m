@@ -59,11 +59,11 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *section = [self.sectionNames objectAtIndex:indexPath.row];
-    CGFloat width = 320;
-    UIFont *font = [UIFont systemFontOfSize:35];
+    CGFloat width = 280;
+    UIFont *font = [UIFont systemFontOfSize:5];
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:section attributes:@{NSFontAttributeName: font}];
     CGRect rect = [attributedText boundingRectWithSize:(CGSize){width,CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
-    rect = CGRectInset(rect, -90, -90);
+    rect = CGRectInset(rect, -65, -65);
     CGSize size = rect.size;
     return size.height;
 }
