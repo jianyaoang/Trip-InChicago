@@ -112,7 +112,7 @@
 
 - (IBAction)onCallButtonPressed:(id)sender
 {
-    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:self.phoneNumber delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES",nil];
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Call" message:self.phoneNumber delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES",nil];
     [alert show];
 }
 
