@@ -233,6 +233,8 @@
         NotesViewController *vc = segue.destinationViewController;
         vc.location = self.location;
         vc.navigationItem.title = self.sectionListSearchName ;
+        self.location.name      = self.sectionListSearchName;
+        
     }
     else if ([segue.identifier isEqualToString:@"showFoursquareWebView"])
     {
