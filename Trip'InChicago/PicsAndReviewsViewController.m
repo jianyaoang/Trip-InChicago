@@ -73,15 +73,8 @@
 {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
-//    if ([self.sectionListSearchName  isEqual:@""])
-//    {
-//        NSString *cleanLocationNameString = [self.location.name stringByReplacingOccurrencesOfString:@" " withString:@""];
-//    }
-//    else
-//    {
-//        NSString *cleanLocationNameString = [self.sectionListSearchName stringByReplacingOccurrencesOfString:@" " withString:@""];
-//    }
-
+    // Passing search term from two different controllers
+    // check the ivar and populate accordingly
     NSString *pictureStringSearchName = [NSString new];
 
     if ([self.sectionListSearchName isEqual: @""])
@@ -239,7 +232,7 @@
     {
         NotesViewController *vc = segue.destinationViewController;
         vc.location = self.location;
-        vc.navigationItem.title = self.location.name;
+        vc.navigationItem.title = self.sectionListSearchName ;
     }
     else if ([segue.identifier isEqualToString:@"showFoursquareWebView"])
     {

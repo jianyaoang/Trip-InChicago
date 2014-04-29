@@ -11,6 +11,7 @@
 #import "Location.h"
 @interface PicsAndReviewsViewController : UIViewController
 //@property MapPoint *mapPoint;
+
 @property Location *location;
 @property CLLocationManager *locationManager;
 @property CLLocation *currentLocation;

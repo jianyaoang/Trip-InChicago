@@ -35,6 +35,9 @@
     
     PFQuery *queryNotes = [PFQuery queryWithClassName:@"Notes"];
 //    [queryNotes whereKey:@"location" containsString:self.location.name];
+
+#warning This is where the app breaks - self.location.name is nil here. Check the PicsAndReviewsVC
+
     [queryNotes whereKey:@"location" equalTo:self.location.name];
     [queryNotes findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error)
