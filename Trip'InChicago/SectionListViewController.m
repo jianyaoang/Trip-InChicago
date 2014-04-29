@@ -144,9 +144,11 @@
             [self.myTableView reloadData];
             
         }
+
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
             }];
 
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -160,7 +162,7 @@
     Location *place = locationNameMutableArray[indexPath.row];
     cell.textLabel.text= place.name;
     cell.detailTextLabel.text = place.address;
-    cell.detailTextLabel.textColor = [UIColor blueColor];
+    cell.detailTextLabel.textColor = [UIColor darkGrayColor];
     return cell;
 }
 

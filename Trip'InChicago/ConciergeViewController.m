@@ -178,7 +178,7 @@
 
     int distance = roundf([place.placemark.location distanceFromLocation:self.locationManager.location]);
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Distance from you: %2.2f miles", (distance/1609.34)];
-    cell.detailTextLabel.textColor = [UIColor blueColor];
+    cell.detailTextLabel.textColor = [UIColor darkGrayColor];
     return cell;
 }
 
