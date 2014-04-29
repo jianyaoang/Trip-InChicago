@@ -24,13 +24,13 @@
     [super viewDidLoad];
     self.sectionNames = @[@"Sights", @"Coffee", @"Food", @"Arts", @"Trending", @"Outdoors", @"TopPicks"];
     self.sectionBackgroundImages = [[NSMutableArray alloc] initWithObjects:
-                                    [UIImage imageNamed:@"sightSection"],
-                                    [UIImage imageNamed:@"coffeeSection"],
-                                    [UIImage imageNamed:@"foodSection"],
-                                    [UIImage imageNamed:@"artsSection"],
-                                    [UIImage imageNamed:@"trendingSection"],
-                                    [UIImage imageNamed:@"outdoorSection"],
-                                    [UIImage imageNamed:@"topPicks"],
+                                    [UIImage imageNamed:@"SightsNew"],
+                                    [UIImage imageNamed:@"CoffeNew"],
+                                    [UIImage imageNamed:@"FoodNew"],
+                                    [UIImage imageNamed:@"ArtsNew"],
+                                    [UIImage imageNamed:@"TrendingNew"],
+                                    [UIImage imageNamed:@"OutdoorsNew"],
+                                    [UIImage imageNamed:@"TopPicksNew"],
                                     nil];
 }
 
@@ -44,8 +44,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SectionCellID"];
     cell.textLabel.text = [self.sectionNames objectAtIndex:indexPath.row];
     cell.textLabel.numberOfLines = 0;
-    cell.textLabel.font = [UIFont systemFontOfSize:35];
-    cell.textLabel.font = [UIFont fontWithName:@"Raleway-Regular" size:35];
+    cell.textLabel.font = [UIFont systemFontOfSize:37];
+    cell.textLabel.font = [UIFont fontWithName:@"Raleway-Regular" size:37];
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     
