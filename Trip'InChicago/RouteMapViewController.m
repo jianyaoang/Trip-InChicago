@@ -180,7 +180,7 @@
 
     // NSArray *sortedArray =
 
-    // Need to sort an array and remove the cloest point form the begining and use the next point.....
+    // Need to sort an array and remove the closest point form the begining and use the next point.....
 
 
     for (MKMapItem *item in self.routesArray)
