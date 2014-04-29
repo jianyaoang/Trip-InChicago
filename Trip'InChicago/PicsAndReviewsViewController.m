@@ -218,7 +218,9 @@
         NSLog(@"%@", newString);
 
         NSString *phoneNumber = [@"tel://" stringByAppendingString:newString];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@", phoneNumber]]];
+
+        //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
     }
     else
     {

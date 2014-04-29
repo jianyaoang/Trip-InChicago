@@ -239,9 +239,10 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    PicsAndReviewsViewController *vc = segue.destinationViewController;
     NSString *title = [[(MKAnnotationView*)sender annotation]title];
-    
+
+    PicsAndReviewsViewController *vc = segue.destinationViewController;
+
     if ([segue.identifier isEqualToString:@"showPicsAndReview"])
     {
         for (Location *location in locationNameMutableArray)
@@ -250,7 +251,9 @@
             {
                 vc.location = location;
                 vc.navigationItem.title = location.name;
-                break;
+                vc.phoneNumber = location.formattedPhone;
+                vc.address = location.address;
+                //break;
             }
         }
     }
