@@ -81,6 +81,7 @@
     locationDetailsArray = [NSMutableArray new];
     intineraryPlaces = [NSArray new];
     timeforIntinerary = 28000;
+    self.navigationItem.title = @"Concierge";
 
     [self.myTableView reloadData];
 
