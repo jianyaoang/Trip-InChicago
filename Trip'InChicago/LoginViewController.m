@@ -29,7 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.signUpController = [SignUpViewController new];
+    self.signUpController = [self.storyboard instantiateViewControllerWithIdentifier:@"SignUpViewController"];
+//    self.signUpController = [SignUpViewController new];
     [PFFacebookUtils initializeFacebook];
     [self.navigationController setNavigationBarHidden:YES];
     
@@ -90,6 +91,7 @@
 
 -(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
 {
+
     [self dismissViewControllerAnimated:YES completion:nil];
     [self performSegueWithIdentifier:@"showChoiceViewController" sender:user];
 }
@@ -99,15 +101,15 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [self performSegueWithIdentifier:@"showChoiceViewController" sender:user];
-}
-
--(void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+//-(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
+//{
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self performSegueWithIdentifier:@"showChoiceViewController" sender:user];
+//}
+//
+//-(void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController
+//{
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 
 @end
