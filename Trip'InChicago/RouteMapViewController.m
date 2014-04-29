@@ -178,6 +178,11 @@
     MKDirectionsRequest *request = [[MKDirectionsRequest alloc]init];
     bool firstTimeinLoop = YES;
 
+    // NSArray *sortedArray =
+
+    // Need to sort an array and remove the cloest point form the begining and use the next point.....
+
+
     for (MKMapItem *item in self.routesArray)
     {
         if (firstTimeinLoop == YES)

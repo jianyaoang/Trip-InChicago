@@ -130,7 +130,7 @@
 
         // Resize the image block
         CGSize newSize = CGSizeMake(imageScrollView.frame.size.width, imageScrollView.frame.size.height);
-        UIGraphicsBeginImageContextWithOptions(newSize, NO, 1.0);
+        UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
         [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
         UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
@@ -143,7 +143,7 @@
 //        imageView.contentMode = UIViewContentModeCenter;
 //        imageView.contentMode = UIViewContentModeScaleAspectFill;
 //        imageView.contentMode = UIViewContentModeCenter;
-        imageView.contentMode = UIViewContentModeScaleToFill;
+       imageView.contentMode = UIViewContentModeScaleToFill; // Jaime
         imageView.clipsToBounds = YES;
         width += imageView.frame.size.width;
 //        [imageView sizeToFit];
