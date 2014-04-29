@@ -177,29 +177,12 @@
         PicsAndReviewsViewController *vc = (PicsAndReviewsViewController *)segue.destinationViewController;
 
         NSIndexPath *indexPath = [self.myTableView indexPathForSelectedRow];
-        UITableViewCell *cell =  [self.myTableView cellForRowAtIndexPath:indexPath];
         Location *place = locationNameMutableArray[indexPath.row];
-        vc.title = cell.textLabel.text;
-        vc.address = cell.detailTextLabel.text;
+        vc.location = place;
+        vc.title = place.name;
+        vc.address = place.address;
         vc.phoneNumber = place.phoneNumber;
-
-        vc.sectionListSearchName = cell.textLabel.text;
-        
-
-        //vc.phoneNumber = place.phoneNumber;
-
-
-//        // Following code will use a placeMark cooridinate to construct an address
-//        CLLocationDegrees placeLat = place.placemark.coordinate.latitude;
-//        CLLocationDegrees placeLng = place.placemark.coordinate.longitude;
-//
-//        NSLog(@"%f, %f", placeLat, placeLng);
-//        NSLog(@"%f, %f", place.placemark.coordinate.latitude, place.placemark.coordinate.longitude);
-//
-//        CLLocation *newLocation = [[CLLocation alloc]initWithLatitude:placeLat longitude:placeLng];
-//        vc.myLocation = newLocation;
     }
-
 }
 
 /*
