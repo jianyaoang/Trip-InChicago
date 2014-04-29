@@ -11,10 +11,11 @@
 #import <MessageUI/MessageUI.h>
 
 
-@interface NotesViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface NotesViewController () <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *notesTableView;
 @property (strong, nonatomic) IBOutlet UIView *notesViewSection;
 @property (strong, nonatomic) IBOutlet UITextView *notesTextView;
+@property (strong, nonatomic) IBOutlet UILabel *notesLabel;
 @property (strong, nonatomic) NSMutableArray *notesMutableArray;
 @end
 
@@ -27,7 +28,7 @@
     UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Notes"]];
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];
-    
+    self.notesTextView.delegate = self;
     self.notesTableView.backgroundColor = [UIColor clearColor];
     
 //    [self.notesTextView setBackgroundColor:[UIColor colorWithWhite:1 alpha:1]];
@@ -161,6 +162,21 @@
 
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
     return @"Report comment";
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    self.notesLabel.hidden = YES;
+}
+
+- (void)textViewDidChange:(UITextView *)txtView
+{
+    self.notesLabel.hidden = ([self.notesTextView.text length] > 0);
+}
+
+- (void)textViewDidEndEditing:(UITextView *)txtView
+{
+    self.notesLabel.hidden = ([self.notesTextView.text length] > 0);
 }
 
 @end

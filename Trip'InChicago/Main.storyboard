@@ -638,6 +638,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter notes here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tah-Hr-8T4">
+                                        <rect key="frame" x="35" y="17" width="180" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -646,6 +653,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Notes" id="JSB-ic-21b"/>
                     <connections>
+                        <outlet property="notesLabel" destination="tah-Hr-8T4" id="Gt1-Bf-4ce"/>
                         <outlet property="notesTableView" destination="EZW-Jj-vAA" id="HTC-np-anH"/>
                         <outlet property="notesTextView" destination="4RJ-Rf-xjk" id="uGx-Zn-MHx"/>
                         <outlet property="notesViewSection" destination="FT0-ZA-q1n" id="fPh-3K-DhG"/>
