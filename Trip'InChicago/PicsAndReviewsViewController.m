@@ -75,20 +75,20 @@
 
     // Passing search term from two different controllers
     // check the ivar and populate accordingly
-    NSString *pictureStringSearchName = [NSString new];
+//    NSString *pictureStringSearchName = [NSString new];
+//
+//    if ([self.sectionListSearchName isEqual: @""])
+//    {
+//        pictureStringSearchName = self.location.name;
+//    }
+//    else
+//    {
+//        pictureStringSearchName = self.sectionListSearchName;
+//    }
+//
+//    NSString *cleanLocationNameString = [pictureStringSearchName stringByReplacingOccurrencesOfString:@" " withString:@""];
 
-    if ([self.sectionListSearchName isEqual: @""])
-    {
-        pictureStringSearchName = self.location.name;
-    }
-    else
-    {
-        pictureStringSearchName = self.sectionListSearchName;
-    }
-
-    NSString *cleanLocationNameString = [pictureStringSearchName stringByReplacingOccurrencesOfString:@" " withString:@""];
-
-//    NSString *cleanLocationNameString = [self.location.name stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *cleanLocationNameString = [self.location.name stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString *urlString = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e1619af9b853f421758f264b91c39677&tags=%@&per_page=5&accuracy=16&content_type=1&safe_search=1&sort=relevance&format=json&nojsoncallback=1",cleanLocationNameString];
     urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *url = [NSURL URLWithString:urlString];
@@ -232,8 +232,10 @@
     {
         NotesViewController *vc = segue.destinationViewController;
         vc.location = self.location;
-        vc.navigationItem.title = self.sectionListSearchName ;
-        self.location.name      = self.sectionListSearchName;
+        vc.location.name = self.location.name;
+        vc.navigationItem.title = self.location.name;
+        //vc.navigationItem.title = self.sectionListSearchName ;
+        //self.location.name      = self.sectionListSearchName;
         
     }
     else if ([segue.identifier isEqualToString:@"showFoursquareWebView"])

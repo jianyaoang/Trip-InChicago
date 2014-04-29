@@ -181,7 +181,9 @@
         vc.location = place;
         vc.title = place.name;
         vc.address = place.address;
+        vc.location.name = place.name;
         vc.phoneNumber = place.phoneNumber;
+
     }
 }
 
