@@ -10,6 +10,8 @@
 #import "MapViewController.h"
 #import "Location.h"
 #import "DetailConciergeViewController2.h"
+#import "PicsAndReviewsViewController.h"
+
 
 @interface SectionListViewController ()
 {
@@ -170,9 +172,9 @@
         MapViewController *vc = segue.destinationViewController;
         vc.foursquareLocationName = self.searchSection;
     }
-    else if ([segue.identifier isEqualToString:@"ToDetailConciergeView"])
+    else if ([segue.identifier isEqualToString:@"FromSectionToPicAndReviews"])
     {
-        DetailConciergeViewController2 *vc = (DetailConciergeViewController2 *)segue.destinationViewController;
+        PicsAndReviewsViewController *vc = (PicsAndReviewsViewController *)segue.destinationViewController;
 
         NSIndexPath *indexPath = [self.myTableView indexPathForSelectedRow];
         UITableViewCell *cell =  [self.myTableView cellForRowAtIndexPath:indexPath];

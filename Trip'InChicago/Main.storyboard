@@ -91,7 +91,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="0I1-9x-u9t" kind="push" identifier="ToDetailConciergeView" id="Kd7-7V-idO"/>
+                                            <segue destination="376-fn-OaZ" kind="push" identifier="FromSectionToPicAndReviews" id="acg-13-LbB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -148,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pFF-e0-7Pt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4428" y="-720"/>
+            <point key="canvasLocation" x="4332" y="-755"/>
         </scene>
         <!--Choice View Controller-->
         <scene sceneID="AGC-UG-9TB">
@@ -535,16 +535,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCr-pc-Cx6">
-                                <rect key="frame" x="157" y="342" width="143" height="30"/>
+                                <rect key="frame" x="157" y="342" width="143" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="onPhoneCallButtonPressed:" destination="376-fn-OaZ" eventType="touchUpInside" id="fkU-XG-nB7"/>
                                     <action selector="onTelephoneNumberButtonPressed:" destination="376-fn-OaZ" eventType="touchUpInside" id="hDi-fl-baa"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOP-Hm-Uel">
+                                <rect key="frame" x="189" y="347" width="105" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phoneSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Boz-rD-l7b">
+                                <rect key="frame" x="165" y="345" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -561,6 +573,7 @@
                         <outlet property="addressLabel" destination="yMK-Yq-ihm" id="LdJ-sd-Xmu"/>
                         <outlet property="imagePageControl" destination="D4Z-bN-9nY" id="aet-bc-VV5"/>
                         <outlet property="imageScrollView" destination="wdz-k5-gia" id="oul-Lh-MOK"/>
+                        <outlet property="phoneNumberTextField" destination="OOP-Hm-Uel" id="1mi-Nc-XCS"/>
                         <outlet property="placeMapView" destination="fIj-5y-6T2" id="6ht-rl-1Gs"/>
                         <outlet property="placeholderImageView" destination="Eh1-mw-aEx" id="WAA-VM-DZv"/>
                         <outlet property="reviewsTableView" destination="Oiw-5A-gPJ" id="euq-kU-H66"/>
@@ -569,7 +582,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6t-FT-Emb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4796" y="-720"/>
+            <point key="canvasLocation" x="4446" y="-1361"/>
         </scene>
         <!--Notes View Controller - Notes-->
         <scene sceneID="0SL-t7-dYP">
@@ -685,6 +698,7 @@
     <resources>
         <image name="HelpScreenWithDeleteCell@2x" width="320" height="480"/>
         <image name="phoneMedium.png" width="24" height="24"/>
+        <image name="phoneSmall" width="16" height="16"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -692,6 +706,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Kd7-7V-idO"/>
+        <segue reference="acg-13-LbB"/>
     </inferredMetricsTieBreakers>
 </document>

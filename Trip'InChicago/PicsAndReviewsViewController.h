@@ -12,4 +12,8 @@
 @interface PicsAndReviewsViewController : UIViewController
 //@property MapPoint *mapPoint;
 @property Location *location;
+@property CLLocationManager *locationManager;
+@property CLLocation *currentLocation;
+@property NSString *address;
+@property NSString *phoneNumber;
 @end

@@ -9,6 +9,9 @@
 #import "PicsAndReviewsViewController.h"
 #import "NotesViewController.h"
 #import "FoursquareWebViewController.h"
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import "SectionListViewController.h"
 //    7ce03f98cbe66weefe8451cff602f08ec
 @interface PicsAndReviewsViewController () <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate, CLLocationManagerDelegate>
 {
@@ -24,6 +27,7 @@
     IBOutlet UILabel *addressLabel;
     IBOutlet UIButton *telephoneNumber;
 }
+@property (strong, nonatomic) IBOutlet UILabel *phoneNumberTextField;
 
 @end
 
@@ -35,14 +39,32 @@
     reviewArray = [NSArray new];
     reviewsText = [NSMutableArray new];
     imageArray = [NSMutableArray new];
+
+    self.locationManager = [CLLocationManager new];
+    [placeMapView setShowsUserLocation:YES];
+    [self.locationManager startUpdatingLocation];
+    self.currentLocation = [CLLocation new];
+    self.currentLocation = self.locationManager.location;
+
+    CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
+    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(.01, .01);
+    MKCoordinateRegion region = MKCoordinateRegionMake (centerCoordinate, coordinateSpan);
+    placeMapView.region = region;
+
+    addressLabel.text = self.address;
+    self.phoneNumberTextField.text = self.phoneNumber;
+    telephoneNumber.layer.cornerRadius = 10;
+    telephoneNumber.layer.masksToBounds = YES;
     
     [self extractFlickrJSON];
+
+
     
     imageScrollView.delegate = self;
     
     placeholderImageView.image = [UIImage imageNamed:@"imagePlaceholder"];
     
-    addressLabel.text = self.location.address;
+    //addressLabel.text = self.location.address;
     addressLabel.numberOfLines = 0;
     
 }
@@ -154,6 +176,35 @@
     cell.textLabel.numberOfLines = 0;
     [cell.textLabel sizeToFit];
     return cell;
+}
+
+#pragma mark -- phone calling methods
+- (IBAction)onPhoneCallButtonPressed:(id)sender
+{
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Call" message:self.phoneNumber delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES",nil];
+    [alert show];
+
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex==1)
+    {
+
+        //I think we need to format the string to have no spaces in it
+        NSString *newString = [[self.phoneNumber componentsSeparatedByCharactersInSet:
+                                [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
+                               componentsJoinedByString:@""];
+
+        NSLog(@"%@", newString);
+
+        NSString *phoneNumber = [@"tel://" stringByAppendingString:newString];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+    }
+    else
+    {
+        //user goes back to app
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton*)sender
