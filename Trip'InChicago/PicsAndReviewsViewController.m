@@ -73,7 +73,29 @@
 {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
-    NSString *cleanLocationNameString = [self.location.name stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    if ([self.sectionListSearchName  isEqual:@""])
+//    {
+//        NSString *cleanLocationNameString = [self.location.name stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    }
+//    else
+//    {
+//        NSString *cleanLocationNameString = [self.sectionListSearchName stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    }
+
+    NSString *pictureStringSearchName = [NSString new];
+
+    if ([self.sectionListSearchName isEqual: @""])
+    {
+        pictureStringSearchName = self.location.name;
+    }
+    else
+    {
+        pictureStringSearchName = self.sectionListSearchName;
+    }
+
+    NSString *cleanLocationNameString = [pictureStringSearchName stringByReplacingOccurrencesOfString:@" " withString:@""];
+
+//    NSString *cleanLocationNameString = [self.location.name stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString *urlString = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e1619af9b853f421758f264b91c39677&tags=%@&per_page=5&accuracy=16&content_type=1&safe_search=1&sort=relevance&format=json&nojsoncallback=1",cleanLocationNameString];
     urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *url = [NSURL URLWithString:urlString];
@@ -181,7 +203,11 @@
 #pragma mark -- phone calling methods
 - (IBAction)onPhoneCallButtonPressed:(id)sender
 {
-    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Call" message:self.phoneNumber delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES",nil];
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Call"
+                                                 message:self.phoneNumber
+                                                delegate:self
+                                       cancelButtonTitle:@"NO"
+                                       otherButtonTitles:@"YES",nil];
     [alert show];
 
 }

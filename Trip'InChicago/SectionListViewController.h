@@ -16,4 +16,5 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *currentLocation;
 
+
 @end

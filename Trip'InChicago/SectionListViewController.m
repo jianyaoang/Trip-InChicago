@@ -183,6 +183,9 @@
         vc.address = cell.detailTextLabel.text;
         vc.phoneNumber = place.phoneNumber;
 
+        vc.sectionListSearchName = cell.textLabel.text;
+        
+
         //vc.phoneNumber = place.phoneNumber;
 
 

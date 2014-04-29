@@ -16,4 +16,7 @@
 @property CLLocation *currentLocation;
 @property NSString *address;
 @property NSString *phoneNumber;
+
+@property NSString *sectionListSearchName;
+
 @end
