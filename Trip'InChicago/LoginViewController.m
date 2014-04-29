@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
 #import "ChoiceViewController.h"
+#import "SignUpViewController.h"
 @interface LoginViewController () <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @end
@@ -28,6 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.signUpController = [SignUpViewController new];
     [PFFacebookUtils initializeFacebook];
     [self.navigationController setNavigationBarHidden:YES];
     

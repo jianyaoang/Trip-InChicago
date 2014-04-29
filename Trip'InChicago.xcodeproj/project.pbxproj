@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		411F0914190FECDE00F3554C /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411F0913190FECDE00F3554C /* SignUpViewController.m */; };
 		416909F918FCA0BF007A9A59 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 416909F818FCA0BF007A9A59 /* LoginViewController.m */; };
 		418C151D190EC3BA00B55B29 /* Raleway-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41FAD520190B1EF000D7DB0F /* Raleway-Bold.otf */; };
 		418C151E190EC3BA00B55B29 /* Raleway-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41FAD521190B1EF000D7DB0F /* Raleway-ExtraBold.otf */; };
@@ -78,6 +79,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		411F0912190FECDE00F3554C /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		411F0913190FECDE00F3554C /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		416909F718FCA0BF007A9A59 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		416909F818FCA0BF007A9A59 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		41918A0018FC954100A4616C /* Trip'InChicago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trip'InChicago.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -309,6 +312,8 @@
 			children = (
 				416909F718FCA0BF007A9A59 /* LoginViewController.h */,
 				416909F818FCA0BF007A9A59 /* LoginViewController.m */,
+				411F0912190FECDE00F3554C /* SignUpViewController.h */,
+				411F0913190FECDE00F3554C /* SignUpViewController.m */,
 				41F98E201906B99000B15F9F /* ChoiceViewController.h */,
 				41F98E211906B99000B15F9F /* ChoiceViewController.m */,
 				41918A3818FC96F600A4616C /* SectionViewController.h */,
@@ -465,6 +470,7 @@
 				6FBEBB20190C90AF0002D59D /* ConciergeMapItem.m in Sources */,
 				41918A4218FC984B00A4616C /* PicsAndReviewsViewController.m in Sources */,
 				6FFC39EE1905E05A00DB2ECC /* RouteMapViewController.m in Sources */,
+				411F0914190FECDE00F3554C /* SignUpViewController.m in Sources */,
 				41918A1418FC954100A4616C /* AppDelegate.m in Sources */,
 				41F98E281906D2B300B15F9F /* NotesViewController.m in Sources */,
 				41A136B7190308950058AF39 /* Location.m in Sources */,
