@@ -14,15 +14,6 @@
 
 @implementation SignUpViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -45,7 +36,7 @@
 -(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self performSegueWithIdentifier:@"showChoiceViewController" sender:user];
+    [self performSegueWithIdentifier:@"showChoiceViewControllerFromSignUp" sender:user];
 }
 
 -(void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController
