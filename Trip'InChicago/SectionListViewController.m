@@ -41,6 +41,7 @@
     [super viewDidLoad];
 
     self.locationManager = [CLLocationManager new];
+    self.locationManager.delegate = self;
     [self.locationManager startUpdatingLocation];
     self.currentLocation = [CLLocation new];
     self.currentLocation = self.locationManager.location;
@@ -50,16 +51,16 @@
     venueMutableArray = [NSMutableArray new];
     locationMutableArray = [NSMutableArray new];
     locationDetailsArray = [NSMutableArray new];
-    //[self extractVenueJSON];
+    [self extractVenueJSON];
     [self.myTableView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
+    [self.locationManager startUpdatingLocation];
     self.currentLocation = self.locationManager.location;
-    //[self.locationManager startUpdatingLocation];
+
     [self extractVenueJSON];
 
     [self.myTableView reloadData];
@@ -72,10 +73,12 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(CLLocation*)currentLocation
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(CLLocation*)location
 {
-    
+    self.currentLocation = location;
+
     [self extractVenueJSON];
+
     [self.locationManager stopUpdatingLocation];
 
 }
@@ -144,14 +147,11 @@
             }];
 
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    
 }
-
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return locationNameMutableArray.count;
-
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
