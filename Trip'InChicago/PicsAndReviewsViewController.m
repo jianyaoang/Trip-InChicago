@@ -138,12 +138,12 @@
         imageView = [[UIImageView alloc]initWithImage:newImage];
         [imageScrollView addSubview:imageView];
 
-        imageView.frame = CGRectMake(width, 0, self.view.frame.size.width, self.view.frame.size.height);
-//        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.frame = CGRectOffset(imageScrollView.bounds, width, 0);
+       imageView.contentMode = UIViewContentModeScaleAspectFit;
 //        imageView.contentMode = UIViewContentModeCenter;
 //        imageView.contentMode = UIViewContentModeScaleAspectFill;
 //        imageView.contentMode = UIViewContentModeCenter;
-       imageView.contentMode = UIViewContentModeScaleToFill; // Jaime
+//       imageView.contentMode = UIViewContentModeScaleToFill; // Jaime
         imageView.clipsToBounds = YES;
         width += imageView.frame.size.width;
 //        [imageView sizeToFit];

@@ -38,7 +38,6 @@
 }
 - (void)viewDidLoad
 {
-    [PFUser logOut];
     [super viewDidLoad];
     UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Section2"]];
     [self.view addSubview:backgroundImage];
