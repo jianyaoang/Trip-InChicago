@@ -47,9 +47,14 @@
     self.currentLocation = self.locationManager.location;
 
     CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
-    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(.01, .01);
+    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.015, 0.015);
     MKCoordinateRegion region = MKCoordinateRegionMake (centerCoordinate, coordinateSpan);
     placeMapView.region = region;
+
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
+    annotation.coordinate = CLLocationCoordinate2DMake(self.location.lat, self.location.lng);
+    [placeMapView addAnnotation:annotation];
+
 
     addressLabel.text = self.address;
     self.phoneNumberTextField.text = self.phoneNumber;

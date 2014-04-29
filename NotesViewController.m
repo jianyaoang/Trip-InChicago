@@ -29,14 +29,16 @@
     [self.view sendSubviewToBack:backgroundImage];
     
     self.notesTableView.backgroundColor = [UIColor clearColor];
+    
 //    [self.notesTextView setBackgroundColor:[UIColor colorWithWhite:1 alpha:1]];
     [self.notesViewSection setBackgroundColor:[UIColor colorWithWhite:1 alpha:1]];
     self.notesMutableArray = [NSMutableArray new];
+
+    self.notesTextView.layer.cornerRadius = 10;
+    self.notesTextView.layer.masksToBounds = YES;
     
     PFQuery *queryNotes = [PFQuery queryWithClassName:@"Notes"];
 //    [queryNotes whereKey:@"location" containsString:self.location.name];
-
-#warning This is where the app breaks - self.location.name is nil here. Check the PicsAndReviewsVC
 
     [queryNotes whereKey:@"location" equalTo:self.location.name];
     [queryNotes findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
