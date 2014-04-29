@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
-#import "ChoiceViewController.h"
+//#import "ChoiceViewController.h"
 #import "SignUpViewController.h"
 @interface LoginViewController () <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
@@ -16,20 +16,20 @@
 
 @implementation LoginViewController
 
--(instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    if (self = [super initWithCoder:aDecoder])
-    {
-        self.fields = PFLogInFieldsFacebook| PFLogInFieldsUsernameAndPassword|PFLogInFieldsLogInButton|PFLogInFieldsSignUpButton;
-        self.delegate = self;
-    }
-    return self;
-}
+//-(instancetype)initWithCoder:(NSCoder *)aDecoder
+//{
+//    if (self = [super initWithCoder:aDecoder])
+//    {
+//        self.fields = PFLogInFieldsFacebook| PFLogInFieldsUsernameAndPassword|PFLogInFieldsLogInButton|PFLogInFieldsSignUpButton;
+//        self.delegate = self;
+//    }
+//    return self;
+//}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.signUpController = [self.storyboard instantiateViewControllerWithIdentifier:@"SignUpViewController"];
+//    self.signUpController = [self.storyboard instantiateViewControllerWithIdentifier:@"SignUpViewController"];
 //    self.signUpController = [SignUpViewController new];
     [PFFacebookUtils initializeFacebook];
     [self.navigationController setNavigationBarHidden:YES];
@@ -66,11 +66,11 @@
 //    self.logInView.logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
     
     
-    ChoiceViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ChoiceViewController"];
-    if ([PFUser currentUser] || [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])
-    {
-        [self.navigationController pushViewController:vc animated:NO];
-    }
+//    ChoiceViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ChoiceViewController"];
+//    if ([PFUser currentUser] || [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])
+//    {
+//        [self.navigationController pushViewController:vc animated:NO];
+//    }
     
 }
 

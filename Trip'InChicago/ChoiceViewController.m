@@ -7,8 +7,9 @@
 //
 
 #import "ChoiceViewController.h"
-
-@interface ChoiceViewController ()
+#import "LoginViewController.h"
+#import "SignUpViewController.h"
+@interface ChoiceViewController () <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *browseChicagoButton;
 @property (strong, nonatomic) IBOutlet UIButton *conciergeButton;
 
@@ -16,17 +17,28 @@
 
 @implementation ChoiceViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
+//-(instancetype)initWithCoder:(NSCoder *)aDecoder
+//{
+//    if (self = [super initWithCoder:aDecoder])
+//    {
+//        self.fields = PFLogInFieldsFacebook| PFLogInFieldsUsernameAndPassword|PFLogInFieldsLogInButton|PFLogInFieldsSignUpButton;
+//        self.delegate = self;
+//    }
+//    return self;
+//}
+
+-(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+-(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 - (void)viewDidLoad
 {
+    [PFUser logOut];
     [super viewDidLoad];
     UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Section2"]];
     [self.view addSubview:backgroundImage];
@@ -48,11 +60,25 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if (![PFUser currentUser]) {
+        LoginViewController *loginVC = [[LoginViewController alloc] init];
+        loginVC.delegate = self;
+        SignUpViewController *signUp = [[SignUpViewController alloc] init];
+        signUp.delegate = self;
+        [loginVC setSignUpController:signUp];
+        [loginVC setFields:PFLogInFieldsFacebook| PFLogInFieldsUsernameAndPassword|PFLogInFieldsLogInButton|PFLogInFieldsSignUpButton];
+        [self presentViewController:loginVC animated:YES completion:nil];
+    }
+}
 -(void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
 }
 
