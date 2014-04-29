@@ -14,6 +14,8 @@
 {
     [self listAllFonts];
     
+    self.window.tintColor = [UIColor purpleColor];
+
     [Parse setApplicationId:@"I93ZsmZ3q0SNFKTCAkGLE43HZboDC3YqIMvbIFVS"
                   clientKey:@"8oX3WzslH3kXB1liz2Ki7aYy0uegKKkD23gKfoqe"];
     return YES;
