@@ -186,6 +186,7 @@
     {
         MapViewController *vc = segue.destinationViewController;
         vc.foursquareLocationName = self.searchSection;
+        vc.navigationItem.title = [NSString stringWithFormat:@"%@ Map",self.navigationItem.title];
     }
     else if ([segue.identifier isEqualToString:@"FromSectionToPicAndReviews"])
     {

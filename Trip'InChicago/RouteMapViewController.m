@@ -271,7 +271,7 @@
         self.infoTextView.textColor = [UIColor blackColor];
         self.infoTextView.backgroundColor = [UIColor whiteColor];
 
-        self.infoView.alpha = 0.75;
+        self.infoView.alpha = 0.6;
 
         [UIView animateWithDuration:0.5 animations:^{
         self.routeMapViewMap.frame = CGRectMake(0, 280, 320, 293);
