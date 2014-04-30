@@ -1,13 +1,18 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
+      "idiom" : "iphone",
       "scale" : "1x"
     },
     {
-      "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "TopPicksSectionNewRetina.png"
+      "idiom" : "iphone",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "TopPicksSectionNewRetina.png",
+      "subtype" : "retina4",
+      "scale" : "2x"
     }
   ],
   "info" : {
