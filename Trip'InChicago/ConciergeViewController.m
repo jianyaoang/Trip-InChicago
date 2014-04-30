@@ -50,7 +50,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    [self.dismissButton setBackgroundColor:[UIColor colorWithRed:0.22f green:0.42f blue:0.58f alpha:0.7f]];
+    [self.dismissButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.dismissButton.titleLabel.font = [UIFont fontWithName:@"Raleway-Light" size:22];
 
     // Arts & Entertainment 4d4b7104d754a06370d81259, Food 4d4b7105d754a06374d81259, Shop & Service 4d4b7105d754a06378d81259,
     // Cultural Center Cultural Center 52e81612bcbc57f1066b7a32
