@@ -51,12 +51,12 @@
 		41A136B7190308950058AF39 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A136B6190308950058AF39 /* Location.m */; };
 		41C2BB6D19072442003D1062 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C2BB6C19072442003D1062 /* FacebookSDK.framework */; };
 		41D8770B190D86A900C9B6BE /* FoursquareWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D8770A190D86A900C9B6BE /* FoursquareWebViewController.m */; };
-		41D8770D190D945300C9B6BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41D8770C190D945300C9B6BE /* Main.storyboard */; };
 		41F98E221906B99000B15F9F /* ChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F98E211906B99000B15F9F /* ChoiceViewController.m */; };
 		41F98E281906D2B300B15F9F /* NotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F98E271906D2B300B15F9F /* NotesViewController.m */; };
 		41FAD4FC190AD5CA00D7DB0F /* PointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FAD4FB190AD5CA00D7DB0F /* PointAnnotation.m */; };
 		6F2774D5190E976800237D0E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2774D4190E976800237D0E /* MessageUI.framework */; };
 		6F5B4E8618FDF7F100E495BA /* TemperatureChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5B4E8518FDF7F100E495BA /* TemperatureChecker.m */; };
+		6FA789211911A6770031B7A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FA789201911A6770031B7A0 /* Main.storyboard */; };
 		6FBEBB0C190AED750002D59D /* google-maps-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FBEBB0B190AED750002D59D /* google-maps-icon.png */; };
 		6FBEBB1D190C5A660002D59D /* DetailConciergeViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEBB1C190C5A660002D59D /* DetailConciergeViewController2.m */; };
 		6FBEBB20190C90AF0002D59D /* ConciergeMapItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEBB1F190C90AF0002D59D /* ConciergeMapItem.m */; };
@@ -126,7 +126,6 @@
 		41C2BB6C19072442003D1062 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		41D87709190D86A900C9B6BE /* FoursquareWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoursquareWebViewController.h; path = ../FoursquareWebViewController.h; sourceTree = "<group>"; };
 		41D8770A190D86A900C9B6BE /* FoursquareWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoursquareWebViewController.m; path = ../FoursquareWebViewController.m; sourceTree = "<group>"; };
-		41D8770C190D945300C9B6BE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		41F98E201906B99000B15F9F /* ChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoiceViewController.h; sourceTree = "<group>"; };
 		41F98E211906B99000B15F9F /* ChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoiceViewController.m; sourceTree = "<group>"; };
 		41F98E261906D2B300B15F9F /* NotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotesViewController.h; path = ../NotesViewController.h; sourceTree = "<group>"; };
@@ -145,6 +144,7 @@
 		6F2774D4190E976800237D0E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		6F5B4E8418FDF7F100E495BA /* TemperatureChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemperatureChecker.h; sourceTree = "<group>"; };
 		6F5B4E8518FDF7F100E495BA /* TemperatureChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemperatureChecker.m; sourceTree = "<group>"; };
+		6FA789201911A6770031B7A0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6FBEBB0B190AED750002D59D /* google-maps-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google-maps-icon.png"; sourceTree = "<group>"; };
 		6FBEBB1B190C5A660002D59D /* DetailConciergeViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailConciergeViewController2.h; path = ../DetailConciergeViewController2.h; sourceTree = "<group>"; };
 		6FBEBB1C190C5A660002D59D /* DetailConciergeViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailConciergeViewController2.m; path = ../DetailConciergeViewController2.m; sourceTree = "<group>"; };
@@ -257,7 +257,7 @@
 			children = (
 				41918A1218FC954100A4616C /* AppDelegate.h */,
 				41918A1318FC954100A4616C /* AppDelegate.m */,
-				41D8770C190D945300C9B6BE /* Main.storyboard */,
+				6FA789201911A6770031B7A0 /* Main.storyboard */,
 				41F98E1F1906B8DD00B15F9F /* ViewControllers */,
 				41A136B5190308950058AF39 /* Location.h */,
 				41A136B6190308950058AF39 /* Location.m */,
@@ -439,13 +439,13 @@
 				6FBEBB0C190AED750002D59D /* google-maps-icon.png in Resources */,
 				418C151F190EC3BA00B55B29 /* Raleway-ExtraLight.otf in Resources */,
 				D08B6D43190DA25F00DB414E /* phoneMedium.png in Resources */,
+				6FA789211911A6770031B7A0 /* Main.storyboard in Resources */,
 				418C1520190EC3BA00B55B29 /* Raleway-Heavy.otf in Resources */,
 				418C1521190EC3BA00B55B29 /* Raleway-Light.otf in Resources */,
 				418C1522190EC3BA00B55B29 /* Raleway-Medium.otf in Resources */,
 				41918A1C18FC954100A4616C /* Images.xcassets in Resources */,
 				41918A0E18FC954100A4616C /* InfoPlist.strings in Resources */,
 				418C1523190EC3BA00B55B29 /* Raleway-Regular.otf in Resources */,
-				41D8770D190D945300C9B6BE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

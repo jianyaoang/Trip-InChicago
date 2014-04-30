@@ -13,7 +13,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "SectionListViewController.h"
 //    7ce03f98cbe66weefe8451cff602f08ec
-@interface PicsAndReviewsViewController () <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate, CLLocationManagerDelegate>
+@interface PicsAndReviewsViewController () <UIScrollViewDelegate, MKMapViewDelegate, CLLocationManagerDelegate>
 {
     IBOutlet UITableView *reviewsTableView;
     NSMutableArray *reviewsText;
@@ -30,6 +30,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *phoneNumberTextField;
 @property (strong, nonatomic) IBOutlet UIImageView *phoneImageView;
 @property (strong, nonatomic) IBOutlet MKMapView *expandedMapView;
+@property (weak, nonatomic) IBOutlet UITextView *tipsTextView;
 
 @end
 
@@ -43,6 +44,8 @@
     reviewArray = [NSArray new];
     reviewsText = [NSMutableArray new];
     imageArray = [NSMutableArray new];
+
+    self.tipsTextView.text = self.location.tips;
 
     self.locationManager = [CLLocationManager new];
     [placeMapView setShowsUserLocation:YES];
@@ -264,10 +267,10 @@
     imagePageControl.numberOfPages = imageArray.count;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 1;
-}
+//-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    return 1;
+//}
 
 //-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 //{
@@ -282,19 +285,21 @@
 //    return size.height;
 //}
 
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReviewsCellID"];
-    //cell.textLabel.text = [reviewsText objectAtIndex:indexPath.row];
-    UIFont *font = [UIFont fontWithName:@"Helvetica" size:15];
-    cell.textLabel.text = self.location.tips;
-    cell.textLabel.font = font;
-    
-    [cell.textLabel.text stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
-    cell.textLabel.numberOfLines = 0;
-    [cell.textLabel sizeToFit];
-    return cell;
-}
+
+
+//-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReviewsCellID"];
+//    //cell.textLabel.text = [reviewsText objectAtIndex:indexPath.row];
+//    UIFont *font = [UIFont fontWithName:@"Helvetica" size:15];
+//    cell.textLabel.text = self.location.tips;
+//    cell.textLabel.font = font;
+//    
+//    [cell.textLabel.text stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+//    cell.textLabel.numberOfLines = 0;
+//    [cell.textLabel sizeToFit];
+//    return cell;
+//}
 
 #pragma mark -- phone calling methods
 - (IBAction)onPhoneCallButtonPressed:(id)sender
