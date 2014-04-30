@@ -55,23 +55,18 @@
     annotation.coordinate = CLLocationCoordinate2DMake(self.location.lat, self.location.lng);
     [placeMapView addAnnotation:annotation];
 
-
     addressLabel.text = self.address;
     self.phoneNumberTextField.text = self.phoneNumber;
     telephoneNumber.layer.cornerRadius = 10;
     telephoneNumber.layer.masksToBounds = YES;
     
     [self extractFlickrJSON];
-
-
     
     imageScrollView.delegate = self;
     
     placeholderImageView.image = [UIImage imageNamed:@"imagePlaceholder"];
-    
-    //addressLabel.text = self.location.address;
+
     addressLabel.numberOfLines = 0;
-    
 }
 
 -(void)extractFlickrJSON
