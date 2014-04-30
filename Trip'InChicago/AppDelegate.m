@@ -57,7 +57,7 @@
 {
     [[UIFont familyNames] enumerateObjectsUsingBlock:^(NSString* familyName, NSUInteger idx, BOOL *stop) {
         [[UIFont fontNamesForFamilyName:familyName] enumerateObjectsUsingBlock:^(NSString* fontName, NSUInteger idx, BOOL *stop) {
-            NSLog(@"fontName: %@", fontName);
+
         }];
     }];
 }

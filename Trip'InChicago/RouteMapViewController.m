@@ -143,19 +143,19 @@
     MKPinAnnotationView* pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:nil];
 
     [self.images removeAllObjects];
-    [self.images addObject:[UIImage imageNamed:@"numberOne"]];
-    [self.images addObject:[UIImage imageNamed:@"numberTwo"]];
-    [self.images addObject:[UIImage imageNamed:@"numberThree"]];
-    [self.images addObject:[UIImage imageNamed:@"numberFour"]];
-    [self.images addObject:[UIImage imageNamed:@"number5"]];
-    [self.images addObject:[UIImage imageNamed:@"number6"]];
-    [self.images addObject:[UIImage imageNamed:@"number7"]];
-    [self.images addObject:[UIImage imageNamed:@"number8"]];
-    [self.images addObject:[UIImage imageNamed:@"number9"]];
-    [self.images addObject:[UIImage imageNamed:@"number10"]];
+    [self.images addObject:[UIImage imageNamed:@"number-01"]];
+    [self.images addObject:[UIImage imageNamed:@"number-02"]];
+    [self.images addObject:[UIImage imageNamed:@"number-03"]];
+    [self.images addObject:[UIImage imageNamed:@"number-04"]];
+    [self.images addObject:[UIImage imageNamed:@"number-05"]];
+    [self.images addObject:[UIImage imageNamed:@"number-06"]];
+    [self.images addObject:[UIImage imageNamed:@"number-07"]];
+    [self.images addObject:[UIImage imageNamed:@"number-08"]];
+    [self.images addObject:[UIImage imageNamed:@"number-09"]];
+    [self.images addObject:[UIImage imageNamed:@"number-10"]];
 
 
-    NSLog(@"image count is %d",self.images.count);
+    // NSLog(@"image count is %d",self.images.count);
     
     if ([annotation isKindOfClass:[MKUserLocation class]])
     {
