@@ -20,6 +20,9 @@
 @property (strong, nonatomic) IBOutlet UIView *infoView;
 @property NSMutableArray *images;
 @property NSArray *numberImages;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *directionsButton;
+@property UIColor* defaultColor;
+@property BOOL showDirections;
 @end
 
 @implementation RouteMapViewController
@@ -35,6 +38,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.defaultColor = self.directionsButton.tintColor;
+    self.showDirections = NO;
     northernBorder = 0.0;
     //setting the southernBorder
     southernBorder = 100000.0;
@@ -255,22 +260,37 @@
 
 - (IBAction)onDirectionsButtonPressed:(id)sender
 {
+    self.showDirections =! self.showDirections;
+    if (self.showDirections) {
+        self.directionsButton.title = @"Close";
+        self.directionsButton.tintColor = [UIColor redColor];
+        self.infoView.hidden = NO;
+        self.infoTextView.hidden = NO;
+        self.infoTextView.layer.cornerRadius = 10;
+        self.infoTextView.layer.masksToBounds = YES;
+        self.infoTextView.textColor = [UIColor blackColor];
+        self.infoTextView.backgroundColor = [UIColor whiteColor];
 
-    self.infoView.hidden = NO;
-    self.infoTextView.hidden = NO;
-    self.infoView.layer.cornerRadius = 10;
-    self.infoView.layer.masksToBounds = YES;
-    self.infoTextView.textColor = [UIColor blackColor];
-    self.infoTextView.backgroundColor = [UIColor whiteColor];
-    //self.infoTextView.alpha = 0.5;
-    self.infoView.alpha = 0.75;
-    
+        self.infoView.alpha = 0.75;
+
+        [UIView animateWithDuration:0.5 animations:^{
+        self.routeMapViewMap.frame = CGRectMake(0, 280, 320, 293);
+
+        }];
+    }
+    else
+    {
+        self.directionsButton.title = @"Directions";
+        self.directionsButton.tintColor = self.defaultColor;
+        self.infoView.hidden = YES;
+        self.infoTextView.hidden = YES;
+
+        [UIView animateWithDuration:0.5 animations:^{
+            self.routeMapViewMap.frame = CGRectMake(0, 0, 320, 573);
+        }];
+    }
 }
 
-- (IBAction)onClosedButtonPressed:(id)sender
-{
-    self.infoView.hidden = YES;
-    self.infoTextView.hidden = YES;
-}
+
 
 @end
