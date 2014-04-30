@@ -25,7 +25,7 @@
     self.sectionNames = @[@"Sights", @"Coffee", @"Food", @"Arts", @"Trending", @"Outdoors", @"TopPicks"];
     self.sectionBackgroundImages = [[NSMutableArray alloc] initWithObjects:
                                     [UIImage imageNamed:@"SightsNew"],
-                                    [UIImage imageNamed:@"CoffeNew"],
+                                    [UIImage imageNamed:@"CoffeeNew"],
                                     [UIImage imageNamed:@"FoodNew"],
                                     [UIImage imageNamed:@"ArtsNew"],
                                     [UIImage imageNamed:@"TrendingNew"],

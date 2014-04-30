@@ -183,6 +183,19 @@
     return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MKMapItem *place = intineraryPlaces[indexPath.row];
+    NSString *placeName = place.name;
+    CGFloat width = 280;
+    UIFont *font = [UIFont systemFontOfSize:5];
+    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:placeName attributes:@{NSFontAttributeName: font}];
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){width,CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+    rect = CGRectInset(rect, -30, -30);
+    CGSize size = rect.size;
+    return size.height;
+}
+
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
       NSString* string;
