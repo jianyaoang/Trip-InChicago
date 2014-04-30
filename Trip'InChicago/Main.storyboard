@@ -556,7 +556,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a5f-Pd-h9g">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5f-Pd-h9g">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -564,12 +564,24 @@
                                     <outlet property="delegate" destination="K0Z-Re-oyF" id="LYL-MX-hJT"/>
                                 </connections>
                             </webView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UT9-p5-K6Y">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UT9-p5-K6Y">
                                 <rect key="frame" x="150" y="228" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="4WZ-du-5ev"/>
+                                    <constraint firstAttribute="width" constant="20" id="qZ0-Vt-3hl"/>
+                                </constraints>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="a5f-Pd-h9g" firstAttribute="top" secondItem="TC7-Kh-31J" secondAttribute="top" id="4KP-hu-VED"/>
+                            <constraint firstItem="UT9-p5-K6Y" firstAttribute="leading" secondItem="TC7-Kh-31J" secondAttribute="leading" constant="150" id="BvT-Zb-R0P"/>
+                            <constraint firstAttribute="trailing" secondItem="a5f-Pd-h9g" secondAttribute="trailing" id="MsI-ik-tOk"/>
+                            <constraint firstItem="a5f-Pd-h9g" firstAttribute="leading" secondItem="TC7-Kh-31J" secondAttribute="leading" id="YEM-k8-i3N"/>
+                            <constraint firstItem="UT9-p5-K6Y" firstAttribute="top" secondItem="TC7-Kh-31J" secondAttribute="top" constant="228" id="aOV-TO-gbT"/>
+                            <constraint firstAttribute="bottom" secondItem="a5f-Pd-h9g" secondAttribute="bottom" id="b2h-vI-Kzo"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="E0C-ur-VHb"/>
                     <connections>
