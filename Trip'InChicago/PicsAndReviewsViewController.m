@@ -85,24 +85,40 @@
         telephoneNumber.hidden = YES;
         self.phoneImageView.hidden = YES;
 
+        self.expandedMapView.hidden = NO;
 
-//
-//        CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
-//        MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.015, 0.015);
-//        MKCoordinateRegion region = MKCoordinateRegionMake (centerCoordinate, coordinateSpan);
-//        self.expandedMapView.region = region;
-//
-//        MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
-//        annotation.coordinate = CLLocationCoordinate2DMake(self.location.lat, self.location.lng);
-//        [self.expandedMapView addAnnotation:annotation];
-//
-//        self.expandedMapView.hidden = NO;
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
+        annotation.coordinate = CLLocationCoordinate2DMake(self.location.lat, self.location.lng);
+        [self.expandedMapView addAnnotation:annotation];
 
-        [UIView animateWithDuration:0.5 animations:^{
-            placeMapView.frame = CGRectMake(20, 292, 280, 100);
-        }];
+
+        self.locationManager = [CLLocationManager new];
+        [self.expandedMapView setShowsUserLocation:YES];
+        [self.locationManager startUpdatingLocation];
+        self.currentLocation = [CLLocation new];
+        self.currentLocation = self.locationManager.location;
+        CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
+        CLLocationCoordinate2D annotationCoordinate = CLLocationCoordinate2DMake(self.location.lat, self.location.lng);
+        // Make map points
+        MKMapPoint userPoint = MKMapPointForCoordinate(centerCoordinate);
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotationCoordinate);
+        // Make map rects with 0 size
+        MKMapRect userRect = MKMapRectMake(userPoint.x, userPoint.y, 0, 0);
+        MKMapRect annotationRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+        // Make union of those two rects
+        MKMapRect unionRect = MKMapRectUnion(userRect, annotationRect);
+        // You have the smallest possible rect containing both locations
+        MKMapRect unionRectThatFits = [self.expandedMapView mapRectThatFits:unionRect];
+        [self.expandedMapView setVisibleMapRect:unionRectThatFits animated:YES];
     }
+
+//        [UIView animateWithDuration:0.5 animations:^{
+//            placeMapView.frame = CGRectMake(20, 292, 280, 100);
+//        }];
+//    }
 }
+
+
 
 -(void)extractFlickrJSON
 {
