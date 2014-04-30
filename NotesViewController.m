@@ -17,6 +17,8 @@
 @property (strong, nonatomic) IBOutlet UITextView *notesTextView;
 @property (strong, nonatomic) IBOutlet UILabel *notesLabel;
 @property (strong, nonatomic) NSMutableArray *notesMutableArray;
+@property (weak, nonatomic) IBOutlet UIButton *dismissButton;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundHelpImage;
 @end
 
 @implementation NotesViewController
@@ -24,7 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self displayHelpScreen];
+
     UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Notes"]];
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];
@@ -54,6 +57,7 @@
         }
         [self.notesTableView reloadData];
     }];
+
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -181,5 +185,42 @@
 {
     self.notesLabel.hidden = ([self.notesTextView.text length] > 0);
 }
+- (IBAction)onCancelButtonPressed:(id)sender
+{
+    // Dismiss the help screen
+    self.backgroundHelpImage.alpha = 0.0;
+    self.dismissButton.alpha   = 0.0;
+
+    self.navigationController.navigationBar.hidden = NO;
+}
+
+-(void)displayHelpScreen
+{
+
+    self.backgroundHelpImage.contentMode = UIViewContentModeScaleAspectFit;
+
+    // If user defaults exist make the help screen transparent .. .. .
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"FirstTimeForNotes"] != nil)
+    {
+
+        self.backgroundHelpImage.alpha = 0.0;
+        self.dismissButton.alpha       = 0.0;
+
+        self.navigationController.navigationBar.hidden = NO;
+    }
+    else
+    {
+        // user defaults do not exist - overlay the screen with help screen.
+        NSUserDefaults * standardUserDefaults = [NSUserDefaults standardUserDefaults];
+        [standardUserDefaults setInteger:1 forKey:@"FirstTimeForNotes"];
+
+        self.backgroundHelpImage.alpha = 0.90;
+        self.dismissButton.alpha       = 0.90;
+
+        self.navigationController.navigationBar.hidden = YES;
+        
+    }
+}
+
 
 @end
