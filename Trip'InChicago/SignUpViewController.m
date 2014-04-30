@@ -17,7 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loginBackground"]];
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loginBackgroundWithLogo"]];
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];
     
@@ -25,11 +25,8 @@
     [self.signUpView.signUpButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
     [self.signUpView.signUpButton setBackgroundColor:[UIColor colorWithRed:0.07f green:0.48f blue:0.07f alpha:0.8f]];
     
-//    ChoiceViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ChoiceViewController"];
-//    if ([PFUser currentUser])
-//    {
-//        [self.navigationController pushViewController:vc animated:NO];
-//    }
+    
+    self.signUpView.logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
 }
 
 //-(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
