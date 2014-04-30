@@ -39,8 +39,7 @@
 {
     [super viewDidLoad];
     self.expandedMapView.hidden = YES;
-    [self hidePhoneButton];
-    //[self hidePhoneButton];
+
     reviewArray = [NSArray new];
     reviewsText = [NSMutableArray new];
     imageArray = [NSMutableArray new];
@@ -76,8 +75,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-
-
+    [self hidePhoneButton];
 }
 
 -(void)hidePhoneButton
@@ -87,18 +85,22 @@
         telephoneNumber.hidden = YES;
         self.phoneImageView.hidden = YES;
 
-        CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
-        MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.015, 0.015);
-        MKCoordinateRegion region = MKCoordinateRegionMake (centerCoordinate, coordinateSpan);
-        self.expandedMapView.region = region;
 
-        MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
-        annotation.coordinate = CLLocationCoordinate2DMake(self.location.lat, self.location.lng);
-        [self.expandedMapView addAnnotation:annotation];
+//
+//        CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
+//        MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.015, 0.015);
+//        MKCoordinateRegion region = MKCoordinateRegionMake (centerCoordinate, coordinateSpan);
+//        self.expandedMapView.region = region;
+//
+//        MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
+//        annotation.coordinate = CLLocationCoordinate2DMake(self.location.lat, self.location.lng);
+//        [self.expandedMapView addAnnotation:annotation];
+//
+//        self.expandedMapView.hidden = NO;
 
-//        [UIView animateWithDuration:0.5 animations:^{
-//        placeMapView.frame = CGRectMake(20, 292, 280, 100);
-//        }];
+        [UIView animateWithDuration:0.5 animations:^{
+            placeMapView.frame = CGRectMake(20, 292, 280, 100);
+        }];
     }
 }
 
