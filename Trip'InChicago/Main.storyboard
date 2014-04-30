@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QNK-z9-XAQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QNK-z9-XAQ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -235,9 +235,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F6w-U1-JBO">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F6w-U1-JBO">
                                 <rect key="frame" x="20" y="102" width="280" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="GCl-bD-CHE"/>
+                                    <constraint firstAttribute="height" constant="28" id="pXK-qz-JwZ"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Indoor"/>
                                     <segment title="Mix"/>
@@ -247,17 +251,20 @@
                                     <action selector="onSegmentButtonPressed:" destination="qqZ-fc-NsK" eventType="valueChanged" id="aeW-6R-4P1"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plan Your Day With Concierge" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFN-yn-gyr">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan Your Day With Concierge" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFN-yn-gyr">
                                 <rect key="frame" x="36" y="73" width="249" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.25098040699958801" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nSs-zd-7p8">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nSs-zd-7p8">
                                 <rect key="frame" x="0.0" y="138" width="320" height="430"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="31G-iS-VZK"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ReuseCellID" textLabel="8AO-yT-pvY" detailTextLabel="lHH-wC-B0R" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="tTG-h2-EAs">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -292,7 +299,7 @@
                                     <outlet property="delegate" destination="qqZ-fc-NsK" id="rnb-r7-XIo"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HelpScreenWithDeleteCell" translatesAutoresizingMaskIntoConstraints="NO" id="PuW-8p-uGw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HelpScreenWithDeleteCell" translatesAutoresizingMaskIntoConstraints="NO" id="PuW-8p-uGw">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -313,8 +320,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="PuW-8p-uGw" firstAttribute="top" secondItem="TVU-cL-9dz" secondAttribute="top" id="130-M4-1Mg"/>
+                            <constraint firstItem="LFN-yn-gyr" firstAttribute="leading" secondItem="TVU-cL-9dz" secondAttribute="leading" constant="36" id="5M9-uR-an5"/>
+                            <constraint firstItem="F6w-U1-JBO" firstAttribute="top" secondItem="LFN-yn-gyr" secondAttribute="bottom" constant="8" id="A8o-a8-VjB"/>
+                            <constraint firstItem="F6w-U1-JBO" firstAttribute="top" secondItem="TVU-cL-9dz" secondAttribute="top" constant="102" id="Ayc-au-96I"/>
+                            <constraint firstAttribute="trailing" secondItem="PuW-8p-uGw" secondAttribute="trailing" id="By3-Rn-Bvh"/>
                             <constraint firstItem="cn4-2P-hZ2" firstAttribute="leading" secondItem="TVU-cL-9dz" secondAttribute="leading" constant="49" id="Edf-Yp-Lfo"/>
+                            <constraint firstAttribute="trailing" secondItem="LFN-yn-gyr" secondAttribute="trailing" constant="35" id="IF7-ZF-RTB"/>
                             <constraint firstItem="liW-gb-SOz" firstAttribute="top" secondItem="cn4-2P-hZ2" secondAttribute="bottom" constant="26" id="K3I-sb-y4q"/>
+                            <constraint firstAttribute="trailing" secondItem="nSs-zd-7p8" secondAttribute="trailing" id="UCD-rH-hHr"/>
+                            <constraint firstItem="LFN-yn-gyr" firstAttribute="top" secondItem="TVU-cL-9dz" secondAttribute="top" constant="73" id="UfV-jt-8G6"/>
+                            <constraint firstItem="liW-gb-SOz" firstAttribute="top" secondItem="PuW-8p-uGw" secondAttribute="bottom" id="YWX-EK-kqh"/>
+                            <constraint firstItem="liW-gb-SOz" firstAttribute="top" secondItem="nSs-zd-7p8" secondAttribute="bottom" id="a00-xZ-9HT"/>
+                            <constraint firstItem="nSs-zd-7p8" firstAttribute="top" secondItem="TVU-cL-9dz" secondAttribute="top" constant="138" id="aGU-zf-dTC"/>
+                            <constraint firstItem="nSs-zd-7p8" firstAttribute="leading" secondItem="TVU-cL-9dz" secondAttribute="leading" id="eYI-lW-G0a"/>
+                            <constraint firstItem="F6w-U1-JBO" firstAttribute="leading" secondItem="TVU-cL-9dz" secondAttribute="leading" constant="20" id="lai-C6-VBC"/>
+                            <constraint firstItem="PuW-8p-uGw" firstAttribute="leading" secondItem="TVU-cL-9dz" secondAttribute="leading" id="zpZ-gX-Px5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1Dt-P2-XDA">
@@ -761,7 +782,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BrowseHelpScreen-R4" width="317" height="567"/>
+        <image name="BrowseHelpScreen-R4" width="320" height="481"/>
         <image name="HelpScreenWithDeleteCell" width="320" height="480"/>
         <image name="SolidPhoneIcon" width="12" height="15"/>
     </resources>
