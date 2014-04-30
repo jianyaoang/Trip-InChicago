@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QNK-z9-XAQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QNK-z9-XAQ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -264,7 +264,7 @@
                                     <outlet property="delegate" destination="qqZ-fc-NsK" id="rnb-r7-XIo"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HelpScreenWithDeleteCell@2x" translatesAutoresizingMaskIntoConstraints="NO" id="PuW-8p-uGw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HelpScreenNoExamples4" translatesAutoresizingMaskIntoConstraints="NO" id="PuW-8p-uGw">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -638,11 +638,28 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BrowseHelpScreen-R4" translatesAutoresizingMaskIntoConstraints="NO" id="hW8-P6-M8V">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbt-WT-6ZT">
+                                <rect key="frame" x="100" y="469" width="120" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Dismiss Message">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCancelButtonPressed:" destination="cGl-79-w7x" eventType="touchUpInside" id="vEl-nW-ang"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Notes" id="JSB-ic-21b"/>
                     <connections>
+                        <outlet property="backgroundHelpImage" destination="hW8-P6-M8V" id="XM7-jc-H3w"/>
+                        <outlet property="dismissButton" destination="Xbt-WT-6ZT" id="hvU-oe-41e"/>
                         <outlet property="notesLabel" destination="tah-Hr-8T4" id="Gt1-Bf-4ce"/>
                         <outlet property="notesTableView" destination="EZW-Jj-vAA" id="HTC-np-anH"/>
                         <outlet property="notesTextView" destination="4RJ-Rf-xjk" id="uGx-Zn-MHx"/>
@@ -673,7 +690,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="HelpScreenWithDeleteCell@2x" width="317" height="567"/>
+        <image name="BrowseHelpScreen-R4" width="317" height="567"/>
+        <image name="HelpScreenNoExamples4" width="317" height="567"/>
         <image name="phoneMedium.png" width="24" height="24"/>
         <image name="phoneSmall" width="16" height="16"/>
     </resources>

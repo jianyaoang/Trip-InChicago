@@ -23,6 +23,9 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *directionsButton;
 @property UIColor* defaultColor;
 @property BOOL showDirections;
+
+
+
 @end
 
 @implementation RouteMapViewController
