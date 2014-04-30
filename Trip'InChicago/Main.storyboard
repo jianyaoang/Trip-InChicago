@@ -354,7 +354,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ra-9o-gH1">
-                                <rect key="frame" x="43" y="392" width="235" height="34"/>
+                                <rect key="frame" x="60" y="392" width="200" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.25098040699958801" blue="0.50196081399917603" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -371,8 +371,8 @@
                                 <rect key="frame" x="20" y="120" width="280" height="202"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phoneMedium.png" translatesAutoresizingMaskIntoConstraints="NO" id="FRA-FK-HvV">
-                                <rect key="frame" x="52" y="397" width="26" height="27"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SolidPhoneIcon" translatesAutoresizingMaskIntoConstraints="NO" id="FRA-FK-HvV">
+                                <rect key="frame" x="75" y="399" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.24999999999999967" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z4A-my-L3L">
@@ -581,8 +581,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phoneSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Boz-rD-l7b">
-                                <rect key="frame" x="144" y="340" width="25" height="23"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SolidPhoneIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Boz-rD-l7b">
+                                <rect key="frame" x="144" y="340" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uHX-27-bzh">
@@ -762,8 +762,7 @@
     <resources>
         <image name="BrowseHelpScreen-R4" width="317" height="567"/>
         <image name="HelpScreenWithDeleteCell" width="320" height="480"/>
-        <image name="phoneMedium.png" width="24" height="24"/>
-        <image name="phoneSmall" width="16" height="16"/>
+        <image name="SolidPhoneIcon" width="12" height="15"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

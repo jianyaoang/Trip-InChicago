@@ -108,6 +108,7 @@
         // Make union of those two rects
         MKMapRect unionRect = MKMapRectUnion(userRect, annotationRect);
         // You have the smallest possible rect containing both locations
+
         MKMapRect unionRectThatFits = [self.expandedMapView mapRectThatFits:unionRect];
         [self.expandedMapView setVisibleMapRect:unionRectThatFits animated:YES];
     }
@@ -118,6 +119,57 @@
 //    }
 }
 
+
+//- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+//{
+//    if (isFirstLaunch) {
+//        CLLocationCoordinate2D topLeftCoord;
+//        CLLocationCoordinate2D bottomRightCoord;
+//
+//        topLeftCoord.longitude = fmin([self.lon floatValue], newLocation.coordinate.longitude);
+//        topLeftCoord.latitude = fmax([self.lat floatValue], newLocation.coordinate.latitude);
+//
+//        bottomRightCoord.longitude = fmax([self.lon floatValue], newLocation.coordinate.longitude);
+//        bottomRightCoord.latitude = fmin([self.lat floatValue], newLocation.coordinate.latitude);
+//
+//        MKCoordinateRegion region;
+//        region.center.latitude = topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5;
+//        region.center.longitude = topLeftCoord.longitude + (bottomRightCoord.longitude - topLeftCoord.longitude) * 0.5;
+//        region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) * 1.5; // Add a little extra space on the sides
+//        region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 1.5;  // Add a little extra space on the sides
+//
+//        region = [mapView regionThatFits:region];
+//        [mapView setRegion:region animated:YES];
+//        isFirstLaunch = NO;
+//    }
+//
+//}
+//
+//-(void)zoomToFitMapAnnotations
+//{
+//    if([mapView.annotations count] == 0)
+//        return;
+//
+//    CLLocationCoordinate2D topLeftCoord;
+//    CLLocationCoordinate2D bottomRightCoord;
+//    topLeftCoord.longitude = fmin(mapView.userLocation.location.coordinate.longitude, [self.lon floatValue]);
+//    topLeftCoord.latitude = fmax(mapView.userLocation.location.coordinate.latitude, [self.lat floatValue]);
+//
+//    bottomRightCoord.longitude = fmax(mapView.userLocation.location.coordinate.longitude, [self.lon floatValue]);
+//    bottomRightCoord.latitude = fmin(mapView.userLocation.location.coordinate.latitude, [self.lat floatValue]);
+//
+//
+//    MKCoordinateRegion region = { {0.0, 0.0 }, { 0.0, 0.0 } };
+//
+//    CLLocationCoordinate2D userCoord = {[self.lat floatValue],[self.lon floatValue]};
+//    region.center = userCoord;
+//    region.span.latitudeDelta = 0.05f;//fabs(topLeftCoord.latitude - bottomRightCoord.latitude) * 1.1; // Add a little extra space on the sides
+//    region.span.longitudeDelta = 0.05f;//fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 1.1;  // Add a little extra space on the sides
+//
+//    [mapView setRegion:region animated:YES];
+//    [mapView regionThatFits:region];
+//}
+//
 
 
 -(void)extractFlickrJSON
