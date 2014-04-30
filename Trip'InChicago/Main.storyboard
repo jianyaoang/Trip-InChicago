@@ -433,29 +433,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oUL-CL-1ne">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oUL-CL-1ne">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="aPX-ys-W2w"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="hA3-z0-qE7" id="8Av-Ot-mhj"/>
                                 </connections>
                             </mapView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7TH-Xn-mxE">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7TH-Xn-mxE">
                                 <rect key="frame" x="0.0" y="64" width="320" height="216"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWD-BA-5Kk">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWD-BA-5Kk">
                                         <rect key="frame" x="20" y="20" width="280" height="176"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="176" id="EfQ-uF-G23"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.87742358576642332" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="KWD-BA-5Kk" secondAttribute="bottom" constant="20" id="5SF-Ge-Rb1"/>
+                                    <constraint firstAttribute="trailing" secondItem="KWD-BA-5Kk" secondAttribute="trailing" constant="20" id="LoV-c4-jAD"/>
+                                    <constraint firstItem="KWD-BA-5Kk" firstAttribute="leading" secondItem="7TH-Xn-mxE" secondAttribute="leading" constant="20" id="XVZ-NL-LIH"/>
+                                    <constraint firstAttribute="width" constant="320" id="jWd-27-V4o"/>
+                                    <constraint firstItem="KWD-BA-5Kk" firstAttribute="top" secondItem="7TH-Xn-mxE" secondAttribute="top" constant="20" id="pQN-5V-lp8"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="7TH-Xn-mxE" secondAttribute="bottom" constant="200" id="APq-rO-Uaq"/>
+                            <constraint firstItem="oUL-CL-1ne" firstAttribute="top" secondItem="MSn-uk-U8E" secondAttribute="top" id="EDb-Mf-qyA"/>
+                            <constraint firstItem="oUL-CL-1ne" firstAttribute="leading" secondItem="7TH-Xn-mxE" secondAttribute="leading" id="O01-KJ-LVG"/>
+                            <constraint firstItem="7TH-Xn-mxE" firstAttribute="leading" secondItem="MSn-uk-U8E" secondAttribute="leading" id="Tyn-3X-vaZ"/>
+                            <constraint firstItem="Sng-N1-AOy" firstAttribute="top" secondItem="oUL-CL-1ne" secondAttribute="bottom" id="VBW-jf-YTN"/>
+                            <constraint firstItem="7TH-Xn-mxE" firstAttribute="top" secondItem="MSn-uk-U8E" secondAttribute="top" constant="64" id="cKI-ys-fLU"/>
+                            <constraint firstAttribute="trailing" secondItem="oUL-CL-1ne" secondAttribute="trailing" id="d9T-LR-CAC"/>
+                            <constraint firstItem="oUL-CL-1ne" firstAttribute="trailing" secondItem="7TH-Xn-mxE" secondAttribute="trailing" id="mKL-Dy-rC5"/>
+                            <constraint firstItem="oUL-CL-1ne" firstAttribute="leading" secondItem="MSn-uk-U8E" secondAttribute="leading" id="tEG-8V-71w"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Your Route" id="O0h-iE-IsO">
                         <barButtonItem key="rightBarButtonItem" title="Directions" id="5B6-i0-bMm">
