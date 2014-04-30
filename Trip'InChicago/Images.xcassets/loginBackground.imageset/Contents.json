@@ -1,13 +1,19 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
+      "idiom" : "iphone",
       "scale" : "1x"
     },
     {
-      "idiom" : "universal",
+      "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "loginBackground.png"
+      "filename" : "loginBackground3.5.png"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "loginBackground.png",
+      "subtype" : "retina4",
+      "scale" : "2x"
     }
   ],
   "info" : {

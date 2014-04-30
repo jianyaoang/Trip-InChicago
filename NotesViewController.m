@@ -34,7 +34,14 @@
     self.notesTextView.delegate = self;
     self.notesTableView.backgroundColor = [UIColor clearColor];
     
-//    [self.notesTextView setBackgroundColor:[UIColor colorWithWhite:1 alpha:1]];
+    self.notesViewSection.backgroundColor = [UIColor colorWithRed:1.02f green:1.02f blue:1.04f alpha:1];
+
+    self.notesTextView.layer.cornerRadius = 10;
+    self.notesLabel.layer.cornerRadius = 10;
+    
+    [self.dismissButton setBackgroundColor:[UIColor colorWithRed:0.22f green:0.42f blue:0.58f alpha:0.7f]];
+    [self.dismissButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
     [self.notesViewSection setBackgroundColor:[UIColor colorWithWhite:1 alpha:1]];
     self.notesMutableArray = [NSMutableArray new];
 
@@ -70,11 +77,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NotesCellID"];
     
     PFObject *comment = self.notesMutableArray[indexPath.row];
-//    cell.textLabel.text = [comment objectForKey:@"notes"];
     [cell.textLabel setText:[comment objectForKey:@"notes"]];
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.font = [UIFont systemFontOfSize:19];
-//    cell.textLabel.font = [UIFont fontWithName:@"Raleway-Regular" size:19];
     cell.backgroundColor = [UIColor colorWithWhite:1 alpha:.65];
 
     return cell;
