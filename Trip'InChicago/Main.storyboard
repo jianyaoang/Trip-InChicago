@@ -409,11 +409,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Sng-N1-AOy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MSn-uk-U8E">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oUL-CL-1ne">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="573"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="hA3-z0-qE7" id="8Av-Ot-mhj"/>
@@ -443,6 +443,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="directionsButton" destination="5B6-i0-bMm" id="GDb-AX-QXq"/>
                         <outlet property="infoTextView" destination="KWD-BA-5Kk" id="sHI-aY-V2Q"/>
@@ -628,15 +629,15 @@
                         <viewControllerLayoutGuide type="bottom" id="y6v-GW-6Tb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="enP-sk-MQk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="EZW-Jj-vAA">
-                                <rect key="frame" x="0.0" y="117" width="320" height="451"/>
+                                <rect key="frame" x="0.0" y="117" width="320" height="363"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="cUd-Ge-q5a"/>
+                                    <constraint firstAttribute="width" constant="320" id="yWb-W4-4ty"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotesCellID" id="XLf-jM-ekO">
@@ -686,21 +687,21 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="vBl-tY-lD3"/>
-                                    <constraint firstAttribute="width" constant="320" id="w2M-od-0tt"/>
+                                    <constraint firstAttribute="width" constant="320" id="4Uh-8a-W1I"/>
+                                    <constraint firstAttribute="height" constant="56" id="BVw-Dp-m9B"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BrowseHelpScreen-R4" translatesAutoresizingMaskIntoConstraints="NO" id="hW8-P6-M8V">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbt-WT-6ZT">
-                                <rect key="frame" x="49" y="468" width="222" height="30"/>
+                                <rect key="frame" x="49" y="380" width="222" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Pl4-HC-pnB"/>
-                                    <constraint firstAttribute="width" constant="222" id="pjN-z0-zDe"/>
+                                    <constraint firstAttribute="height" constant="30" id="Rot-LF-R1F"/>
+                                    <constraint firstAttribute="width" constant="222" id="Tnq-JC-p6i"/>
                                 </constraints>
                                 <state key="normal" title="Dismiss Message">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -712,21 +713,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FT0-ZA-q1n" firstAttribute="top" secondItem="qyX-tP-Tv9" secondAttribute="bottom" id="D5f-ff-aG0"/>
-                            <constraint firstItem="hW8-P6-M8V" firstAttribute="top" secondItem="enP-sk-MQk" secondAttribute="top" id="Dmb-3a-nwZ"/>
-                            <constraint firstItem="hW8-P6-M8V" firstAttribute="leading" secondItem="enP-sk-MQk" secondAttribute="leading" id="HIp-ie-PRA"/>
-                            <constraint firstItem="EZW-Jj-vAA" firstAttribute="top" secondItem="qyX-tP-Tv9" secondAttribute="bottom" constant="53" id="NZ4-rH-Ki4"/>
-                            <constraint firstAttribute="bottom" secondItem="hW8-P6-M8V" secondAttribute="bottom" id="Nyo-xf-mR1"/>
-                            <constraint firstItem="Xbt-WT-6ZT" firstAttribute="leading" secondItem="enP-sk-MQk" secondAttribute="leading" constant="49" id="QbH-cr-U5c"/>
-                            <constraint firstItem="y6v-GW-6Tb" firstAttribute="top" secondItem="Xbt-WT-6ZT" secondAttribute="bottom" constant="26" id="Yq1-Ls-Fmw"/>
-                            <constraint firstAttribute="trailing" secondItem="hW8-P6-M8V" secondAttribute="trailing" id="ZbN-N5-M6n"/>
-                            <constraint firstItem="FT0-ZA-q1n" firstAttribute="leading" secondItem="enP-sk-MQk" secondAttribute="leading" id="aJL-0U-SCe"/>
-                            <constraint firstItem="EZW-Jj-vAA" firstAttribute="leading" secondItem="enP-sk-MQk" secondAttribute="leading" id="uwg-yx-b8H"/>
-                            <constraint firstAttribute="bottom" secondItem="EZW-Jj-vAA" secondAttribute="bottom" id="x6B-DL-Jkk"/>
+                            <constraint firstItem="hW8-P6-M8V" firstAttribute="top" secondItem="enP-sk-MQk" secondAttribute="top" id="ARp-EF-XF9"/>
+                            <constraint firstAttribute="trailing" secondItem="hW8-P6-M8V" secondAttribute="trailing" id="B3z-Md-JQb"/>
+                            <constraint firstItem="Xbt-WT-6ZT" firstAttribute="leading" secondItem="enP-sk-MQk" secondAttribute="leading" constant="49" id="RfC-Cn-Os3"/>
+                            <constraint firstItem="EZW-Jj-vAA" firstAttribute="leading" secondItem="enP-sk-MQk" secondAttribute="leading" id="VfV-Uj-x0g"/>
+                            <constraint firstItem="y6v-GW-6Tb" firstAttribute="top" secondItem="Xbt-WT-6ZT" secondAttribute="bottom" constant="26" id="Vjn-EL-c2K"/>
+                            <constraint firstAttribute="bottom" secondItem="hW8-P6-M8V" secondAttribute="bottom" id="W1S-yM-xEj"/>
+                            <constraint firstItem="EZW-Jj-vAA" firstAttribute="top" secondItem="qyX-tP-Tv9" secondAttribute="bottom" constant="53" id="Z4Y-Eq-CfT"/>
+                            <constraint firstItem="hW8-P6-M8V" firstAttribute="leading" secondItem="enP-sk-MQk" secondAttribute="leading" id="fBa-4L-JyY"/>
+                            <constraint firstItem="FT0-ZA-q1n" firstAttribute="top" secondItem="enP-sk-MQk" secondAttribute="top" constant="64" id="hwh-Ko-X88"/>
+                            <constraint firstAttribute="bottom" secondItem="EZW-Jj-vAA" secondAttribute="bottom" id="kuf-ze-JA8"/>
+                            <constraint firstItem="FT0-ZA-q1n" firstAttribute="leading" secondItem="enP-sk-MQk" secondAttribute="leading" id="tCQ-O0-UzW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Notes" id="JSB-ic-21b"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="backgroundHelpImage" destination="hW8-P6-M8V" id="XM7-jc-H3w"/>
                         <outlet property="dismissButton" destination="Xbt-WT-6ZT" id="hvU-oe-41e"/>
