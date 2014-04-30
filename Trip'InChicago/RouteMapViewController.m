@@ -8,13 +8,15 @@
 
 #import "RouteMapViewController.h"
 #import "PointAnnotation.h"
+#import "ConciergeViewController.h"
 
-@interface RouteMapViewController ()
+@interface RouteMapViewController () <UIAlertViewDelegate>
 {
     float northernBorder;
     float southernBorder;
     float easternBorder;
     float westernBorder;
+    BOOL alertViewShow;
 }
 @property (strong, nonatomic) IBOutlet UITextView *infoTextView;
 @property (strong, nonatomic) IBOutlet UIView *infoView;
@@ -23,6 +25,8 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *directionsButton;
 @property UIColor* defaultColor;
 @property BOOL showDirections;
+
+
 
 
 
@@ -41,6 +45,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    alertViewShow = YES;
     self.defaultColor = self.directionsButton.tintColor;
     self.showDirections = NO;
     northernBorder = 0.0;
@@ -106,16 +111,24 @@
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Data Connection Error"
-                                                 message:@"Unable to retrieve direction data, try again later!"
-                                                delegate:nil
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Unable to Get Your Location"
+                                                 message:@""
+                                                delegate:self //setting the UIAlertView
                                        cancelButtonTitle:@"OK"
                                        otherButtonTitles: nil];
     [av show];
+    //[self.navigationController popViewControllerAnimated:YES];
+
 
     NSLog(@"E:%@", error);
     
 }
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 -(void)createItenAnnotations
 {
@@ -217,12 +230,21 @@
          {
              if (error)
              {
-                 UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Data Connection Error"
-                                                              message:@"Unable to retrieve direction data, try again later!"
-                                                             delegate:nil
-                                                    cancelButtonTitle:@"OK"
-                                                    otherButtonTitles: nil];
-                 [av show];
+
+                 if (alertViewShow)
+
+                 {
+                     NSLog(@"This is the alertView----------%hhd", alertViewShow);
+                     NSLog(@"This is the error __________%@", error);
+                     UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"No Internet Connection"
+                                                                  message:@"Press route when you have internet connectivity"
+                                                                 delegate:self
+                                                        cancelButtonTitle:@"OK"
+                                                        otherButtonTitles: nil];
+                     [av show];
+                     alertViewShow = NO;
+
+                 }
 
              }
              else

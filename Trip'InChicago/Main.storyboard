@@ -226,7 +226,7 @@
         <!--Concierge View Controller-->
         <scene sceneID="yKw-He-Eof">
             <objects>
-                <viewController id="qqZ-fc-NsK" customClass="ConciergeViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="MoreDetailViewController" storyboardIdentifier="MoreDetailViewController" id="qqZ-fc-NsK" customClass="ConciergeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yyk-XU-khv"/>
                         <viewControllerLayoutGuide type="bottom" id="liW-gb-SOz"/>
