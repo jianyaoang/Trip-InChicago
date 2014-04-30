@@ -375,7 +375,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oUL-CL-1ne">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="574"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="573"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="hA3-z0-qE7" id="8Av-Ot-mhj"/>
@@ -385,19 +385,8 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="216"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHT-Lb-X3k">
-                                        <rect key="frame" x="246" y="3" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Close">
-                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onClosedButtonPressed:" destination="hA3-z0-qE7" eventType="touchUpInside" id="CjN-K2-PkO"/>
-                                        </connections>
-                                    </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWD-BA-5Kk">
-                                        <rect key="frame" x="20" y="41" width="280" height="155"/>
+                                        <rect key="frame" x="20" y="20" width="280" height="176"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -417,6 +406,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="directionsButton" destination="5B6-i0-bMm" id="GDb-AX-QXq"/>
                         <outlet property="infoTextView" destination="KWD-BA-5Kk" id="sHI-aY-V2Q"/>
                         <outlet property="infoView" destination="7TH-Xn-mxE" id="Rxp-Uc-JxP"/>
                         <outlet property="routeMapViewMap" destination="oUL-CL-1ne" id="KKI-QG-pnl"/>
@@ -683,7 +673,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="HelpScreenWithDeleteCell@2x" width="320" height="480"/>
+        <image name="HelpScreenWithDeleteCell@2x" width="317" height="567"/>
         <image name="phoneMedium.png" width="24" height="24"/>
         <image name="phoneSmall" width="16" height="16"/>
     </resources>
