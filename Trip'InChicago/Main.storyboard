@@ -355,6 +355,8 @@
                         <outlet property="callNumberButton" destination="9Ra-9o-gH1" id="TiD-9g-x9e"/>
                         <outlet property="conciergeDetailMapView" destination="DFC-vK-DQu" id="hAL-Rh-eZU"/>
                         <outlet property="distanceTextField" destination="3o9-d8-HfO" id="Von-Xg-0pC"/>
+                        <outlet property="phoneCallButton" destination="9Ra-9o-gH1" id="mMz-Tw-z1T"/>
+                        <outlet property="phoneImageView" destination="FRA-FK-HvV" id="EJb-eU-VHu"/>
                         <outlet property="phoneNumberTextField" destination="gjT-DX-PLC" id="xbF-NF-5gF"/>
                     </connections>
                 </viewController>

@@ -12,6 +12,8 @@
 @interface DetailConciergeViewController2 () <MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *conciergeDetailMapView;
+@property (strong, nonatomic) IBOutlet UIButton *phoneCallButton;
+@property (strong, nonatomic) IBOutlet UIImageView *phoneImageView;
 
 @end
 
@@ -29,29 +31,38 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     self.distanceTextField.text    = self.distance;
     self.phoneNumberTextField.text = self.phoneNumber;
+    [self hidePhoneButton];
     self.addressTextField.text = self.address;
-
 
     self.locationManager = [CLLocationManager new];
     [self.conciergeDetailMapView setShowsUserLocation:YES];
     [self.locationManager startUpdatingLocation];
     self.currentLocation = self.locationManager.location;
 
-
     CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
     MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(.01, .01);
     MKCoordinateRegion region = MKCoordinateRegionMake (centerCoordinate, coordinateSpan);
     self.conciergeDetailMapView.region = region;
-
-
 
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
     annotation.coordinate = CLLocationCoordinate2DMake(self.myLocation.coordinate.latitude, self.myLocation.coordinate.longitude);
     [self.conciergeDetailMapView addAnnotation:annotation];
 
     [self constructAddressString];
+}
+
+
+-(void)hidePhoneButton
+{
+    if (self.phoneNumber == nil)
+    {
+        self.phoneNumberTextField.hidden = YES;
+        self.phoneImageView.hidden = YES;
+        self.phoneCallButton.hidden = YES;
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -62,6 +73,7 @@
     self.callNumberButton.layer.masksToBounds = YES;
     self.addressTextField.layer.cornerRadius = 10;
     self.addressTextField.layer.masksToBounds = YES;
+    [self hidePhoneButton];
 //    self.distanceTextField.layer.cornerRadius = 10;
 //    self.distanceTextField.layer.masksToBounds = YES;
 }
