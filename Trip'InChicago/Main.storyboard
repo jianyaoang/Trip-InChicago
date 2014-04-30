@@ -116,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3FS-Lp-qCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5933" y="-915"/>
+            <point key="canvasLocation" x="5915" y="-679"/>
         </scene>
         <!--Map View Controller - Map-->
         <scene sceneID="spX-uM-PtB">
@@ -148,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pFF-e0-7Pt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6424" y="-679"/>
+            <point key="canvasLocation" x="6590" y="-691"/>
         </scene>
         <!--Choice View Controller-->
         <scene sceneID="AGC-UG-9TB">
@@ -264,13 +264,17 @@
                                     <outlet property="delegate" destination="qqZ-fc-NsK" id="rnb-r7-XIo"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Group@1x" translatesAutoresizingMaskIntoConstraints="NO" id="PuW-8p-uGw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HelpScreenWithDeleteCell" translatesAutoresizingMaskIntoConstraints="NO" id="PuW-8p-uGw">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cn4-2P-hZ2">
-                                <rect key="frame" x="19" y="502" width="280" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cn4-2P-hZ2">
+                                <rect key="frame" x="49" y="512" width="222" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="222" id="3nI-Rl-kes"/>
+                                    <constraint firstAttribute="height" constant="30" id="7oQ-Cu-c8J"/>
+                                </constraints>
                                 <state key="normal" title="Dismiss Message">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -280,6 +284,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cn4-2P-hZ2" firstAttribute="leading" secondItem="TVU-cL-9dz" secondAttribute="leading" constant="49" id="Edf-Yp-Lfo"/>
+                            <constraint firstItem="liW-gb-SOz" firstAttribute="top" secondItem="cn4-2P-hZ2" secondAttribute="bottom" constant="26" id="K3I-sb-y4q"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1Dt-P2-XDA">
                         <barButtonItem key="rightBarButtonItem" title="Route" id="2JF-lD-wHC">
@@ -650,10 +658,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbt-WT-6ZT">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbt-WT-6ZT">
                                 <rect key="frame" x="49" y="468" width="222" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="222" id="3co-5g-jd3"/>
+                                    <constraint firstAttribute="height" constant="30" id="RUT-jZ-TUe"/>
+                                </constraints>
                                 <state key="normal" title="Dismiss Message">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -663,6 +675,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="y6v-GW-6Tb" firstAttribute="top" secondItem="Xbt-WT-6ZT" secondAttribute="bottom" constant="26" id="8zi-jO-zuX"/>
+                            <constraint firstItem="Xbt-WT-6ZT" firstAttribute="leading" secondItem="enP-sk-MQk" secondAttribute="leading" constant="49" id="X9z-vj-VuI"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Notes" id="JSB-ic-21b"/>
                     <connections>
@@ -699,7 +715,7 @@
     </scenes>
     <resources>
         <image name="BrowseHelpScreen-R4" width="317" height="567"/>
-        <image name="Group@1x" width="317" height="567"/>
+        <image name="HelpScreenWithDeleteCell" width="320" height="480"/>
         <image name="phoneMedium.png" width="24" height="24"/>
         <image name="phoneSmall" width="16" height="16"/>
     </resources>
@@ -709,6 +725,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="acg-13-LbB"/>
+        <segue reference="OeK-cN-Bvn"/>
     </inferredMetricsTieBreakers>
 </document>
