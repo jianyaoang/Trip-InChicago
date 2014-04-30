@@ -29,23 +29,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    self.signUpController = [self.storyboard instantiateViewControllerWithIdentifier:@"SignUpViewController"];
-//    self.signUpController = [SignUpViewController new];
     [PFFacebookUtils initializeFacebook];
     [self.navigationController setNavigationBarHidden:YES];
     
-    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loginBackground"]];
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loginBackgroundWithLogo"]];
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];
-    
-//    CALayer *layer = self.logInView.usernameField.layer;
-//    layer.shadowOpacity = 0.0;
-//    layer = self.logInView.passwordField.layer;
-//    layer.shadowOpacity = 0.0;
-    
-
-//    [self.logInView.usernameField setBackground:[UIImage imageNamed:@""]];
-//    [self.logInView.usernameField setBackgroundColor:[UIColor colorWithRed:0.52f green:0.52f blue:0.52f alpha:0.8f]];
+    self.logInView.logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
     
     [self.logInView.logInButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
     [self.logInView.logInButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
@@ -58,19 +48,6 @@
     [self.logInView.signUpButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
     [self.logInView.signUpButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
     [self.logInView.signUpButton setBackgroundColor:[UIColor colorWithRed:0.07f green:0.48f blue:0.07f alpha:0.8f]];
-//    [self.logInView.facebookButton setImage:nil forState:UIControlStateNormal];
-//    [self.logInView.facebookButton setImage:nil forState:UIControlStateHighlighted];
-//    [self.logInView.facebookButton setTitle:@"" forState:UIControlStateNormal];
-//   self.logInView.usernameField.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
-//    self.logInView.passwordField.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
-//    self.logInView.logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
-    
-    
-//    ChoiceViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ChoiceViewController"];
-//    if ([PFUser currentUser] || [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])
-//    {
-//        [self.navigationController pushViewController:vc animated:NO];
-//    }
     
 }
 
@@ -81,12 +58,6 @@
     NSArray *permissionArray = @[@"user_about_me",@"user_relationships", @"user_birthday", @"user_location"];
     
     [self setFacebookPermissions:permissionArray];
-//    PFLogInViewController *login = [PFLogInViewController new];
-//    login.fields = PFLogInFieldsUsernameAndPassword|PFLogInFieldsLogInButton|PFLogInFieldsFacebook| PFLogInFieldsSignUpButton;
-//    [login setFacebookPermissions:permissionArray];
-//    login.signUpController.delegate = self;
-//    login.delegate = self;
-//    [self presentViewController:login animated:NO completion:nil];
 }
 
 -(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user

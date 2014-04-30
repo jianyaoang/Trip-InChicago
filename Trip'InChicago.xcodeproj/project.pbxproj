@@ -403,9 +403,6 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Jian Yao Ang";
 				TargetAttributes = {
-					419189FF18FC954100A4616C = {
-						DevelopmentTeam = RKE9UY8PW2;
-					};
 					41918A2018FC954100A4616C = {
 						TestTargetID = 419189FF18FC954100A4616C;
 					};
