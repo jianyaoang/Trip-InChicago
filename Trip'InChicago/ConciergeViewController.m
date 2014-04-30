@@ -14,7 +14,7 @@
 #import "DetailConciergeViewController2.h"
 #import <AddressBook/AddressBook.h>
 
-@interface ConciergeViewController ()<UITableViewDataSource, UITableViewDataSource, CLLocationManagerDelegate>
+@interface ConciergeViewController ()<UITableViewDataSource, UITableViewDataSource, CLLocationManagerDelegate, UIAlertViewDelegate>
 {
     NSMutableArray *locationMutableArray;
     NSMutableArray *venueMutableArray;
@@ -78,6 +78,7 @@
     self.locationManager = [CLLocationManager new];
     self.locationManager.delegate = self;
     [self.locationManager startUpdatingLocation];
+
 
     locationMutableArray = [NSMutableArray new];
     venueMutableArray    = [NSMutableArray new];
@@ -277,7 +278,7 @@
 
             UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"Data Connection Error"
                                                         message:@"No data connection try again later"
-                                                       delegate:nil
+                                                       delegate:nil //set delegate for UIAlertView
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
 
@@ -497,4 +498,6 @@
 
     }
 }
+
+
 @end
