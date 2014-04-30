@@ -91,17 +91,20 @@
 
 - (IBAction)onWriteNoteButtonPressed:(id)sender
 {
-    PFObject *comment = [PFObject objectWithClassName:@"Notes"];
-    comment[@"notes"] = self.notesTextView.text;
-//    comment[@"location"] = self.location.name;
-    [comment setObject:self.location.name forKey:@"location"];
-    [self.notesTextView resignFirstResponder];
-    self.notesTextView.text = @"";
-    
-    [comment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        [self.notesMutableArray addObject:comment];
-        [self.notesTableView reloadData];
-    }];
+    if (self.notesTextView.text.length > 0)
+    {
+        PFObject *comment = [PFObject objectWithClassName:@"Notes"];
+        comment[@"notes"] = self.notesTextView.text;
+        //    comment[@"location"] = self.location.name;
+        [comment setObject:self.location.name forKey:@"location"];
+        [self.notesTextView resignFirstResponder];
+        self.notesTextView.text = @"";
+        
+        [comment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            [self.notesMutableArray addObject:comment];
+            [self.notesTableView reloadData];
+        }];
+    }    
 }
 
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
