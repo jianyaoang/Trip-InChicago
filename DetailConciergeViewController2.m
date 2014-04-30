@@ -122,6 +122,15 @@
     {
 
         //I think we need to format the string to have no spaces in it
+        NSString *newString = [[self.phoneNumber componentsSeparatedByCharactersInSet:
+                                [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
+                               componentsJoinedByString:@""];
+
+        NSLog(@"%@", newString);
+
+        NSString *phoneNumber = [@"telprompt://" stringByAppendingString:newString];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+
 //        NSString *newString = [[self.phoneNumber componentsSeparatedByCharactersInSet:
 //                                [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
 //                               componentsJoinedByString:@""];
@@ -129,16 +138,7 @@
 //        NSLog(@"%@", newString);
 //
 //        NSString *phoneNumber = [@"tel://" stringByAppendingString:newString];
-//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
-
-        NSString *newString = [[self.phoneNumber componentsSeparatedByCharactersInSet:
-                                [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
-                               componentsJoinedByString:@""];
-
-        NSLog(@"%@", newString);
-
-        NSString *phoneNumber = [@"tel://" stringByAppendingString:newString];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@", phoneNumber]]];
+//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@", phoneNumber]]];
 
 
     }

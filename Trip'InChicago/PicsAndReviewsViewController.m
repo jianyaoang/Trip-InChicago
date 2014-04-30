@@ -28,6 +28,8 @@
     IBOutlet UIButton *telephoneNumber;
 }
 @property (strong, nonatomic) IBOutlet UILabel *phoneNumberTextField;
+@property (strong, nonatomic) IBOutlet UIImageView *phoneImageView;
+@property (strong, nonatomic) IBOutlet MKMapView *expandedMapView;
 
 @end
 
@@ -36,6 +38,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.expandedMapView.hidden = YES;
+    [self hidePhoneButton];
+    //[self hidePhoneButton];
     reviewArray = [NSArray new];
     reviewsText = [NSMutableArray new];
     imageArray = [NSMutableArray new];
@@ -55,23 +60,46 @@
     annotation.coordinate = CLLocationCoordinate2DMake(self.location.lat, self.location.lng);
     [placeMapView addAnnotation:annotation];
 
-
     addressLabel.text = self.address;
     self.phoneNumberTextField.text = self.phoneNumber;
     telephoneNumber.layer.cornerRadius = 10;
     telephoneNumber.layer.masksToBounds = YES;
     
     [self extractFlickrJSON];
-
-
     
     imageScrollView.delegate = self;
     
     placeholderImageView.image = [UIImage imageNamed:@"imagePlaceholder"];
-    
-    //addressLabel.text = self.location.address;
+
     addressLabel.numberOfLines = 0;
-    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+
+
+}
+
+-(void)hidePhoneButton
+{
+    if (self.phoneNumber == nil)
+    {
+        telephoneNumber.hidden = YES;
+        self.phoneImageView.hidden = YES;
+
+        CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
+        MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.015, 0.015);
+        MKCoordinateRegion region = MKCoordinateRegionMake (centerCoordinate, coordinateSpan);
+        self.expandedMapView.region = region;
+
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
+        annotation.coordinate = CLLocationCoordinate2DMake(self.location.lat, self.location.lng);
+        [self.expandedMapView addAnnotation:annotation];
+
+//        [UIView animateWithDuration:0.5 animations:^{
+//        placeMapView.frame = CGRectMake(20, 292, 280, 100);
+//        }];
+    }
 }
 
 -(void)extractFlickrJSON
@@ -216,14 +244,24 @@
     {
 
         //I think we need to format the string to have no spaces in it
+
         NSString *newString = [[self.phoneNumber componentsSeparatedByCharactersInSet:
                                 [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
                                componentsJoinedByString:@""];
 
         NSLog(@"%@", newString);
 
-        NSString *phoneNumber = [@"tel://" stringByAppendingString:newString];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@", phoneNumber]]];
+        NSString *phoneNumber = [@"telprompt://" stringByAppendingString:newString];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+        
+//        NSString *newString = [[self.phoneNumber componentsSeparatedByCharactersInSet:
+//                                [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
+//                               componentsJoinedByString:@""];
+//
+//        NSLog(@"%@", newString);
+//
+//        NSString *phoneNumber = [@"tel://" stringByAppendingString:newString];
+//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@", phoneNumber]]];
 
         //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
     }
