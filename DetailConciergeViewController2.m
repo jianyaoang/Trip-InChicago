@@ -23,7 +23,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -32,15 +31,15 @@
 {
     [super viewDidLoad];
 
-    self.distanceTextField.text    = self.distance;
-    self.phoneNumberTextField.text = self.phoneNumber;
-    [self hidePhoneButton];
-    self.addressTextField.text = self.address;
-
     self.locationManager = [CLLocationManager new];
     [self.conciergeDetailMapView setShowsUserLocation:YES];
     [self.locationManager startUpdatingLocation];
     self.currentLocation = self.locationManager.location;
+
+    self.distanceTextField.text    = self.distance;
+    self.phoneNumberTextField.text = self.phoneNumber;
+    [self hidePhoneButton];
+    self.addressTextField.text = self.address;
 
     CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
     MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(.01, .01);
@@ -57,7 +56,7 @@
 
 -(void)hidePhoneButton
 {
-    if (self.phoneNumber == nil)
+    if ([self.phoneNumber isEqualToString:@""])
     {
         self.phoneNumberTextField.hidden = YES;
         self.phoneImageView.hidden = YES;
@@ -115,7 +114,6 @@
 //           dispatch_async(dispatch_get_main_queue(), ^{
 //               //put your asynchronous result in this block
 //           });
-
        }
        
    }];
@@ -124,42 +122,14 @@
 
 - (IBAction)onCallButtonPressed:(id)sender
 {
-    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Call" message:self.phoneNumber delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES",nil];
-    [alert show];
+    NSString *newString = [[self.phoneNumber componentsSeparatedByCharactersInSet:
+                            [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
+                           componentsJoinedByString:@""];
+
+    NSString *phoneNumber = [@"telprompt://" stringByAppendingString:newString];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+
 }
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if(buttonIndex==1)
-    {
-
-        //I think we need to format the string to have no spaces in it
-        NSString *newString = [[self.phoneNumber componentsSeparatedByCharactersInSet:
-                                [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
-                               componentsJoinedByString:@""];
-
-        NSLog(@"%@", newString);
-
-        NSString *phoneNumber = [@"telprompt://" stringByAppendingString:newString];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
-
-//        NSString *newString = [[self.phoneNumber componentsSeparatedByCharactersInSet:
-//                                [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
-//                               componentsJoinedByString:@""];
-//
-//        NSLog(@"%@", newString);
-//
-//        NSString *phoneNumber = [@"tel://" stringByAppendingString:newString];
-//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@", phoneNumber]]];
-
-
-    }
-    else
-    {
-        //user goes back to app
-    }
-}
-
 
 /*
 #pragma mark - Navigation

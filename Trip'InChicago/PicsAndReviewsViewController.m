@@ -229,46 +229,16 @@
 #pragma mark -- phone calling methods
 - (IBAction)onPhoneCallButtonPressed:(id)sender
 {
-    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Call"
-                                                 message:self.phoneNumber
-                                                delegate:self
-                                       cancelButtonTitle:@"NO"
-                                       otherButtonTitles:@"YES",nil];
-    [alert show];
 
-}
+    NSString *newString = [[self.phoneNumber componentsSeparatedByCharactersInSet:
+                            [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
+                           componentsJoinedByString:@""];
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if(buttonIndex==1)
-    {
+    NSLog(@"%@", newString);
 
-        //I think we need to format the string to have no spaces in it
+    NSString *phoneNumber = [@"telprompt://" stringByAppendingString:newString];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
 
-        NSString *newString = [[self.phoneNumber componentsSeparatedByCharactersInSet:
-                                [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
-                               componentsJoinedByString:@""];
-
-        NSLog(@"%@", newString);
-
-        NSString *phoneNumber = [@"telprompt://" stringByAppendingString:newString];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
-        
-//        NSString *newString = [[self.phoneNumber componentsSeparatedByCharactersInSet:
-//                                [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
-//                               componentsJoinedByString:@""];
-//
-//        NSLog(@"%@", newString);
-//
-//        NSString *phoneNumber = [@"tel://" stringByAppendingString:newString];
-//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@", phoneNumber]]];
-
-        //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
-    }
-    else
-    {
-        //user goes back to app
-    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton*)sender
@@ -291,8 +261,4 @@
     }
 }
 
-- (IBAction)onTelephoneNumberButtonPressed:(id)sender
-{
-    
-}
 @end
