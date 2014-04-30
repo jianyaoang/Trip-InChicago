@@ -143,7 +143,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="krD-oa-zvz">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="krD-oa-zvz">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
@@ -152,6 +152,12 @@
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="krD-oa-zvz" secondAttribute="trailing" id="4Xx-F7-AbI"/>
+                            <constraint firstItem="krD-oa-zvz" firstAttribute="leading" secondItem="HCD-1t-vzN" secondAttribute="leading" id="Rbr-zl-En0"/>
+                            <constraint firstItem="O1V-Vv-f6w" firstAttribute="top" secondItem="krD-oa-zvz" secondAttribute="bottom" id="mpB-aS-KWE"/>
+                            <constraint firstItem="krD-oa-zvz" firstAttribute="top" secondItem="HCD-1t-vzN" secondAttribute="top" id="rgx-Y5-qA3"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="v81-A4-NdI"/>
                     <connections>
