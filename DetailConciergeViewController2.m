@@ -32,15 +32,15 @@
 {
     [super viewDidLoad];
 
-    self.distanceTextField.text    = self.distance;
-    self.phoneNumberTextField.text = self.phoneNumber;
-    [self hidePhoneButton];
-    self.addressTextField.text = self.address;
-
     self.locationManager = [CLLocationManager new];
     [self.conciergeDetailMapView setShowsUserLocation:YES];
     [self.locationManager startUpdatingLocation];
     self.currentLocation = self.locationManager.location;
+
+    self.distanceTextField.text    = self.distance;
+    self.phoneNumberTextField.text = self.phoneNumber;
+    [self hidePhoneButton];
+    self.addressTextField.text = self.address;
 
     CLLocationCoordinate2D centerCoordinate = self.locationManager.location.coordinate;
     MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(.01, .01);
@@ -57,7 +57,7 @@
 
 -(void)hidePhoneButton
 {
-    if (self.phoneNumber == nil)
+    if ([self.phoneNumber isEqualToString:@""])
     {
         self.phoneNumberTextField.hidden = YES;
         self.phoneImageView.hidden = YES;
