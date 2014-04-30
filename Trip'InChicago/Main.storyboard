@@ -13,11 +13,11 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ypn-Bn-bfb">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ypn-Bn-bfb">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -40,8 +40,15 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ypn-Bn-bfb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="9bD-c6-mbM"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Ypn-Bn-bfb" secondAttribute="bottom" id="Kkg-bX-jmi"/>
+                            <constraint firstItem="Ypn-Bn-bfb" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="SbS-Qt-Ha6"/>
+                            <constraint firstAttribute="trailing" secondItem="Ypn-Bn-bfb" secondAttribute="trailing" id="ZFi-LS-gEt"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Browse Chicago" id="5mA-RX-clJ"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="sectionTableView" destination="Ypn-Bn-bfb" id="qte-r2-t8b"/>
                     </connections>
@@ -59,11 +66,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Icv-UR-gai"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="u9f-Cu-vWH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="oab-lH-YI8">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -127,11 +134,11 @@
                         <viewControllerLayoutGuide type="bottom" id="O1V-Vv-f6w"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HCD-1t-vzN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="krD-oa-zvz">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="evs-Rm-iLL" id="oyG-Od-k3c"/>
@@ -148,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pFF-e0-7Pt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5100" y="-739"/>
+            <point key="canvasLocation" x="4932" y="-1023"/>
         </scene>
         <!--Choice View Controller-->
         <scene sceneID="AGC-UG-9TB">
@@ -468,7 +475,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tqa-30-C8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5932" y="-1239"/>
+            <point key="canvasLocation" x="5452" y="-1459"/>
         </scene>
         <!--Pics And Reviews View Controller - Pictures And Reviews-->
         <scene sceneID="UFF-au-zck">
@@ -596,7 +603,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6t-FT-Emb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4620" y="-1761"/>
+            <point key="canvasLocation" x="4322" y="-1541"/>
         </scene>
         <!--Notes View Controller - Notes-->
         <scene sceneID="0SL-t7-dYP">
@@ -717,7 +724,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Z9-UF-C6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5196" y="-1653"/>
+            <point key="canvasLocation" x="4900" y="-1815"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LP1-78-HIW">
@@ -750,6 +757,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="acg-13-LbB"/>
+        <segue reference="OeK-cN-Bvn"/>
     </inferredMetricsTieBreakers>
 </document>
