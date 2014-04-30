@@ -489,8 +489,9 @@
 
         [standardUserDefaults setInteger:1 forKey:@"TimesProgramHasRun"];
 
-        self.backgroundImage.alpha = 0.90;
-        self.dismissButton.alpha   = 0.90;
+        self.myTableView.backgroundView.alpha = .02;
+        self.backgroundImage.alpha = 1.99;
+        self.dismissButton.alpha   = 1.99;
 
         self.navigationController.navigationBar.hidden = YES;
 
