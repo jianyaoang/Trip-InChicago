@@ -69,7 +69,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="oab-lH-YI8">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="oab-lH-YI8">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -109,6 +109,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oab-lH-YI8" firstAttribute="leading" secondItem="u9f-Cu-vWH" secondAttribute="leading" id="2J3-kk-K4Z"/>
+                            <constraint firstAttribute="trailing" secondItem="oab-lH-YI8" secondAttribute="trailing" id="7tb-Qu-8UH"/>
+                            <constraint firstItem="oab-lH-YI8" firstAttribute="top" secondItem="u9f-Cu-vWH" secondAttribute="top" id="PAf-5p-6z7"/>
+                            <constraint firstItem="Icv-UR-gai" firstAttribute="top" secondItem="oab-lH-YI8" secondAttribute="bottom" id="XS3-1J-4ch"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Lge-os-lQw">
                         <barButtonItem key="rightBarButtonItem" title="MapView" id="A0B-5A-XTS">
@@ -757,6 +763,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="OeK-cN-Bvn"/>
+        <segue reference="acg-13-LbB"/>
     </inferredMetricsTieBreakers>
 </document>
