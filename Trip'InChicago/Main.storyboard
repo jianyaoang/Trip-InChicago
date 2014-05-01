@@ -711,7 +711,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLZ-M3-FLJ">
                                         <rect key="frame" x="5" y="5" width="270" height="121"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.87742358580000002" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="121" id="Nfr-E6-a6k"/>
                                             <constraint firstAttribute="width" constant="270" id="OR0-Yb-IU2"/>
@@ -730,7 +730,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.25098040699958801" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="dLZ-M3-FLJ" firstAttribute="leading" secondItem="2yD-01-zfN" secondAttribute="leading" constant="5" id="11V-eD-vGs"/>
                                     <constraint firstItem="dLZ-M3-FLJ" firstAttribute="top" secondItem="2yD-01-zfN" secondAttribute="top" constant="5" id="RcJ-Y1-QOl"/>
