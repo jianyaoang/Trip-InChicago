@@ -111,8 +111,8 @@
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Unable to Get Your Location"
-                                                 message:@""
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"No Internet Connection"
+                                                 message:@"Please be patient while we obtain your location"
                                                 delegate:self //setting the UIAlertView
                                        cancelButtonTitle:@"OK"
                                        otherButtonTitles: nil];
@@ -286,7 +286,8 @@
 - (IBAction)onDirectionsButtonPressed:(id)sender
 {
     self.showDirections =! self.showDirections;
-    if (self.showDirections) {
+    if (self.showDirections)
+    {
         self.directionsButton.title = @"Close";
         self.directionsButton.tintColor = [UIColor redColor];
         self.infoView.hidden = NO;

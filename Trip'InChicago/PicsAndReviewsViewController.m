@@ -31,6 +31,11 @@
 @property (strong, nonatomic) IBOutlet UIImageView *phoneImageView;
 @property (strong, nonatomic) IBOutlet MKMapView *expandedMapView;
 @property (weak, nonatomic) IBOutlet UITextView *tipsTextView;
+@property BOOL showTipsAndReviews;
+@property (strong, nonatomic) IBOutlet UIView *myTextView;
+@property (strong, nonatomic) IBOutlet UITextView *myTipsAndReviewsTextView;
+
+@property (strong, nonatomic) IBOutlet UIButton *TipsAndReviewButton;
 
 @end
 
@@ -40,6 +45,13 @@
 {
     [super viewDidLoad];
     self.expandedMapView.hidden = YES;
+
+    self.showTipsAndReviews = NO;
+    self.myTextView.hidden = YES;
+    self.myTipsAndReviewsTextView.hidden= YES;
+    [self.TipsAndReviewButton setTitle:@"Tips" forState:UIControlStateNormal];
+   
+
 
     reviewArray = [NSArray new];
     reviewsText = [NSMutableArray new];
@@ -315,6 +327,31 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
 
 }
+
+- (IBAction)onTipsAndReviewsButtonPressed:(id)sender
+{
+
+
+
+    self.showTipsAndReviews =! self.showTipsAndReviews;if (self.showTipsAndReviews)
+    {
+        [self.TipsAndReviewButton setTitle:@"Close" forState:UIControlStateNormal];
+        self.myTextView.hidden= NO;
+        self.myTextView.layer.cornerRadius = 10;
+        self.myTextView.layer.masksToBounds = YES;
+        self.tipsTextView.layer.cornerRadius = 10;
+        self.tipsTextView.layer.masksToBounds = YES;
+    }
+    else
+    {
+        [self.TipsAndReviewButton setTitle:@"Close" forState:UIControlStateNormal];
+        self.myTextView.hidden = YES;
+
+    }
+
+
+}
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton*)sender
 {

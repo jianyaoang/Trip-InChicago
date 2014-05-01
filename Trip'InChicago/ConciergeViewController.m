@@ -276,8 +276,8 @@
         if (connectionError != nil)
         {
 
-            UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"Data Connection Error"
-                                                        message:@"No data connection try again later"
+            UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"No Internet Connection"
+                                                        message:@"Please try again in a few minutes"
                                                        delegate:nil //set delegate for UIAlertView
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];

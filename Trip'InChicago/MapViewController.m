@@ -71,8 +71,8 @@
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Data Connection Error"
-                                                 message:@"Unable to retrieve direction data, try again later!"
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"No Internet Connection"
+                                                 message:@"Please be patient while we obtain your location"
                                                 delegate:nil
                                        cancelButtonTitle:@"OK"
                                        otherButtonTitles: nil];
