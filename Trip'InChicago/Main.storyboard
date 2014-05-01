@@ -403,11 +403,11 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DFC-vK-DQu">
-                                <rect key="frame" x="20" y="120" width="280" height="202"/>
+                                <rect key="frame" x="0.0" y="120" width="320" height="202"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="202" id="QVe-2j-wJS"/>
-                                    <constraint firstAttribute="width" constant="280" id="a83-MI-xCW"/>
+                                    <constraint firstAttribute="width" constant="320" id="a83-MI-xCW"/>
                                 </constraints>
                             </mapView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SolidPhoneIcon" translatesAutoresizingMaskIntoConstraints="NO" id="FRA-FK-HvV">
@@ -434,7 +434,7 @@
                             <constraint firstItem="gjT-DX-PLC" firstAttribute="top" secondItem="Z4A-my-L3L" secondAttribute="bottom" constant="20" id="2vW-CX-aMQ"/>
                             <constraint firstItem="FRA-FK-HvV" firstAttribute="top" secondItem="Z4A-my-L3L" secondAttribute="bottom" constant="25" id="APL-CJ-mdG"/>
                             <constraint firstAttribute="trailing" secondItem="gjT-DX-PLC" secondAttribute="trailing" constant="57" id="BcF-VM-V2s"/>
-                            <constraint firstItem="DFC-vK-DQu" firstAttribute="leading" secondItem="JJF-v6-uKS" secondAttribute="leading" constant="20" id="Cs5-A0-E9B"/>
+                            <constraint firstItem="DFC-vK-DQu" firstAttribute="leading" secondItem="JJF-v6-uKS" secondAttribute="leading" id="Cs5-A0-E9B"/>
                             <constraint firstItem="65H-Tz-nLV" firstAttribute="top" secondItem="9Ra-9o-gH1" secondAttribute="bottom" constant="142" id="Gxd-wL-ZId"/>
                             <constraint firstItem="9Ra-9o-gH1" firstAttribute="centerX" secondItem="Z4A-my-L3L" secondAttribute="centerX" id="KoK-Wl-di9"/>
                             <constraint firstItem="9Ra-9o-gH1" firstAttribute="centerY" secondItem="FRA-FK-HvV" secondAttribute="centerY" id="P7K-Es-RyS"/>
