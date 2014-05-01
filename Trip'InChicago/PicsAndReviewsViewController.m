@@ -27,6 +27,7 @@
     IBOutlet UILabel *addressLabel;
     IBOutlet UIButton *telephoneNumber;
 }
+@property (strong, nonatomic) IBOutlet UIButton *FoursquareInfoButton;
 @property (strong, nonatomic) IBOutlet UILabel *phoneNumberTextField;
 @property (strong, nonatomic) IBOutlet UIImageView *phoneImageView;
 @property (strong, nonatomic) IBOutlet MKMapView *expandedMapView;
@@ -44,6 +45,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.FoursquareInfoButton.tintColor = [UIColor whiteColor];
     self.expandedMapView.hidden = YES;
 
     self.showTipsAndReviews = NO;
