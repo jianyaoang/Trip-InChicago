@@ -49,9 +49,11 @@
     self.showTipsAndReviews = NO;
     self.myTextView.hidden = YES;
     self.myTipsAndReviewsTextView.hidden= YES;
-    [self.TipsAndReviewButton setTitle:@"Tips" forState:UIControlStateNormal];
-   
 
+    [self.TipsAndReviewButton setTitle:@"Tips" forState:UIControlStateNormal];
+    [self.TipsAndReviewButton setBackgroundColor:[UIColor colorWithRed:0.22f green:0.42f blue:0.58f alpha:0.7f]];
+    [self.TipsAndReviewButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.TipsAndReviewButton.titleLabel.font = [UIFont fontWithName:@"Raleway-Light" size:22];
 
     reviewArray = [NSArray new];
     reviewsText = [NSMutableArray new];
@@ -331,9 +333,9 @@
 - (IBAction)onTipsAndReviewsButtonPressed:(id)sender
 {
 
+    self.showTipsAndReviews =! self.showTipsAndReviews;
 
-
-    self.showTipsAndReviews =! self.showTipsAndReviews;if (self.showTipsAndReviews)
+    if (self.showTipsAndReviews)
     {
         [self.TipsAndReviewButton setTitle:@"Close" forState:UIControlStateNormal];
         self.myTextView.hidden= NO;
@@ -344,7 +346,7 @@
     }
     else
     {
-        [self.TipsAndReviewButton setTitle:@"Close" forState:UIControlStateNormal];
+        [self.TipsAndReviewButton setTitle:@"Tips" forState:UIControlStateNormal];
         self.myTextView.hidden = YES;
 
     }
