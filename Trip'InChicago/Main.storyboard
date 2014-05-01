@@ -683,10 +683,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uHX-27-bzh">
-                                <rect key="frame" x="20" y="269" width="280" height="100"/>
+                                <rect key="frame" x="0.0" y="269" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="Kga-dj-1a9"/>
+                                    <constraint firstAttribute="width" constant="320" id="Kga-dj-1a9"/>
                                     <constraint firstAttribute="height" constant="100" id="SFQ-6E-kW0"/>
                                 </constraints>
                             </mapView>
@@ -768,7 +768,7 @@
                             <constraint firstItem="2yD-01-zfN" firstAttribute="leading" secondItem="iFq-aM-xHx" secondAttribute="leading" id="dHq-Tc-BS0"/>
                             <constraint firstItem="2yD-01-zfN" firstAttribute="top" secondItem="wdz-k5-gia" secondAttribute="bottom" constant="2" id="fak-vg-d7E"/>
                             <constraint firstItem="wdz-k5-gia" firstAttribute="top" secondItem="62t-Vt-718" secondAttribute="bottom" id="iqX-sR-q7v"/>
-                            <constraint firstItem="uHX-27-bzh" firstAttribute="leading" secondItem="iFq-aM-xHx" secondAttribute="leading" constant="20" id="j86-OI-MO1"/>
+                            <constraint firstItem="uHX-27-bzh" firstAttribute="leading" secondItem="iFq-aM-xHx" secondAttribute="leading" id="j86-OI-MO1"/>
                             <constraint firstItem="tCr-pc-Cx6" firstAttribute="top" secondItem="yMK-Yq-ihm" secondAttribute="bottom" constant="12" id="sGX-gM-UCH"/>
                             <constraint firstItem="tCr-pc-Cx6" firstAttribute="leading" secondItem="fIj-5y-6T2" secondAttribute="trailing" constant="15" id="xQo-Pc-nUd"/>
                             <constraint firstItem="yMK-Yq-ihm" firstAttribute="top" secondItem="wdz-k5-gia" secondAttribute="bottom" constant="24" id="yCf-GZ-rYV"/>
