@@ -45,7 +45,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.FoursquareInfoButton.tintColor = [UIColor blueColor];
+    self.FoursquareInfoButton.tintColor = [UIColor whiteColor];
     self.expandedMapView.hidden = YES;
 
     self.showTipsAndReviews = NO;
@@ -58,7 +58,7 @@
     self.tipsTextView.layer.cornerRadius = 10;
     self.tipsTextView.layer.masksToBounds = YES;
     self.tipsTextView.font = [UIFont fontWithName:@"Helvetica" size:20];
-    self.tipsTextView.backgroundColor = [UIColor colorWithRed:0.22f green:0.42f blue:0.58f alpha:0.1f];
+    self.tipsTextView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.65];
 
     [self.TipsAndReviewButton setBackgroundColor:[UIColor colorWithRed:0.22f green:0.42f blue:0.58f alpha:0.7f]];
     [self.TipsAndReviewButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
