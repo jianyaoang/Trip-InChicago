@@ -689,18 +689,8 @@
                                     <constraint firstAttribute="width" constant="280" id="Kfr-Uf-2uD"/>
                                 </constraints>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UeL-wh-cuL">
-                                <rect key="frame" x="35" y="377" width="238" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="More Details >">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="K0Z-Re-oyF" kind="push" identifier="showFoursquareWebView" id="Wif-es-WUu"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CaI-QD-15d">
-                                <rect key="frame" x="35" y="406" width="250" height="30"/>
+                                <rect key="frame" x="35" y="424" width="250" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.25098040699958801" blue="0.50196081399917603" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -737,12 +727,25 @@
                                     <constraint firstAttribute="bottom" secondItem="dLZ-M3-FLJ" secondAttribute="bottom" constant="6" id="kJS-r5-U4E"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UeL-wh-cuL">
+                                <rect key="frame" x="41" y="402" width="238" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="238" id="ncO-IT-ihU"/>
+                                </constraints>
+                                <state key="normal" title="More Details >">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="K0Z-Re-oyF" kind="push" identifier="showFoursquareWebView" id="Wif-es-WUu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CaI-QD-15d" firstAttribute="top" secondItem="2yD-01-zfN" secondAttribute="bottom" constant="8" symbolic="YES" id="0tH-Vu-GAO"/>
+                            <constraint firstItem="CaI-QD-15d" firstAttribute="top" secondItem="2yD-01-zfN" secondAttribute="bottom" constant="26" id="0tH-Vu-GAO"/>
                             <constraint firstItem="fIj-5y-6T2" firstAttribute="leading" secondItem="iFq-aM-xHx" secondAttribute="leading" constant="20" id="7xj-5A-ZDu"/>
-                            <constraint firstAttribute="bottom" secondItem="CaI-QD-15d" secondAttribute="bottom" constant="44" id="AHG-1o-aWN"/>
+                            <constraint firstAttribute="bottom" secondItem="CaI-QD-15d" secondAttribute="bottom" constant="26" id="AHG-1o-aWN"/>
                             <constraint firstItem="yMK-Yq-ihm" firstAttribute="leading" secondItem="fIj-5y-6T2" secondAttribute="trailing" constant="15" id="AmD-2s-mgl"/>
                             <constraint firstItem="wdz-k5-gia" firstAttribute="leading" secondItem="iFq-aM-xHx" secondAttribute="leading" id="CaK-m4-AmX"/>
                             <constraint firstItem="tCr-pc-Cx6" firstAttribute="leading" secondItem="fIj-5y-6T2" secondAttribute="trailing" constant="15" id="Cc2-9R-znX"/>
@@ -751,7 +754,9 @@
                             <constraint firstItem="yMK-Yq-ihm" firstAttribute="top" secondItem="wdz-k5-gia" secondAttribute="bottom" constant="5" id="GqR-nr-91t"/>
                             <constraint firstItem="uHX-27-bzh" firstAttribute="leading" secondItem="iFq-aM-xHx" secondAttribute="leading" constant="20" id="I3v-fq-nXp"/>
                             <constraint firstItem="2yD-01-zfN" firstAttribute="trailing" secondItem="Eh1-mw-aEx" secondAttribute="trailing" id="Jid-Lm-Orl"/>
-                            <constraint firstItem="CaI-QD-15d" firstAttribute="top" secondItem="uHX-27-bzh" secondAttribute="bottom" constant="37" id="L7S-BH-P5p"/>
+                            <constraint firstItem="UeL-wh-cuL" firstAttribute="leading" secondItem="iFq-aM-xHx" secondAttribute="leading" constant="41" id="Jm4-Cq-vOv"/>
+                            <constraint firstItem="CaI-QD-15d" firstAttribute="top" secondItem="uHX-27-bzh" secondAttribute="bottom" constant="55" id="L7S-BH-P5p"/>
+                            <constraint firstItem="CaI-QD-15d" firstAttribute="top" secondItem="UeL-wh-cuL" secondAttribute="bottom" constant="5" id="UbD-WB-ZWz"/>
                             <constraint firstItem="wdz-k5-gia" firstAttribute="top" secondItem="iFq-aM-xHx" secondAttribute="top" constant="64" id="W0N-4B-kym"/>
                             <constraint firstItem="2yD-01-zfN" firstAttribute="top" secondItem="wdz-k5-gia" secondAttribute="bottom" constant="2" id="gKU-mq-rNy"/>
                             <constraint firstItem="D4Z-bN-9nY" firstAttribute="top" secondItem="iFq-aM-xHx" secondAttribute="top" constant="253" id="gPD-0m-32e"/>
@@ -761,6 +766,7 @@
                             <constraint firstItem="fIj-5y-6T2" firstAttribute="top" secondItem="wdz-k5-gia" secondAttribute="bottom" constant="5" id="phm-sl-bRy"/>
                             <constraint firstItem="uHX-27-bzh" firstAttribute="top" secondItem="wdz-k5-gia" secondAttribute="bottom" constant="5" id="w3L-Nx-FMC"/>
                             <constraint firstItem="2yD-01-zfN" firstAttribute="leading" secondItem="Eh1-mw-aEx" secondAttribute="leading" id="wTf-vf-s9Z"/>
+                            <constraint firstItem="UeL-wh-cuL" firstAttribute="top" secondItem="2yD-01-zfN" secondAttribute="bottom" constant="4" id="zhB-Az-lN2"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
