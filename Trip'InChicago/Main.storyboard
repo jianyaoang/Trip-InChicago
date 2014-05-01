@@ -719,6 +719,16 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UeL-wh-cuL">
+                                        <rect key="frame" x="278" y="95" width="22" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="K0Z-Re-oyF" kind="push" identifier="showFoursquareWebView" id="Wif-es-WUu"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.25098040699958801" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -727,19 +737,6 @@
                                     <constraint firstAttribute="bottom" secondItem="dLZ-M3-FLJ" secondAttribute="bottom" constant="6" id="kJS-r5-U4E"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UeL-wh-cuL">
-                                <rect key="frame" x="41" y="402" width="238" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="238" id="ncO-IT-ihU"/>
-                                </constraints>
-                                <state key="normal" title="More Details >">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="K0Z-Re-oyF" kind="push" identifier="showFoursquareWebView" id="Wif-es-WUu"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -754,9 +751,7 @@
                             <constraint firstItem="yMK-Yq-ihm" firstAttribute="top" secondItem="wdz-k5-gia" secondAttribute="bottom" constant="24" id="GqR-nr-91t"/>
                             <constraint firstItem="uHX-27-bzh" firstAttribute="leading" secondItem="iFq-aM-xHx" secondAttribute="leading" constant="20" id="I3v-fq-nXp"/>
                             <constraint firstItem="2yD-01-zfN" firstAttribute="trailing" secondItem="Eh1-mw-aEx" secondAttribute="trailing" id="Jid-Lm-Orl"/>
-                            <constraint firstItem="UeL-wh-cuL" firstAttribute="leading" secondItem="iFq-aM-xHx" secondAttribute="leading" constant="41" id="Jm4-Cq-vOv"/>
                             <constraint firstItem="CaI-QD-15d" firstAttribute="top" secondItem="uHX-27-bzh" secondAttribute="bottom" constant="55" id="L7S-BH-P5p"/>
-                            <constraint firstItem="CaI-QD-15d" firstAttribute="top" secondItem="UeL-wh-cuL" secondAttribute="bottom" constant="5" id="UbD-WB-ZWz"/>
                             <constraint firstItem="wdz-k5-gia" firstAttribute="top" secondItem="iFq-aM-xHx" secondAttribute="top" constant="64" id="W0N-4B-kym"/>
                             <constraint firstItem="2yD-01-zfN" firstAttribute="top" secondItem="wdz-k5-gia" secondAttribute="bottom" constant="2" id="gKU-mq-rNy"/>
                             <constraint firstItem="D4Z-bN-9nY" firstAttribute="top" secondItem="iFq-aM-xHx" secondAttribute="top" constant="253" id="gPD-0m-32e"/>
@@ -766,7 +761,6 @@
                             <constraint firstItem="fIj-5y-6T2" firstAttribute="top" secondItem="wdz-k5-gia" secondAttribute="bottom" constant="24" id="phm-sl-bRy"/>
                             <constraint firstItem="uHX-27-bzh" firstAttribute="top" secondItem="wdz-k5-gia" secondAttribute="bottom" constant="5" id="w3L-Nx-FMC"/>
                             <constraint firstItem="2yD-01-zfN" firstAttribute="leading" secondItem="Eh1-mw-aEx" secondAttribute="leading" id="wTf-vf-s9Z"/>
-                            <constraint firstItem="UeL-wh-cuL" firstAttribute="top" secondItem="2yD-01-zfN" secondAttribute="bottom" constant="4" id="zhB-Az-lN2"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
