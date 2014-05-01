@@ -111,6 +111,7 @@
         telephoneNumber.hidden = YES;
         self.phoneImageView.hidden = YES;
 
+        placeMapView.hidden = YES;
         self.expandedMapView.hidden = NO;
 
         MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
