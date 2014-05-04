@@ -117,8 +117,6 @@
                                        cancelButtonTitle:@"OK"
                                        otherButtonTitles: nil];
     [av show];
-    //[self.navigationController popViewControllerAnimated:YES];
-
 
     NSLog(@"E:%@", error);
     
@@ -174,9 +172,6 @@
     [self.images addObject:[UIImage imageNamed:@"number-08"]];
     [self.images addObject:[UIImage imageNamed:@"number-09"]];
     [self.images addObject:[UIImage imageNamed:@"number-10"]];
-
-
-    // NSLog(@"image count is %d",self.images.count);
     
     if ([annotation isKindOfClass:[MKUserLocation class]])
     {
@@ -192,14 +187,11 @@
     return pin;
 
 }
-//
 
 -(void)getDirections
 {
     MKDirectionsRequest *request = [[MKDirectionsRequest alloc]init];
     bool firstTimeinLoop = YES;
-
-    // NSArray *sortedArray =
 
     // Need to sort an array and remove the closest point form the begining and use the next point.....
 

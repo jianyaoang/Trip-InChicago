@@ -176,9 +176,7 @@
     {
         myComma = @",";
     }
-
-    //cell.textLabel.text = [NSString stringWithFormat:@"%@ %@ %@", place.name, myComma, place.phoneNumber];
-
+    
     cell.textLabel.text = [NSString stringWithFormat:@"%@", place.name];
 
     int distance = roundf([place.placemark.location distanceFromLocation:self.locationManager.location]);
@@ -259,9 +257,6 @@
 
 -(void) narrowDownPlaces: (CLPlacemark*)placemark
 {
-
-//    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%f,%f&radius=2500&intent=browse&categoryId=%@&oauth_token=02ALL4LOCE2LTXXTA4ASHFTYOEAAUIRWOYT2P5S2AHBBBADA&v=20140419", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude, self.sectionString];
-
      NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%f,%f&radius=2500&openNow=1&intent=browse&categoryId=%@&oauth_token=02ALL4LOCE2LTXXTA4ASHFTYOEAAUIRWOYT2P5S2AHBBBADA&v=20140419", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude, self.sectionString];
 
 
@@ -327,7 +322,6 @@
                 MKMapItem *mapItem = [[MKMapItem alloc]initWithPlacemark:placemark];
                 mapItem.name = location.name;
                 mapItem.phoneNumber = location.phoneNumber;
-//                mapItem.url = location.address;
 
                 [sortArray addObject:mapItem];
 
@@ -424,39 +418,6 @@
             CLLocation *newLocation = [[CLLocation alloc]initWithLatitude:placeLat longitude:placeLng];
 
             vc.myLocation = newLocation;
-            
-
-//            [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error)
-//            {
-//               if (error)
-//               {
-//                   NSLog(@"Geocode failed with error: %@", error);
-//                   return;
-//               }
-//
-//               if (placemarks && placemarks.count > 0)
-//               {
-//                   CLPlacemark *placemark = placemarks[0];
-//
-//                   NSDictionary *addressDictionary = placemark.addressDictionary;
-//
-//
-//                   NSString *address = [addressDictionary objectForKey:(NSString *)kABPersonAddressStreetKey];
-//                   NSString *city    = [addressDictionary objectForKey:(NSString *)kABPersonAddressCityKey];
-//                   NSString *state   = [addressDictionary objectForKey:(NSString *)kABPersonAddressStateKey];
-//                   NSString *zip     = [addressDictionary objectForKey:(NSString *)kABPersonAddressZIPKey];
-//
-//                   vc.address = address;
-//
-//                   //tells the main thread the block result was completed, this will allow the UI to update
-//                   dispatch_async(dispatch_get_main_queue(), ^{
-//                       //put your asynchronous result in this block
-//                   });
-//
-//               }
-//               
-//           }];
-
         }
 }
 

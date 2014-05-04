@@ -222,9 +222,6 @@
     MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
     pin.canShowCallout = YES;
     pin.leftCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-
-//    pin.animatesDrop = YES;
-
     pin.animatesDrop = NO;
     
     return pin;
@@ -253,7 +250,6 @@
                 vc.navigationItem.title = location.name;
                 vc.phoneNumber = location.formattedPhone;
                 vc.address = location.address;
-                //break;
             }
         }
     }

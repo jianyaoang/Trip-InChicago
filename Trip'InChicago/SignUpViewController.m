@@ -29,15 +29,4 @@
     self.signUpView.logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
 }
 
-//-(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
-//{
-//    [self performSegueWithIdentifier:@"showChoiceViewControllerFromSignUp" sender:user];
-//}
-//
-//-(void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController
-//{
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
-
-
 @end

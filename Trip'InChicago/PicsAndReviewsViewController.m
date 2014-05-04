@@ -139,84 +139,11 @@
         MKMapRect unionRectThatFits = [self.expandedMapView mapRectThatFits:unionRect];
         [self.expandedMapView setVisibleMapRect:unionRectThatFits animated:YES];
     }
-
-//        [UIView animateWithDuration:0.5 animations:^{
-//            placeMapView.frame = CGRectMake(20, 292, 280, 100);
-//        }];
-//    }
 }
-
-
-//- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-//{
-//    if (isFirstLaunch) {
-//        CLLocationCoordinate2D topLeftCoord;
-//        CLLocationCoordinate2D bottomRightCoord;
-//
-//        topLeftCoord.longitude = fmin([self.lon floatValue], newLocation.coordinate.longitude);
-//        topLeftCoord.latitude = fmax([self.lat floatValue], newLocation.coordinate.latitude);
-//
-//        bottomRightCoord.longitude = fmax([self.lon floatValue], newLocation.coordinate.longitude);
-//        bottomRightCoord.latitude = fmin([self.lat floatValue], newLocation.coordinate.latitude);
-//
-//        MKCoordinateRegion region;
-//        region.center.latitude = topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5;
-//        region.center.longitude = topLeftCoord.longitude + (bottomRightCoord.longitude - topLeftCoord.longitude) * 0.5;
-//        region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) * 1.5; // Add a little extra space on the sides
-//        region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 1.5;  // Add a little extra space on the sides
-//
-//        region = [mapView regionThatFits:region];
-//        [mapView setRegion:region animated:YES];
-//        isFirstLaunch = NO;
-//    }
-//
-//}
-//
-//-(void)zoomToFitMapAnnotations
-//{
-//    if([mapView.annotations count] == 0)
-//        return;
-//
-//    CLLocationCoordinate2D topLeftCoord;
-//    CLLocationCoordinate2D bottomRightCoord;
-//    topLeftCoord.longitude = fmin(mapView.userLocation.location.coordinate.longitude, [self.lon floatValue]);
-//    topLeftCoord.latitude = fmax(mapView.userLocation.location.coordinate.latitude, [self.lat floatValue]);
-//
-//    bottomRightCoord.longitude = fmax(mapView.userLocation.location.coordinate.longitude, [self.lon floatValue]);
-//    bottomRightCoord.latitude = fmin(mapView.userLocation.location.coordinate.latitude, [self.lat floatValue]);
-//
-//
-//    MKCoordinateRegion region = { {0.0, 0.0 }, { 0.0, 0.0 } };
-//
-//    CLLocationCoordinate2D userCoord = {[self.lat floatValue],[self.lon floatValue]};
-//    region.center = userCoord;
-//    region.span.latitudeDelta = 0.05f;//fabs(topLeftCoord.latitude - bottomRightCoord.latitude) * 1.1; // Add a little extra space on the sides
-//    region.span.longitudeDelta = 0.05f;//fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 1.1;  // Add a little extra space on the sides
-//
-//    [mapView setRegion:region animated:YES];
-//    [mapView regionThatFits:region];
-//}
-//
-
 
 -(void)extractFlickrJSON
 {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-
-    // Passing search term from two different controllers
-    // check the ivar and populate accordingly
-//    NSString *pictureStringSearchName = [NSString new];
-//
-//    if ([self.sectionListSearchName isEqual: @""])
-//    {
-//        pictureStringSearchName = self.location.name;
-//    }
-//    else
-//    {
-//        pictureStringSearchName = self.sectionListSearchName;
-//    }
-//
-//    NSString *cleanLocationNameString = [pictureStringSearchName stringByReplacingOccurrencesOfString:@" " withString:@""];
 
     NSString *cleanLocationNameString = [self.location.name stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString *urlString = [NSString stringWithFormat:@"http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e1619af9b853f421758f264b91c39677&tags=%@&per_page=5&accuracy=16&content_type=1&safe_search=1&sort=relevance&format=json&nojsoncallback=1",cleanLocationNameString];
@@ -264,22 +191,18 @@
         [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
         UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-
+        
         imageView = [[UIImageView alloc]initWithImage:newImage];
         [imageScrollView addSubview:imageView];
-
+        
         imageView.frame = CGRectOffset(imageScrollView.bounds, width, 0);
-       imageView.contentMode = UIViewContentModeScaleAspectFit;
-//        imageView.contentMode = UIViewContentModeCenter;
-//        imageView.contentMode = UIViewContentModeScaleAspectFill;
-//        imageView.contentMode = UIViewContentModeCenter;
-//       imageView.contentMode = UIViewContentModeScaleToFill; // Jaime
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView.clipsToBounds = YES;
         width += imageView.frame.size.width;
-//        [imageView sizeToFit];
+
     }
     [imageScrollView setContentMode:UIViewContentModeScaleAspectFit];
-//    [imageView sizeToFit];
+
     imageScrollView.contentSize = CGSizeMake(width, imageScrollView.frame.size.height);
 }
 
@@ -290,40 +213,6 @@
     imagePageControl.currentPage = page;
     imagePageControl.numberOfPages = imageArray.count;
 }
-
-//-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    return 1;
-//}
-
-//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    CGRect screenBounds = [[UIScreen mainScreen] bounds];
-//    CGSize screenSize = screenBounds.size;
-//    
-//    NSAttributedString *cellText = [[NSAttributedString alloc] initWithString:[reviewsText objectAtIndex:indexPath.row]];
-//    UITextView *calculateView = [UITextView new];
-//    [calculateView setAttributedText:cellText];
-//    
-//    CGSize size = [calculateView sizeThatFits:CGSizeMake(screenSize.width, FLT_MAX)];
-//    return size.height;
-//}
-
-
-
-//-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReviewsCellID"];
-//    //cell.textLabel.text = [reviewsText objectAtIndex:indexPath.row];
-//    UIFont *font = [UIFont fontWithName:@"Helvetica" size:15];
-//    cell.textLabel.text = self.location.tips;
-//    cell.textLabel.font = font;
-//    
-//    [cell.textLabel.text stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
-//    cell.textLabel.numberOfLines = 0;
-//    [cell.textLabel sizeToFit];
-//    return cell;
-//}
 
 #pragma mark -- phone calling methods
 - (IBAction)onPhoneCallButtonPressed:(id)sender
@@ -360,10 +249,7 @@
         self.myTextView.hidden = NO;
 
     }
-
-
 }
-
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton*)sender
 {
@@ -373,8 +259,6 @@
         vc.location = self.location;
         vc.location.name = self.location.name;
         vc.navigationItem.title = self.location.name;
-        //vc.navigationItem.title = self.sectionListSearchName ;
-        //self.location.name      = self.sectionListSearchName;
         
     }
     else if ([segue.identifier isEqualToString:@"showFoursquareWebView"])

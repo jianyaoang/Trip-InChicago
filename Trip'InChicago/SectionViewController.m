@@ -77,9 +77,6 @@
     SectionListViewController *vc = (SectionListViewController*)segue.destinationViewController;
     vc.searchSection = sectionName;
     vc.navigationItem.title = [NSString stringWithFormat:@"%@",sectionName];
-    
-//    MapViewController *mapViewController = (MapViewController *)segue.destinationViewController;
-//    mapViewController.foursquareLocationName = sectionName;
 }
 
 

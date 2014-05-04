@@ -50,8 +50,6 @@
     self.notesTextView.layer.masksToBounds = YES;
     
     PFQuery *queryNotes = [PFQuery queryWithClassName:@"Notes"];
-//    [queryNotes whereKey:@"location" containsString:self.location.name];
-
     [queryNotes whereKey:@"location" equalTo:self.location.name];
     [queryNotes findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error)
@@ -220,12 +218,8 @@
         NSUserDefaults * standardUserDefaults = [NSUserDefaults standardUserDefaults];
         [standardUserDefaults setInteger:1 forKey:@"FirstTimeForNotes"];
 
-
         self.backgroundHelpImage.alpha = 0.90;
         self.dismissButton.alpha       = 0.90;
-
-//        self.navigationController.navigationBar.alpha = .25;
-//        self.navigationController.navigationBar.hidden = YES;
 
     }
 }
