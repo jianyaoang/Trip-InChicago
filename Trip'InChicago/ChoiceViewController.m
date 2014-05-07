@@ -17,16 +17,6 @@
 
 @implementation ChoiceViewController
 
-//-(instancetype)initWithCoder:(NSCoder *)aDecoder
-//{
-//    if (self = [super initWithCoder:aDecoder])
-//    {
-//        self.fields = PFLogInFieldsFacebook| PFLogInFieldsUsernameAndPassword|PFLogInFieldsLogInButton|PFLogInFieldsSignUpButton;
-//        self.delegate = self;
-//    }
-//    return self;
-//}
-
 -(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
 {
     [self dismissViewControllerAnimated:YES completion:nil];

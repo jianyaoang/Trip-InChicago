@@ -8,23 +8,12 @@
 
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
-//#import "ChoiceViewController.h"
 #import "SignUpViewController.h"
 @interface LoginViewController () <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @end
 
 @implementation LoginViewController
-
-//-(instancetype)initWithCoder:(NSCoder *)aDecoder
-//{
-//    if (self = [super initWithCoder:aDecoder])
-//    {
-//        self.fields = PFLogInFieldsFacebook| PFLogInFieldsUsernameAndPassword|PFLogInFieldsLogInButton|PFLogInFieldsSignUpButton;
-//        self.delegate = self;
-//    }
-//    return self;
-//}
 
 - (void)viewDidLoad
 {

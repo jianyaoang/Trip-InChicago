@@ -24,8 +24,6 @@
     [self.signUpView.signUpButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
     [self.signUpView.signUpButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
     [self.signUpView.signUpButton setBackgroundColor:[UIColor colorWithRed:0.07f green:0.48f blue:0.07f alpha:0.8f]];
-    
-    
     self.signUpView.logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
 }
 
