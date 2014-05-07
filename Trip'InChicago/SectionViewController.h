@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
-
-
-
 @interface SectionViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UITableView *sectionTableView;
 

@@ -12,7 +12,6 @@
 //#import "MapViewController.h"
 
 @interface SectionViewController () <UITableViewDataSource, UITableViewDataSource>
-
 @property NSArray *sectionNames;
 @property NSMutableArray *sectionBackgroundImages;
 @end
