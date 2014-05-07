@@ -181,7 +181,7 @@
     {
         NSInteger index = [(PointAnnotation *)annotation index];
         pin.image = self.images[index];
-        pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+//        pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         pin.canShowCallout = YES;
     }
     return pin;
